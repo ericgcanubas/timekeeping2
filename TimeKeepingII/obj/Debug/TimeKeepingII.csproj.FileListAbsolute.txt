@@ -1,0 +1,10 @@
+c:\users\administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\TimeKeepingII.exe
+c:\users\administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\TimeKeepingII.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.csproj.GenerateResource.Cache
+c:\users\administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.exe
+c:\users\administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.pdb
+C:\Users\Administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmMain.resources
+C:\Users\Administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\MdiTabControl.dll
+C:\Users\Administrator\documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmAssignSchedule.resources
