@@ -6,12 +6,12 @@ using System.Windows.Forms;
 
 namespace TimeKeepingII
 {
-    class clsTopHeaderControl
+    class clsComponentControl
     {
-        public static void Inactive(ToolStrip tsControl)
+        public static void InactiveHeaderMenu(ToolStrip tsControl)
         {
 
-            List<ToolStripButton> buttons = new List<ToolStripButton>();
+   
 
             foreach (ToolStripItem item in tsControl.Items)
             {
@@ -61,10 +61,10 @@ namespace TimeKeepingII
             }
 
         }
-        public static void Active(ToolStrip tsControl)
+        public static void ActiveHeaderMenu(ToolStrip tsControl)
         {
 
-            List<ToolStripButton> buttons = new List<ToolStripButton>();
+         
 
             foreach (ToolStripItem item in tsControl.Items)
             {
@@ -110,6 +110,50 @@ namespace TimeKeepingII
 
 
 
+
+            }
+
+        }
+
+        public static void ObjectEnable(Control ctl, bool isEnable)
+        {
+            foreach (Control item in ctl.Controls)
+            {
+                string strName = item.Name.ToString().Trim().ToLower().Substring(0,3);
+                switch (strName)
+                {
+                    case "txt":
+                        TextBox txt = (TextBox)item;
+                        txt.ReadOnly = !isEnable;
+                        break;
+
+                    case "num":
+                        NumericUpDown num = (NumericUpDown)item;
+                        num.ReadOnly = !isEnable;
+                        break;
+
+                    case "cmb":
+                        ComboBox cmb = (ComboBox)item;
+                        cmb.Enabled = isEnable;
+                        break;
+
+                    case "chk":
+                        CheckBox chk = (CheckBox)item;
+                        chk.Enabled = isEnable;
+                        break;
+                    case "dtp":
+                        DateTimePicker dtp = (DateTimePicker)item;
+                        dtp.Enabled = isEnable;
+                        break;      
+                    case "tab":
+                        TabControl tab = (TabControl)item;
+                        ObjectEnable(tab, isEnable);
+                        break;
+                    case "tbp":
+                        TabPage tbp = (TabPage)item;
+                        ObjectEnable(tbp, isEnable);
+                        break;
+                }
 
             }
 

@@ -23,7 +23,7 @@ namespace TimeKeepingII
 
         public bool burdger = true;
         public int menuSideDefaultActive = 280;
-        public int menuSideDefaultInActive = 40;
+        public int menuSideDefaultInActive = 70;
         public FrmMain()
         {
             InitializeComponent();
@@ -43,6 +43,8 @@ namespace TimeKeepingII
             // Set the form size to screen working area
             this.Size = new Size(screen.Width, screen.Height);
             pnlSideMenu.Size = new Size(menuSideDefaultInActive, pnlSideMenu.Size.Height); 
+
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -119,6 +121,34 @@ namespace TimeKeepingII
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void btnEmployeeSetup_Click(object sender, EventArgs e)
+        {
+            pnlSubEmployeeSetup.Visible = true;
+            pnlSubDataSync.Visible = false;
+            pnlSubSchedule.Visible = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            pnlSubEmployeeSetup.Visible = false;
+            pnlSubDataSync.Visible = true;
+            pnlSubSchedule.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+      
+            pnlSubEmployeeSetup.Visible = false;
+            pnlSubDataSync.Visible = false;
+            pnlSubSchedule.Visible = true;
+        }
+
+        private void btnAssignSchedule_Click(object sender, EventArgs e)
+        {
+            FrmAssignSchedule frm = new FrmAssignSchedule();
+            tabControl1.TabPages.Add(frm);
         }
     }
 }

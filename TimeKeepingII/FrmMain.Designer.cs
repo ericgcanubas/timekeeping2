@@ -38,9 +38,6 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tabControl1 = new MdiTabControl.TabControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.assignBiometricsIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assignScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,15 +79,33 @@
             this.ptbMinimize = new System.Windows.Forms.PictureBox();
             this.ptbClose = new System.Windows.Forms.PictureBox();
             this.ptbMenuBurger = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnEmployeeSetup = new System.Windows.Forms.Button();
+            this.pnlSubEmployeeSetup = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnAssignSchedule = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.pnlSubDataSync = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pnlSubSchedule = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             this.tsPrimary.SuspendLayout();
             this.pnlMain.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.pnlSubEmployeeSetup.SuspendLayout();
+            this.pnlSubDataSync.SuspendLayout();
+            this.pnlSubSchedule.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -113,7 +128,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(90, 2);
+            this.label1.Location = new System.Drawing.Point(119, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 32);
             this.label1.TabIndex = 1;
@@ -122,9 +137,8 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.pnlSideMenu.Controls.Add(this.toolStrip1);
-            this.pnlSideMenu.Controls.Add(this.panel1);
             this.pnlSideMenu.Controls.Add(this.tsPrimary);
+            this.pnlSideMenu.Controls.Add(this.flowLayoutPanel1);
             this.pnlSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSideMenu.Location = new System.Drawing.Point(0, 42);
             this.pnlSideMenu.Name = "pnlSideMenu";
@@ -150,9 +164,10 @@
             this.tsPrimary.Location = new System.Drawing.Point(0, 0);
             this.tsPrimary.Name = "tsPrimary";
             this.tsPrimary.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsPrimary.Size = new System.Drawing.Size(280, 378);
+            this.tsPrimary.Size = new System.Drawing.Size(280, 397);
             this.tsPrimary.TabIndex = 0;
             this.tsPrimary.Text = "toolStrip1";
+            this.tsPrimary.Visible = false;
             // 
             // pnlBottom
             // 
@@ -176,6 +191,7 @@
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.MenuRenderer = null;
             this.tabControl1.Name = "tabControl1";
@@ -183,6 +199,8 @@
             this.tabControl1.TabCloseButtonImage = null;
             this.tabControl1.TabCloseButtonImageDisabled = null;
             this.tabControl1.TabCloseButtonImageHot = null;
+            this.tabControl1.TabGlassGradient = true;
+            this.tabControl1.TabIconSize = new System.Drawing.Size(0, 0);
             this.tabControl1.TabIndex = 0;
             // 
             // timer1
@@ -190,43 +208,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.CanOverflow = false;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton16});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 397);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(280, 68);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 378);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 19);
-            this.panel1.TabIndex = 2;
-            // 
-            // toolStripButton16
-            // 
-            this.toolStripButton16.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripButton16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton16.ForeColor = System.Drawing.Color.White;
-            this.toolStripButton16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton16.Image")));
-            this.toolStripButton16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Size = new System.Drawing.Size(278, 44);
-            this.toolStripButton16.Text = "Summaries && Reports";
-            this.toolStripButton16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripButton1
             // 
@@ -327,7 +308,7 @@
             // 
             this.overtimeToolStripMenuItem.Name = "overtimeToolStripMenuItem";
             this.overtimeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.overtimeToolStripMenuItem.Text = "Overtime";
+            this.overtimeToolStripMenuItem.Text = " ";
             // 
             // guardToolStripMenuItem
             // 
@@ -550,7 +531,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pictureBox1.Image = global::TimeKeepingII.Properties.Resources.time_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(47, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(76, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -591,13 +572,224 @@
             // 
             this.ptbMenuBurger.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbMenuBurger.Image = global::TimeKeepingII.Properties.Resources.burger_bar;
-            this.ptbMenuBurger.Location = new System.Drawing.Point(1, -1);
+            this.ptbMenuBurger.Location = new System.Drawing.Point(10, -1);
             this.ptbMenuBurger.Name = "ptbMenuBurger";
-            this.ptbMenuBurger.Size = new System.Drawing.Size(40, 40);
+            this.ptbMenuBurger.Size = new System.Drawing.Size(58, 40);
             this.ptbMenuBurger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbMenuBurger.TabIndex = 0;
             this.ptbMenuBurger.TabStop = false;
             this.ptbMenuBurger.Click += new System.EventHandler(this.ptbMenuBurger_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.btnEmployeeSetup);
+            this.flowLayoutPanel1.Controls.Add(this.pnlSubEmployeeSetup);
+            this.flowLayoutPanel1.Controls.Add(this.button5);
+            this.flowLayoutPanel1.Controls.Add(this.pnlSubDataSync);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.pnlSubSchedule);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 558);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // btnEmployeeSetup
+            // 
+            this.btnEmployeeSetup.BackColor = System.Drawing.Color.Silver;
+            this.btnEmployeeSetup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmployeeSetup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployeeSetup.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployeeSetup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployeeSetup.Location = new System.Drawing.Point(3, 3);
+            this.btnEmployeeSetup.Name = "btnEmployeeSetup";
+            this.btnEmployeeSetup.Size = new System.Drawing.Size(268, 40);
+            this.btnEmployeeSetup.TabIndex = 0;
+            this.btnEmployeeSetup.Text = "Employee Setup && Management";
+            this.btnEmployeeSetup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployeeSetup.UseVisualStyleBackColor = false;
+            this.btnEmployeeSetup.Click += new System.EventHandler(this.btnEmployeeSetup_Click);
+            // 
+            // pnlSubEmployeeSetup
+            // 
+            this.pnlSubEmployeeSetup.Controls.Add(this.button4);
+            this.pnlSubEmployeeSetup.Controls.Add(this.btnAssignSchedule);
+            this.pnlSubEmployeeSetup.Controls.Add(this.button2);
+            this.pnlSubEmployeeSetup.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlSubEmployeeSetup.Location = new System.Drawing.Point(3, 49);
+            this.pnlSubEmployeeSetup.Name = "pnlSubEmployeeSetup";
+            this.pnlSubEmployeeSetup.Size = new System.Drawing.Size(268, 100);
+            this.pnlSubEmployeeSetup.TabIndex = 1;
+            this.pnlSubEmployeeSetup.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(268, 30);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Assign Biometrics ID";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnAssignSchedule
+            // 
+            this.btnAssignSchedule.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAssignSchedule.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAssignSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAssignSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnAssignSchedule.Location = new System.Drawing.Point(0, 30);
+            this.btnAssignSchedule.Name = "btnAssignSchedule";
+            this.btnAssignSchedule.Size = new System.Drawing.Size(268, 30);
+            this.btnAssignSchedule.TabIndex = 1;
+            this.btnAssignSchedule.Text = "Assign Schedule";
+            this.btnAssignSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAssignSchedule.UseVisualStyleBackColor = false;
+            this.btnAssignSchedule.Click += new System.EventHandler(this.btnAssignSchedule_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(0, 60);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(268, 30);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "To Enable / Disable Employee";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Silver;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(3, 155);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(268, 40);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Data Synchronization";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // pnlSubDataSync
+            // 
+            this.pnlSubDataSync.Controls.Add(this.button6);
+            this.pnlSubDataSync.Controls.Add(this.button7);
+            this.pnlSubDataSync.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlSubDataSync.Location = new System.Drawing.Point(3, 201);
+            this.pnlSubDataSync.Name = "pnlSubDataSync";
+            this.pnlSubDataSync.Size = new System.Drawing.Size(268, 69);
+            this.pnlSubDataSync.TabIndex = 3;
+            this.pnlSubDataSync.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(0, 30);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(268, 30);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Repost Time Record";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(0, 0);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(268, 30);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Download Data From Machine";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 276);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(268, 40);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Schedule && Shift Adjustments";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pnlSubSchedule
+            // 
+            this.pnlSubSchedule.Controls.Add(this.button10);
+            this.pnlSubSchedule.Controls.Add(this.button8);
+            this.pnlSubSchedule.Controls.Add(this.button9);
+            this.pnlSubSchedule.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlSubSchedule.Location = new System.Drawing.Point(3, 322);
+            this.pnlSubSchedule.Name = "pnlSubSchedule";
+            this.pnlSubSchedule.Size = new System.Drawing.Size(268, 101);
+            this.pnlSubSchedule.TabIndex = 5;
+            this.pnlSubSchedule.Visible = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(0, 30);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(268, 30);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "Change Day Off";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(0, 0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(268, 30);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "Change Shifting";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(0, 60);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(268, 30);
+            this.button10.TabIndex = 2;
+            this.button10.Text = "Overtime";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // FrmMain
             // 
@@ -621,12 +813,14 @@
             this.tsPrimary.ResumeLayout(false);
             this.tsPrimary.PerformLayout();
             this.pnlMain.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.pnlSubEmployeeSetup.ResumeLayout(false);
+            this.pnlSubDataSync.ResumeLayout(false);
+            this.pnlSubSchedule.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -644,9 +838,6 @@
         private System.Windows.Forms.PictureBox ptbClose;
         private MdiTabControl.TabControl tabControl1;
         private System.Windows.Forms.ToolStrip tsPrimary;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton16;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripButton1;
         private System.Windows.Forms.ToolStripMenuItem assignBiometricsIDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assignScheduleToolStripMenuItem;
@@ -685,6 +876,21 @@
         private System.Windows.Forms.ToolStripMenuItem managerialTimeSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnEmployeeSetup;
+        private System.Windows.Forms.Panel pnlSubEmployeeSetup;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAssignSchedule;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel pnlSubDataSync;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel pnlSubSchedule;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 

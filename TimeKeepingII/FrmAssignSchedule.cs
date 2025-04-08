@@ -18,22 +18,26 @@ namespace TimeKeepingII
 
         private void FrmAssignSchedule_Load(object sender, EventArgs e)
         {
-            clsTopHeaderControl.Inactive(tsHeaderControl);
+            clsComponentControl.InactiveHeaderMenu(tsHeaderControl);
+            clsComponentControl.ObjectEnable(this, false);
         }
 
         private void tsAdd_Click(object sender, EventArgs e)
         {
-            clsTopHeaderControl.Active(tsHeaderControl);
+            clsComponentControl.ActiveHeaderMenu(tsHeaderControl);
+            clsComponentControl.ObjectEnable(this, true);
         }
 
         private void tsCancel_Click(object sender, EventArgs e)
         {
-            clsTopHeaderControl.Inactive(tsHeaderControl);
+            clsComponentControl.InactiveHeaderMenu(tsHeaderControl);
+            clsComponentControl.ObjectEnable(this, false);
         }
 
         private void tsSave_Click(object sender, EventArgs e)
         {
-            clsTopHeaderControl.Inactive(tsHeaderControl);
+            clsComponentControl.InactiveHeaderMenu(tsHeaderControl);
+            clsComponentControl.ObjectEnable(this, false);
         }
 
         private void tsClose_Click(object sender, EventArgs e)
@@ -43,7 +47,8 @@ namespace TimeKeepingII
 
         private void tsEdit_Click(object sender, EventArgs e)
         {
-            clsTopHeaderControl.Active(tsHeaderControl);
+            clsComponentControl.ActiveHeaderMenu(tsHeaderControl);
+            clsComponentControl.ObjectEnable(this, true);
         }
     }
 }
