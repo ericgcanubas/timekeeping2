@@ -122,33 +122,39 @@ namespace TimeKeepingII
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
+        public void MenuSubShow(bool emp, bool dataSyn, bool  sched, bool attendance )
+        {
+            pnlSubEmployeeSetup.Visible = emp;
+            pnlSubDataSync.Visible = dataSyn;
+            pnlSubSchedule.Visible = sched;
+            pnlSubAttendanceManagement.Visible = attendance;
+        }
         private void btnEmployeeSetup_Click(object sender, EventArgs e)
         {
-            pnlSubEmployeeSetup.Visible = true;
-            pnlSubDataSync.Visible = false;
-            pnlSubSchedule.Visible = false;
+            MenuSubShow(true, false, false, false);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            pnlSubEmployeeSetup.Visible = false;
-            pnlSubDataSync.Visible = true;
-            pnlSubSchedule.Visible = false;
+            MenuSubShow(false, true, false, false);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-      
-            pnlSubEmployeeSetup.Visible = false;
-            pnlSubDataSync.Visible = false;
-            pnlSubSchedule.Visible = true;
+
+            MenuSubShow(false, false, true, false);
         }
 
         private void btnAssignSchedule_Click(object sender, EventArgs e)
         {
             FrmAssignSchedule frm = new FrmAssignSchedule();
             tabControl1.TabPages.Add(frm);
+        }
+
+        private void btnAttendanceMgt_Click(object sender, EventArgs e)
+        {
+
+            MenuSubShow(false, false, false, true);
         }
     }
 }

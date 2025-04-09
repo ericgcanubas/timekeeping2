@@ -33,3 +33,37 @@ C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeK
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\VsWebSite.Interop.xml
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\EnvDTE80.xml
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmLogin.resources
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.exe
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.pdb
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\TimeKeepingII.exe
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\TimeKeepingII.pdb
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.CrystalReports.Design.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.Data.AdoDotNetInterop.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.Shared.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.VSDesigner.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.Web.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\CRVsPackageLib.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\EnvDTE.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\VSLangProj.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\VsWebSite.Interop.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\EnvDTE80.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\FlashControlV71.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\stdole.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\ShockwaveFlashObjects.dll
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\EnvDTE.xml
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\VSLangProj.xml
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\VsWebSite.Interop.xml
+C:\developer\timekeeping2\TimeKeepingII\bin\Debug\EnvDTE80.xml
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csprojResolveAssemblyReference.cache
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmAssignSchedule.resources
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmLogin.resources
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmMain.resources
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.Properties.Resources.resources
+C:\developer\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csproj.GenerateResource.Cache
