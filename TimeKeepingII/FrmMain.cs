@@ -42,8 +42,9 @@ namespace TimeKeepingII
 
             // Set the form size to screen working area
             this.Size = new Size(screen.Width, screen.Height);
-            pnlSideMenu.Size = new Size(menuSideDefaultInActive, pnlSideMenu.Size.Height); 
+            pnlSideMenu.Size = new Size(menuSideDefaultInActive, pnlSideMenu.Size.Height);
 
+            clsMenu.buildPrimaryMenu(flowLayoutPanel1, tabControl1);
 
         }
 
@@ -123,32 +124,6 @@ namespace TimeKeepingII
             }
         }
 
-        private void btnEmployeeSetup_Click(object sender, EventArgs e)
-        {
-            pnlSubEmployeeSetup.Visible = true;
-            pnlSubDataSync.Visible = false;
-            pnlSubSchedule.Visible = false;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            pnlSubEmployeeSetup.Visible = false;
-            pnlSubDataSync.Visible = true;
-            pnlSubSchedule.Visible = false;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
       
-            pnlSubEmployeeSetup.Visible = false;
-            pnlSubDataSync.Visible = false;
-            pnlSubSchedule.Visible = true;
-        }
-
-        private void btnAssignSchedule_Click(object sender, EventArgs e)
-        {
-            FrmAssignSchedule frm = new FrmAssignSchedule();
-            tabControl1.TabPages.Add(frm);
-        }
     }
 }

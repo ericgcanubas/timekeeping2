@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="clsBiometrics.cs" />
     <Compile Include="clsComponentControl.cs" />
+    <Compile Include="clsMenu.cs" />
     <Compile Include="ConfigReader.cs" />
     <Compile Include="FrmAssignSchedule.cs">
       <SubType>Form</SubType>
