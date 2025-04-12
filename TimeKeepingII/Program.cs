@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -15,7 +16,18 @@ namespace TimeKeepingII
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            string configFile = "config.ini";
+
+            if (File.Exists(configFile) == false)
+            {
+                Application.Run(new FrmSetup());
+            }
+            else
+            {
+                Application.Run(new FrmMain());
+            }
+
+              
         }
     }
 }

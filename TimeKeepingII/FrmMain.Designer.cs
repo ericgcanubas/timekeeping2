@@ -33,6 +33,7 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tsPrimary = new System.Windows.Forms.ToolStrip();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -79,7 +80,6 @@
             this.ptbMinimize = new System.Windows.Forms.PictureBox();
             this.ptbClose = new System.Windows.Forms.PictureBox();
             this.ptbMenuBurger = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlHeader.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
             this.tsPrimary.SuspendLayout();
@@ -125,6 +125,17 @@
             this.pnlSideMenu.Name = "pnlSideMenu";
             this.pnlSideMenu.Size = new System.Drawing.Size(280, 558);
             this.pnlSideMenu.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 558);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // tsPrimary
             // 
@@ -560,16 +571,6 @@
             this.ptbMenuBurger.TabIndex = 0;
             this.ptbMenuBurger.TabStop = false;
             this.ptbMenuBurger.Click += new System.EventHandler(this.ptbMenuBurger_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 558);
-            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // FrmMain
             // 

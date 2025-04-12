@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -8,10 +9,8 @@ namespace TimeKeepingII
 {
     class clsComponentControl
     {
-        public static void InactiveHeaderMenu(ToolStrip tsControl)
+        public static void HeaderMenu(ToolStrip tsControl, bool isActive)
         {
-
-   
 
             foreach (ToolStripItem item in tsControl.Items)
             {
@@ -22,86 +21,46 @@ namespace TimeKeepingII
                     switch (btn.Text)
                     {
                         case "Add":
-                            btn.Enabled = true;
+                            btn.Enabled = isActive ? true : false;
                             break;
 
                         case "Edit":
-                            btn.Enabled = true;
+                            btn.Enabled = isActive ? true : false;
                             break;
 
                         case "Delete":
-                            btn.Enabled = true;
+                            btn.Enabled = isActive ? true : false;
                             break;
 
                         case "Save":
-                            btn.Enabled = false;
+                            btn.Enabled = isActive ? false : true;
                             break;
 
                         case "Undo":
-                            btn.Enabled = false;
+                            btn.Enabled = isActive ? false : true;
                             break;
 
                         case "Find":
-                            btn.Enabled = true;
+                            btn.Enabled = isActive ? true : false;
                             break;
 
                         case "Close":
-                            btn.Enabled = true;
+                            btn.Enabled = isActive ? true : false;
+                            break;
+                        case "First":
+                            btn.Enabled = isActive ? true : false;
                             break;
 
-                        default:
-                            // do nothing
-                            break;
-                    }
-                }
-
-
-
-
-            }
-
-        }
-        public static void ActiveHeaderMenu(ToolStrip tsControl)
-        {
-
-         
-
-            foreach (ToolStripItem item in tsControl.Items)
-            {
-                if (item is ToolStripButton)
-                {
-                    ToolStripButton btn = (ToolStripButton)item;
-
-                    switch (btn.Text)
-                    {
-                        case "Add":
-                            btn.Enabled = false;
+                        case "Last":
+                            btn.Enabled = isActive ? true : false;
                             break;
 
-                        case "Edit":
-                            btn.Enabled = false;
+                        case "Back":
+                            btn.Enabled = isActive ? true : false;
                             break;
-
-                        case "Delete":
-                            btn.Enabled = false;
+                        case "Next":
+                            btn.Enabled = isActive ? true : false;
                             break;
-
-                        case "Save":
-                            btn.Enabled = true;
-                            break;
-
-                        case "Undo":
-                            btn.Enabled = true;
-                            break;
-
-                        case "Find":
-                            btn.Enabled = false;
-                            break;
-
-                        case "Close":
-                            btn.Enabled = false;
-                            break;
-
                         default:
                             // do nothing
                             break;
@@ -119,7 +78,7 @@ namespace TimeKeepingII
         {
             foreach (Control item in ctl.Controls)
             {
-                string strName = item.Name.ToString().Trim().ToLower().Substring(0,3);
+                string strName = item.Name.ToString().Trim().ToLower().Substring(0, 3);
                 switch (strName)
                 {
                     case "txt":
@@ -141,10 +100,15 @@ namespace TimeKeepingII
                         CheckBox chk = (CheckBox)item;
                         chk.Enabled = isEnable;
                         break;
+
+                    case "rdb":
+                        RadioButton rdb = (RadioButton)item;
+                        rdb.Enabled = isEnable;
+                        break;
                     case "dtp":
                         DateTimePicker dtp = (DateTimePicker)item;
                         dtp.Enabled = isEnable;
-                        break;      
+                        break;
                     case "tab":
                         TabControl tab = (TabControl)item;
                         ObjectEnable(tab, isEnable);
@@ -157,6 +121,170 @@ namespace TimeKeepingII
 
             }
 
+        }
+
+        public static void AssignValue(Control ctl, Dictionary<string, object> data)
+        {
+
+            foreach (var row in data)
+            {
+                foreach (Control item in ctl.Controls)
+                {
+                    string strName = item.Name.ToString().Trim().ToLower().Substring(0, 3);
+                    switch (strName)
+                    {
+                        case "txt":
+                            TextBox txt = (TextBox)item;
+
+                            if (txt.Name.Substring(3).Trim() == row.Key)
+                            {
+                                txt.Text = row.Value.ToString();
+                            }
+
+                            break;
+                        case "lbl":
+
+                            Label lbl = (Label)item;
+
+                            if (lbl.Name.Substring(3).Trim() == row.Key)
+                            {
+                                lbl.Text = row.Value.ToString();
+                            }
+
+                            break;
+                        case "num":
+                            NumericUpDown num = (NumericUpDown)item;
+                            if (num.Name.Substring(3).Trim() == row.Key)
+                            {
+                                num.Value = decimal.Parse(row.Value.ToString());
+                            }
+                            break;
+
+                        case "cmb":
+                            ComboBox cmb = (ComboBox)item;
+                            if (cmb.Name.Substring(3).Trim() == row.Key)
+                            {
+                                cmb.SelectedValue = row.Value;
+                            }
+                            break;
+
+                        case "chk":
+                            CheckBox chk = (CheckBox)item;
+
+                            if (chk.Name.Substring(3).Trim() == row.Key)
+                            {
+                                if (row.Value.ToString() == "0")
+                                {
+                                    chk.Checked = false;
+                                }
+                                else
+                                {
+                                    chk.Checked = true; // Or set to a default value
+                                }
+                            }
+
+                            break;
+
+                        case "dtp":
+                            DateTimePicker dtp = (DateTimePicker)item;
+                            if (dtp.Name.Substring(3).Trim() == row.Key)
+                            {
+                                if (row.Value.ToString() != "")
+                                {
+                                    dtp.Value = DateTime.Parse(row.Value.ToString());
+                                    dtp.Checked = true;
+                                }
+                                else
+                                {
+                                    dtp.Checked = false;
+                                }
+
+                            }
+
+
+                            break;
+                        case "tab":
+                            TabControl tab = (TabControl)item;
+                            AssignValue(tab, data);
+                            break;
+                        case "tbp":
+                            TabPage tbp = (TabPage)item;
+                            AssignValue(tbp, data);
+                            break;
+
+                        case "pnl":
+                            Panel pnl = (Panel)item;
+                            AssignValue(pnl, data);
+                            break;
+
+
+                    }
+                }
+
+
+
+            }
+        }
+
+        public static void ClearValue(Control ctl)
+        {
+
+
+            foreach (Control item in ctl.Controls)
+            {
+                string strName = item.Name.ToString().Trim().ToLower().Substring(0, 3);
+                switch (strName)
+                {
+                    case "txt":
+                        TextBox txt = (TextBox)item;
+                        txt.Text = "";
+
+                        break;
+                    case "lbl":
+
+                        Label lbl = (Label)item;
+                        lbl.Text = "";
+
+                        break;
+                    case "num":
+                        NumericUpDown num = (NumericUpDown)item;
+                        num.Value = 0;
+
+                        break;
+                    case "cmb":
+                        ComboBox cmb = (ComboBox)item;
+                        cmb.SelectedValue = -1;
+                        break;
+
+                    case "chk":
+                        CheckBox chk = (CheckBox)item;
+                        chk.Checked = false;
+                        break;
+
+                    case "dtp":
+                        DateTimePicker dtp = (DateTimePicker)item;
+                        dtp.Value = clsDateTime.getEmpty();
+                        dtp.Checked = false;
+
+                        break;
+                    case "tab":
+                        TabControl tab = (TabControl)item;
+                        ClearValue(tab);
+                        break;
+                    case "tbp":
+                        TabPage tbp = (TabPage)item;
+                        ClearValue(tbp);
+                        break;
+
+                    case "pnl":
+                        Panel pnl = (Panel)item;
+                        ClearValue(pnl);
+                        break;
+
+
+                }
+
+            }
         }
     }
 }

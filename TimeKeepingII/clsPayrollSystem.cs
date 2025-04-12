@@ -10,10 +10,9 @@ using System.Windows.Forms;
 
 namespace TimeKeepingII
 {
-    class clsBiometrics
+    class clsPayrollSystem
     {
-        public static readonly string DSN_BIO_SERVER = "DSN_BIO_SERVER";
-
+        public static readonly string DSN_PAYROL_SERVER = "DSN_PAYROL_SERVER";
         private static readonly string configFilePath = "config.ini";
         public static Dictionary<string, string> getConnectionSource()
         {
@@ -21,26 +20,26 @@ namespace TimeKeepingII
         }
         public static OdbcConnection GetConnection()
         {
-            var config = getConnectionSource();
-            var connectionString = $"DSN={DSN_BIO_SERVER};UID=sa;PWD=;";
+          
+            var connectionString = $"DSN={DSN_PAYROL_SERVER};UID=sa;PWD=;";
             return new OdbcConnection(connectionString);
         }
         public static OdbcConnection GetConnectionTest()
         {
-        
- 
-            var connectionString = $"DSN={DSN_BIO_SERVER};UID=sa;PWD=;";
+
+          
+            var connectionString = $"DSN={DSN_PAYROL_SERVER};UID=sa;PWD=;";
             return new OdbcConnection(connectionString);
         }
         public static bool ConnectionTest()
         {
-            bool isConnect = false; 
+            bool isConnect = false;
             try
             {
                 using (OdbcConnection conn = GetConnectionTest())
                 {
                     conn.Open();
-      
+
                     conn.Close();
                     isConnect = true;
                 }
@@ -48,7 +47,7 @@ namespace TimeKeepingII
             catch (Exception)
             {
                 isConnect = false;
-             
+
 
             }
 
@@ -58,8 +57,9 @@ namespace TimeKeepingII
         {
 
             var config = getConnectionSource();
-            var server = DSN_BIO_SERVER;
-            var database = "Biometrics";
+
+            var server = DSN_PAYROL_SERVER;
+            var database = "PayrollSystem"; 
 
             ConnectionInfo connectionInfo = new ConnectionInfo
             {
@@ -76,7 +76,6 @@ namespace TimeKeepingII
 
 
         }
-
         public static DataTable dataList(string query)
         {
             DataTable dataTable = new DataTable();
@@ -134,7 +133,7 @@ namespace TimeKeepingII
 
             try
             {
-                using (OdbcConnection connection = GetConnection())
+                using (OdbcConnection connection = clsPayrollSystem.GetConnection())
                 {
                     connection.Open();
                     using (OdbcCommand command = new OdbcCommand(query, connection))
@@ -179,6 +178,5 @@ namespace TimeKeepingII
                 return false; // Return false in case of an error
             }
         }
-
     }
 }

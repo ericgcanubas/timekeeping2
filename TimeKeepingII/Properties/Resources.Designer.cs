@@ -83,6 +83,16 @@ namespace TimeKeepingII.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_icon {
+            get {
+                object obj = ResourceManager.GetObject("back_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap burger_bar {
             get {
                 object obj = ResourceManager.GetObject("burger_bar", resourceCulture);
@@ -173,9 +183,39 @@ namespace TimeKeepingII.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap first_icon {
+            get {
+                object obj = ResourceManager.GetObject("first_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap last_icon {
+            get {
+                object obj = ResourceManager.GetObject("last_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimized_icon {
             get {
                 object obj = ResourceManager.GetObject("minimized_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap next_icon {
+            get {
+                object obj = ResourceManager.GetObject("next_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +286,16 @@ namespace TimeKeepingII.Properties {
         internal static System.Drawing.Bitmap time_record_handling {
             get {
                 object obj = ResourceManager.GetObject("time_record_handling", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap timeKeep {
+            get {
+                object obj = ResourceManager.GetObject("timeKeep", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

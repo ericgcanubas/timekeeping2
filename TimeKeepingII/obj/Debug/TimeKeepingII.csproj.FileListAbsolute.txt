@@ -33,3 +33,5 @@ C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeK
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\VsWebSite.Interop.xml
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\EnvDTE80.xml
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmLogin.resources
+C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmSetup.resources
+C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmShiftingSchedule.resources

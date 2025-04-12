@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -89,15 +89,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAccessControl.cs" />
     <Compile Include="clsBiometrics.cs" />
     <Compile Include="clsComponentControl.cs" />
+    <Compile Include="clsDateTime.cs" />
+    <Compile Include="clsFile.cs" />
+    <Compile Include="clsGlobal.cs" />
     <Compile Include="clsMenu.cs" />
+    <Compile Include="clsMisc.cs" />
+    <Compile Include="clsPayrollSystem.cs" />
     <Compile Include="ConfigReader.cs" />
     <Compile Include="FrmAssignSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAssignSchedule.Designer.cs">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFind.Designer.cs">
+      <DependentUpon>FrmFind.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -111,16 +123,37 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetup.Designer.cs">
+      <DependentUpon>FrmSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftingSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftingSchedule.Designer.cs">
+      <DependentUpon>FrmShiftingSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAssignSchedule.resx">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFind.resx">
+      <DependentUpon>FrmFind.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetup.resx">
+      <DependentUpon>FrmSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftingSchedule.resx">
+      <DependentUpon>FrmShiftingSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -189,6 +222,11 @@
     <None Include="Resources\delete_icon.png" />
     <None Include="Resources\edit_icon.png" />
     <None Include="Resources\add_icon.png" />
+    <None Include="Resources\timeKeep.png" />
+    <None Include="Resources\first_icon.png" />
+    <None Include="Resources\back_icon.png" />
+    <None Include="Resources\next_icon.png" />
+    <None Include="Resources\last_icon.png" />
     <Content Include="time.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

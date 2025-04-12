@@ -13,7 +13,7 @@ namespace TimeKeepingII
 
     public partial class FrmMain : Form
     {
-
+        public bool loginLunch = false;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [DllImport("user32.dll")]
@@ -59,11 +59,6 @@ namespace TimeKeepingII
                     pnlSideMenu.Size = new Size(CurrentWidth + 10, pnlSideMenu.Size.Height);
                     tsPrimary.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
                 }
-
-          
-
-
-
             }
             else
             {
@@ -74,12 +69,26 @@ namespace TimeKeepingII
                 }
 
             }
+
+            if(loginLunch == false)
+            {
+
+                loginLunch = true;
+                FrmLogin frm = new FrmLogin();
+                frm.ShowDialog();
+               if(frm.userId > 0)
+                {
+                    clsGlobal.UserID = frm.userId;
+                    return;
+                }
+
+                Application.Exit();
+            }
         }
 
         private void ptbMenuBurger_Click(object sender, EventArgs e)
         {
             burdger = burdger ? false : true;
-
 
             if(burdger)
             {

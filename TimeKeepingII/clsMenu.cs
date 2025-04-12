@@ -123,7 +123,8 @@ namespace TimeKeepingII
 
             Panel pnlSubMenuEmployee = CreateSubMenuPanel("pnlSubMenuEmployeeSetup", 100);
             mainPanel.Controls.Add(pnlSubMenuEmployee);
-            pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnEnableDisable", "To Enable / Disable Employee", "FrmEnableDisable"));
+            //pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnEnableDisable", "To Enable / Disable Employee", "FrmEnableDisable"));
+            pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnShiftingSchedule", "Shifting Schedule", "FrmShiftingSchedule"));
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnAssignBioID", "Assign Bio Id", "FrmAssignBioID"));
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnAssignSchedule", "Assign Schedule", "FrmAssignSchedule"));
       
