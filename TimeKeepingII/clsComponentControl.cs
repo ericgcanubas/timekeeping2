@@ -88,7 +88,7 @@ namespace TimeKeepingII
 
                     case "num":
                         NumericUpDown num = (NumericUpDown)item;
-                        num.ReadOnly = !isEnable;
+                        num.Enabled = isEnable;
                         break;
 
                     case "cmb":

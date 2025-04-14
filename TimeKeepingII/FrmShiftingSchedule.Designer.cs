@@ -155,6 +155,7 @@
             this.tsDelete.Size = new System.Drawing.Size(44, 49);
             this.tsDelete.Text = "Delete";
             this.tsDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsDelete.Click += new System.EventHandler(this.tsDelete_Click);
             // 
             // toolStripSeparator3
             // 
@@ -259,6 +260,7 @@
             this.tsFind.Size = new System.Drawing.Size(34, 49);
             this.tsFind.Text = "Find";
             this.tsFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsFind.Click += new System.EventHandler(this.tsFind_Click);
             // 
             // toolStripSeparator6
             // 
@@ -450,10 +452,10 @@
             0,
             0});
             this.numLunch.Name = "numLunch";
-            this.numLunch.ReadOnly = true;
             this.numLunch.Size = new System.Drawing.Size(90, 20);
             this.numLunch.TabIndex = 22;
             this.numLunch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numLunch.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // label8
             // 
@@ -482,10 +484,10 @@
             0,
             0});
             this.numBreakTime.Name = "numBreakTime";
-            this.numBreakTime.ReadOnly = true;
             this.numBreakTime.Size = new System.Drawing.Size(90, 20);
             this.numBreakTime.TabIndex = 25;
             this.numBreakTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numBreakTime.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // label10
             // 
@@ -546,6 +548,7 @@
             // 
             // FrmShiftingSchedule
             // 
+            this.AccessibleDescription = "SHIFTING SCHEDULE";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 435);

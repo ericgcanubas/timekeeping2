@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace TimeKeepingII
 {
@@ -58,5 +59,40 @@ namespace TimeKeepingII
 
             return decrypted.ToString();
         }
+
+
+        public static string[] strColumn(string query)
+        {
+            string[] columns = null;
+            Match match = Regex.Match(query, @"SELECT\s+(?:TOP\s+\d+\s+)?(.+?)\s+FROM", RegexOptions.IgnoreCase);
+
+            if (match.Success)
+            {
+                string columnPart = match.Groups[1].Value;
+
+                columns = columnPart
+                    .Split(',')
+                    .Select(c => c.Trim())
+                    .ToArray();
+
+                Console.WriteLine("Extracted columns:");
+                foreach (string col in columns)
+                {
+                    Console.WriteLine(col);
+                }
+
+                // Now columns[] contains all expected column expressions:
+                // - ShiftingSchedule.PK
+                // - ShiftingSchedule.ShiftName
+                // - ShiftingType.ShiftType AS ShiftTypeName
+            }
+            else
+            {
+                Console.WriteLine("Could not parse SELECT columns.");
+            }
+
+            return columns;
+        }
+           
     }
 }

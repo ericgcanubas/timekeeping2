@@ -20,9 +20,9 @@ namespace TimeKeepingII
 
         private void FrmShiftingSchedule_Load(object sender, EventArgs e)
         {
-            clsComponentControl.HeaderMenu(tsHeaderControl,true);
-            clsComponentControl.ObjectEnable(this, false);
 
+            clsComponentControl.HeaderMenu(tsHeaderControl, true);
+            clsComponentControl.ObjectEnable(this, false);
 
             DataTable dt = clsBiometrics.dataList("SELECT [PK],ShiftType FROM [ShiftingType] ");
             cmbShiftType.DataSource = dt;
@@ -37,22 +37,29 @@ namespace TimeKeepingII
 
         private void tsAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "ADD"))
+            {
+                return;
+            }
+
             clsComponentControl.HeaderMenu(tsHeaderControl, false);
             clsComponentControl.ObjectEnable(this, true);
-
             clsComponentControl.ClearValue(this);
         }
 
         private void tsEdit_Click(object sender, EventArgs e)
         {
 
-            if(lblPK.Text.Length == 0 )
+            if (lblPK.Text.Length == 0)
             {
                 return;
             }
 
 
-
+            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "EDIT"))
+            {
+                return;
+            }
 
 
             clsComponentControl.HeaderMenu(tsHeaderControl, false);
@@ -69,16 +76,13 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-        
-            if(lblPK.Text.Length > 0 )
+
+            if (lblPK.Text.Length > 0)
             {
                 string squery = $@"{sSelectSql}  WHERE  ShiftingSchedule.PK = {lblPK.Text} ORDER BY ShiftingSchedule.PK  ";
                 DataRecord(squery);
             }
 
-       
-
-   
         }
 
         private void tsClose_Click(object sender, EventArgs e)
@@ -88,9 +92,8 @@ namespace TimeKeepingII
 
         private void DataRecord(string squery)
         {
-          
-            var data = clsBiometrics.GetFirstRecord(squery);
 
+            var data = clsBiometrics.GetFirstRecord(squery);
             if (data != null)
             {
                 clsComponentControl.AssignValue(this, data);
@@ -100,7 +103,7 @@ namespace TimeKeepingII
 
         private void tsFirst_Click(object sender, EventArgs e)
         {
-            
+
             string squery = $@"{sSelectSql}  ORDER BY ShiftingSchedule.PK ";
 
             DataRecord(squery);
@@ -108,6 +111,10 @@ namespace TimeKeepingII
 
         private void tsBack_Click(object sender, EventArgs e)
         {
+            if(lblPK.Text.Length == 0)
+            {
+                return;
+            }
             string squery = $@"{sSelectSql}  WHERE ShiftingSchedule.PK < {lblPK.Text}  ORDER BY ShiftingSchedule.PK DESC ";
 
             DataRecord(squery);
@@ -115,6 +122,11 @@ namespace TimeKeepingII
 
         private void tsNext_Click(object sender, EventArgs e)
         {
+
+            if (lblPK.Text.Length == 0)
+            {
+                return;
+            }
             string squery = $@"{sSelectSql}  WHERE  ShiftingSchedule.PK > {lblPK.Text} ORDER BY ShiftingSchedule.PK  ";
 
             DataRecord(squery);
@@ -125,6 +137,33 @@ namespace TimeKeepingII
             string squery = $@"{sSelectSql}   ORDER BY ShiftingSchedule.PK  DESC";
 
             DataRecord(squery);
+        }
+
+        private void tsDelete_Click(object sender, EventArgs e)
+        {
+
+            if (lblPK.Text.Length == 0)
+            {
+                return;
+            }
+
+            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "DELETE"))
+            {
+                return;
+            }
+        }
+
+        private void tsFind_Click(object sender, EventArgs e)
+        {
+            FrmFind frm = new FrmFind($@"SELECT TOP 1000 ShiftingSchedule.PK, ShiftingSchedule.ShiftName, ShiftingType.ShiftType  FROM ShiftingSchedule LEFT OUTER JOIN  ShiftingType ON ShiftingSchedule.ShiftType = ShiftingType.PK ");
+            frm.ShowDialog();
+
+            if(frm.isYes == true )
+            {
+                lblPK.Text = frm.PK;
+                string squery = $@"{sSelectSql}  WHERE ShiftingSchedule.PK = {lblPK.Text} ORDER BY ShiftingSchedule.PK  ";
+                DataRecord(squery);
+            }
         }
     }
 }

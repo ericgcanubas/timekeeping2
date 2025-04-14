@@ -8,7 +8,7 @@ namespace TimeKeepingII
 {
     class clsMenu
     {
-        public static  MdiTabControl.TabControl myTab;
+        public static MdiTabControl.TabControl myTab;
 
         public static Form callForm(string formName)
         {
@@ -21,7 +21,7 @@ namespace TimeKeepingII
             }
             else
             {
-                MessageBox.Show("Form not found or is not a Form.");
+                MessageBox.Show("Module not found.");
                 return null;
             }
         }
@@ -29,15 +29,40 @@ namespace TimeKeepingII
         {
             Button btn = sender as Button;
             Form frm = callForm(btn.AccessibleDescription);
-            if(frm != null)
+            if (frm != null)
             {
-                myTab.TabPages.Add(frm);
+                int i = 0;
+                foreach (MdiTabControl.TabPage tp in myTab.TabPages)
+                {
+                    Form tabForm = new Form();
+                    tabForm = (Form)tp.Form;
+
+                    if (frm.Name == tabForm.Name)
+                    {
+                        tabForm.Activate();
+                        myTab.TabPages[i].Select();
+                        return;
+                    }
+                    i++;
+                }
+
+            
+                if (clsAccessControl.AccessRight(frm.AccessibleDescription, "OPEN"))
+                {
+
+                    myTab.TabPages.Add(frm);
+                }
+                else
+                {
+                    MessageBox.Show("INSUFICIENT RIGHTS TO PERFORM THIS OPERATION.", "ACCESS DENIED! ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
             }
-          
+
         }
         private static void onClickSubMenu(object sender, EventArgs e)
         {
-           
+
             Label lbl = sender as Label;
             if (lbl != null)
             {
@@ -124,10 +149,11 @@ namespace TimeKeepingII
             Panel pnlSubMenuEmployee = CreateSubMenuPanel("pnlSubMenuEmployeeSetup", 100);
             mainPanel.Controls.Add(pnlSubMenuEmployee);
             //pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnEnableDisable", "To Enable / Disable Employee", "FrmEnableDisable"));
+
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnShiftingSchedule", "Shifting Schedule", "FrmShiftingSchedule"));
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnAssignBioID", "Assign Bio Id", "FrmAssignBioID"));
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnAssignSchedule", "Assign Schedule", "FrmAssignSchedule"));
-      
+
 
 
             //Data Synchronization
@@ -149,7 +175,7 @@ namespace TimeKeepingII
             pnlSubMenuDataSync.Controls.Add(CreateSubMenuButton("btnRepostTimeRecord", "Repost Time Record", "FrmRepostTimeRecord"));
 
 
-         
+
 
             // Schedule Shift Adjust
             Panel pnlScheduleShiftAdjust = buildPanel("pnlScheduleShiftAdjust");
@@ -430,17 +456,19 @@ namespace TimeKeepingII
             pnl.Dock = DockStyle.Top;
             pnl.Size = new System.Drawing.Size(271, myHeight);
             pnl.Visible = false;
-            pnl.BackColor = System.Drawing.Color.LightGray;
+            pnl.BackColor = System.Drawing.Color.Black;
 
             return pnl;
         }
-        private static Button CreateSubMenuButton(string Name,string Caption,string FormName )
+        private static Button CreateSubMenuButton(string Name, string Caption, string FormName)
         {
+
+
             Button btn = new Button();
             btn.AccessibleDescription = FormName;
             btn.Name = Name;
             btn.Dock = DockStyle.Top;
-            btn.Text = Caption;
+            btn.Text = "                 " + Caption;
             btn.Cursor = Cursors.Hand;
             btn.Size = new System.Drawing.Size(271, 30);
             btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -451,7 +479,7 @@ namespace TimeKeepingII
             btn.Click += new EventHandler(OpenForm);
             return btn;
         }
-  
+
 
     }
 }

@@ -95,6 +95,7 @@
     <Compile Include="clsDateTime.cs" />
     <Compile Include="clsFile.cs" />
     <Compile Include="clsGlobal.cs" />
+    <Compile Include="clsListView.cs" />
     <Compile Include="clsMenu.cs" />
     <Compile Include="clsMisc.cs" />
     <Compile Include="clsPayrollSystem.cs" />
