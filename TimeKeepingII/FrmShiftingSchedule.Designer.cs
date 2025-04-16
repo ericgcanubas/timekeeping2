@@ -77,6 +77,7 @@
             this.lblLastModifiedBy = new System.Windows.Forms.Label();
             this.lblPK = new System.Windows.Forms.Label();
             this.chkFixed = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tsHeaderControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLunch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBreakTime)).BeginInit();
@@ -338,13 +339,15 @@
             // dtpIN_AM
             // 
             this.dtpIN_AM.Checked = false;
-            this.dtpIN_AM.CustomFormat = "HH:mm";
+            this.dtpIN_AM.CustomFormat = "h:mm tt";
             this.dtpIN_AM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpIN_AM.Location = new System.Drawing.Point(112, 152);
             this.dtpIN_AM.Name = "dtpIN_AM";
             this.dtpIN_AM.ShowUpDown = true;
             this.dtpIN_AM.Size = new System.Drawing.Size(90, 20);
             this.dtpIN_AM.TabIndex = 11;
+            this.dtpIN_AM.Value = new System.DateTime(2025, 4, 15, 2, 14, 0, 0);
+            this.dtpIN_AM.Leave += new System.EventHandler(this.dtpIN_AM_Leave);
             // 
             // label3
             // 
@@ -358,7 +361,7 @@
             // dtpIN_Lunch
             // 
             this.dtpIN_Lunch.Checked = false;
-            this.dtpIN_Lunch.CustomFormat = "HH:mm";
+            this.dtpIN_Lunch.CustomFormat = "h:mm tt";
             this.dtpIN_Lunch.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpIN_Lunch.Location = new System.Drawing.Point(112, 178);
             this.dtpIN_Lunch.Name = "dtpIN_Lunch";
@@ -366,6 +369,8 @@
             this.dtpIN_Lunch.ShowUpDown = true;
             this.dtpIN_Lunch.Size = new System.Drawing.Size(90, 20);
             this.dtpIN_Lunch.TabIndex = 13;
+            this.dtpIN_Lunch.ValueChanged += new System.EventHandler(this.dtpIN_Lunch_ValueChanged);
+            this.dtpIN_Lunch.Leave += new System.EventHandler(this.dtpIN_Lunch_Leave);
             // 
             // label4
             // 
@@ -379,7 +384,7 @@
             // dtpIN_Break
             // 
             this.dtpIN_Break.Checked = false;
-            this.dtpIN_Break.CustomFormat = "HH:mm";
+            this.dtpIN_Break.CustomFormat = "h:mm tt";
             this.dtpIN_Break.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpIN_Break.Location = new System.Drawing.Point(112, 204);
             this.dtpIN_Break.Name = "dtpIN_Break";
@@ -387,6 +392,8 @@
             this.dtpIN_Break.ShowUpDown = true;
             this.dtpIN_Break.Size = new System.Drawing.Size(90, 20);
             this.dtpIN_Break.TabIndex = 15;
+            this.dtpIN_Break.ValueChanged += new System.EventHandler(this.dtpIN_Break_ValueChanged);
+            this.dtpIN_Break.Leave += new System.EventHandler(this.dtpIN_Break_Leave);
             // 
             // label6
             // 
@@ -401,37 +408,41 @@
             // dtpOUT_PM
             // 
             this.dtpOUT_PM.Checked = false;
-            this.dtpOUT_PM.CustomFormat = "HH:mm";
+            this.dtpOUT_PM.CustomFormat = "h:mm tt";
             this.dtpOUT_PM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOUT_PM.Location = new System.Drawing.Point(266, 204);
             this.dtpOUT_PM.Name = "dtpOUT_PM";
             this.dtpOUT_PM.ShowUpDown = true;
             this.dtpOUT_PM.Size = new System.Drawing.Size(90, 20);
-            this.dtpOUT_PM.TabIndex = 20;
+            this.dtpOUT_PM.TabIndex = 17;
             // 
             // dtpOUT_Break
             // 
             this.dtpOUT_Break.Checked = false;
-            this.dtpOUT_Break.CustomFormat = "HH:mm";
+            this.dtpOUT_Break.CustomFormat = "h:mm tt";
             this.dtpOUT_Break.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOUT_Break.Location = new System.Drawing.Point(266, 178);
             this.dtpOUT_Break.Name = "dtpOUT_Break";
             this.dtpOUT_Break.ShowCheckBox = true;
             this.dtpOUT_Break.ShowUpDown = true;
             this.dtpOUT_Break.Size = new System.Drawing.Size(90, 20);
-            this.dtpOUT_Break.TabIndex = 19;
+            this.dtpOUT_Break.TabIndex = 14;
+            this.dtpOUT_Break.ValueChanged += new System.EventHandler(this.dtpOUT_Break_ValueChanged);
+            this.dtpOUT_Break.Leave += new System.EventHandler(this.dtpOUT_Break_Leave);
             // 
             // dtpOUT_Lunch
             // 
             this.dtpOUT_Lunch.Checked = false;
-            this.dtpOUT_Lunch.CustomFormat = "HH:mm";
+            this.dtpOUT_Lunch.CustomFormat = "h:mm tt";
             this.dtpOUT_Lunch.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOUT_Lunch.Location = new System.Drawing.Point(266, 152);
             this.dtpOUT_Lunch.Name = "dtpOUT_Lunch";
             this.dtpOUT_Lunch.ShowCheckBox = true;
             this.dtpOUT_Lunch.ShowUpDown = true;
             this.dtpOUT_Lunch.Size = new System.Drawing.Size(90, 20);
-            this.dtpOUT_Lunch.TabIndex = 18;
+            this.dtpOUT_Lunch.TabIndex = 12;
+            this.dtpOUT_Lunch.ValueChanged += new System.EventHandler(this.dtpOUT_Lunch_ValueChanged);
+            this.dtpOUT_Lunch.Leave += new System.EventHandler(this.dtpOUT_Lunch_Leave);
             // 
             // label7
             // 
@@ -445,13 +456,25 @@
             // 
             // numLunch
             // 
-            this.numLunch.Location = new System.Drawing.Point(112, 244);
+            this.numLunch.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numLunch.InterceptArrowKeys = false;
+            this.numLunch.Location = new System.Drawing.Point(112, 247);
             this.numLunch.Maximum = new decimal(new int[] {
             9999999,
             0,
             0,
             0});
+            this.numLunch.Minimum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            -2147483648});
             this.numLunch.Name = "numLunch";
+            this.numLunch.ReadOnly = true;
             this.numLunch.Size = new System.Drawing.Size(90, 20);
             this.numLunch.TabIndex = 22;
             this.numLunch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -460,7 +483,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(59, 246);
+            this.label8.Location = new System.Drawing.Point(59, 249);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 23;
@@ -469,7 +492,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(57, 273);
+            this.label9.Location = new System.Drawing.Point(57, 276);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 24;
@@ -477,13 +500,25 @@
             // 
             // numBreakTime
             // 
-            this.numBreakTime.Location = new System.Drawing.Point(112, 271);
+            this.numBreakTime.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numBreakTime.InterceptArrowKeys = false;
+            this.numBreakTime.Location = new System.Drawing.Point(112, 274);
             this.numBreakTime.Maximum = new decimal(new int[] {
             9999999,
             0,
             0,
             0});
+            this.numBreakTime.Minimum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            -2147483648});
             this.numBreakTime.Name = "numBreakTime";
+            this.numBreakTime.ReadOnly = true;
             this.numBreakTime.Size = new System.Drawing.Size(90, 20);
             this.numBreakTime.TabIndex = 25;
             this.numBreakTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -492,7 +527,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(208, 246);
+            this.label10.Location = new System.Drawing.Point(206, 250);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 27;
@@ -501,7 +536,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(208, 278);
+            this.label11.Location = new System.Drawing.Point(206, 277);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 13);
             this.label11.TabIndex = 28;
@@ -546,6 +581,15 @@
             this.chkFixed.Text = "FIXED SCHEDULE";
             this.chkFixed.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(384, 136);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 13);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "MORNING :";
+            // 
             // FrmShiftingSchedule
             // 
             this.AccessibleDescription = "SHIFTING SCHEDULE";
@@ -553,15 +597,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 435);
             this.ControlBox = false;
-            this.Controls.Add(this.chkFixed);
-            this.Controls.Add(this.pnlMode);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.numBreakTime);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numLunch);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.chkFixed);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.pnlMode);
+            this.Controls.Add(this.numBreakTime);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.dtpOUT_PM);
             this.Controls.Add(this.dtpOUT_Break);
             this.Controls.Add(this.dtpOUT_Lunch);
@@ -583,6 +628,8 @@
             this.ShowIcon = false;
             this.Text = "Shifting Schedule";
             this.Load += new System.EventHandler(this.FrmShiftingSchedule_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmShiftingSchedule_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.FrmShiftingSchedule_PreviewKeyDown);
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLunch)).EndInit();
@@ -644,5 +691,6 @@
         private System.Windows.Forms.Label lblLastModifiedBy;
         private System.Windows.Forms.Label lblPK;
         private System.Windows.Forms.CheckBox chkFixed;
+        private System.Windows.Forms.Label label12;
     }
 }

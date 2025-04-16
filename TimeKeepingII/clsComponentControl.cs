@@ -91,6 +91,10 @@ namespace TimeKeepingII
                         num.Enabled = isEnable;
                         break;
 
+                    case "cmd":
+                        Button cmd = (Button)item;
+                        cmd.Enabled = isEnable;
+                        break;
                     case "cmb":
                         ComboBox cmb = (ComboBox)item;
                         cmb.Enabled = isEnable;

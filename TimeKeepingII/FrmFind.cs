@@ -55,7 +55,7 @@ namespace TimeKeepingII
                 foreach (string column in getcol)
                 {
                     string columnName = cutString(column);
-                    if(columnName == cmbFind.Text)
+                    if (columnName == cmbFind.Text)
                     {
                         return clsBiometrics.dataList($@"{sqlBase} WHERE {column} {getSearch(txtFind.Text)}");
                     }
@@ -72,7 +72,7 @@ namespace TimeKeepingII
         {
             if (cmbFind.SelectedIndex == 0)
             {
-                return $" = {value.Replace("'","`")}";
+                return $" = {value.Replace("'", "`")}";
             }
 
             return $" LIKE '%{value.Replace("'", "`")}%'";
@@ -133,10 +133,34 @@ namespace TimeKeepingII
 
         private void txtFind_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btnFilter.PerformClick();
             }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                if (lvFind.Items.Count > 0)
+                {
+                    lvFind.Select();
+                }
+            }
+
+
+            if (e.KeyCode == Keys.F5)
+            {
+                btnOK.PerformClick();
+            }
         }
+
+        private void lvFind_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5 || e.KeyCode == Keys.Enter)
+            {
+                btnOK.PerformClick();
+            }
+        }
+
+
     }
 }

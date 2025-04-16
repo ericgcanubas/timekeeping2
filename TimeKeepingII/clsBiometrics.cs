@@ -27,20 +27,20 @@ namespace TimeKeepingII
         }
         public static OdbcConnection GetConnectionTest()
         {
-        
- 
+
+
             var connectionString = $"DSN={DSN_BIO_SERVER};UID=sa;PWD=;";
             return new OdbcConnection(connectionString);
         }
         public static bool ConnectionTest()
         {
-            bool isConnect = false; 
+            bool isConnect = false;
             try
             {
                 using (OdbcConnection conn = GetConnectionTest())
                 {
                     conn.Open();
-      
+
                     conn.Close();
                     isConnect = true;
                 }
@@ -48,7 +48,7 @@ namespace TimeKeepingII
             catch (Exception)
             {
                 isConnect = false;
-             
+
 
             }
 
@@ -122,12 +122,34 @@ namespace TimeKeepingII
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
+
             }
 
             return rowsAffected;
         }
+        public static bool ExecuteNonQueryBool(string query)
+        {
+            bool isSuccess = false;
+            try
+            {
+                using (OdbcConnection connection = GetConnection())
+                {
+                    connection.Open();
+                    using (OdbcCommand command = new OdbcCommand(query, connection))
+                    {
 
+                        command.ExecuteNonQuery();
+                        isSuccess = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return isSuccess;
+        }
         public static Dictionary<string, object> GetFirstRecord(string query)
         {
             Dictionary<string, object> result = null;
