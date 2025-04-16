@@ -1155,7 +1155,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(97, 185);
+            this.label5.Location = new System.Drawing.Point(90, 185);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 76;
@@ -1164,7 +1164,7 @@
             // chkOpenSun
             // 
             this.chkOpenSun.AutoSize = true;
-            this.chkOpenSun.Location = new System.Drawing.Point(108, 369);
+            this.chkOpenSun.Location = new System.Drawing.Point(101, 369);
             this.chkOpenSun.Name = "chkOpenSun";
             this.chkOpenSun.Size = new System.Drawing.Size(15, 14);
             this.chkOpenSun.TabIndex = 69;
@@ -1174,7 +1174,7 @@
             // chkOpenSat
             // 
             this.chkOpenSat.AutoSize = true;
-            this.chkOpenSat.Location = new System.Drawing.Point(108, 341);
+            this.chkOpenSat.Location = new System.Drawing.Point(101, 341);
             this.chkOpenSat.Name = "chkOpenSat";
             this.chkOpenSat.Size = new System.Drawing.Size(15, 14);
             this.chkOpenSat.TabIndex = 70;
@@ -1184,7 +1184,7 @@
             // chkOpenFri
             // 
             this.chkOpenFri.AutoSize = true;
-            this.chkOpenFri.Location = new System.Drawing.Point(108, 313);
+            this.chkOpenFri.Location = new System.Drawing.Point(101, 313);
             this.chkOpenFri.Name = "chkOpenFri";
             this.chkOpenFri.Size = new System.Drawing.Size(15, 14);
             this.chkOpenFri.TabIndex = 71;
@@ -1194,7 +1194,7 @@
             // chkOpenThu
             // 
             this.chkOpenThu.AutoSize = true;
-            this.chkOpenThu.Location = new System.Drawing.Point(108, 289);
+            this.chkOpenThu.Location = new System.Drawing.Point(101, 289);
             this.chkOpenThu.Name = "chkOpenThu";
             this.chkOpenThu.Size = new System.Drawing.Size(15, 14);
             this.chkOpenThu.TabIndex = 72;
@@ -1204,7 +1204,7 @@
             // chkOpenWed
             // 
             this.chkOpenWed.AutoSize = true;
-            this.chkOpenWed.Location = new System.Drawing.Point(108, 263);
+            this.chkOpenWed.Location = new System.Drawing.Point(101, 263);
             this.chkOpenWed.Name = "chkOpenWed";
             this.chkOpenWed.Size = new System.Drawing.Size(15, 14);
             this.chkOpenWed.TabIndex = 73;
@@ -1214,7 +1214,7 @@
             // chkOpenTue
             // 
             this.chkOpenTue.AutoSize = true;
-            this.chkOpenTue.Location = new System.Drawing.Point(108, 236);
+            this.chkOpenTue.Location = new System.Drawing.Point(101, 236);
             this.chkOpenTue.Name = "chkOpenTue";
             this.chkOpenTue.Size = new System.Drawing.Size(15, 14);
             this.chkOpenTue.TabIndex = 74;
@@ -1224,7 +1224,7 @@
             // chkOpenMon
             // 
             this.chkOpenMon.AutoSize = true;
-            this.chkOpenMon.Location = new System.Drawing.Point(108, 209);
+            this.chkOpenMon.Location = new System.Drawing.Point(101, 209);
             this.chkOpenMon.Name = "chkOpenMon";
             this.chkOpenMon.Size = new System.Drawing.Size(15, 14);
             this.chkOpenMon.TabIndex = 75;
