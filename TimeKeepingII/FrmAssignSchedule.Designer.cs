@@ -45,7 +45,6 @@
             this.tsLocked = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIDnumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpDateEffect = new System.Windows.Forms.DateTimePicker();
@@ -152,11 +151,11 @@
             this.lblTuesday_BREAK = new System.Windows.Forms.Label();
             this.lblMonday_BREAK = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
-            this.cmbEmployeeID = new System.Windows.Forms.ComboBox();
-            this.cmdFind = new System.Windows.Forms.Button();
             this.pnlMode = new System.Windows.Forms.Panel();
             this.lblLastModifiedBy = new System.Windows.Forms.Label();
             this.lblPK = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
             this.SuspendLayout();
@@ -308,13 +307,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "EMPLOYEE NO. :";
             // 
-            // txtIDnumber
-            // 
-            this.txtIDnumber.Location = new System.Drawing.Point(128, 77);
-            this.txtIDnumber.Name = "txtIDnumber";
-            this.txtIDnumber.Size = new System.Drawing.Size(149, 22);
-            this.txtIDnumber.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -327,7 +319,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 137);
+            this.label3.Location = new System.Drawing.Point(26, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 5;
@@ -337,7 +329,7 @@
             // 
             this.dtpDateEffect.Checked = false;
             this.dtpDateEffect.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateEffect.Location = new System.Drawing.Point(129, 132);
+            this.dtpDateEffect.Location = new System.Drawing.Point(129, 131);
             this.dtpDateEffect.Name = "dtpDateEffect";
             this.dtpDateEffect.ShowCheckBox = true;
             this.dtpDateEffect.Size = new System.Drawing.Size(148, 22);
@@ -1403,23 +1395,6 @@
             this.label78.TabIndex = 85;
             this.label78.Text = "(Break) Mins";
             // 
-            // cmbEmployeeID
-            // 
-            this.cmbEmployeeID.FormattingEnabled = true;
-            this.cmbEmployeeID.Location = new System.Drawing.Point(128, 105);
-            this.cmbEmployeeID.Name = "cmbEmployeeID";
-            this.cmbEmployeeID.Size = new System.Drawing.Size(451, 21);
-            this.cmbEmployeeID.TabIndex = 93;
-            // 
-            // cmdFind
-            // 
-            this.cmdFind.Location = new System.Drawing.Point(279, 76);
-            this.cmdFind.Name = "cmdFind";
-            this.cmdFind.Size = new System.Drawing.Size(33, 24);
-            this.cmdFind.TabIndex = 94;
-            this.cmdFind.Text = "...";
-            this.cmdFind.UseVisualStyleBackColor = true;
-            // 
             // pnlMode
             // 
             this.pnlMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1449,14 +1424,34 @@
             this.lblPK.Size = new System.Drawing.Size(105, 20);
             this.lblPK.TabIndex = 13;
             // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Location = new System.Drawing.Point(129, 76);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 21);
+            this.label6.TabIndex = 96;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label13.Location = new System.Drawing.Point(129, 103);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(612, 21);
+            this.label13.TabIndex = 97;
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FrmAssignSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 487);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pnlMode);
-            this.Controls.Add(this.cmdFind);
-            this.Controls.Add(this.cmbEmployeeID);
             this.Controls.Add(this.lblSunday_BREAK);
             this.Controls.Add(this.lblSaturday_BREAK);
             this.Controls.Add(this.lblFriday_BREAK);
@@ -1563,7 +1558,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbMonday);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtIDnumber);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tsHeaderControl);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1599,7 +1593,6 @@
         private System.Windows.Forms.ToolStripLabel tsLocked;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIDnumber;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpDateEffect;
@@ -1706,10 +1699,10 @@
         private System.Windows.Forms.Label lblTuesday_BREAK;
         private System.Windows.Forms.Label lblMonday_BREAK;
         private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.ComboBox cmbEmployeeID;
-        private System.Windows.Forms.Button cmdFind;
         private System.Windows.Forms.Panel pnlMode;
         private System.Windows.Forms.Label lblLastModifiedBy;
         private System.Windows.Forms.Label lblPK;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label13;
     }
 }
