@@ -23,16 +23,21 @@ namespace TimeKeepingII
                     listView.Columns.Add(column.ColumnName,0);
                 }
 
-                foreach (DataRow row in dataTable.Rows)
+                if(listView.Columns.Count > 0 )
                 {
-                    ListViewItem item = new ListViewItem(row[0].ToString()); // First column as main item
-                    for (int i = 1; i < dataTable.Columns.Count; i++)
+                    foreach (DataRow row in dataTable.Rows)
                     {
-                        item.SubItems.Add(row[i].ToString()); // Remaining columns as subitems
+                        string firstData = row[0].ToString();
+                        ListViewItem item = new ListViewItem(firstData); // First column as main item
+                        for (int i = 1; i < dataTable.Columns.Count; i++)
+                        {
+                            item.SubItems.Add(row[i].ToString()); // Remaining columns as subitems
+                        }
+                        listView.Items.Add(item);
                     }
-                    listView.Items.Add(item);
+                    AutoResizeColumns(listView);
                 }
-                AutoResizeColumns(listView);
+             
             }
          
         }

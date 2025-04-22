@@ -154,8 +154,9 @@
             this.pnlMode = new System.Windows.Forms.Panel();
             this.lblLastModifiedBy = new System.Windows.Forms.Label();
             this.lblPK = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblEMPLOYEE_NO = new System.Windows.Forms.Label();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.lblEMP_PK = new System.Windows.Forms.Label();
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
             this.SuspendLayout();
@@ -310,7 +311,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 108);
+            this.label2.Location = new System.Drawing.Point(25, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 3;
@@ -319,11 +320,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 135);
+            this.label3.Location = new System.Drawing.Point(22, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "DATE EFFECTIVELY";
+            this.label3.Text = "DATE EFFECTIVELY :";
             // 
             // dtpDateEffect
             // 
@@ -343,6 +344,7 @@
             this.chkRestday1.Size = new System.Drawing.Size(15, 14);
             this.chkRestday1.TabIndex = 7;
             this.chkRestday1.UseVisualStyleBackColor = true;
+            this.chkRestday1.CheckedChanged += new System.EventHandler(this.chkRestday1_CheckedChanged);
             // 
             // label4
             // 
@@ -371,6 +373,7 @@
             this.chkRestday2.Size = new System.Drawing.Size(15, 14);
             this.chkRestday2.TabIndex = 7;
             this.chkRestday2.UseVisualStyleBackColor = true;
+            this.chkRestday2.CheckedChanged += new System.EventHandler(this.chkRestday2_CheckedChanged);
             // 
             // label9
             // 
@@ -399,6 +402,7 @@
             this.chkRestday3.Size = new System.Drawing.Size(15, 14);
             this.chkRestday3.TabIndex = 7;
             this.chkRestday3.UseVisualStyleBackColor = true;
+            this.chkRestday3.CheckedChanged += new System.EventHandler(this.chkRestday3_CheckedChanged);
             // 
             // label11
             // 
@@ -427,6 +431,7 @@
             this.chkRestday4.Size = new System.Drawing.Size(15, 14);
             this.chkRestday4.TabIndex = 7;
             this.chkRestday4.UseVisualStyleBackColor = true;
+            this.chkRestday4.CheckedChanged += new System.EventHandler(this.chkRestday4_CheckedChanged);
             // 
             // label15
             // 
@@ -455,6 +460,7 @@
             this.chkRestday5.Size = new System.Drawing.Size(15, 14);
             this.chkRestday5.TabIndex = 7;
             this.chkRestday5.UseVisualStyleBackColor = true;
+            this.chkRestday5.CheckedChanged += new System.EventHandler(this.chkRestday5_CheckedChanged);
             // 
             // label17
             // 
@@ -483,6 +489,7 @@
             this.chkRestday6.Size = new System.Drawing.Size(15, 14);
             this.chkRestday6.TabIndex = 7;
             this.chkRestday6.UseVisualStyleBackColor = true;
+            this.chkRestday6.CheckedChanged += new System.EventHandler(this.chkRestday6_CheckedChanged);
             // 
             // label19
             // 
@@ -511,6 +518,7 @@
             this.chkRestday7.Size = new System.Drawing.Size(15, 14);
             this.chkRestday7.TabIndex = 7;
             this.chkRestday7.UseVisualStyleBackColor = true;
+            this.chkRestday7.CheckedChanged += new System.EventHandler(this.chkRestday7_CheckedChanged);
             // 
             // label21
             // 
@@ -1424,33 +1432,47 @@
             this.lblPK.Size = new System.Drawing.Size(105, 20);
             this.lblPK.TabIndex = 13;
             // 
-            // label6
+            // lblEMPLOYEE_NO
             // 
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Location = new System.Drawing.Point(129, 76);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 21);
-            this.label6.TabIndex = 96;
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEMPLOYEE_NO.BackColor = System.Drawing.Color.White;
+            this.lblEMPLOYEE_NO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEMPLOYEE_NO.Location = new System.Drawing.Point(129, 76);
+            this.lblEMPLOYEE_NO.Name = "lblEMPLOYEE_NO";
+            this.lblEMPLOYEE_NO.Size = new System.Drawing.Size(158, 21);
+            this.lblEMPLOYEE_NO.TabIndex = 96;
+            this.lblEMPLOYEE_NO.Text = " ";
+            this.lblEMPLOYEE_NO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label13
+            // lblEmployeeName
             // 
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label13.Location = new System.Drawing.Point(129, 103);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(612, 21);
-            this.label13.TabIndex = 97;
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEmployeeName.BackColor = System.Drawing.Color.White;
+            this.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEmployeeName.Location = new System.Drawing.Point(129, 103);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(612, 21);
+            this.lblEmployeeName.TabIndex = 97;
+            this.lblEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblEMP_PK
+            // 
+            this.lblEMP_PK.BackColor = System.Drawing.Color.White;
+            this.lblEMP_PK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEMP_PK.Location = new System.Drawing.Point(293, 76);
+            this.lblEMP_PK.Name = "lblEMP_PK";
+            this.lblEMP_PK.Size = new System.Drawing.Size(50, 21);
+            this.lblEMP_PK.TabIndex = 98;
+            this.lblEMP_PK.Text = " ";
+            this.lblEMP_PK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEMP_PK.Visible = false;
             // 
             // FrmAssignSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 487);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblEMP_PK);
+            this.Controls.Add(this.lblEmployeeName);
+            this.Controls.Add(this.lblEMPLOYEE_NO);
             this.Controls.Add(this.pnlMode);
             this.Controls.Add(this.lblSunday_BREAK);
             this.Controls.Add(this.lblSaturday_BREAK);
@@ -1702,7 +1724,8 @@
         private System.Windows.Forms.Panel pnlMode;
         private System.Windows.Forms.Label lblLastModifiedBy;
         private System.Windows.Forms.Label lblPK;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblEMPLOYEE_NO;
+        private System.Windows.Forms.Label lblEmployeeName;
+        private System.Windows.Forms.Label lblEMP_PK;
     }
 }

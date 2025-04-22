@@ -93,6 +93,20 @@ namespace TimeKeepingII
 
             return columns;
         }
-           
+
+
+        public static string FX_TIME(string s)
+        {
+            DateTime v;
+            if (DateTime.TryParse(s, out v))
+            {
+                return v.ToString("HH:mm");
+            }
+            else
+            {
+                return "";
+            }
+        }
+
     }
 }
