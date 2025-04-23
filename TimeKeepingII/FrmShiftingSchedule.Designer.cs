@@ -77,7 +77,6 @@
             this.lblLastModifiedBy = new System.Windows.Forms.Label();
             this.lblPK = new System.Windows.Forms.Label();
             this.chkFixed = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tsHeaderControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLunch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBreakTime)).BeginInit();
@@ -581,15 +580,6 @@
             this.chkFixed.Text = "FIXED SCHEDULE";
             this.chkFixed.UseVisualStyleBackColor = true;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(384, 136);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 13);
-            this.label12.TabIndex = 34;
-            this.label12.Text = "MORNING :";
-            // 
             // FrmShiftingSchedule
             // 
             this.AccessibleDescription = "SHIFTING SCHEDULE";
@@ -597,7 +587,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 435);
             this.ControlBox = false;
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numLunch);
             this.Controls.Add(this.label9);
@@ -691,6 +680,5 @@
         private System.Windows.Forms.Label lblLastModifiedBy;
         private System.Windows.Forms.Label lblPK;
         private System.Windows.Forms.CheckBox chkFixed;
-        private System.Windows.Forms.Label label12;
     }
 }

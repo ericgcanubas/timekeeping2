@@ -20,5 +20,31 @@ namespace TimeKeepingII
         {
             MessageBox.Show(strMsg, "System Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static bool MessageQuestion(string strMesage)
+        {
+
+            DialogResult result = MessageBox.Show(strMesage, "Confirmation",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                
+            if(result == DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool MessageQuestionWarning(string strMesage)
+        {
+
+            DialogResult result = MessageBox.Show(strMesage, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

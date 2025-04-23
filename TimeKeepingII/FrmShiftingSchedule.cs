@@ -304,6 +304,9 @@ namespace TimeKeepingII
             {
                 return;
             }
+
+
+            clsComponentControl.ClearValue(this); // clear
         }
 
         private void tsFind_Click(object sender, EventArgs e)

@@ -17,11 +17,13 @@ namespace TimeKeepingII
         public string strQuery;
         public string tableName;
         private string sqlBase;
-        public FrmFind(string strQuery)
+        private bool isBioData = false;
+        public FrmFind(string strQuery,  bool isBio = true)
         {
             InitializeComponent();
 
             this.strQuery = strQuery;
+            this.isBioData = isBio;
 
         }
         private string cutString(string column)
@@ -56,8 +58,16 @@ namespace TimeKeepingII
                 {
                     string columnName = cutString(column);
                     if (columnName == cmbFind.Text)
-                    {
-                        return clsBiometrics.dataList($@"{sqlBase} WHERE {column} {getSearch(txtFind.Text)}");
+                    {   
+                        if(isBioData)
+                        {
+                            return clsBiometrics.dataList($@"{sqlBase} WHERE {column} {getSearch(txtFind.Text)}");
+                        }
+                        else
+                        {
+                            return clsPayrollSystem.dataList($@"{sqlBase} WHERE {column} {getSearch(txtFind.Text)}");
+                        }
+                        
                     }
                 }
                 return null;
@@ -65,7 +75,15 @@ namespace TimeKeepingII
             }
             else
             {
-                return clsBiometrics.dataList(sqlBase);
+                if (isBioData)
+                {
+                    return clsBiometrics.dataList(sqlBase);
+                }
+                else
+                {
+                    return clsPayrollSystem.dataList(sqlBase);
+                }
+                    
             }
         }
         private string getSearch(string value)
