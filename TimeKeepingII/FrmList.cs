@@ -13,7 +13,7 @@ namespace TimeKeepingII
     {
         DataTable dataList;
         public string VALUE = "";
-        public FrmList( DataTable dt)
+        public FrmList(DataTable dt)
         {
             InitializeComponent();
             this.dataList = dt;
@@ -53,9 +53,19 @@ namespace TimeKeepingII
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (lvList.Items.Count == 0)
+            {
+
+                clsMessage.MessageShowInfo("Record not found");
+
+                return;
+            }
+
 
             try
             {
+                lvList.Select();
+
                 VALUE = lvList.FocusedItem.Text;
                 this.Close();
             }
@@ -64,8 +74,13 @@ namespace TimeKeepingII
 
                 throw;
             }
-       
 
+
+        }
+
+        private void lvList_DoubleClick(object sender, EventArgs e)
+        {
+            btnOK.PerformClick();
         }
     }
 }

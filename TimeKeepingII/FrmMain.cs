@@ -23,7 +23,7 @@ namespace TimeKeepingII
 
         public bool burdger = true;
         public int menuSideDefaultActive = 280;
-        public int menuSideDefaultInActive = 70;
+        public int menuSideDefaultInActive = 50;
         public FrmMain()
         {
             InitializeComponent();

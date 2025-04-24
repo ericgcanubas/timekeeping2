@@ -82,6 +82,7 @@
             this.lvList.TabIndex = 4;
             this.lvList.UseCompatibleStateImageBehavior = false;
             this.lvList.View = System.Windows.Forms.View.Details;
+            this.lvList.DoubleClick += new System.EventHandler(this.lvList_DoubleClick);
             // 
             // FrmList
             // 

@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbMinimize = new System.Windows.Forms.PictureBox();
+            this.ptbClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ptbMenuBurger = new System.Windows.Forms.PictureBox();
             this.pnlSideMenu = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tsPrimary = new System.Windows.Forms.ToolStrip();
-            this.pnlBottom = new System.Windows.Forms.Panel();
-            this.pnlMain = new System.Windows.Forms.Panel();
-            this.tabControl1 = new MdiTabControl.TabControl();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.assignBiometricsIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assignScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,18 +76,18 @@
             this.weeklyTimeSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managerialTimeSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ptbMinimize = new System.Windows.Forms.PictureBox();
-            this.ptbClose = new System.Windows.Forms.PictureBox();
-            this.ptbMenuBurger = new System.Windows.Forms.PictureBox();
+            this.pnlBottom = new System.Windows.Forms.Panel();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.tabControl1 = new MdiTabControl.TabControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlHeader.SuspendLayout();
-            this.pnlSideMenu.SuspendLayout();
-            this.tsPrimary.SuspendLayout();
-            this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).BeginInit();
+            this.pnlSideMenu.SuspendLayout();
+            this.tsPrimary.SuspendLayout();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -105,6 +105,47 @@
             this.pnlHeader.TabIndex = 0;
             this.pnlHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseDown);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = global::TimeKeepingII.Properties.Resources.time_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(76, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ptbMinimize
+            // 
+            this.ptbMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbMinimize.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ptbMinimize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimize.Image = global::TimeKeepingII.Properties.Resources.minimized_icon;
+            this.ptbMinimize.Location = new System.Drawing.Point(1157, 1);
+            this.ptbMinimize.Name = "ptbMinimize";
+            this.ptbMinimize.Size = new System.Drawing.Size(40, 40);
+            this.ptbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbMinimize.TabIndex = 3;
+            this.ptbMinimize.TabStop = false;
+            this.ptbMinimize.Click += new System.EventHandler(this.ptbMinimize_Click);
+            // 
+            // ptbClose
+            // 
+            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
+            this.ptbClose.Location = new System.Drawing.Point(1200, 1);
+            this.ptbClose.Name = "ptbClose";
+            this.ptbClose.Size = new System.Drawing.Size(40, 40);
+            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbClose.TabIndex = 2;
+            this.ptbClose.TabStop = false;
+            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -115,6 +156,18 @@
             this.label1.Size = new System.Drawing.Size(195, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Time Keeping II";
+            // 
+            // ptbMenuBurger
+            // 
+            this.ptbMenuBurger.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMenuBurger.Image = global::TimeKeepingII.Properties.Resources.burger_bar;
+            this.ptbMenuBurger.Location = new System.Drawing.Point(1, -1);
+            this.ptbMenuBurger.Name = "ptbMenuBurger";
+            this.ptbMenuBurger.Size = new System.Drawing.Size(58, 40);
+            this.ptbMenuBurger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbMenuBurger.TabIndex = 0;
+            this.ptbMenuBurger.TabStop = false;
+            this.ptbMenuBurger.Click += new System.EventHandler(this.ptbMenuBurger_Click);
             // 
             // pnlSideMenu
             // 
@@ -160,46 +213,6 @@
             this.tsPrimary.TabIndex = 0;
             this.tsPrimary.Text = "toolStrip1";
             this.tsPrimary.Visible = false;
-            // 
-            // pnlBottom
-            // 
-            this.pnlBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 600);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(1242, 24);
-            this.pnlBottom.TabIndex = 2;
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(46)))));
-            this.pnlMain.Controls.Add(this.tabControl1);
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(280, 42);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(962, 558);
-            this.pnlMain.TabIndex = 3;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.MenuRenderer = null;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Size = new System.Drawing.Size(962, 558);
-            this.tabControl1.TabCloseButtonImage = null;
-            this.tabControl1.TabCloseButtonImageDisabled = null;
-            this.tabControl1.TabCloseButtonImageHot = null;
-            this.tabControl1.TabGlassGradient = true;
-            this.tabControl1.TabIconSize = new System.Drawing.Size(0, 0);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // toolStripButton1
             // 
@@ -519,58 +532,45 @@
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
-            // pictureBox1
+            // pnlBottom
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox1.Image = global::TimeKeepingII.Properties.Resources.time_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(76, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.pnlBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 600);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.Size = new System.Drawing.Size(1242, 24);
+            this.pnlBottom.TabIndex = 2;
             // 
-            // ptbMinimize
+            // pnlMain
             // 
-            this.ptbMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbMinimize.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ptbMinimize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimize.Image = global::TimeKeepingII.Properties.Resources.minimized_icon;
-            this.ptbMinimize.Location = new System.Drawing.Point(1157, 1);
-            this.ptbMinimize.Name = "ptbMinimize";
-            this.ptbMinimize.Size = new System.Drawing.Size(40, 40);
-            this.ptbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbMinimize.TabIndex = 3;
-            this.ptbMinimize.TabStop = false;
-            this.ptbMinimize.Click += new System.EventHandler(this.ptbMinimize_Click);
+            this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(46)))));
+            this.pnlMain.Controls.Add(this.tabControl1);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(280, 42);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(962, 558);
+            this.pnlMain.TabIndex = 3;
             // 
-            // ptbClose
+            // tabControl1
             // 
-            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
-            this.ptbClose.Location = new System.Drawing.Point(1200, 1);
-            this.ptbClose.Name = "ptbClose";
-            this.ptbClose.Size = new System.Drawing.Size(40, 40);
-            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbClose.TabIndex = 2;
-            this.ptbClose.TabStop = false;
-            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.MenuRenderer = null;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Size = new System.Drawing.Size(962, 558);
+            this.tabControl1.TabCloseButtonImage = null;
+            this.tabControl1.TabCloseButtonImageDisabled = null;
+            this.tabControl1.TabCloseButtonImageHot = null;
+            this.tabControl1.TabGlassGradient = true;
+            this.tabControl1.TabIconSize = new System.Drawing.Size(0, 0);
+            this.tabControl1.TabIndex = 0;
             // 
-            // ptbMenuBurger
+            // timer1
             // 
-            this.ptbMenuBurger.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMenuBurger.Image = global::TimeKeepingII.Properties.Resources.burger_bar;
-            this.ptbMenuBurger.Location = new System.Drawing.Point(10, -1);
-            this.ptbMenuBurger.Name = "ptbMenuBurger";
-            this.ptbMenuBurger.Size = new System.Drawing.Size(58, 40);
-            this.ptbMenuBurger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbMenuBurger.TabIndex = 0;
-            this.ptbMenuBurger.TabStop = false;
-            this.ptbMenuBurger.Click += new System.EventHandler(this.ptbMenuBurger_Click);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmMain
             // 
@@ -589,15 +589,15 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).EndInit();
             this.pnlSideMenu.ResumeLayout(false);
             this.pnlSideMenu.PerformLayout();
             this.tsPrimary.ResumeLayout(false);
             this.tsPrimary.PerformLayout();
             this.pnlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).EndInit();
             this.ResumeLayout(false);
 
         }

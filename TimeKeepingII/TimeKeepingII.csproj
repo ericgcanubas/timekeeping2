@@ -108,6 +108,18 @@
     <Compile Include="FrmAssignSchedule.Designer.cs">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmChangeDayoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangeDayoff.Designer.cs">
+      <DependentUpon>FrmChangeDayoff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChangeShifting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangeShifting.Designer.cs">
+      <DependentUpon>FrmChangeShifting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +160,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAssignSchedule.resx">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangeShifting.resx">
+      <DependentUpon>FrmChangeShifting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFind.resx">
       <DependentUpon>FrmFind.cs</DependentUpon>
@@ -239,6 +254,8 @@
     <None Include="Resources\back_icon.png" />
     <None Include="Resources\next_icon.png" />
     <None Include="Resources\last_icon.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\post.png" />
     <Content Include="time.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -257,6 +257,12 @@ namespace TimeKeepingII
                         break;
                     case "cmb":
                         ComboBox cmb = (ComboBox)item;
+                       
+                        if (cmb.Tag == null || cmb.Tag.ToString() != "EnterHooked")
+                        {
+                            cmb.Enter += new EventHandler(cmbAutoDropdown_Enter);
+                            cmb.Tag = "EnterHooked"; // flag it as already hooked
+                        }
                         cmb.SelectedValue = -1;
                         break;
 
@@ -289,6 +295,13 @@ namespace TimeKeepingII
                 }
 
             }
+        }
+
+
+        private static void cmbAutoDropdown_Enter(object sender, EventArgs e)
+        {
+            ComboBox cmb = sender as ComboBox;
+            cmb.DroppedDown = true;
         }
     }
 }

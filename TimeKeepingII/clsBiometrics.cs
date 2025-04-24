@@ -104,6 +104,34 @@ namespace TimeKeepingII
             return dataTable;
         }
 
+        public static object ExecuteScalarQuery(string query)
+        {
+            object result = null;
+
+            try
+            {
+                using (OdbcConnection connection = GetConnection())
+                {
+                    connection.Open();
+                    using (OdbcCommand command = new OdbcCommand(query, connection))
+                    {
+                       command.ExecuteScalar();
+                    }
+
+                    using (OdbcCommand command = new OdbcCommand("SELECT SCOPE_IDENTITY()", connection))
+                    {
+                        result = command.ExecuteScalar();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return result;
+        }
         public static int ExecuteNonQuery(string query)
         {
             int rowsAffected = 0;

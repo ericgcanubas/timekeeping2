@@ -158,11 +158,12 @@
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.lblEMP_PK = new System.Windows.Forms.Label();
             this.cmbMachineNo = new System.Windows.Forms.ComboBox();
-            this.txtMachineID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.numMachineID = new System.Windows.Forms.NumericUpDown();
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMachineID)).BeginInit();
             this.SuspendLayout();
             // 
             // tsHeaderControl
@@ -308,7 +309,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 80);
+            this.label1.Location = new System.Drawing.Point(37, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 1;
@@ -317,7 +318,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 108);
+            this.label2.Location = new System.Drawing.Point(25, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 3;
@@ -326,7 +327,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 135);
+            this.label3.Location = new System.Drawing.Point(22, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 5;
@@ -339,7 +340,7 @@
             this.dtpEffectDate.Location = new System.Drawing.Point(134, 127);
             this.dtpEffectDate.Name = "dtpEffectDate";
             this.dtpEffectDate.ShowCheckBox = true;
-            this.dtpEffectDate.Size = new System.Drawing.Size(214, 22);
+            this.dtpEffectDate.Size = new System.Drawing.Size(158, 22);
             this.dtpEffectDate.TabIndex = 6;
             // 
             // chkRestday1
@@ -370,6 +371,7 @@
             this.cmbMonday.Size = new System.Drawing.Size(157, 21);
             this.cmbMonday.TabIndex = 5;
             this.cmbMonday.SelectedIndexChanged += new System.EventHandler(this.cmbMonday_SelectedIndexChanged);
+            this.cmbMonday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbMonday_KeyDown);
             // 
             // chkRestday2
             // 
@@ -399,6 +401,7 @@
             this.cmbTuesday.Size = new System.Drawing.Size(157, 21);
             this.cmbTuesday.TabIndex = 5;
             this.cmbTuesday.SelectedIndexChanged += new System.EventHandler(this.cmbTuesday_SelectedIndexChanged);
+            this.cmbTuesday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTuesday_KeyDown);
             // 
             // chkRestday3
             // 
@@ -428,6 +431,7 @@
             this.cmbWednesday.Size = new System.Drawing.Size(157, 21);
             this.cmbWednesday.TabIndex = 5;
             this.cmbWednesday.SelectedIndexChanged += new System.EventHandler(this.cmbWednesday_SelectedIndexChanged);
+            this.cmbWednesday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWednesday_KeyDown);
             // 
             // chkRestday4
             // 
@@ -457,6 +461,7 @@
             this.cmbThursday.Size = new System.Drawing.Size(157, 21);
             this.cmbThursday.TabIndex = 5;
             this.cmbThursday.SelectedIndexChanged += new System.EventHandler(this.cmbThursday_SelectedIndexChanged);
+            this.cmbThursday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbThursday_KeyDown);
             // 
             // chkRestday5
             // 
@@ -486,6 +491,7 @@
             this.cmbFriday.Size = new System.Drawing.Size(157, 21);
             this.cmbFriday.TabIndex = 5;
             this.cmbFriday.SelectedIndexChanged += new System.EventHandler(this.cmbFriday_SelectedIndexChanged);
+            this.cmbFriday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbFriday_KeyDown);
             // 
             // chkRestday6
             // 
@@ -515,6 +521,7 @@
             this.cmbSaturday.Size = new System.Drawing.Size(157, 21);
             this.cmbSaturday.TabIndex = 5;
             this.cmbSaturday.SelectedIndexChanged += new System.EventHandler(this.cmbSaturday_SelectedIndexChanged);
+            this.cmbSaturday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSaturday_KeyDown);
             // 
             // chkRestday7
             // 
@@ -544,6 +551,7 @@
             this.cmbSunday.Size = new System.Drawing.Size(157, 21);
             this.cmbSunday.TabIndex = 5;
             this.cmbSunday.SelectedIndexChanged += new System.EventHandler(this.cmbSunday_SelectedIndexChanged);
+            this.cmbSunday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSunday_KeyDown);
             // 
             // label7
             // 
@@ -1249,7 +1257,7 @@
             // 
             // lblSunday_LUNCH
             // 
-            this.lblSunday_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblSunday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblSunday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSunday_LUNCH.Location = new System.Drawing.Point(587, 395);
             this.lblSunday_LUNCH.Name = "lblSunday_LUNCH";
@@ -1260,7 +1268,7 @@
             // 
             // lblSaturday_LUNCH
             // 
-            this.lblSaturday_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblSaturday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblSaturday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSaturday_LUNCH.Location = new System.Drawing.Point(587, 368);
             this.lblSaturday_LUNCH.Name = "lblSaturday_LUNCH";
@@ -1271,7 +1279,7 @@
             // 
             // lblFriday_LUNCH
             // 
-            this.lblFriday_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblFriday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblFriday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFriday_LUNCH.Location = new System.Drawing.Point(587, 341);
             this.lblFriday_LUNCH.Name = "lblFriday_LUNCH";
@@ -1282,7 +1290,7 @@
             // 
             // lblThursday_LUNCH
             // 
-            this.lblThursday_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblThursday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblThursday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblThursday_LUNCH.Location = new System.Drawing.Point(587, 315);
             this.lblThursday_LUNCH.Name = "lblThursday_LUNCH";
@@ -1293,7 +1301,7 @@
             // 
             // lblWednesday_LUNCH
             // 
-            this.lblWednesday_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblWednesday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblWednesday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWednesday_LUNCH.Location = new System.Drawing.Point(587, 288);
             this.lblWednesday_LUNCH.Name = "lblWednesday_LUNCH";
@@ -1304,7 +1312,7 @@
             // 
             // lblTuesday_LUNCH
             // 
-            this.lblTuesday_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblTuesday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblTuesday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTuesday_LUNCH.Location = new System.Drawing.Point(587, 261);
             this.lblTuesday_LUNCH.Name = "lblTuesday_LUNCH";
@@ -1315,7 +1323,7 @@
             // 
             // lblMonday_LUNCH
             // 
-            this.lblMonday_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lblMonday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblMonday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblMonday_LUNCH.Location = new System.Drawing.Point(587, 234);
             this.lblMonday_LUNCH.Name = "lblMonday_LUNCH";
@@ -1335,7 +1343,7 @@
             // 
             // lblSunday_BREAK
             // 
-            this.lblSunday_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblSunday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblSunday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSunday_BREAK.Location = new System.Drawing.Point(823, 394);
             this.lblSunday_BREAK.Name = "lblSunday_BREAK";
@@ -1346,7 +1354,7 @@
             // 
             // lblSaturday_BREAK
             // 
-            this.lblSaturday_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblSaturday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblSaturday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSaturday_BREAK.Location = new System.Drawing.Point(823, 367);
             this.lblSaturday_BREAK.Name = "lblSaturday_BREAK";
@@ -1357,7 +1365,7 @@
             // 
             // lblFriday_BREAK
             // 
-            this.lblFriday_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblFriday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblFriday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFriday_BREAK.Location = new System.Drawing.Point(823, 340);
             this.lblFriday_BREAK.Name = "lblFriday_BREAK";
@@ -1368,7 +1376,7 @@
             // 
             // lblThursday_BREAK
             // 
-            this.lblThursday_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblThursday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblThursday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblThursday_BREAK.Location = new System.Drawing.Point(823, 314);
             this.lblThursday_BREAK.Name = "lblThursday_BREAK";
@@ -1379,7 +1387,7 @@
             // 
             // lblWednesday_BREAK
             // 
-            this.lblWednesday_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblWednesday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblWednesday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblWednesday_BREAK.Location = new System.Drawing.Point(823, 287);
             this.lblWednesday_BREAK.Name = "lblWednesday_BREAK";
@@ -1390,7 +1398,7 @@
             // 
             // lblTuesday_BREAK
             // 
-            this.lblTuesday_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblTuesday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblTuesday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTuesday_BREAK.Location = new System.Drawing.Point(823, 260);
             this.lblTuesday_BREAK.Name = "lblTuesday_BREAK";
@@ -1401,7 +1409,7 @@
             // 
             // lblMonday_BREAK
             // 
-            this.lblMonday_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblMonday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblMonday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblMonday_BREAK.Location = new System.Drawing.Point(823, 233);
             this.lblMonday_BREAK.Name = "lblMonday_BREAK";
@@ -1487,15 +1495,8 @@
             this.cmbMachineNo.FormattingEnabled = true;
             this.cmbMachineNo.Location = new System.Drawing.Point(134, 155);
             this.cmbMachineNo.Name = "cmbMachineNo";
-            this.cmbMachineNo.Size = new System.Drawing.Size(214, 21);
+            this.cmbMachineNo.Size = new System.Drawing.Size(158, 21);
             this.cmbMachineNo.TabIndex = 99;
-            // 
-            // txtMachineID
-            // 
-            this.txtMachineID.Location = new System.Drawing.Point(134, 182);
-            this.txtMachineID.Name = "txtMachineID";
-            this.txtMachineID.Size = new System.Drawing.Size(158, 22);
-            this.txtMachineID.TabIndex = 100;
             // 
             // label6
             // 
@@ -1509,20 +1510,33 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(48, 185);
+            this.label13.Location = new System.Drawing.Point(49, 186);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 13);
             this.label13.TabIndex = 102;
             this.label13.Text = "MACHINE ID :";
+            // 
+            // numMachineID
+            // 
+            this.numMachineID.Location = new System.Drawing.Point(134, 184);
+            this.numMachineID.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numMachineID.Name = "numMachineID";
+            this.numMachineID.Size = new System.Drawing.Size(91, 22);
+            this.numMachineID.TabIndex = 103;
+            this.numMachineID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmAssignSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 487);
+            this.Controls.Add(this.numMachineID);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtMachineID);
             this.Controls.Add(this.cmbMachineNo);
             this.Controls.Add(this.lblEMP_PK);
             this.Controls.Add(this.lblEmployeeName);
@@ -1645,6 +1659,7 @@
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
             this.pnlMode.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numMachineID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1782,8 +1797,8 @@
         private System.Windows.Forms.Label lblEmployeeName;
         private System.Windows.Forms.Label lblEMP_PK;
         private System.Windows.Forms.ComboBox cmbMachineNo;
-        private System.Windows.Forms.TextBox txtMachineID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numMachineID;
     }
 }

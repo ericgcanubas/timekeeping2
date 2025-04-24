@@ -69,6 +69,12 @@ namespace TimeKeepingII
         }
         private void tsAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "ADD"))
+            {
+                return;
+            }
+
+
             if (dtEmployee != null)
             {
                 FrmList frm = new FrmList(dtEmployee);
@@ -120,28 +126,38 @@ namespace TimeKeepingII
 
 
         }
+        private void RefreshData()
+        {
+
+            RestDayResetter(0);
+            string squery = $@"{sSelectSql}  WHERE EmployeeShifting.PK = {lblPK.Text} ORDER BY EmployeeShifting.PK  ";
+            DataRecord(squery);
+            checkOpen();
+        }
         private void tsCancel_Click(object sender, EventArgs e)
         {
+            clsComponentControl.HeaderMenu(tsHeaderControl, true);
+            clsComponentControl.ObjectEnable(this, false);
 
             if (lblPK.Text.Length > 0)
             {
 
-                string squery = $@"{sSelectSql}  WHERE EmployeeShifting.PK = {lblPK.Text} ORDER BY EmployeeShifting.PK  ";
-                DataRecord(squery);
+                RefreshData();
             }
             else
             {
                 clsComponentControl.ClearValue(this);
             }
 
-            clsComponentControl.HeaderMenu(tsHeaderControl, true);
-            clsComponentControl.ObjectEnable(this, false);
+
 
         }
         private void tsSave_Click(object sender, EventArgs e)
         {
             if (cmbMachineNo.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Select Machine Number!"); return; }
-            if (txtMachineID.Text.Trim().Length == 0) { clsMessage.MessageShowWarning("Please Supply Machine ID!"); return; }
+            if (dtpEffectDate.Checked == false) { clsMessage.MessageShowWarning("Please Supply Date Effectively!"); return; }
+
+            if (numMachineID.Value == 0) { clsMessage.MessageShowWarning("Please Supply Machine ID!"); return; }
             if (chkOpenMon.Checked == false && cmbMonday.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Supply Monday Shifting Schedule!"); return; }
             if (chkOpenTue.Checked == false && cmbTuesday.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Supply Tuesday Shifting Schedule!"); return; }
             if (chkOpenWed.Checked == false && cmbWednesday.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Supply Wednesday Shifting Schedule!"); return; }
@@ -151,21 +167,37 @@ namespace TimeKeepingII
             if (chkOpenSun.Checked == false && cmbSunday.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Supply Sunday Shifting Schedule!"); return; }
             if (getRestDay() == 0) { clsMessage.MessageShowWarning("Please Select Restday!"); return; }
 
-            string LastModify =  DateTime.Now.ToString() + " " + clsAccessControl.gsUsername;
+
+            // initialize value
+            string LastModify = DateTime.Now.ToString() + " " + clsAccessControl.gsUsername;
+            object SundayID = (!chkOpenSun.Checked ? cmbSunday.SelectedValue : 0);
+            object MondayID = (!chkOpenMon.Checked ? cmbMonday.SelectedValue : 0);
+            object TuesdayID = (!chkOpenTue.Checked ? cmbTuesday.SelectedValue : 0);
+            object WednesdayID = (!chkOpenWed.Checked ? cmbWednesday.SelectedValue : 0);
+            object ThursdayID = (!chkOpenThu.Checked ? cmbThursday.SelectedValue : 0);
+            object FridayID = (!chkOpenFri.Checked ? cmbFriday.SelectedValue : 0);
+            object Saturday = (!chkOpenSat.Checked ? cmbSaturday.SelectedValue : 0);
+
 
             if (lblPK.Text.Length == 0) // INSERT
             {
-                int PK = clsBiometrics.ExecuteNonQuery($@"INSERT INTO EmployeeShifting
+                object ID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO EmployeeShifting
                      (EmpNo, EmpID, EmpName, EffectDate, 
                      MachineID, MachineNo, Sunday, Monday, 
                      Tuesday, Wednesday, Thursday, Friday, 
                      Saturday, RestDay, LastModified, Added)
                      VALUES
                     ({lblEMP_PK.Text},'{lblEMPLOYEE_NO.Text}','{lblEmployeeName.Text}','{dtpEffectDate.Value}',
-                    {txtMachineID.Text},{cmbMachineNo.SelectedValue},{cmbSunday.SelectedValue},{cmbMonday.SelectedValue},
-                    {cmbTuesday.SelectedValue},{cmbWednesday.SelectedValue},{cmbThursday.SelectedValue},{cmbFriday.SelectedValue},
-                    {cmbSaturday.SelectedValue},{getRestDay()},'{LastModify}',1)");
+                    {numMachineID.Value},{cmbMachineNo.SelectedValue},{SundayID},{MondayID},
+                    {TuesdayID},{WednesdayID},{ThursdayID},{FridayID},
+                    {Saturday},{getRestDay()},'{LastModify}',1)");
 
+                if (ID == null)
+                {
+                    return;
+                }
+
+                int PK = Convert.ToInt32(ID);
                 if (PK > 0)
                 {
                     lblPK.Text = PK.ToString();
@@ -182,11 +214,11 @@ namespace TimeKeepingII
                 bool isSuccess = clsBiometrics.ExecuteNonQueryBool($@"UPDATE EmployeeShifting
                     SET EmpNo = {lblEMP_PK.Text}, EmpID = '{lblEMPLOYEE_NO.Text}',
                         EmpName = '{lblEmployeeName.Text}', EffectDate = '{dtpEffectDate.Value}', 
-                        MachineID ={txtMachineID.Text}, MachineNo = {cmbMachineNo.SelectedValue} , 
-                        Sunday = {cmbSunday.SelectedValue }, Monday = {(!chkOpenMon.Checked ? cmbMonday.SelectedValue : 0)},
-                        Tuesday = {cmbTuesday.SelectedValue}, Wednesday = {cmbWednesday.SelectedValue},
-                        Thursday = {cmbThursday.SelectedValue}, Friday = {cmbFriday.SelectedValue}, 
-                        Saturday = {cmbSunday.SelectedValue}, RestDay = {getRestDay()}, 
+                        MachineID ={numMachineID.Value}, MachineNo = {cmbMachineNo.SelectedValue} , 
+                        Sunday = { SundayID}, Monday = {MondayID},
+                        Tuesday = { TuesdayID}, Wednesday = { WednesdayID},
+                        Thursday = {ThursdayID}, Friday = {FridayID}, 
+                        Saturday = {Saturday}, RestDay = {getRestDay()}, 
                         LastModified = '{LastModify}', Editted = 0 
                         WHERE (PK ={lblPK.Text})");
 
@@ -198,7 +230,7 @@ namespace TimeKeepingII
 
             }
 
-           
+
         }
         private void updateProfile()
         {
@@ -206,7 +238,6 @@ namespace TimeKeepingII
             if (payData != null)
             {
                 clsBiometrics.ExecuteNonQueryBool($@" UPDATE EmployeeName SET Privilege = 0, ProfilePK={payData["ProfilePK"].ToString()} WHERE (EmpPK = {lblEMP_PK.Text})");
-
             }
         }
         private int getRestDay()
@@ -232,6 +263,13 @@ namespace TimeKeepingII
         {
             if (lblPK.Text.Length > 0)
             {
+                if (!clsAccessControl.AccessRight(this.AccessibleDescription, "EDIT"))
+                {
+                    return;
+                }
+
+
+
                 clsComponentControl.HeaderMenu(tsHeaderControl, false);
                 clsComponentControl.ObjectEnable(this, true);
             }
@@ -342,7 +380,7 @@ namespace TimeKeepingII
             cmbSunday.Enabled = !chkOpenSun.Checked;
 
 
-            if (!chkOpenSun.Checked)
+            if (chkOpenSun.Checked)
             {
                 cmbSunday.SelectedIndex = -1;
             }
@@ -713,6 +751,7 @@ namespace TimeKeepingII
             if (chkRestday1.Checked)
             {
                 chkOpenMon.Checked = false;
+                RestDayResetter(1);
             }
         }
         private void chkRestday2_CheckedChanged(object sender, EventArgs e)
@@ -720,6 +759,7 @@ namespace TimeKeepingII
             if (chkRestday2.Checked)
             {
                 chkOpenTue.Checked = false;
+                RestDayResetter(2);
             }
         }
         private void chkRestday3_CheckedChanged(object sender, EventArgs e)
@@ -727,6 +767,7 @@ namespace TimeKeepingII
             if (chkRestday3.Checked)
             {
                 chkOpenWed.Checked = false;
+                RestDayResetter(3);
             }
         }
         private void chkRestday4_CheckedChanged(object sender, EventArgs e)
@@ -734,6 +775,7 @@ namespace TimeKeepingII
             if (chkRestday4.Checked)
             {
                 chkOpenThu.Checked = false;
+                RestDayResetter(4);
             }
         }
         private void chkRestday5_CheckedChanged(object sender, EventArgs e)
@@ -741,6 +783,7 @@ namespace TimeKeepingII
             if (chkRestday5.Checked)
             {
                 chkOpenFri.Checked = false;
+                RestDayResetter(5);
             }
         }
         private void chkRestday6_CheckedChanged(object sender, EventArgs e)
@@ -748,6 +791,7 @@ namespace TimeKeepingII
             if (chkRestday6.Checked)
             {
                 chkOpenSat.Checked = false;
+                RestDayResetter(6);
             }
         }
         private void chkRestday7_CheckedChanged(object sender, EventArgs e)
@@ -755,6 +799,7 @@ namespace TimeKeepingII
             if (chkRestday7.Checked)
             {
                 chkOpenSun.Checked = false;
+                RestDayResetter(7);
             }
         }
 
@@ -767,8 +812,8 @@ namespace TimeKeepingII
             {
                 clsComponentControl.ClearValue(this);
                 lblPK.Text = frm.PK;
-                string squery = $@"{sSelectSql}  WHERE EmployeeShifting.PK = {lblPK.Text} ORDER BY EmployeeShifting.PK  ";
-                DataRecord(squery);
+                RefreshData();
+
             }
         }
         private void DataRecord(string squery)
@@ -849,6 +894,148 @@ namespace TimeKeepingII
                 }
 
 
+            }
+        }
+
+        private void checkOpen()
+        {
+
+            chkOpenMon.Checked = (cmbMonday.Text.ToString().Trim().Length > 0 ? false : true);
+            chkOpenTue.Checked = (cmbTuesday.Text.Trim().Length > 0 ? false : true);
+            chkOpenWed.Checked = (cmbWednesday.Text.Trim().Length > 0 ? false : true);
+            chkOpenThu.Checked = (cmbThursday.Text.Trim().Length > 0 ? false : true);
+            chkOpenFri.Checked = (cmbFriday.Text.Trim().Length > 0 ? false : true);
+            chkOpenSat.Checked = (cmbSaturday.Text.Trim().Length > 0 ? false : true);
+            chkOpenSun.Checked = (cmbSunday.Text.Trim().Length > 0 ? false : true);
+        }
+        private void RestDayResetter(int ID)
+        {
+
+            if (numMachineID.Enabled == false && ID > 0)
+            {
+                return;
+            }
+
+
+            CheckBox[] chkRest = { chkRestday1, chkRestday2, chkRestday3, chkRestday4, chkRestday5, chkRestday6, chkRestday7 };
+            int r = 0;
+            foreach (var chk in chkRest)
+            {
+                r++;
+
+                if (r == ID)
+                {
+                    chk.Checked = true;
+                }
+                else
+                {
+                    chk.Checked = false;
+                }
+            }
+        }
+
+        private void cmbMonday_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode  == Keys.F5)
+            {
+                FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
+                frm.ShowDialog();
+
+                if (frm.isYes == true)
+                {
+                    cmbMonday.SelectedValue = frm.PK;
+
+                }
+            }
+        }
+
+        private void cmbTuesday_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
+                frm.ShowDialog();
+
+                if (frm.isYes == true)
+                {
+                    cmbTuesday.SelectedValue = frm.PK;
+
+                }
+            }
+        }
+
+        private void cmbWednesday_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
+                frm.ShowDialog();
+
+                if (frm.isYes == true)
+                {
+                    cmbWednesday.SelectedValue = frm.PK;
+
+                }
+            }
+        }
+
+        private void cmbThursday_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
+                frm.ShowDialog();
+
+                if (frm.isYes == true)
+                {
+                    cmbThursday.SelectedValue = frm.PK;
+
+                }
+            }
+        }
+
+        private void cmbFriday_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
+                frm.ShowDialog();
+
+                if (frm.isYes == true)
+                {
+                    cmbFriday.SelectedValue = frm.PK;
+
+                }
+            }
+        }
+
+        private void cmbSaturday_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
+                frm.ShowDialog();
+
+                if (frm.isYes == true)
+                {
+                    cmbSaturday.SelectedValue = frm.PK;
+
+                }
+            }
+        }
+
+        private void cmbSunday_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
+                frm.ShowDialog();
+
+                if (frm.isYes == true)
+                {
+                    cmbSunday.SelectedValue = frm.PK;
+
+                }
             }
         }
     }

@@ -37,3 +37,4 @@ C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeK
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmShiftingSchedule.resources
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmFind.resources
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmList.resources
+C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmChangeShifting.resources
