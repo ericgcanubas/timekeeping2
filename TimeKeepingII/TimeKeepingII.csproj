@@ -161,6 +161,9 @@
     <EmbeddedResource Include="FrmAssignSchedule.resx">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangeDayoff.resx">
+      <DependentUpon>FrmChangeDayoff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmChangeShifting.resx">
       <DependentUpon>FrmChangeShifting.cs</DependentUpon>
     </EmbeddedResource>
