@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace TimeKeepingII
 {
@@ -106,6 +107,15 @@ namespace TimeKeepingII
             {
                 return "";
             }
+        }
+        public static string SQL_DateTime(DateTimePicker dt)
+        {
+            if (dt.Checked)
+            {
+                return $@"'{"1990-01-01 " + dt.Value.ToString("HH:mm")}'";
+            }
+
+            return "null";
         }
 
     }

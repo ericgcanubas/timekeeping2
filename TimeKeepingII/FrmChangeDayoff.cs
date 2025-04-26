@@ -11,9 +11,17 @@ namespace TimeKeepingII
 {
     public partial class FrmChangeDayoff : Form
     {
+
+        DataTable dtEmployee;
+
         public FrmChangeDayoff()
         {
             InitializeComponent();
+        }
+
+        private void FrmChangeDayoff_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

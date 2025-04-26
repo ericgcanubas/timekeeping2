@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -23,11 +24,9 @@ namespace TimeKeepingII
                         case "Add":
                             btn.Enabled = isActive ? true : false;
                             break;
-
                         case "Edit":
                             btn.Enabled = isActive ? true : false;
                             break;
-
                         case "Delete":
                             btn.Enabled = isActive ? true : false;
                             break;
@@ -50,15 +49,20 @@ namespace TimeKeepingII
                         case "First":
                             btn.Enabled = isActive ? true : false;
                             break;
-
                         case "Last":
                             btn.Enabled = isActive ? true : false;
                             break;
-
                         case "Back":
                             btn.Enabled = isActive ? true : false;
                             break;
                         case "Next":
+                            btn.Enabled = isActive ? true : false;
+                            break;
+
+                        case "Print":
+                            btn.Enabled = isActive ? true : false;
+                            break;
+                        case "Post":
                             btn.Enabled = isActive ? true : false;
                             break;
                         default:
@@ -257,7 +261,7 @@ namespace TimeKeepingII
                         break;
                     case "cmb":
                         ComboBox cmb = (ComboBox)item;
-                       
+
                         if (cmb.Tag == null || cmb.Tag.ToString() != "EnterHooked")
                         {
                             cmb.Enter += new EventHandler(cmbAutoDropdown_Enter);
@@ -273,9 +277,18 @@ namespace TimeKeepingII
 
                     case "dtp":
                         DateTimePicker dtp = (DateTimePicker)item;
-                        dtp.Value = clsDateTime.getEmpty();
-                        dtp.Checked = false;
 
+                        if (dtp.ShowCheckBox)
+                        {
+                            dtp.Value = clsDateTime.GetDefault();
+                            dtp.Checked = false;
+                        }
+                        else
+                        {
+                            dtp.Value = clsDateTime.NowDay();
+                        }
+
+                     
                         break;
                     case "tab":
                         TabControl tab = (TabControl)item;

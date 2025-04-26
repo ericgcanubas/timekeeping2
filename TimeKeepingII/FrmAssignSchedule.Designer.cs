@@ -300,6 +300,7 @@
             this.tsLocked.Name = "tsLocked";
             this.tsLocked.Size = new System.Drawing.Size(106, 49);
             this.tsLocked.Text = "LOCKED";
+            this.tsLocked.Visible = false;
             // 
             // toolStripSeparator7
             // 
@@ -311,7 +312,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(37, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "EMPLOYEE NO. :";
             // 
@@ -320,7 +321,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "EMPLOYEE NAME :";
             // 
@@ -329,7 +330,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(22, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 13);
+            this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "DATE EFFECTIVELY :";
             // 
@@ -340,7 +341,7 @@
             this.dtpEffectDate.Location = new System.Drawing.Point(134, 127);
             this.dtpEffectDate.Name = "dtpEffectDate";
             this.dtpEffectDate.ShowCheckBox = true;
-            this.dtpEffectDate.Size = new System.Drawing.Size(158, 22);
+            this.dtpEffectDate.Size = new System.Drawing.Size(158, 20);
             this.dtpEffectDate.TabIndex = 6;
             // 
             // chkRestday1
@@ -559,7 +560,7 @@
             this.label7.ForeColor = System.Drawing.Color.Blue;
             this.label7.Location = new System.Drawing.Point(131, 213);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 9;
             this.label7.Text = "Shift name";
             // 
@@ -569,7 +570,7 @@
             this.label8.ForeColor = System.Drawing.Color.Blue;
             this.label8.Location = new System.Drawing.Point(291, 213);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 10;
             this.label8.Text = "Restday";
             // 
@@ -578,7 +579,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(370, 213);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 13;
             this.label10.Text = "(IN) AM";
             // 
@@ -587,7 +588,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(430, 213);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 13);
+            this.label12.Size = new System.Drawing.Size(69, 13);
             this.label12.TabIndex = 14;
             this.label12.Text = "(OUT) Lunch";
             // 
@@ -596,14 +597,14 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(516, 213);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 13);
+            this.label16.Size = new System.Drawing.Size(57, 13);
             this.label16.TabIndex = 15;
             this.label16.Text = "(IN) Lunch";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(669, 213);
+            this.label18.Location = new System.Drawing.Point(674, 213);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(67, 13);
             this.label18.TabIndex = 16;
@@ -612,7 +613,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(751, 213);
+            this.label20.Location = new System.Drawing.Point(754, 213);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(55, 13);
             this.label20.TabIndex = 17;
@@ -621,7 +622,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(905, 213);
+            this.label22.Location = new System.Drawing.Point(908, 213);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 18;
@@ -1169,9 +1170,9 @@
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(975, 213);
+            this.label65.Location = new System.Drawing.Point(976, 213);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(34, 13);
+            this.label65.Size = new System.Drawing.Size(32, 13);
             this.label65.TabIndex = 68;
             this.label65.Text = "Fixed";
             // 
@@ -1181,7 +1182,7 @@
             this.label5.ForeColor = System.Drawing.Color.Blue;
             this.label5.Location = new System.Drawing.Point(85, 213);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 76;
             this.label5.Text = "Open";
             // 
@@ -1337,7 +1338,7 @@
             this.label70.AutoSize = true;
             this.label70.Location = new System.Drawing.Point(592, 213);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(66, 13);
+            this.label70.Size = new System.Drawing.Size(62, 13);
             this.label70.TabIndex = 77;
             this.label70.Text = "Lunch Mins";
             // 
@@ -1423,7 +1424,7 @@
             this.label78.AutoSize = true;
             this.label78.Location = new System.Drawing.Point(826, 212);
             this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(69, 13);
+            this.label78.Size = new System.Drawing.Size(66, 13);
             this.label78.TabIndex = 85;
             this.label78.Text = "(Break) Mins";
             // 
@@ -1525,7 +1526,7 @@
             0,
             0});
             this.numMachineID.Name = "numMachineID";
-            this.numMachineID.Size = new System.Drawing.Size(91, 22);
+            this.numMachineID.Size = new System.Drawing.Size(91, 20);
             this.numMachineID.TabIndex = 103;
             this.numMachineID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1650,7 +1651,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tsHeaderControl);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmAssignSchedule";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

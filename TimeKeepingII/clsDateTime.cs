@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -11,7 +12,19 @@ namespace TimeKeepingII
 
         public static DateTime getEmpty()
         {
-            return new DateTime(1990, 1, 1, 0, 0, 1);
+            return  DateTime.ParseExact($"1900-01-01 00:00:00.000", "yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+        }
+        public static DateTime GetDefault()
+        {
+            return DateTime.ParseExact($"{NowDay().ToString("yyyy-MM-dd")} 00:00:00.000", "yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+        }
+        public static string LastModify()
+        {
+            return  DateTime.Now.ToString() + " " + clsAccessControl.gsUsername;
+        }
+        public static DateTime NowDay()
+        {
+            return DateTime.Now;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace TimeKeepingII
 {
     public partial class FrmAssignSchedule : Form
     {
-
+        FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 EmployeeShifting.PK, EmployeeName.EmpName,  EmployeeName.EmpID, EmployeeShifting.EffectDate  FROM EmployeeShifting LEFT OUTER JOIN EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ");
         readonly string sSelectSql = "SELECT EmployeeShifting.*, EmployeeName.EmpName as EmployeeName,  EmployeeName.EmpID as EMPLOYEE_NO, EmployeeName.EmpPK as  EMP_PK  FROM EmployeeShifting LEFT JOIN  EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ";
         DataTable dtEmployee;
         public FrmAssignSchedule()
@@ -21,18 +21,7 @@ namespace TimeKeepingII
         private void FrmAssignSchedule_Load(object sender, EventArgs e)
         {
             CustomDataTable();
-            string str = $@"SELECT PK, 
-                        EEmployeeIDNo, 
-                        ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name, ELastName, 
-                        ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
-                        ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
-                        FROM tbl_Profile_IDNumber 
-                        WHERE (ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND 
-                        (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) <> 4)  
-                        AND (ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) = 1) 
-                        ORDER BY ELastName + ',  ' + EFirstName + '  ' + EMiddleName, EEmployeeIDNo
-                        ";
-            dtEmployee = clsPayrollSystem.dataList(str);
+            dtEmployee = clsPayrollSystem.dataList(clsGlobal.EmployeeFind);
             LoadShift();
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
@@ -169,7 +158,7 @@ namespace TimeKeepingII
 
 
             // initialize value
-            string LastModify = DateTime.Now.ToString() + " " + clsAccessControl.gsUsername;
+            string LastModify = clsDateTime.LastModify();
             object SundayID = (!chkOpenSun.Checked ? cmbSunday.SelectedValue : 0);
             object MondayID = (!chkOpenMon.Checked ? cmbMonday.SelectedValue : 0);
             object TuesdayID = (!chkOpenTue.Checked ? cmbTuesday.SelectedValue : 0);
@@ -805,15 +794,15 @@ namespace TimeKeepingII
 
         private void tsFind_Click(object sender, EventArgs e)
         {
-            FrmFind frm = new FrmFind($@"SELECT TOP 1000 EmployeeShifting.PK, EmployeeName.EmpName,  EmployeeName.EmpID, EmployeeShifting.EffectDate  FROM EmployeeShifting LEFT OUTER JOIN EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK");
-            frm.ShowDialog();
+            frmFind.ShowDialog();
 
-            if (frm.isYes == true)
+            if (frmFind.isYes == true)
             {
+                frmFind.isYes = false;
                 clsComponentControl.ClearValue(this);
-                lblPK.Text = frm.PK;
+                lblPK.Text = frmFind.PK;
                 RefreshData();
-
+             
             }
         }
         private void DataRecord(string squery)
@@ -936,7 +925,7 @@ namespace TimeKeepingII
 
         private void cmbMonday_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode  == Keys.F5)
+            if (e.KeyCode == Keys.F5)
             {
                 FrmFind frm = new FrmFind($@"SELECT PK,ShiftName From ShiftingSchedule");
                 frm.ShowDialog();

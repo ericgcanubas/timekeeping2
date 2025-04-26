@@ -78,6 +78,8 @@ namespace TimeKeepingII
         }
         public static DataTable dataList(string query)
         {
+            Application.DoEvents();
+            Cursor.Current = Cursors.WaitCursor;
             DataTable dataTable = new DataTable();
             try
 
@@ -99,6 +101,10 @@ namespace TimeKeepingII
                 MessageBox.Show(ex.Message, "Error message");
                 Application.Exit();
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default; // Restore default cursor
+            }
 
             return dataTable;
         }
@@ -106,7 +112,7 @@ namespace TimeKeepingII
         public static int ExecuteNonQuery(string query)
         {
             int rowsAffected = 0;
-
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 using (OdbcConnection connection = GetConnection())
@@ -123,6 +129,11 @@ namespace TimeKeepingII
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
 
             return rowsAffected;
         }
@@ -130,7 +141,7 @@ namespace TimeKeepingII
         public static Dictionary<string, object> GetFirstRecord(string query)
         {
             Dictionary<string, object> result = null;
-
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 using (OdbcConnection connection = clsPayrollSystem.GetConnection())
@@ -153,6 +164,10 @@ namespace TimeKeepingII
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error message");
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
             }
 
             return result;

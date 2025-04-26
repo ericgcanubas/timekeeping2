@@ -56,28 +56,48 @@
             this.tsClose = new System.Windows.Forms.ToolStripButton();
             this.tsLocked = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.lblEMP_PK = new System.Windows.Forms.Label();
+            this.lblEmpNo = new System.Windows.Forms.Label();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.lblEMPLOYEE_NO = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCtrlNo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbShift = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpEffectDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNotedBy = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtApprovedBy = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.gpbShiftDetails = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblBREAK = new System.Windows.Forms.Label();
+            this.lblLUNCH = new System.Windows.Forms.Label();
+            this.chkFixed = new System.Windows.Forms.CheckBox();
+            this.lblOUT_PM = new System.Windows.Forms.Label();
+            this.lblIN_BREAK = new System.Windows.Forms.Label();
+            this.lblOUT_BREAK = new System.Windows.Forms.Label();
+            this.lblIN_LUNCH = new System.Windows.Forms.Label();
+            this.lblOUT_LUNCH = new System.Windows.Forms.Label();
+            this.lblIN_AM = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pnlMode = new System.Windows.Forms.Panel();
+            this.lblLastModified = new System.Windows.Forms.Label();
+            this.lblPK = new System.Windows.Forms.Label();
+            this.chkOpen = new System.Windows.Forms.CheckBox();
             this.tsHeaderControl.SuspendLayout();
+            this.gpbShiftDetails.SuspendLayout();
+            this.pnlMode.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsHeaderControl
@@ -114,7 +134,7 @@
             this.tsHeaderControl.Location = new System.Drawing.Point(0, 0);
             this.tsHeaderControl.Name = "tsHeaderControl";
             this.tsHeaderControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsHeaderControl.Size = new System.Drawing.Size(797, 52);
+            this.tsHeaderControl.Size = new System.Drawing.Size(1160, 52);
             this.tsHeaderControl.TabIndex = 2;
             this.tsHeaderControl.Text = "toolStrip1";
             // 
@@ -126,6 +146,7 @@
             this.tsAdd.Size = new System.Drawing.Size(34, 49);
             this.tsAdd.Text = "Add";
             this.tsAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsAdd.Click += new System.EventHandler(this.tsAdd_Click);
             // 
             // toolStripSeparator1
             // 
@@ -140,6 +161,7 @@
             this.tsEdit.Size = new System.Drawing.Size(34, 49);
             this.tsEdit.Text = "Edit";
             this.tsEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsEdit.Click += new System.EventHandler(this.tsEdit_Click);
             // 
             // toolStripSeparator2
             // 
@@ -154,6 +176,7 @@
             this.tsDelete.Size = new System.Drawing.Size(44, 49);
             this.tsDelete.Text = "Delete";
             this.tsDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsDelete.Click += new System.EventHandler(this.tsDelete_Click);
             // 
             // toolStripSeparator3
             // 
@@ -168,6 +191,7 @@
             this.tsSave.Size = new System.Drawing.Size(35, 49);
             this.tsSave.Text = "Save";
             this.tsSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsSave.Click += new System.EventHandler(this.tsSave_Click);
             // 
             // toolStripSeparator4
             // 
@@ -182,6 +206,7 @@
             this.tsCancel.Size = new System.Drawing.Size(40, 49);
             this.tsCancel.Text = "Undo";
             this.tsCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsCancel.Click += new System.EventHandler(this.tsCancel_Click);
             // 
             // toolStripSeparator11
             // 
@@ -196,6 +221,7 @@
             this.tsFirst.Size = new System.Drawing.Size(34, 49);
             this.tsFirst.Text = "First";
             this.tsFirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsFirst.Click += new System.EventHandler(this.tsFirst_Click);
             // 
             // toolStripSeparator10
             // 
@@ -210,6 +236,7 @@
             this.tsBack.Size = new System.Drawing.Size(36, 49);
             this.tsBack.Text = "Back";
             this.tsBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBack.Click += new System.EventHandler(this.tsBack_Click);
             // 
             // toolStripSeparator9
             // 
@@ -224,6 +251,7 @@
             this.tsNext.Size = new System.Drawing.Size(36, 49);
             this.tsNext.Text = "Next";
             this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
             // 
             // toolStripSeparator8
             // 
@@ -238,6 +266,7 @@
             this.tsLast.Size = new System.Drawing.Size(34, 49);
             this.tsLast.Text = "Last";
             this.tsLast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsLast.Click += new System.EventHandler(this.tsLast_Click);
             // 
             // toolStripSeparator5
             // 
@@ -252,6 +281,7 @@
             this.tsFind.Size = new System.Drawing.Size(34, 49);
             this.tsFind.Text = "Find";
             this.tsFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsFind.Click += new System.EventHandler(this.tsFind_Click);
             // 
             // toolStripSeparator6
             // 
@@ -294,6 +324,7 @@
             this.tsClose.Size = new System.Drawing.Size(40, 49);
             this.tsClose.Text = "Close";
             this.tsClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsClose.Click += new System.EventHandler(this.tsClose_Click);
             // 
             // tsLocked
             // 
@@ -310,17 +341,17 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 52);
             // 
-            // lblEMP_PK
+            // lblEmpNo
             // 
-            this.lblEMP_PK.BackColor = System.Drawing.Color.White;
-            this.lblEMP_PK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEMP_PK.Location = new System.Drawing.Point(297, 69);
-            this.lblEMP_PK.Name = "lblEMP_PK";
-            this.lblEMP_PK.Size = new System.Drawing.Size(50, 21);
-            this.lblEMP_PK.TabIndex = 102;
-            this.lblEMP_PK.Text = " ";
-            this.lblEMP_PK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEMP_PK.Visible = false;
+            this.lblEmpNo.BackColor = System.Drawing.Color.White;
+            this.lblEmpNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEmpNo.Location = new System.Drawing.Point(296, 69);
+            this.lblEmpNo.Name = "lblEmpNo";
+            this.lblEmpNo.Size = new System.Drawing.Size(50, 21);
+            this.lblEmpNo.TabIndex = 102;
+            this.lblEmpNo.Text = " ";
+            this.lblEmpNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEmpNo.Visible = false;
             // 
             // lblEmployeeName
             // 
@@ -346,7 +377,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 72);
+            this.label1.Location = new System.Drawing.Point(37, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 99;
@@ -355,44 +386,44 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 100);
+            this.label2.Location = new System.Drawing.Point(24, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 103;
-            this.label2.Text = "EMPLOYEE NAME. :";
+            this.label2.Text = "EMPLOYEE NAME :";
             // 
-            // label3
+            // lblCtrlNo
             // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(133, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 21);
-            this.label3.TabIndex = 104;
-            this.label3.Text = " ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCtrlNo.BackColor = System.Drawing.Color.White;
+            this.lblCtrlNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCtrlNo.Location = new System.Drawing.Point(133, 122);
+            this.lblCtrlNo.Name = "lblCtrlNo";
+            this.lblCtrlNo.Size = new System.Drawing.Size(158, 21);
+            this.lblCtrlNo.TabIndex = 104;
+            this.lblCtrlNo.Text = " ";
+            this.lblCtrlNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 128);
+            this.label4.Location = new System.Drawing.Point(43, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 105;
             this.label4.Text = "CONTROL NO. :";
             // 
-            // dateTimePicker1
+            // dtpDDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 149);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(158, 20);
-            this.dateTimePicker1.TabIndex = 106;
+            this.dtpDDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDDate.Location = new System.Drawing.Point(133, 149);
+            this.dtpDDate.Name = "dtpDDate";
+            this.dtpDDate.Size = new System.Drawing.Size(158, 20);
+            this.dtpDDate.TabIndex = 106;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(84, 153);
+            this.label5.Location = new System.Drawing.Point(88, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 107;
@@ -400,7 +431,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 176);
+            this.textBox1.Location = new System.Drawing.Point(133, 175);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(158, 20);
             this.textBox1.TabIndex = 108;
@@ -408,24 +439,25 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 179);
+            this.label6.Location = new System.Drawing.Point(30, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 109;
             this.label6.Text = "REFERENCE NO. :";
             // 
-            // comboBox1
+            // cmbShift
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 202);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 21);
-            this.comboBox1.TabIndex = 110;
+            this.cmbShift.FormattingEnabled = true;
+            this.cmbShift.Location = new System.Drawing.Point(133, 201);
+            this.cmbShift.Name = "cmbShift";
+            this.cmbShift.Size = new System.Drawing.Size(158, 21);
+            this.cmbShift.TabIndex = 110;
+            this.cmbShift.SelectedIndexChanged += new System.EventHandler(this.cmbShift_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(82, 205);
+            this.label7.Location = new System.Drawing.Point(86, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 111;
@@ -434,93 +466,298 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 232);
+            this.label8.Location = new System.Drawing.Point(15, 231);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(115, 13);
             this.label8.TabIndex = 113;
             this.label8.Text = "DATE EFFECTIVELY :";
             // 
-            // dateTimePicker2
+            // dtpEffectDate
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(133, 229);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ShowCheckBox = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(158, 20);
-            this.dateTimePicker2.TabIndex = 112;
+            this.dtpEffectDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEffectDate.Location = new System.Drawing.Point(133, 228);
+            this.dtpEffectDate.Name = "dtpEffectDate";
+            this.dtpEffectDate.ShowCheckBox = true;
+            this.dtpEffectDate.Size = new System.Drawing.Size(158, 20);
+            this.dtpEffectDate.TabIndex = 112;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(59, 258);
+            this.label9.Location = new System.Drawing.Point(62, 257);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 115;
             this.label9.Text = "NOTED BY :";
             // 
-            // textBox2
+            // txtNotedBy
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 255);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(462, 20);
-            this.textBox2.TabIndex = 114;
+            this.txtNotedBy.Location = new System.Drawing.Point(133, 254);
+            this.txtNotedBy.Name = "txtNotedBy";
+            this.txtNotedBy.Size = new System.Drawing.Size(462, 20);
+            this.txtNotedBy.TabIndex = 114;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(40, 284);
+            this.label10.Location = new System.Drawing.Point(41, 283);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 13);
             this.label10.TabIndex = 117;
             this.label10.Text = "APPROVED BY :";
             // 
-            // textBox3
+            // txtApprovedBy
             // 
-            this.textBox3.Location = new System.Drawing.Point(133, 281);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(462, 20);
-            this.textBox3.TabIndex = 116;
+            this.txtApprovedBy.Location = new System.Drawing.Point(133, 280);
+            this.txtApprovedBy.Name = "txtApprovedBy";
+            this.txtApprovedBy.Size = new System.Drawing.Size(462, 20);
+            this.txtApprovedBy.TabIndex = 116;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(68, 310);
+            this.label11.Location = new System.Drawing.Point(72, 309);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 13);
             this.label11.TabIndex = 119;
             this.label11.Text = "REASON :";
             // 
-            // textBox4
+            // txtRemarks
             // 
-            this.textBox4.Location = new System.Drawing.Point(133, 310);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(462, 67);
-            this.textBox4.TabIndex = 120;
+            this.txtRemarks.Location = new System.Drawing.Point(133, 308);
+            this.txtRemarks.Multiline = true;
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(462, 67);
+            this.txtRemarks.TabIndex = 120;
+            // 
+            // gpbShiftDetails
+            // 
+            this.gpbShiftDetails.Controls.Add(this.label14);
+            this.gpbShiftDetails.Controls.Add(this.lblBREAK);
+            this.gpbShiftDetails.Controls.Add(this.lblLUNCH);
+            this.gpbShiftDetails.Controls.Add(this.chkFixed);
+            this.gpbShiftDetails.Controls.Add(this.lblOUT_PM);
+            this.gpbShiftDetails.Controls.Add(this.lblIN_BREAK);
+            this.gpbShiftDetails.Controls.Add(this.lblOUT_BREAK);
+            this.gpbShiftDetails.Controls.Add(this.lblIN_LUNCH);
+            this.gpbShiftDetails.Controls.Add(this.lblOUT_LUNCH);
+            this.gpbShiftDetails.Controls.Add(this.lblIN_AM);
+            this.gpbShiftDetails.Controls.Add(this.label16);
+            this.gpbShiftDetails.Controls.Add(this.label12);
+            this.gpbShiftDetails.Controls.Add(this.label13);
+            this.gpbShiftDetails.Location = new System.Drawing.Point(297, 121);
+            this.gpbShiftDetails.Name = "gpbShiftDetails";
+            this.gpbShiftDetails.Size = new System.Drawing.Size(298, 127);
+            this.gpbShiftDetails.TabIndex = 121;
+            this.gpbShiftDetails.TabStop = false;
+            this.gpbShiftDetails.Text = "SHIFT INFO";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(164, 74);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 13);
+            this.label14.TabIndex = 105;
+            this.label14.Text = "Break :";
+            // 
+            // lblBREAK
+            // 
+            this.lblBREAK.BackColor = System.Drawing.Color.White;
+            this.lblBREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBREAK.Location = new System.Drawing.Point(215, 70);
+            this.lblBREAK.Name = "lblBREAK";
+            this.lblBREAK.Size = new System.Drawing.Size(72, 21);
+            this.lblBREAK.TabIndex = 104;
+            this.lblBREAK.Text = "00:00";
+            this.lblBREAK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLUNCH
+            // 
+            this.lblLUNCH.BackColor = System.Drawing.Color.White;
+            this.lblLUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLUNCH.Location = new System.Drawing.Point(215, 48);
+            this.lblLUNCH.Name = "lblLUNCH";
+            this.lblLUNCH.Size = new System.Drawing.Size(72, 21);
+            this.lblLUNCH.TabIndex = 102;
+            this.lblLUNCH.Text = "00:00";
+            this.lblLUNCH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkFixed
+            // 
+            this.chkFixed.AutoSize = true;
+            this.chkFixed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFixed.Location = new System.Drawing.Point(215, 96);
+            this.chkFixed.Name = "chkFixed";
+            this.chkFixed.Size = new System.Drawing.Size(56, 17);
+            this.chkFixed.TabIndex = 99;
+            this.chkFixed.Text = "Fixed";
+            this.chkFixed.UseVisualStyleBackColor = true;
+            this.chkFixed.Click += new System.EventHandler(this.chkFixed_Click);
+            // 
+            // lblOUT_PM
+            // 
+            this.lblOUT_PM.BackColor = System.Drawing.Color.White;
+            this.lblOUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOUT_PM.Location = new System.Drawing.Point(84, 92);
+            this.lblOUT_PM.Name = "lblOUT_PM";
+            this.lblOUT_PM.Size = new System.Drawing.Size(72, 21);
+            this.lblOUT_PM.TabIndex = 98;
+            this.lblOUT_PM.Text = "00:00";
+            this.lblOUT_PM.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblIN_BREAK
+            // 
+            this.lblIN_BREAK.BackColor = System.Drawing.Color.White;
+            this.lblIN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIN_BREAK.Location = new System.Drawing.Point(6, 92);
+            this.lblIN_BREAK.Name = "lblIN_BREAK";
+            this.lblIN_BREAK.Size = new System.Drawing.Size(72, 21);
+            this.lblIN_BREAK.TabIndex = 97;
+            this.lblIN_BREAK.Text = "00:00";
+            this.lblIN_BREAK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblOUT_BREAK
+            // 
+            this.lblOUT_BREAK.BackColor = System.Drawing.Color.White;
+            this.lblOUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOUT_BREAK.Location = new System.Drawing.Point(84, 70);
+            this.lblOUT_BREAK.Name = "lblOUT_BREAK";
+            this.lblOUT_BREAK.Size = new System.Drawing.Size(72, 21);
+            this.lblOUT_BREAK.TabIndex = 96;
+            this.lblOUT_BREAK.Text = "00:00";
+            this.lblOUT_BREAK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblIN_LUNCH
+            // 
+            this.lblIN_LUNCH.BackColor = System.Drawing.Color.White;
+            this.lblIN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIN_LUNCH.Location = new System.Drawing.Point(6, 70);
+            this.lblIN_LUNCH.Name = "lblIN_LUNCH";
+            this.lblIN_LUNCH.Size = new System.Drawing.Size(72, 21);
+            this.lblIN_LUNCH.TabIndex = 95;
+            this.lblIN_LUNCH.Text = "00:00";
+            this.lblIN_LUNCH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblOUT_LUNCH
+            // 
+            this.lblOUT_LUNCH.BackColor = System.Drawing.Color.White;
+            this.lblOUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOUT_LUNCH.Location = new System.Drawing.Point(84, 48);
+            this.lblOUT_LUNCH.Name = "lblOUT_LUNCH";
+            this.lblOUT_LUNCH.Size = new System.Drawing.Size(72, 21);
+            this.lblOUT_LUNCH.TabIndex = 94;
+            this.lblOUT_LUNCH.Text = "00:00";
+            this.lblOUT_LUNCH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblIN_AM
+            // 
+            this.lblIN_AM.BackColor = System.Drawing.Color.White;
+            this.lblIN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIN_AM.Location = new System.Drawing.Point(6, 48);
+            this.lblIN_AM.Name = "lblIN_AM";
+            this.lblIN_AM.Size = new System.Drawing.Size(72, 21);
+            this.lblIN_AM.TabIndex = 93;
+            this.lblIN_AM.Text = "00:00";
+            this.lblIN_AM.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(162, 51);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 13);
+            this.label16.TabIndex = 89;
+            this.label16.Text = "Lunch :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(102, 27);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 88;
+            this.label12.Text = "OUT";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(29, 27);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 13);
+            this.label13.TabIndex = 87;
+            this.label13.Text = "IN";
+            // 
+            // pnlMode
+            // 
+            this.pnlMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMode.Controls.Add(this.lblLastModified);
+            this.pnlMode.Controls.Add(this.lblPK);
+            this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlMode.Location = new System.Drawing.Point(0, 461);
+            this.pnlMode.Name = "pnlMode";
+            this.pnlMode.Size = new System.Drawing.Size(1160, 22);
+            this.pnlMode.TabIndex = 122;
+            // 
+            // lblLastModified
+            // 
+            this.lblLastModified.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLastModified.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLastModified.Location = new System.Drawing.Point(105, 0);
+            this.lblLastModified.Name = "lblLastModified";
+            this.lblLastModified.Size = new System.Drawing.Size(1053, 20);
+            this.lblLastModified.TabIndex = 14;
+            // 
+            // lblPK
+            // 
+            this.lblPK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPK.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblPK.Location = new System.Drawing.Point(0, 0);
+            this.lblPK.Name = "lblPK";
+            this.lblPK.Size = new System.Drawing.Size(105, 20);
+            this.lblPK.TabIndex = 13;
+            // 
+            // chkOpen
+            // 
+            this.chkOpen.AutoSize = true;
+            this.chkOpen.Location = new System.Drawing.Point(27, 203);
+            this.chkOpen.Name = "chkOpen";
+            this.chkOpen.Size = new System.Drawing.Size(56, 17);
+            this.chkOpen.TabIndex = 123;
+            this.chkOpen.Text = "OPEN";
+            this.chkOpen.UseVisualStyleBackColor = true;
+            this.chkOpen.CheckedChanged += new System.EventHandler(this.chkOpen_CheckedChanged);
             // 
             // FrmChangeShifting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 430);
-            this.Controls.Add(this.textBox4);
+            this.ClientSize = new System.Drawing.Size(1160, 483);
+            this.Controls.Add(this.chkOpen);
+            this.Controls.Add(this.pnlMode);
+            this.Controls.Add(this.gpbShiftDetails);
+            this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtApprovedBy);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtNotedBy);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpEffectDate);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbShift);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDDate);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblCtrlNo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblEMP_PK);
+            this.Controls.Add(this.lblEmpNo);
             this.Controls.Add(this.lblEmployeeName);
             this.Controls.Add(this.lblEMPLOYEE_NO);
             this.Controls.Add(this.label1);
@@ -530,6 +767,9 @@
             this.Load += new System.EventHandler(this.FrmChangeShifting_Load);
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
+            this.gpbShiftDetails.ResumeLayout(false);
+            this.gpbShiftDetails.PerformLayout();
+            this.pnlMode.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,26 +805,44 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripButton tsPost;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        private System.Windows.Forms.Label lblEMP_PK;
+        private System.Windows.Forms.Label lblEmpNo;
         private System.Windows.Forms.Label lblEmployeeName;
         private System.Windows.Forms.Label lblEMPLOYEE_NO;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCtrlNo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbShift;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpEffectDate;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNotedBy;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtApprovedBy;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtRemarks;
+        private System.Windows.Forms.GroupBox gpbShiftDetails;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblBREAK;
+        private System.Windows.Forms.Label lblLUNCH;
+        private System.Windows.Forms.CheckBox chkFixed;
+        private System.Windows.Forms.Label lblOUT_PM;
+        private System.Windows.Forms.Label lblIN_BREAK;
+        private System.Windows.Forms.Label lblOUT_BREAK;
+        private System.Windows.Forms.Label lblIN_LUNCH;
+        private System.Windows.Forms.Label lblOUT_LUNCH;
+        private System.Windows.Forms.Label lblIN_AM;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel pnlMode;
+        private System.Windows.Forms.Label lblLastModified;
+        private System.Windows.Forms.Label lblPK;
+        private System.Windows.Forms.CheckBox chkOpen;
     }
 }

@@ -34,6 +34,7 @@ namespace TimeKeepingII
         }
         private void FrmFind_Load(object sender, EventArgs e)
         {
+            cmbFind.Items.Clear();
             this.PK = "";
             this.isYes = false;
 

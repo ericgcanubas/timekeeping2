@@ -34,23 +34,27 @@
             this.btnFilter = new System.Windows.Forms.Button();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvFind
             // 
-            this.lvFind.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvFind.FullRowSelect = true;
             this.lvFind.GridLines = true;
-            this.lvFind.Location = new System.Drawing.Point(0, 43);
+            this.lvFind.Location = new System.Drawing.Point(7, 56);
             this.lvFind.MultiSelect = false;
             this.lvFind.Name = "lvFind";
-            this.lvFind.Size = new System.Drawing.Size(656, 391);
+            this.lvFind.Size = new System.Drawing.Size(689, 388);
             this.lvFind.TabIndex = 0;
             this.lvFind.UseCompatibleStateImageBehavior = false;
             this.lvFind.View = System.Windows.Forms.View.Details;
@@ -62,25 +66,27 @@
             // 
             this.cmbFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFind.FormattingEnabled = true;
-            this.cmbFind.Location = new System.Drawing.Point(12, 12);
+            this.cmbFind.Location = new System.Drawing.Point(12, 25);
             this.cmbFind.Name = "cmbFind";
             this.cmbFind.Size = new System.Drawing.Size(173, 21);
             this.cmbFind.TabIndex = 2;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnFilter);
             this.panel1.Controls.Add(this.txtFind);
             this.panel1.Controls.Add(this.cmbFind);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(656, 43);
+            this.panel1.Size = new System.Drawing.Size(705, 50);
             this.panel1.TabIndex = 3;
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(562, 10);
+            this.btnFilter.Location = new System.Drawing.Point(563, 22);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(82, 23);
             this.btnFilter.TabIndex = 4;
@@ -90,7 +96,7 @@
             // 
             // txtFind
             // 
-            this.txtFind.Location = new System.Drawing.Point(191, 12);
+            this.txtFind.Location = new System.Drawing.Point(191, 25);
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(366, 20);
             this.txtFind.TabIndex = 3;
@@ -104,10 +110,20 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnOK);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 434);
+            this.panel2.Location = new System.Drawing.Point(0, 450);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(656, 30);
+            this.panel2.Size = new System.Drawing.Size(705, 30);
             this.panel2.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(547, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "F5 = Select";
             // 
             // lblTotal
             // 
@@ -129,7 +145,8 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(562, 3);
+            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOK.Location = new System.Drawing.Point(614, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(82, 23);
             this.btnOK.TabIndex = 0;
@@ -137,24 +154,34 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // label2
+            // label3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(495, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "F5 = Select";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Search Type";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(188, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Search Entry";
             // 
             // FrmFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 464);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(705, 480);
             this.Controls.Add(this.lvFind);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmFind";
@@ -183,5 +210,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

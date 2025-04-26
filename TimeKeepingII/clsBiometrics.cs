@@ -107,7 +107,8 @@ namespace TimeKeepingII
         public static object ExecuteScalarQuery(string query)
         {
             object result = null;
-
+            Application.DoEvents();
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 using (OdbcConnection connection = GetConnection())
@@ -115,7 +116,7 @@ namespace TimeKeepingII
                     connection.Open();
                     using (OdbcCommand command = new OdbcCommand(query, connection))
                     {
-                       command.ExecuteScalar();
+                        command.ExecuteScalar();
                     }
 
                     using (OdbcCommand command = new OdbcCommand("SELECT SCOPE_IDENTITY()", connection))
@@ -129,13 +130,18 @@ namespace TimeKeepingII
             {
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally {
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+            }
 
             return result;
         }
         public static int ExecuteNonQuery(string query)
         {
             int rowsAffected = 0;
-
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
             try
             {
                 using (OdbcConnection connection = GetConnection())
@@ -152,12 +158,19 @@ namespace TimeKeepingII
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+            }
 
             return rowsAffected;
         }
         public static bool ExecuteNonQueryBool(string query)
         {
             bool isSuccess = false;
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
             try
             {
                 using (OdbcConnection connection = GetConnection())
@@ -175,12 +188,19 @@ namespace TimeKeepingII
             {
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+            }
 
             return isSuccess;
         }
         public static Dictionary<string, object> GetFirstRecord(string query)
         {
             Dictionary<string, object> result = null;
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
 
             try
             {
@@ -205,11 +225,18 @@ namespace TimeKeepingII
             {
                 MessageBox.Show(ex.Message, "Error message");
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+            }
 
             return result;
         }
         public static bool RecordExists(string query)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
             try
             {
                 using (OdbcConnection connection = GetConnection())
@@ -225,9 +252,15 @@ namespace TimeKeepingII
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
+              
                 return false; // Return false in case of an error
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+                Application.DoEvents();
+            }
+            
         }
 
     }

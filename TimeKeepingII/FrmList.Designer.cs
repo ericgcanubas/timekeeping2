@@ -40,14 +40,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(12, 14);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(450, 20);
+            this.txtSearch.Size = new System.Drawing.Size(599, 20);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(306, 367);
+            this.btnOK.Location = new System.Drawing.Point(455, 376);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 2;
@@ -58,7 +58,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(387, 367);
+            this.btnCancel.Location = new System.Drawing.Point(536, 376);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -78,7 +78,7 @@
             this.lvList.Location = new System.Drawing.Point(12, 39);
             this.lvList.MultiSelect = false;
             this.lvList.Name = "lvList";
-            this.lvList.Size = new System.Drawing.Size(450, 322);
+            this.lvList.Size = new System.Drawing.Size(599, 331);
             this.lvList.TabIndex = 4;
             this.lvList.UseCompatibleStateImageBehavior = false;
             this.lvList.View = System.Windows.Forms.View.Details;
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 396);
+            this.ClientSize = new System.Drawing.Size(618, 405);
             this.Controls.Add(this.lvList);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
