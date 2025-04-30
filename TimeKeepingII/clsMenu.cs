@@ -194,7 +194,7 @@ namespace TimeKeepingII
             mainPanel.Controls.Add(pnlSubMenuScheduleShiftAdjust);
             pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnGuard", "Guard", "FrmGuard"));
             pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnOvertime", "Overtime", "FrmOvertime"));
-            pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeDayOff", "Change Day Off", "FrmChangeDayOff"));
+            pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeDayOff", "Change Day Off", "FrmChangeDayoff"));
             pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeShifting", "Change Shifting", "FrmChangeShifting"));
 
 

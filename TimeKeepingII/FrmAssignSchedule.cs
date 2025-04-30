@@ -42,9 +42,7 @@ namespace TimeKeepingII
             dt.Rows.Add(3, "3rd FLOOR");
             dt.Rows.Add(4, "MANILA");
 
-            cmbMachineNo.DisplayMember = "Text";
-            cmbMachineNo.ValueMember = "Value";
-            cmbMachineNo.DataSource = dt;
+            clsTool.ComboBoxDataLoad(cmbMachineNo, dt, "Text", "Value");
         }
         private void OpenLoad()
         {
@@ -106,10 +104,7 @@ namespace TimeKeepingII
             ComboBox[] dayCombos = { cmbMonday, cmbTuesday, cmbWednesday, cmbThursday, cmbFriday, cmbSaturday, cmbSunday };
             foreach (var cmb in dayCombos)
             {
-                DataTable copy = dt.Copy();
-                cmb.DataSource = copy;
-                cmb.DisplayMember = "ShiftName";
-                cmb.ValueMember = "PK";
+                clsTool.ComboBoxDataLoad(cmb, dt, "ShiftName", "PK");
             }
 
 
@@ -802,7 +797,7 @@ namespace TimeKeepingII
                 clsComponentControl.ClearValue(this);
                 lblPK.Text = frmFind.PK;
                 RefreshData();
-             
+
             }
         }
         private void DataRecord(string squery)

@@ -31,16 +31,8 @@ namespace TimeKeepingII
 
         private void LoadShift()
         {
-            string ShiftingSchedule = $@"SELECT [PK],[ShiftName] From ShiftingSchedule";
-            DataTable dt = clsBiometrics.dataList(ShiftingSchedule);
-            ComboBox[] dayCombos = { cmbShift, };
-            foreach (var cmb in dayCombos)
-            {
-                DataTable copy = dt.Copy();
-                cmb.DataSource = copy;
-                cmb.DisplayMember = "ShiftName";
-                cmb.ValueMember = "PK";
-            }
+            DataTable dt = clsBiometrics.dataList($@"SELECT [PK],[ShiftName] From ShiftingSchedule");
+            clsTool.ComboBoxDataLoad(cmbShift, dt, "ShiftName", "PK");
         }
 
         private void tsAdd_Click(object sender, EventArgs e)
@@ -49,7 +41,6 @@ namespace TimeKeepingII
             {
                 return;
             }
-
 
             if (dtEmployee != null)
             {
@@ -81,7 +72,8 @@ namespace TimeKeepingII
                         lblEmployeeName.Text = empData["Name"].ToString();
                         lblEmpNo.Text = empData["PK"].ToString();
 
-
+                        tsPosted.Visible = false;
+                        tsPost.Text = "Post";
                     }
 
 
@@ -112,8 +104,15 @@ namespace TimeKeepingII
                     return;
                 }
 
+                if (clsMessage.MessageQuestionWarning("ARE YOU SURE IN DELETING THIS RECORD? "))
+                {
 
-
+                    bool isSuccess = clsBiometrics.ExecuteNonQueryBool($@"DELETE FROM ChangeShift WHERE PK = {lblPK.Text} ");
+                    if (isSuccess)
+                    {
+                        clsComponentControl.ClearValue(this);
+                    }
+                }
             }
         }
 
@@ -124,28 +123,87 @@ namespace TimeKeepingII
 
             if (lblPK.Text.Length > 0)
             {
-  
+
 
                 RefreshData();
             }
             else
             {
                 clsComponentControl.ClearValue(this);
+
             }
         }
+        private string CheckControlReference(string strCtrl)
+        {
+            string strValue = strCtrl;
+            bool isExist = clsBiometrics.RecordExists($"SELECT ChangeShift.* FROM ChangeShift WHERE (CtrlNo = '{strValue}')");
+            if (isExist)
+            {
+                string dtValue = (Convert.ToDouble(strValue) + 1).ToString("000000000#");
+                strValue = CheckControlReference(dtValue);
+            }
 
+            return strValue;
+        }
         private void tsSave_Click(object sender, EventArgs e)
         {
 
-
+            if (lblEmpNo.Text.Length == 0) { clsMessage.MessageShowWarning("Please Select Employee!"); return; };
+            if (chkOpen.Checked == false && cmbShift.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Select Shifting Schedule!"); return; };
+            if (dtpEffectDate.Checked == false) { clsMessage.MessageShowWarning("Please Supply Valid Date Effectively! "); return; }
 
 
             if (lblPK.Text.Length == 0) // INSERT
             {
+                string strCtrl = "";
+                var data = clsBiometrics.GetFirstRecord($"SELECT TOP 1 CtrlNo FROM ChangeShift WHERE (YEAR(DDate) = '{clsDateTime.NowYear()}') ORDER BY CtrlNo DESC ");
+                if (data != null)
+                {
+                    strCtrl = int.Parse(data["CtrlNo"].ToString()).ToString("000000000#");
+                }
+                else
+                {
+                    strCtrl = clsDateTime.NowYear().ToString() + "000001";
+                }
+                strCtrl = CheckControlReference(strCtrl);
+
+
+                object dataID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO ChangeShift (CtrlNo, EmpNo, DDate,
+                                                                                Shift,EffectDate, Remarks, LastModified,NotedBy, ApprovedBy, RefNo)
+                                                                                VALUES ('{strCtrl}',{lblEmpNo.Text},'{dtpDDate.Value}',
+                                                                                { (chkOpen.Checked == false ? cmbShift.SelectedValue : 0) },'{dtpEffectDate.Value}','{txtRemarks.Text}',
+                                                                                '{clsDateTime.LastModify()}','{txtNotedBy.Text}',
+                                                                                '{txtApprovedBy.Text}','{txtRefNo.Text}')");
+
+                if (dataID == null)
+                {
+                    return;
+                }
+
+                lblPK.Text = Convert.ToInt32(dataID).ToString();
+                tsCancel.PerformClick();
 
             }
-            else // Update
+            else
             {
+                // UPDATE
+
+                bool isSuccess = clsBiometrics.ExecuteNonQueryBool($@"UPDATE ChangeShift 
+                                                            SET DDate = '{dtpDDate.Value}',
+                                                            Shift ={(chkOpen.Checked == false ? cmbShift.SelectedValue : 0)},
+                                                            EffectDate='{dtpEffectDate.Value}',
+                                                            Remarks='{txtRemarks.Text}',
+                                                            LastModified='{clsDateTime.LastModify()}',
+                                                            NotedBy='{txtNotedBy.Text}',
+                                                            ApprovedBy='{txtApprovedBy.Text}',
+                                                            RefNo='{txtRefNo.Text}' 
+                                                            WHERE PK={lblPK.Text} ");
+                if (!isSuccess)
+                {
+                    return;
+                }
+
+                tsCancel.PerformClick();
 
             }
 
@@ -159,18 +217,24 @@ namespace TimeKeepingII
             if (data != null)
             {
                 clsComponentControl.AssignValue(this, data);
+                int postValue = int.Parse(data["Posted"].ToString());
+                tsPosted.Visible = postValue == 1 ? true : false;
+                tsPost.Text = postValue == 1 ? "Unpost" : "Post";
+                tsEdit.Enabled = postValue == 1 ? false : true;
+                tsDelete.Enabled = postValue == 1 ? false : true;
+
             }
         }
 
         private void tsFirst_Click(object sender, EventArgs e)
         {
-            string squery = $@"{sSelectSql}  ORDER BY ChangeShift.CtrlNo ";
+            string squery = $@"{sSelectSql}  ORDER BY CtrlNo ";
             DataRecord(squery);
         }
 
         private void tsLast_Click(object sender, EventArgs e)
         {
-            string squery = $@"{sSelectSql}  ORDER BY ChangeShift.CtrlNo desc ";
+            string squery = $@"{sSelectSql}  ORDER BY CtrlNo desc ";
             DataRecord(squery);
         }
 
@@ -181,7 +245,7 @@ namespace TimeKeepingII
                 tsFirst.PerformClick();
                 return;
             }
-            string squery = $@"{sSelectSql}  WHERE ChangeShift.CtrlNo < '{lblCtrlNo.Text}'  ORDER BY ChangeShift.CtrlNo DESC ";
+            string squery = $@"{sSelectSql}  WHERE CtrlNo < '{lblCtrlNo.Text}'  ORDER BY CtrlNo DESC ";
             DataRecord(squery);
         }
 
@@ -189,11 +253,10 @@ namespace TimeKeepingII
         {
             if (lblCtrlNo.Text.Length == 0)
             {
-                tsBack.PerformClick();
+                tsLast.PerformClick();
                 return;
             }
-            string squery = $@"{sSelectSql}  WHERE  ChangeShift.CtrlNo > '{lblCtrlNo.Text}' ORDER BY ChangeShift.CtrlNo  ";
-
+            string squery = $@"{sSelectSql}  WHERE  CtrlNo > '{lblCtrlNo.Text}' ORDER BY CtrlNo  ";
             DataRecord(squery);
         }
         private void GetShift()
@@ -229,10 +292,8 @@ namespace TimeKeepingII
                 lblOUT_BREAK.Text = "";
                 lblIN_BREAK.Text = "";
                 lblOUT_PM.Text = "";
-
                 lblLUNCH.Text = "";
                 lblBREAK.Text = "";
-
                 chkFixed.Checked = false;
 
             }
@@ -284,9 +345,42 @@ namespace TimeKeepingII
                 clsComponentControl.ClearValue(this);
                 lblPK.Text = frmFind.PK;
                 RefreshData();
-         
+
 
             }
+        }
+
+        private void tsPost_Click(object sender, EventArgs e)
+        {
+            if (lblPK.Text.Length == 0)
+            {
+                return;
+            }
+
+            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "POST"))
+            {
+                return;
+            }
+
+
+            if (tsPosted.Visible)
+            {
+                if (!clsMessage.MessageQuestion("ARE YOU SURE TO UNPOST THIS TRANSACTION?"))
+                {
+                    return;
+                }
+            }
+            else
+            {
+                if (!clsMessage.MessageQuestion("ARE YOU SURE TO POST THIS TRANSACTION? "))
+                {
+                    return;
+                }
+            }
+
+            clsBiometrics.ExecuteNonQueryBool($"UPDATE ChangeShift SET Posted = {(tsPosted.Visible ? 0 : 1)} WHERE (PK = {lblPK.Text} ) ");
+            RefreshData();
+
         }
     }
 }

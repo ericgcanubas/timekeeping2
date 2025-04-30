@@ -12,15 +12,18 @@ namespace TimeKeepingII
     public partial class FrmList : Form
     {
         DataTable dataList;
+        string titleHeader; 
         public string VALUE = "";
-        public FrmList(DataTable dt)
+        public FrmList(DataTable dt, string title = "List")
         {
             InitializeComponent();
             this.dataList = dt;
+            this.titleHeader = title;
         }
 
         private void FrmList_Load(object sender, EventArgs e)
         {
+            lblHeaderTitle.Text = titleHeader;
             SearchLoad();
         }
         private void SearchLoad()
@@ -81,6 +84,11 @@ namespace TimeKeepingII
         private void lvList_DoubleClick(object sender, EventArgs e)
         {
             btnOK.PerformClick();
+        }
+
+        private void ptbClose_Click(object sender, EventArgs e)
+        {
+            btnCancel.PerformClick();
         }
     }
 }

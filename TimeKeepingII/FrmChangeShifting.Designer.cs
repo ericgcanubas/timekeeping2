@@ -54,7 +54,7 @@
             this.tsPost = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.tsClose = new System.Windows.Forms.ToolStripButton();
-            this.tsLocked = new System.Windows.Forms.ToolStripLabel();
+            this.tsPosted = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.lblEmpNo = new System.Windows.Forms.Label();
             this.lblEmployeeName = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dtpDDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRefNo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbShift = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -129,7 +129,7 @@
             this.tsPost,
             this.toolStripSeparator12,
             this.tsClose,
-            this.tsLocked,
+            this.tsPosted,
             this.toolStripSeparator7});
             this.tsHeaderControl.Location = new System.Drawing.Point(0, 0);
             this.tsHeaderControl.Name = "tsHeaderControl";
@@ -310,6 +310,7 @@
             this.tsPost.Size = new System.Drawing.Size(34, 49);
             this.tsPost.Text = "Post";
             this.tsPost.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsPost.Click += new System.EventHandler(this.tsPost_Click);
             // 
             // toolStripSeparator12
             // 
@@ -326,15 +327,15 @@
             this.tsClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsClose.Click += new System.EventHandler(this.tsClose_Click);
             // 
-            // tsLocked
+            // tsPosted
             // 
-            this.tsLocked.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsLocked.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsLocked.ForeColor = System.Drawing.Color.Red;
-            this.tsLocked.Name = "tsLocked";
-            this.tsLocked.Size = new System.Drawing.Size(106, 49);
-            this.tsLocked.Text = "LOCKED";
-            this.tsLocked.Visible = false;
+            this.tsPosted.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsPosted.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsPosted.ForeColor = System.Drawing.Color.Red;
+            this.tsPosted.Name = "tsPosted";
+            this.tsPosted.Size = new System.Drawing.Size(106, 49);
+            this.tsPosted.Text = "POSTED";
+            this.tsPosted.Visible = false;
             // 
             // toolStripSeparator7
             // 
@@ -345,7 +346,7 @@
             // 
             this.lblEmpNo.BackColor = System.Drawing.Color.White;
             this.lblEmpNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEmpNo.Location = new System.Drawing.Point(296, 69);
+            this.lblEmpNo.Location = new System.Drawing.Point(298, 61);
             this.lblEmpNo.Name = "lblEmpNo";
             this.lblEmpNo.Size = new System.Drawing.Size(50, 21);
             this.lblEmpNo.TabIndex = 102;
@@ -357,7 +358,7 @@
             // 
             this.lblEmployeeName.BackColor = System.Drawing.Color.White;
             this.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEmployeeName.Location = new System.Drawing.Point(133, 96);
+            this.lblEmployeeName.Location = new System.Drawing.Point(135, 88);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(462, 21);
             this.lblEmployeeName.TabIndex = 101;
@@ -367,7 +368,7 @@
             // 
             this.lblEMPLOYEE_NO.BackColor = System.Drawing.Color.White;
             this.lblEMPLOYEE_NO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEMPLOYEE_NO.Location = new System.Drawing.Point(133, 69);
+            this.lblEMPLOYEE_NO.Location = new System.Drawing.Point(135, 61);
             this.lblEMPLOYEE_NO.Name = "lblEMPLOYEE_NO";
             this.lblEMPLOYEE_NO.Size = new System.Drawing.Size(158, 21);
             this.lblEMPLOYEE_NO.TabIndex = 100;
@@ -377,7 +378,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 72);
+            this.label1.Location = new System.Drawing.Point(39, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 99;
@@ -386,7 +387,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 100);
+            this.label2.Location = new System.Drawing.Point(26, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 103;
@@ -396,7 +397,7 @@
             // 
             this.lblCtrlNo.BackColor = System.Drawing.Color.White;
             this.lblCtrlNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblCtrlNo.Location = new System.Drawing.Point(133, 122);
+            this.lblCtrlNo.Location = new System.Drawing.Point(135, 114);
             this.lblCtrlNo.Name = "lblCtrlNo";
             this.lblCtrlNo.Size = new System.Drawing.Size(158, 21);
             this.lblCtrlNo.TabIndex = 104;
@@ -406,7 +407,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 126);
+            this.label4.Location = new System.Drawing.Point(45, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 105;
@@ -415,7 +416,7 @@
             // dtpDDate
             // 
             this.dtpDDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDDate.Location = new System.Drawing.Point(133, 149);
+            this.dtpDDate.Location = new System.Drawing.Point(135, 141);
             this.dtpDDate.Name = "dtpDDate";
             this.dtpDDate.Size = new System.Drawing.Size(158, 20);
             this.dtpDDate.TabIndex = 106;
@@ -423,23 +424,23 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(88, 153);
+            this.label5.Location = new System.Drawing.Point(90, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 107;
             this.label5.Text = "DATE :";
             // 
-            // textBox1
+            // txtRefNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 175);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 20);
-            this.textBox1.TabIndex = 108;
+            this.txtRefNo.Location = new System.Drawing.Point(135, 167);
+            this.txtRefNo.Name = "txtRefNo";
+            this.txtRefNo.Size = new System.Drawing.Size(158, 20);
+            this.txtRefNo.TabIndex = 108;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 178);
+            this.label6.Location = new System.Drawing.Point(32, 169);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 109;
@@ -448,7 +449,7 @@
             // cmbShift
             // 
             this.cmbShift.FormattingEnabled = true;
-            this.cmbShift.Location = new System.Drawing.Point(133, 201);
+            this.cmbShift.Location = new System.Drawing.Point(135, 193);
             this.cmbShift.Name = "cmbShift";
             this.cmbShift.Size = new System.Drawing.Size(158, 21);
             this.cmbShift.TabIndex = 110;
@@ -457,7 +458,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(86, 204);
+            this.label7.Location = new System.Drawing.Point(88, 196);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 111;
@@ -466,7 +467,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 231);
+            this.label8.Location = new System.Drawing.Point(17, 223);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(115, 13);
             this.label8.TabIndex = 113;
@@ -475,7 +476,7 @@
             // dtpEffectDate
             // 
             this.dtpEffectDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEffectDate.Location = new System.Drawing.Point(133, 228);
+            this.dtpEffectDate.Location = new System.Drawing.Point(135, 220);
             this.dtpEffectDate.Name = "dtpEffectDate";
             this.dtpEffectDate.ShowCheckBox = true;
             this.dtpEffectDate.Size = new System.Drawing.Size(158, 20);
@@ -484,7 +485,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(62, 257);
+            this.label9.Location = new System.Drawing.Point(64, 249);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 115;
@@ -492,7 +493,7 @@
             // 
             // txtNotedBy
             // 
-            this.txtNotedBy.Location = new System.Drawing.Point(133, 254);
+            this.txtNotedBy.Location = new System.Drawing.Point(135, 246);
             this.txtNotedBy.Name = "txtNotedBy";
             this.txtNotedBy.Size = new System.Drawing.Size(462, 20);
             this.txtNotedBy.TabIndex = 114;
@@ -500,7 +501,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(41, 283);
+            this.label10.Location = new System.Drawing.Point(43, 275);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 13);
             this.label10.TabIndex = 117;
@@ -508,7 +509,7 @@
             // 
             // txtApprovedBy
             // 
-            this.txtApprovedBy.Location = new System.Drawing.Point(133, 280);
+            this.txtApprovedBy.Location = new System.Drawing.Point(135, 272);
             this.txtApprovedBy.Name = "txtApprovedBy";
             this.txtApprovedBy.Size = new System.Drawing.Size(462, 20);
             this.txtApprovedBy.TabIndex = 116;
@@ -516,7 +517,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(72, 309);
+            this.label11.Location = new System.Drawing.Point(74, 301);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 13);
             this.label11.TabIndex = 119;
@@ -524,7 +525,7 @@
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(133, 308);
+            this.txtRemarks.Location = new System.Drawing.Point(135, 300);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(462, 67);
@@ -545,7 +546,7 @@
             this.gpbShiftDetails.Controls.Add(this.label16);
             this.gpbShiftDetails.Controls.Add(this.label12);
             this.gpbShiftDetails.Controls.Add(this.label13);
-            this.gpbShiftDetails.Location = new System.Drawing.Point(297, 121);
+            this.gpbShiftDetails.Location = new System.Drawing.Point(299, 113);
             this.gpbShiftDetails.Name = "gpbShiftDetails";
             this.gpbShiftDetails.Size = new System.Drawing.Size(298, 127);
             this.gpbShiftDetails.TabIndex = 121;
@@ -724,7 +725,7 @@
             // chkOpen
             // 
             this.chkOpen.AutoSize = true;
-            this.chkOpen.Location = new System.Drawing.Point(27, 203);
+            this.chkOpen.Location = new System.Drawing.Point(23, 195);
             this.chkOpen.Name = "chkOpen";
             this.chkOpen.Size = new System.Drawing.Size(56, 17);
             this.chkOpen.TabIndex = 123;
@@ -751,7 +752,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbShift);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtRefNo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpDDate);
             this.Controls.Add(this.label4);
@@ -799,7 +800,7 @@
         private System.Windows.Forms.ToolStripButton tsFind;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton tsClose;
-        private System.Windows.Forms.ToolStripLabel tsLocked;
+        private System.Windows.Forms.ToolStripLabel tsPosted;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton tsPrint;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
@@ -814,7 +815,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpDDate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRefNo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbShift;
         private System.Windows.Forms.Label label7;

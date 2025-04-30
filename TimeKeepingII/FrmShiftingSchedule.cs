@@ -25,9 +25,7 @@ namespace TimeKeepingII
             clsComponentControl.ObjectEnable(this, false);
 
             DataTable dt = clsBiometrics.dataList("SELECT [PK],ShiftType FROM [ShiftingType] ");
-            cmbShiftType.DataSource = dt;
-            cmbShiftType.DisplayMember = "ShiftType";
-            cmbShiftType.ValueMember = "PK";
+            clsTool.ComboBoxDataLoad(cmbShiftType,dt, "ShiftType", "PK");
 
             string LastOpenShiftName = "XMASFS";
             string squery = $@"{sSelectSql}  WHERE (ShiftingSchedule.ShiftName = '{LastOpenShiftName}')  ORDER BY ShiftingSchedule.ShiftName ";
@@ -52,9 +50,6 @@ namespace TimeKeepingII
             {
                 numLunch.Value = 0;
             }
-
-
-
 
             if (dtpIN_Break.Checked == true && dtpOUT_Break.Checked == true)
             {
@@ -121,16 +116,13 @@ namespace TimeKeepingII
                 clsMessage.MessageShowInfo("Please Select Shift Type...");
                 return;
             }
-
             if (numLunch.Value == 0)
             {
-
                 if (dtpIN_Lunch.Checked == true || dtpOUT_Lunch.Checked == true)
                 {
                     clsMessage.MessageShowInfo("Please Supply how many minutes should Lunch Time be...      ");
                     return;
                 }
-              
             }
             else if (numLunch.Value > 0)
             {
@@ -412,7 +404,7 @@ namespace TimeKeepingII
             gotCompute();
         }
 
-        private void dtpOUT_Break_ValueChanged(object sender, EventArgs e) 
+        private void dtpOUT_Break_ValueChanged(object sender, EventArgs e)
         {
             gotCompute();
         }

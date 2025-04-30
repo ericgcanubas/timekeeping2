@@ -34,15 +34,12 @@ namespace TimeKeepingII
                         case "Save":
                             btn.Enabled = isActive ? false : true;
                             break;
-
                         case "Undo":
                             btn.Enabled = isActive ? false : true;
                             break;
-
                         case "Find":
                             btn.Enabled = isActive ? true : false;
                             break;
-
                         case "Close":
                             btn.Enabled = isActive ? true : false;
                             break;
@@ -63,6 +60,9 @@ namespace TimeKeepingII
                             btn.Enabled = isActive ? true : false;
                             break;
                         case "Post":
+                            btn.Enabled = isActive ? true : false;
+                            break;
+                        case "Unpost":
                             btn.Enabled = isActive ? true : false;
                             break;
                         default:
@@ -261,12 +261,17 @@ namespace TimeKeepingII
                         break;
                     case "cmb":
                         ComboBox cmb = (ComboBox)item;
-
-                        if (cmb.Tag == null || cmb.Tag.ToString() != "EnterHooked")
+                        
+                        if(cmb.DropDownStyle == ComboBoxStyle.DropDown)
                         {
-                            cmb.Enter += new EventHandler(cmbAutoDropdown_Enter);
-                            cmb.Tag = "EnterHooked"; // flag it as already hooked
+                            if (cmb.Tag == null || cmb.Tag.ToString() != "EnterHooked")
+                            {
+                                cmb.Enter += new EventHandler(cmbAutoDropdown_Enter);
+                                cmb.Tag = "EnterHooked"; // flag it as already hooked
+                            }
                         }
+
+                     
                         cmb.SelectedValue = -1;
                         break;
 
@@ -288,7 +293,7 @@ namespace TimeKeepingII
                             dtp.Value = clsDateTime.NowDay();
                         }
 
-                     
+
                         break;
                     case "tab":
                         TabControl tab = (TabControl)item;

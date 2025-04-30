@@ -32,13 +32,19 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lvList = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblHeaderTitle = new System.Windows.Forms.Label();
+            this.ptbClose = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(12, 14);
+            this.txtSearch.Location = new System.Drawing.Point(12, 46);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(599, 20);
             this.txtSearch.TabIndex = 1;
@@ -47,7 +53,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(455, 376);
+            this.btnOK.Location = new System.Drawing.Point(455, 454);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 2;
@@ -58,7 +64,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(536, 376);
+            this.btnCancel.Location = new System.Drawing.Point(536, 454);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -75,25 +81,75 @@
             this.lvList.GridLines = true;
             this.lvList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvList.HideSelection = false;
-            this.lvList.Location = new System.Drawing.Point(12, 39);
+            this.lvList.Location = new System.Drawing.Point(12, 72);
             this.lvList.MultiSelect = false;
             this.lvList.Name = "lvList";
-            this.lvList.Size = new System.Drawing.Size(599, 331);
+            this.lvList.Size = new System.Drawing.Size(599, 376);
             this.lvList.TabIndex = 4;
             this.lvList.UseCompatibleStateImageBehavior = false;
             this.lvList.View = System.Windows.Forms.View.Details;
             this.lvList.DoubleClick += new System.EventHandler(this.lvList_DoubleClick);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel1.Controls.Add(this.lblHeaderTitle);
+            this.panel1.Controls.Add(this.ptbClose);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(618, 36);
+            this.panel1.TabIndex = 5;
+            // 
+            // lblHeaderTitle
+            // 
+            this.lblHeaderTitle.AutoSize = true;
+            this.lblHeaderTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeaderTitle.ForeColor = System.Drawing.Color.White;
+            this.lblHeaderTitle.Location = new System.Drawing.Point(2, 3);
+            this.lblHeaderTitle.Name = "lblHeaderTitle";
+            this.lblHeaderTitle.Size = new System.Drawing.Size(42, 25);
+            this.lblHeaderTitle.TabIndex = 4;
+            this.lblHeaderTitle.Text = "List";
+            // 
+            // ptbClose
+            // 
+            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
+            this.ptbClose.Location = new System.Drawing.Point(586, 0);
+            this.ptbClose.Name = "ptbClose";
+            this.ptbClose.Size = new System.Drawing.Size(32, 33);
+            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbClose.TabIndex = 3;
+            this.ptbClose.TabStop = false;
+            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(618, 483);
+            this.panel2.TabIndex = 6;
+            // 
             // FrmList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 405);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(618, 483);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lvList);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtSearch);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmList";
@@ -102,6 +158,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search";
             this.Load += new System.EventHandler(this.FrmList_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +171,9 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListView lvList;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblHeaderTitle;
+        private System.Windows.Forms.PictureBox ptbClose;
+        private System.Windows.Forms.Panel panel2;
     }
 }

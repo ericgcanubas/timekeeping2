@@ -26,5 +26,9 @@ namespace TimeKeepingII
         {
             return DateTime.Now;
         }
+        public static int NowYear()
+        {
+            return DateTime.Now.Year;
+        }
     }
 }
