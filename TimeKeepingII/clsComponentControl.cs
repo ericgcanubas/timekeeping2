@@ -30,12 +30,14 @@ namespace TimeKeepingII
                         case "Delete":
                             btn.Enabled = isActive ? true : false;
                             break;
-
                         case "Save":
                             btn.Enabled = isActive ? false : true;
                             break;
                         case "Undo":
                             btn.Enabled = isActive ? false : true;
+                            break;
+                        case "Cancel":
+                            btn.Enabled = false;
                             break;
                         case "Find":
                             btn.Enabled = isActive ? true : false;
@@ -55,7 +57,6 @@ namespace TimeKeepingII
                         case "Next":
                             btn.Enabled = isActive ? true : false;
                             break;
-
                         case "Print":
                             btn.Enabled = isActive ? true : false;
                             break;
@@ -124,6 +125,12 @@ namespace TimeKeepingII
                     case "tbp":
                         TabPage tbp = (TabPage)item;
                         ObjectEnable(tbp, isEnable);
+                        break;
+
+                    case "gpb":
+
+                        GroupBox gpb = (GroupBox)item;
+                        ObjectEnable(gpb, isEnable);
                         break;
                 }
 
@@ -224,7 +231,10 @@ namespace TimeKeepingII
                             Panel pnl = (Panel)item;
                             AssignValue(pnl, data);
                             break;
-
+                        case "gpb":
+                            GroupBox gpb = (GroupBox)item;
+                            AssignValue(gpb, data);
+                            break;
 
                     }
                 }
@@ -261,8 +271,8 @@ namespace TimeKeepingII
                         break;
                     case "cmb":
                         ComboBox cmb = (ComboBox)item;
-                        
-                        if(cmb.DropDownStyle == ComboBoxStyle.DropDown)
+
+                        if (cmb.DropDownStyle == ComboBoxStyle.DropDown)
                         {
                             if (cmb.Tag == null || cmb.Tag.ToString() != "EnterHooked")
                             {
@@ -271,7 +281,7 @@ namespace TimeKeepingII
                             }
                         }
 
-                     
+
                         cmb.SelectedValue = -1;
                         break;
 
@@ -308,7 +318,11 @@ namespace TimeKeepingII
                         Panel pnl = (Panel)item;
                         ClearValue(pnl);
                         break;
+                    case "gpb":
 
+                        GroupBox gpb = (GroupBox)item;
+                        ClearValue(gpb);
+                        break;
 
                 }
 

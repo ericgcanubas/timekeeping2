@@ -117,6 +117,22 @@ namespace TimeKeepingII
 
             return "null";
         }
+        public static string SQL_Date(DateTimePicker dt)
+        {
+            // Check if the user has selected a date (dt.Checked is true)
+            if (dt.Checked)
+            {
+                // Format the date as 'yyyy-MM-dd' wrapped in single quotes
+                return $"'{dt.Value:yyyy-MM-dd}'";
+            }
+
+            // Return SQL NULL if no date is selected
+            return "NULL";
+        }
+        public static string SQL_Text(TextBox txt)
+        {
+            return txt.Text.Replace("'", "`");
+        }
 
     }
 }

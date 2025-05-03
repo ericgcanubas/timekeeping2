@@ -577,10 +577,7 @@
             this.cmbRestDayFrom.Name = "cmbRestDayFrom";
             this.cmbRestDayFrom.Size = new System.Drawing.Size(158, 21);
             this.cmbRestDayFrom.TabIndex = 152;
-            this.cmbRestDayFrom.DropDown += new System.EventHandler(this.cmbRestDayFrom_DropDown);
-            this.cmbRestDayFrom.TextChanged += new System.EventHandler(this.cmbRestDayFrom_TextChanged);
             this.cmbRestDayFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbRestDayFrom_KeyPress);
-            this.cmbRestDayFrom.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbRestDayFrom_MouseClick);
             // 
             // label13
             // 
@@ -599,7 +596,6 @@
             this.cmbRestDay.Name = "cmbRestDay";
             this.cmbRestDay.Size = new System.Drawing.Size(158, 21);
             this.cmbRestDay.TabIndex = 154;
-            this.cmbRestDay.DropDown += new System.EventHandler(this.cmbRestDay_DropDown);
             this.cmbRestDay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbRestDay_KeyPress);
             // 
             // label14

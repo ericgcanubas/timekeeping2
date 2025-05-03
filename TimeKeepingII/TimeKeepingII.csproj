@@ -121,6 +121,12 @@
     <Compile Include="FrmChangeShifting.Designer.cs">
       <DependentUpon>FrmChangeShifting.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmExchangeDayoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExchangeDayoff.Designer.cs">
+      <DependentUpon>FrmExchangeDayoff.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChangeShifting.resx">
       <DependentUpon>FrmChangeShifting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExchangeDayoff.resx">
+      <DependentUpon>FrmExchangeDayoff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFind.resx">
       <DependentUpon>FrmFind.cs</DependentUpon>

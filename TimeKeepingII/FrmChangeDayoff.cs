@@ -71,7 +71,6 @@ namespace TimeKeepingII
         private void tsSave_Click(object sender, EventArgs e)
         {
             if (lblEmpNo.Text.Length == 0) { clsMessage.MessageShowWarning("Please Select Employee!"); return; };
-
             if (dtpEffectDateFrom.Checked == false) { clsMessage.MessageShowWarning("Please Supply Valid Date From! "); return; }
             if (dtpEffectDate.Checked == false) { clsMessage.MessageShowWarning("Please Supply Valid Date To! "); return; }
 
@@ -88,8 +87,6 @@ namespace TimeKeepingII
                     strCtrl = clsDateTime.NowYear().ToString() + "000001";
                 }
                 strCtrl = CheckControlReference(strCtrl);
-
-
                 object dataID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO ChangeRD (CtrlNo, EmpNo, DDate,
                                                                                 RestDayFrom, RestDay,
                                                                                 EffectDateFrom,EffectDate, Remarks, 
@@ -136,10 +133,6 @@ namespace TimeKeepingII
 
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-
-
-
-
         }
 
         private void tsDelete_Click(object sender, EventArgs e)
@@ -328,41 +321,18 @@ namespace TimeKeepingII
             }
         }
 
-        private void cmbRestDay_DropDown(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbRestDayFrom_DropDown(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbRestDayFrom_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void cmbRestDayFrom_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmChangeDayoff_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }
-
         private void cmbRestDayFrom_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
-
         private void cmbRestDay_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
-
         private void dtpEffectDateFrom_ValueChanged(object sender, EventArgs e)
         {
 

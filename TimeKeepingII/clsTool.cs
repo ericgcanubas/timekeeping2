@@ -32,5 +32,60 @@ namespace TimeKeepingII
 
             return dt;
         }
+        public static string getWeekName(int Value)
+        {
+            string weekName = "";
+            switch (Value)
+            {
+                case 1: weekName = "MONDAY"; break;
+                case 2: weekName = "TUESDAY"; break;
+                case 3: weekName = "WEDNESDAY"; break;
+                case 4: weekName = "THURSDAY"; break;
+                case 5: weekName = "FRIDAY"; break;
+                case 6: weekName = "SATURDAY"; break;
+                case 7: weekName = "SUNDAY"; break;
+                default:
+                    break;
+            }
+
+            return weekName;
+        }
+        public static int getWeekValue(string Name)
+        {
+            int weekValue = 0;
+            switch (Name.ToUpper().Trim())
+            {
+                case "MONDAY": weekValue = 1; break;
+                case "TUESDAY": weekValue = 2; break;
+                case "WEDNESDAY": weekValue = 3; break;
+                case "THURSDAY": weekValue = 4; break;
+                case "FRIDAY": weekValue = 5; break;
+                case "SATURDAY": weekValue = 6; break;
+                case "SUNDAY": weekValue = 7; break;
+                default:
+                    break;
+            }
+
+
+            return weekValue;
+        }
+        public static int getDayWeekValue(DateTimePicker dt)
+        {   
+            if(dt.Checked == false)
+            {
+                return 0;
+            }
+
+            int W = ((int)dt.Value.DayOfWeek);
+
+            if (W == 0)
+            {
+                return 7;
+            }
+            else
+            {
+                return W;
+            }
+        }
     }
 }

@@ -30,7 +30,9 @@
         {
             this.lvFind = new System.Windows.Forms.ListView();
             this.cmbFind = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTitle = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ptbClose = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnFilter = new System.Windows.Forms.Button();
@@ -41,11 +43,9 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
-            this.ptbClose = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvFind
@@ -75,16 +75,43 @@
             this.cmbFind.Size = new System.Drawing.Size(173, 21);
             this.cmbFind.TabIndex = 2;
             // 
-            // panel1
+            // pnlTitle
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.ptbClose);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(705, 36);
-            this.panel1.TabIndex = 3;
+            this.pnlTitle.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.pnlTitle.Controls.Add(this.label5);
+            this.pnlTitle.Controls.Add(this.ptbClose);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(705, 36);
+            this.pnlTitle.TabIndex = 3;
+            this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(2, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Find";
+            // 
+            // ptbClose
+            // 
+            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
+            this.ptbClose.Location = new System.Drawing.Point(673, 0);
+            this.ptbClose.Name = "ptbClose";
+            this.ptbClose.Size = new System.Drawing.Size(32, 33);
+            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbClose.TabIndex = 3;
+            this.ptbClose.TabStop = false;
+            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
             // 
             // label4
             // 
@@ -189,32 +216,6 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // ptbClose
-            // 
-            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
-            this.ptbClose.Location = new System.Drawing.Point(673, 0);
-            this.ptbClose.Name = "ptbClose";
-            this.ptbClose.Size = new System.Drawing.Size(32, 33);
-            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbClose.TabIndex = 3;
-            this.ptbClose.TabStop = false;
-            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(2, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 25);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Find";
-            // 
             // FrmFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,7 +225,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lvFind);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.cmbFind);
@@ -238,11 +239,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find";
             this.Load += new System.EventHandler(this.FrmFind_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlTitle.ResumeLayout(false);
+            this.pnlTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,7 +253,7 @@
 
         private System.Windows.Forms.ListView lvFind;
         private System.Windows.Forms.ComboBox cmbFind;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Panel panel2;

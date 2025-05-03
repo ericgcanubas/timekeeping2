@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,6 +12,16 @@ namespace TimeKeepingII
 {
     public partial class FrmList : Form
     {
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+
+
         DataTable dataList;
         string titleHeader; 
         public string VALUE = "";
@@ -30,6 +41,7 @@ namespace TimeKeepingII
         {
 
             DataTable newData = dataList.Clone();
+
             foreach (DataRow data in dataList.Rows)
             {
                 // Adjust column index or name according to your data
@@ -89,6 +101,15 @@ namespace TimeKeepingII
         private void ptbClose_Click(object sender, EventArgs e)
         {
             btnCancel.PerformClick();
+        }
+
+        private void pnlHeader_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

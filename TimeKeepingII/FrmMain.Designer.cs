@@ -33,6 +33,7 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ptbMinimize = new System.Windows.Forms.PictureBox();
+            this.ptbClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ptbMenuBurger = new System.Windows.Forms.PictureBox();
             this.pnlSideMenu = new System.Windows.Forms.Panel();
@@ -79,15 +80,14 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tabControl1 = new MdiTabControl.TabControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ptbClose = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).BeginInit();
             this.pnlSideMenu.SuspendLayout();
             this.tsPrimary.SuspendLayout();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -130,6 +130,21 @@
             this.ptbMinimize.TabIndex = 3;
             this.ptbMinimize.TabStop = false;
             this.ptbMinimize.Click += new System.EventHandler(this.ptbMinimize_Click);
+            // 
+            // ptbClose
+            // 
+            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
+            this.ptbClose.Location = new System.Drawing.Point(1200, 1);
+            this.ptbClose.Name = "ptbClose";
+            this.ptbClose.Size = new System.Drawing.Size(40, 40);
+            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbClose.TabIndex = 2;
+            this.ptbClose.TabStop = false;
+            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
             // 
             // label1
             // 
@@ -539,6 +554,7 @@
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.MenuRenderer = null;
             this.tabControl1.Name = "tabControl1";
@@ -556,21 +572,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // ptbClose
-            // 
-            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
-            this.ptbClose.Location = new System.Drawing.Point(1200, 1);
-            this.ptbClose.Name = "ptbClose";
-            this.ptbClose.Size = new System.Drawing.Size(40, 40);
-            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbClose.TabIndex = 2;
-            this.ptbClose.TabStop = false;
-            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
             // 
             // FrmMain
             // 
@@ -591,13 +592,13 @@
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).EndInit();
             this.pnlSideMenu.ResumeLayout(false);
             this.pnlSideMenu.PerformLayout();
             this.tsPrimary.ResumeLayout(false);
             this.tsPrimary.PerformLayout();
             this.pnlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
             this.ResumeLayout(false);
 
         }

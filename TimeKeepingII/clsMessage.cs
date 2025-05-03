@@ -21,19 +21,16 @@ namespace TimeKeepingII
             MessageBox.Show(strMsg, "System Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static bool MessageQuestion(string strMesage)
+        public static bool MessageQuestion(string strMessage, string strTitle = "Confirmation")
         {
 
-            DialogResult result = MessageBox.Show(strMesage, "Confirmation",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                
-            if(result == DialogResult.Yes)
+            DialogResult result = MessageBox.Show(strMessage, strTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 return true;
             }
-
             return false;
         }
-
         public static bool MessageQuestionWarning(string strMesage)
         {
 

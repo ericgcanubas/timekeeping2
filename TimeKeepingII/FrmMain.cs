@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace TimeKeepingII
-{   
+{
 
     public partial class FrmMain : Form
     {
@@ -51,10 +51,10 @@ namespace TimeKeepingII
         private void timer1_Tick(object sender, EventArgs e)
         {
             int CurrentWidth = pnlSideMenu.Width;
-            if ( burdger == true)
+            if (burdger == true)
             {
-              
-              if(pnlSideMenu.Width < menuSideDefaultActive)
+
+                if (pnlSideMenu.Width < menuSideDefaultActive)
                 {
                     pnlSideMenu.Size = new Size(CurrentWidth + 10, pnlSideMenu.Size.Height);
                     tsPrimary.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
@@ -70,13 +70,13 @@ namespace TimeKeepingII
 
             }
 
-            if(loginLunch == false)
+            if (loginLunch == false)
             {
 
                 loginLunch = true;
                 FrmLogin frm = new FrmLogin();
                 frm.ShowDialog();
-               if(frm.userId > 0)
+                if (frm.userId > 0)
                 {
                     clsGlobal.UserID = frm.userId;
                     return;
@@ -90,7 +90,7 @@ namespace TimeKeepingII
         {
             burdger = burdger ? false : true;
 
-            if(burdger)
+            if (burdger)
             {
                 ptbMenuBurger.Image = Properties.Resources.burger_bar;
             }
@@ -115,7 +115,7 @@ namespace TimeKeepingII
         {
             FrmAssignSchedule frm = new FrmAssignSchedule();
             tabControl1.TabPages.Add(frm);
-              
+
         }
 
         private void toEnableDisableEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,6 +133,6 @@ namespace TimeKeepingII
             }
         }
 
-      
+
     }
 }
