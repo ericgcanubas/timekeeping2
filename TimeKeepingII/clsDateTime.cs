@@ -12,7 +12,7 @@ namespace TimeKeepingII
 
         public static DateTime getEmpty()
         {
-            return  DateTime.ParseExact($"1900-01-01 00:00:00.000", "yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+            return DateTime.ParseExact($"1900-01-01 00:00:00.000", "yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
         }
         public static DateTime GetDefault()
         {
@@ -20,7 +20,7 @@ namespace TimeKeepingII
         }
         public static string LastModify()
         {
-            return  DateTime.Now.ToString() + " " + clsAccessControl.gsUsername;
+            return DateTime.Now.ToString() + " " + clsAccessControl.gsUsername;
         }
         public static DateTime NowDay()
         {
@@ -29,6 +29,29 @@ namespace TimeKeepingII
         public static int NowYear()
         {
             return DateTime.Now.Year;
+        }
+        public static int GetDiffCountDays(DateTime start, DateTime end)
+        {
+            TimeSpan difference = end - start;
+            int days = difference.Days;
+            return days;
+        }
+
+        public static int GetDiffCountMinutes(DateTime start, DateTime end)
+        {
+            TimeSpan difference = end - start;
+            int Mins = difference.Minutes;
+            return Mins;
+        }
+        public static string TimeDisplay(DateTime start, DateTime end)
+        {
+           
+
+            TimeSpan diff = end - start;
+
+            string formatted = $"{(int)diff.TotalHours} hrs. {diff.Minutes} min.";
+
+            return formatted;
         }
     }
 }

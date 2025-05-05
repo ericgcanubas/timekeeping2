@@ -109,11 +109,11 @@
     <Compile Include="FrmAssignSchedule.Designer.cs">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmChangeDayoff.cs">
+    <Compile Include="FrmChangeDayoff1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmChangeDayoff.Designer.cs">
-      <DependentUpon>FrmChangeDayoff.cs</DependentUpon>
+    <Compile Include="FrmChangeDayoff1.Designer.cs">
+      <DependentUpon>FrmChangeDayoff1.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmChangeShifting.cs">
       <SubType>Form</SubType>
@@ -121,11 +121,11 @@
     <Compile Include="FrmChangeShifting.Designer.cs">
       <DependentUpon>FrmChangeShifting.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmExchangeDayoff.cs">
+    <Compile Include="FrmChangeDayoff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmExchangeDayoff.Designer.cs">
-      <DependentUpon>FrmExchangeDayoff.cs</DependentUpon>
+    <Compile Include="FrmChangeDayoff.Designer.cs">
+      <DependentUpon>FrmChangeDayoff.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFind.cs">
       <SubType>Form</SubType>
@@ -133,11 +133,11 @@
     <Compile Include="FrmFind.Designer.cs">
       <DependentUpon>FrmFind.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLeave.cs">
+    <Compile Include="FrmLeaveUndertime.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLeave.Designer.cs">
-      <DependentUpon>FrmLeave.cs</DependentUpon>
+    <Compile Include="FrmLeaveUndertime.Designer.cs">
+      <DependentUpon>FrmLeaveUndertime.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmList.cs">
       <SubType>Form</SubType>
@@ -180,20 +180,20 @@
     <EmbeddedResource Include="FrmAssignSchedule.resx">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmChangeDayoff.resx">
-      <DependentUpon>FrmChangeDayoff.cs</DependentUpon>
+    <EmbeddedResource Include="FrmChangeDayoff1.resx">
+      <DependentUpon>FrmChangeDayoff1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChangeShifting.resx">
       <DependentUpon>FrmChangeShifting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmExchangeDayoff.resx">
-      <DependentUpon>FrmExchangeDayoff.cs</DependentUpon>
+    <EmbeddedResource Include="FrmChangeDayoff.resx">
+      <DependentUpon>FrmChangeDayoff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFind.resx">
       <DependentUpon>FrmFind.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLeave.resx">
-      <DependentUpon>FrmLeave.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLeaveUndertime.resx">
+      <DependentUpon>FrmLeaveUndertime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmList.resx">
       <DependentUpon>FrmList.cs</DependentUpon>

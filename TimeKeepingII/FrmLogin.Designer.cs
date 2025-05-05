@@ -53,7 +53,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(573, 13);
+            this.tabControl1.Location = new System.Drawing.Point(630, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(346, 344);
@@ -171,14 +171,14 @@
             this.pictureBox1.Image = global::TimeKeepingII.Properties.Resources.timeKeep;
             this.pictureBox1.Location = new System.Drawing.Point(-2, -5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(569, 409);
+            this.pictureBox1.Size = new System.Drawing.Size(626, 409);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(844, 366);
+            this.btnClose.Location = new System.Drawing.Point(901, 366);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 4;
@@ -191,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(924, 395);
+            this.ClientSize = new System.Drawing.Size(986, 395);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);

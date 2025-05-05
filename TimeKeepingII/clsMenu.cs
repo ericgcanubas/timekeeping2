@@ -192,10 +192,10 @@ namespace TimeKeepingII
 
             Panel pnlSubMenuScheduleShiftAdjust = CreateSubMenuPanel("pnlSubMenuScheduleShiftAdjust", 120);
             mainPanel.Controls.Add(pnlSubMenuScheduleShiftAdjust);
-            pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnGuard", "Guard", "FrmGuard"));
-            pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnOvertime", "Overtime", "FrmOvertime"));
+            //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnGuard", "Guard", "FrmGuard"));
+            //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnOvertime", "Overtime", "FrmOvertime"));
+            //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeDayOff", "Change Day Off", "FrmChangeDayoff"));
             pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeDayOff", "Change Day Off", "FrmChangeDayoff"));
-            pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnExchangeChangeDayOff", "Exchange Day Off", "FrmExchangeDayoff"));
             pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeShifting", "Change Shifting", "FrmChangeShifting"));
 
 
@@ -220,8 +220,8 @@ namespace TimeKeepingII
             pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnTimeAdjustment", "Time Adjustment", "FrmTimeAdjustment"));
             pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnPermisionToReport", "Permission To Report for Work", "FrmPermissionToWork"));
             pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnSuspension", "Suspension", "FrmSuspension"));
-            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnLeaveOfAbsent", "Leave of Absent", "FrmLeave"));
-            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnUndertime", "Undertime", "FrmUndertime"));
+            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnLeaveUndertime", "Leave/Undertime", "FrmLeaveUndertime"));
+            //pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnUndertime", "Undertime", "FrmUndertime"));
 
 
 
