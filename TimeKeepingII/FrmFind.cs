@@ -28,12 +28,14 @@ namespace TimeKeepingII
         public string tableName;
         private string sqlBase;
         private bool isBioData = false;
-        public FrmFind(string strQuery,  bool isBio = true)
+        private string sTitle;
+        public FrmFind(string strQuery,  bool isBio = true, string _Title = "Find")
         {
             InitializeComponent();
 
             this.strQuery = strQuery;
             this.isBioData = isBio;
+            this.sTitle = _Title;
 
         }
         private string cutString(string column)
@@ -44,6 +46,8 @@ namespace TimeKeepingII
         }
         private void FrmFind_Load(object sender, EventArgs e)
         {
+            lblTitle.Text = sTitle;
+
             cmbFind.Items.Clear();
             this.PK = "";
             this.isYes = false;
@@ -207,6 +211,21 @@ namespace TimeKeepingII
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlTitle_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlTitle_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

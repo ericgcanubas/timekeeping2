@@ -13,7 +13,7 @@ namespace TimeKeepingII
     {
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 ChangeRD.PK,CtrlNo,DDate,EmpName,EffectDate,RefNo FROM [ChangeRD] LEFT JOIN  EmployeeName ON ChangeRD.EmpNo = EmployeeName.EmpPK  ");
 
-        const string sSelectSql = "SELECT [PK],[CtrlNo],[DDate],[EmpNo],[RefNo],[RestDayFrom],[RestDay],[EffectDateFrom],[EffectDate],[Remarks],[NotedBy],[ApprovedBy],[Posted],[Activate],[LastModified],[EmployeeName].EmpID as [EMPLOYEE_NO] , [EmployeeName].EmpName as [EmployeeName] FROM [ChangeRD] LEFT JOIN  EmployeeName ON ChangeRD.EmpNo = EmployeeName.EmpPK  ";
+        const string sSelectSql = "SELECT top 1 [PK],[CtrlNo],[DDate],[EmpNo],[RefNo],[RestDayFrom],[RestDay],[EffectDateFrom],[EffectDate],[Remarks],[NotedBy],[ApprovedBy],[Posted],[Activate],[LastModified],[EmployeeName].EmpID as [EMPLOYEE_NO] , [EmployeeName].EmpName as [EmployeeName] FROM [ChangeRD] LEFT JOIN  EmployeeName ON ChangeRD.EmpNo = EmployeeName.EmpPK  ";
         DataTable dtEmployee;
 
         public FrmChangeDayoff1()

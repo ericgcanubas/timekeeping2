@@ -52,6 +52,9 @@ namespace TimeKeepingII
                         if (ExchangeEmp())
                         {
                             swapDate();
+
+                    
+                            xlblCancel.Visible = false;
                             return;
                         }
                     }
@@ -65,6 +68,8 @@ namespace TimeKeepingII
                         dtpdExDateTo.Enabled = false;
 
                         getLatestRestDayRequest();
+                 
+                     
                         return;
                     }
                 }
@@ -106,6 +111,9 @@ namespace TimeKeepingII
 
                     tsPosted.Visible = false;
                     tsPost.Text = "Post";
+
+                    tsPosted.Text = "POSTED";
+                    xlblCancel.Visible = false;
 
                     return true;
                 }
@@ -287,6 +295,21 @@ namespace TimeKeepingII
                 tsEdit.Enabled = postValue == 1 ? false : true;
                 tsDelete.Enabled = postValue == 1 ? false : true;
 
+
+                int cancelValue = int.Parse(data["nCancelled"].ToString());
+
+                if (cancelValue == 1)
+                {
+                    tsPosted.Text = "CANCELLED";
+                    tsVoid.Enabled = false;
+                    xlblCancel.Visible = true;
+                }
+                else
+                {
+                    tsVoid.Enabled = postValue == 1 ? true : false;
+                    tsPosted.Text = "POSTED";
+                    xlblCancel.Visible = false;
+                }
             }
         }
 
@@ -397,7 +420,7 @@ namespace TimeKeepingII
 
             if (lblCD_nID.Text.Length == 0)
             {
-                var data = clsBiometrics.GetFirstRecord($"select top 1 nCtrlNo from tbl_CHANGERESTDAY order by CD_nID desc");
+                var data = clsBiometrics.GetFirstRecord($"select top 1 nCtrlNo from tbl_CHANGERESTDAY order by nCtrlNo desc");
                 if (data != null)
                 {
                     object ID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO tbl_CHANGERESTDAY 
@@ -487,6 +510,78 @@ namespace TimeKeepingII
         private void tsPrint_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tsVoid_Click(object sender, EventArgs e)
+        {
+            if (lblCD_nID.Text.Trim().Length == 0)
+            {
+                return;
+            }
+
+            FrmInputBox frm = new FrmInputBox("DISCARD LEAVE/UNDERTIME", "REASON");
+            frm.ShowDialog();
+            if (frm.isYes)
+            {
+                clsBiometrics.ExecuteNonQueryBool($"UPDATE tbl_CHANGERESTDAY SET nCancelled=1,sReasonCanc='{frm.InpuText}'  WHERE (CD_nID = {lblCD_nID.Text} ) ");
+                RefreshData();
+            }
+
+            frm.Dispose();
+        }
+
+        private void FrmChangeDayoff_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Insert:
+                    tsAdd.PerformClick();
+                    break;
+                case Keys.F2:
+                    tsEdit.PerformClick();
+                    break;
+                case Keys.Delete:
+                    tsDelete.PerformClick();
+                    break;
+                case Keys.F5:
+                    tsSave.PerformClick();
+                    break;
+                case Keys.Escape:
+                    if (tsCancel.Enabled)
+                    {
+                        tsCancel.PerformClick();
+                    }
+                    else
+                    {
+                        tsClose.PerformClick();
+                    }
+                    break;
+                case Keys.F6:
+                    tsFind.PerformClick();
+                    break;
+                case Keys.PageUp:
+                    tsBack.PerformClick();
+                    break;
+
+                case Keys.PageDown:
+                    tsNext.PerformClick();
+                    break;
+                case Keys.Home:
+                    tsFirst.PerformClick();
+                    break;
+                case Keys.End:
+                    tsLast.PerformClick();
+                    break;
+                case Keys.F9:
+                    tsPrint.PerformClick();
+                    break;
+                case Keys.F8:
+                    tsPost.PerformClick();
+                    break;
+                default:
+                    // Nothing
+                    break;
+            }
         }
     }
 }

@@ -57,7 +57,7 @@ namespace TimeKeepingII
                 if (pnlSideMenu.Width < menuSideDefaultActive)
                 {
                     pnlSideMenu.Size = new Size(CurrentWidth + 10, pnlSideMenu.Size.Height);
-                    tsPrimary.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
+                  //  tsPrimary.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
                 }
             }
             else
@@ -65,7 +65,7 @@ namespace TimeKeepingII
                 if (pnlSideMenu.Width > menuSideDefaultInActive)
                 {
                     pnlSideMenu.Size = new Size(CurrentWidth - 10, pnlSideMenu.Size.Height);
-                    tsPrimary.LayoutStyle = ToolStripLayoutStyle.Table;
+                   // tsPrimary.LayoutStyle = ToolStripLayoutStyle.Table;
                 }
 
             }

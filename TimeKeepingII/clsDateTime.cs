@@ -45,13 +45,25 @@ namespace TimeKeepingII
         }
         public static string TimeDisplay(DateTime start, DateTime end)
         {
-           
+
 
             TimeSpan diff = end - start;
 
             string formatted = $"{(int)diff.TotalHours} hrs. {diff.Minutes} min.";
 
             return formatted;
+        }
+        public static string DateRangeOutput(DateTime startDate, DateTime endDate)
+        {
+            List<string> dateStrings = new List<string>();
+
+            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+            {
+                dateStrings.Add(date.ToString("M/d/yyyy"));
+            }
+
+            string result = string.Join(",", dateStrings);
+            return result;
         }
     }
 }

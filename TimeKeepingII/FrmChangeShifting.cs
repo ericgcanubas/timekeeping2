@@ -14,7 +14,7 @@ namespace TimeKeepingII
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 ChangeShift.PK,CtrlNo,DDate,ShiftName,EmpID,EmpName,EffectDate,RefNo FROM [ChangeShift] LEFT JOIN  EmployeeName ON ChangeShift.EmpNo = EmployeeName.EmpPK LEFT JOIN ShiftingSchedule ON ChangeShift.Shift = ShiftingSchedule.PK ");
 
-        const string sSelectSql = "SELECT [PK],[CtrlNo],[DDate],[EmpNo],[RefNo],[Shift],[EffectDate],[Remarks],[NotedBy],[ApprovedBy],[Posted],[Activate],[LastModified],[EmployeeName].EmpID as [EMPLOYEE_NO] , [EmployeeName].EmpName as [EmployeeName] FROM [ChangeShift] LEFT JOIN  EmployeeName ON ChangeShift.EmpNo = EmployeeName.EmpPK  ";
+        const string sSelectSql = "SELECT TOP 1 [PK],[CtrlNo],[DDate],[EmpNo],[RefNo],[Shift],[EffectDate],[Remarks],[NotedBy],[ApprovedBy],[Posted],[Activate],[LastModified],[EmployeeName].EmpID as [EMPLOYEE_NO] , [EmployeeName].EmpName as [EmployeeName] FROM [ChangeShift] LEFT JOIN  EmployeeName ON ChangeShift.EmpNo = EmployeeName.EmpPK  ";
         DataTable dtEmployee;
         public FrmChangeShifting()
         {
@@ -381,6 +381,60 @@ namespace TimeKeepingII
             clsBiometrics.ExecuteNonQueryBool($"UPDATE ChangeShift SET Posted = {(tsPosted.Visible ? 0 : 1)} WHERE (PK = {lblPK.Text} ) ");
             RefreshData();
 
+        }
+
+        private void FrmChangeShifting_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Insert:
+                    tsAdd.PerformClick();
+                    break;
+                case Keys.F2:
+                    tsEdit.PerformClick();
+                    break;
+                case Keys.Delete:
+                    tsDelete.PerformClick();
+                    break;
+                case Keys.F5:
+                    tsSave.PerformClick();
+                    break;
+                case Keys.Escape:
+                    if (tsCancel.Enabled)
+                    {
+                        tsCancel.PerformClick();
+                    }
+                    else
+                    {
+                        tsClose.PerformClick();
+                    }
+                    break;
+                case Keys.F6:
+                    tsFind.PerformClick();
+                    break;
+                case Keys.PageUp:
+                    tsBack.PerformClick();
+                    break;
+
+                case Keys.PageDown:
+                    tsNext.PerformClick();
+                    break;
+                case Keys.Home:
+                    tsFirst.PerformClick();
+                    break;
+                case Keys.End:
+                    tsLast.PerformClick();
+                    break;
+                case Keys.F9:
+                    tsPrint.PerformClick();
+                    break;
+                case Keys.F8:
+                    tsPost.PerformClick();
+                    break;
+                default:
+                    // Nothing
+                    break;
+            }
         }
     }
 }

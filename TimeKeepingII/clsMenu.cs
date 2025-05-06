@@ -190,7 +190,7 @@ namespace TimeKeepingII
             picScheduleShiftAdjust.Click += new EventHandler(onClickSubMenu);
             lblScheduleShiftAdjust.Click += new EventHandler(onClickSubMenu);
 
-            Panel pnlSubMenuScheduleShiftAdjust = CreateSubMenuPanel("pnlSubMenuScheduleShiftAdjust", 120);
+            Panel pnlSubMenuScheduleShiftAdjust = CreateSubMenuPanel("pnlSubMenuScheduleShiftAdjust", 70);
             mainPanel.Controls.Add(pnlSubMenuScheduleShiftAdjust);
             //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnGuard", "Guard", "FrmGuard"));
             //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnOvertime", "Overtime", "FrmOvertime"));
@@ -214,7 +214,7 @@ namespace TimeKeepingII
             lblAttendanceManagement.Click += new EventHandler(onClickSubMenu);
 
 
-            Panel pnlSubMenuAttendanceManagement = CreateSubMenuPanel("pnlSubMenuAttendanceManagement", 190);
+            Panel pnlSubMenuAttendanceManagement = CreateSubMenuPanel("pnlSubMenuAttendanceManagement", 170);
             mainPanel.Controls.Add(pnlSubMenuAttendanceManagement);
             pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnTravelDuty", "Travel Duty", "FrmTravelDuty"));
             pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnTimeAdjustment", "Time Adjustment", "FrmTimeAdjustment"));
@@ -392,10 +392,11 @@ namespace TimeKeepingII
             lbl.Dock = DockStyle.Right;
             lbl.Text = Caption;
             lbl.Cursor = Cursors.Hand;
+            lbl.ForeColor = System.Drawing.Color.White;
             lbl.Size = new System.Drawing.Size(225, 40);
             lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lbl.MouseHover += new EventHandler(Lbl_MouseHover);
-
+            
             lbl.MouseLeave += new EventHandler(Lbl_MouseLeave);
             return lbl;
         }
@@ -457,8 +458,8 @@ namespace TimeKeepingII
             pnl.Dock = DockStyle.Top;
             pnl.Size = new System.Drawing.Size(271, myHeight);
             pnl.Visible = false;
-            pnl.BackColor = System.Drawing.Color.Black;
 
+            pnl.BackColor = System.Drawing.Color.MidnightBlue;
             return pnl;
         }
         private static Button CreateSubMenuButton(string Name, string Caption, string FormName)
@@ -475,7 +476,7 @@ namespace TimeKeepingII
             btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             btn.FlatStyle = FlatStyle.Popup;
             btn.UseVisualStyleBackColor = true;
-            btn.BackColor = System.Drawing.Color.Black;
+            btn.BackColor = System.Drawing.Color.DodgerBlue;
             btn.ForeColor = System.Drawing.Color.White;
             btn.Click += new EventHandler(OpenForm);
             return btn;

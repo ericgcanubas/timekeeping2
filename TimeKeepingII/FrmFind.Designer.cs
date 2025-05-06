@@ -31,7 +31,7 @@
             this.lvFind = new System.Windows.Forms.ListView();
             this.cmbFind = new System.Windows.Forms.ComboBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.ptbClose = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -78,25 +78,27 @@
             // pnlTitle
             // 
             this.pnlTitle.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.pnlTitle.Controls.Add(this.label5);
+            this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Controls.Add(this.ptbClose);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(0, 0);
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(705, 36);
             this.pnlTitle.TabIndex = 3;
+            this.pnlTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTitle_Paint);
+            this.pnlTitle.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDoubleClick);
             this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
-            // label5
+            // lblTitle
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(2, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 25);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Find";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(2, 3);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(51, 25);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Find";
             // 
             // ptbClose
             // 
@@ -163,6 +165,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(705, 558);
             this.panel2.TabIndex = 4;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnCancel
             // 
@@ -265,6 +268,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox ptbClose;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

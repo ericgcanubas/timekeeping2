@@ -18,12 +18,7 @@ namespace TimeKeepingII
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 LU_nID as ID,sEmpName ,nCtrlNo,dTransDate,sReason FROM [tbl_LEAVE_UNDERTIME]  ");
         const string sSelectSql = "SELECT TOP 1  [LU_nID], [nCtrlNo], [dTransDate], [nType], [EmpPK], [sEmpName], [sSection], [sBrand], [dEffectDate], [EffectDates], [sResumeToWork], [sReason], [sCoordinated], [sCheckBy], [sFiledBy], [sNotedBy], [sVerifiedBy], [sApprovedBy], [sLastUpdatedBy], [nPosted], [sNoOfDaysMin], [nCancelled], [sReasonCanc] FROM [tbl_LEAVE_UNDERTIME] ";
         DataTable dtEmployee;
-
-
-
         string[] effectDates = null;
-
-
         public FrmLeaveUndertime()
         {
             InitializeComponent();
@@ -83,11 +78,29 @@ namespace TimeKeepingII
                 int postValue = int.Parse(data["nPosted"].ToString());
                 tsPosted.Visible = postValue == 1 ? true : false;
                 tsPost.Text = postValue == 1 ? "Unpost" : "Post";
+
                 tsEdit.Enabled = postValue == 1 ? false : true;
                 tsDelete.Enabled = postValue == 1 ? false : true;
                 int type = int.Parse(data["nType"].ToString());
 
+
                 setDate(type, data["EffectDates"].ToString());
+
+
+                int cancelValue = int.Parse(data["nCancelled"].ToString());
+
+                if (cancelValue == 1)
+                {
+                    tsPosted.Text = "CANCELLED";
+                    tsVoid.Enabled = false;
+                    xlblCancel.Visible = true;
+                }
+                else
+                {
+                    tsVoid.Enabled = postValue == 1 ? true : false;
+                    tsPosted.Text = "POSTED";
+                    xlblCancel.Visible = false;
+                }
             }
         }
         private void setType(int type)
@@ -97,12 +110,27 @@ namespace TimeKeepingII
                 dtpDATE_FROM.Format = DateTimePickerFormat.Short;
                 dtpDATE_TO.Format = DateTimePickerFormat.Short;
                 dtpsResumeToWork.Format = DateTimePickerFormat.Short;
+
+                dtpDATE_TO.ShowUpDown = false;
+                dtpDATE_TO.ShowUpDown = false;
+                dtpsResumeToWork.ShowUpDown = false;
+
+                xlblFROM.Text = "DATE FROM :";
+                xlblTO.Text = "DATE TO :";
+                xlblResume.Text = "DATE RESUME :";
             }
             else
             {
                 dtpDATE_FROM.Format = DateTimePickerFormat.Custom;
                 dtpDATE_TO.Format = DateTimePickerFormat.Custom;
                 dtpsResumeToWork.Format = DateTimePickerFormat.Custom;
+                dtpDATE_TO.ShowUpDown = true;
+                dtpDATE_TO.ShowUpDown = true;
+                dtpsResumeToWork.ShowUpDown = true;
+
+                xlblFROM.Text = "TIME FROM :";
+                xlblTO.Text = "TIME TO :";
+                xlblResume.Text = "TIME RESUME :";
 
             }
         }
@@ -192,6 +220,9 @@ namespace TimeKeepingII
 
                     rdbLeave.Checked = false;
                     rdbUndertime.Checked = false;
+                    rdbLeave.Checked = true;
+                    xlblCancel.Visible = false;
+
                     return true;
                 }
             }
@@ -211,6 +242,13 @@ namespace TimeKeepingII
             else
             {
                 clsComponentControl.ClearValue(this);
+                tsPosted.Visible = false;
+                tsPost.Text = "Post";
+
+                rdbLeave.Checked = false;
+                rdbUndertime.Checked = false;
+                rdbLeave.Checked = true;
+                xlblCancel.Visible = false;
             }
         }
 
@@ -286,8 +324,6 @@ namespace TimeKeepingII
 
             setType(2);
 
-
-
             if (rdbUndertime.Enabled)
             {
                 dtpDATE_FROM.Value = clsDateTime.GetDefault();
@@ -312,8 +348,6 @@ namespace TimeKeepingII
                 clsComponentControl.ClearValue(this);
                 lblLU_nID.Text = frmFind.PK;
                 RefreshData();
-
-
             }
         }
 
@@ -346,20 +380,20 @@ namespace TimeKeepingII
                     if (dayCount > 1)
                     {
                         lblsNoOfDaysMin.Text = $"{dayCount + 1} Days ";
+                        ResumeOn();
                         return;
                     }
                     lblsNoOfDaysMin.Text = $"{dayCount + 1} Day ";
+                    ResumeOn();
                     return;
                 }
                 lblsNoOfDaysMin.Text = "";
-
-
             }
-
 
             if (rdbUndertime.Checked)
             {
                 lblsNoOfDaysMin.Text = clsDateTime.TimeDisplay(dtpDATE_FROM.Value, dtpDATE_TO.Value);
+                ResumeOn();
             }
 
 
@@ -383,6 +417,205 @@ namespace TimeKeepingII
             }
 
             getDayMinCount();
+        }
+        private void ResumeOn()
+        {
+            if (rdbLeave.Checked == true)
+            {
+                DateTime dt = dtpDATE_TO.Value;
+                dtpsResumeToWork.Value = dt.AddDays(1);
+            }
+
+            if (rdbUndertime.Checked == true)
+            {
+                dtpsResumeToWork.Value = dtpDATE_TO.Value;
+            }
+        }
+
+        private void tsSave_Click(object sender, EventArgs e)
+        {
+            if (lblEmpPK.Text.Length == 0) { clsMessage.MessageShowWarning("Please Select Employee Request !"); return; };
+            if (txtsReason.Text.Length == 0) { clsMessage.MessageShowWarning("Please Enter an Reason!"); return; }
+            string sSection = "";
+            string sBrand = "";
+            int nType = 0;
+            string sFormat = "";
+            string sEffectDates = "";
+            if (rdbLeave.Checked)
+            {
+                if (dtpDATE_FROM.Value > dtpDATE_TO.Value)
+                {
+                    clsMessage.MessageShowError("Invalid Date Range From/To ");
+                    return;
+                }
+
+                nType = 1;
+                sFormat = "MM/dd/yyyy";
+                sEffectDates = clsDateTime.DateRangeOutput(dtpDATE_FROM.Value.Date, dtpDATE_TO.Value.Date);
+            }
+            if (rdbUndertime.Checked)
+            {
+                if (dtpDATE_FROM.Value > dtpDATE_TO.Value)
+                {
+
+                    clsMessage.MessageShowError("Invalid Time Range From/To ");
+                    return;
+                }
+
+                nType = 2;
+                sFormat = "h:mm tt";
+
+                sEffectDates = $@"{dtpDATE_FROM.Value.ToString(sFormat)}-{dtpDATE_TO.Value.ToString(sFormat)}";
+            }
+
+            if (lblLU_nID.Text.Length == 0)
+            {
+                int nCtrlNo = 1;
+                var data = clsBiometrics.GetFirstRecord($"select top 1 nCtrlNo from tbl_LEAVE_UNDERTIME order by nCtrlNo desc");
+                if (data != null)
+                {
+                    nCtrlNo = int.Parse(data["nCtrlNo"].ToString()) + 1;
+                }
+
+
+                object ID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO [tbl_LEAVE_UNDERTIME] ([nCtrlNo], [dTransDate], [nType], [EmpPK], [sEmpName], [sSection], [sBrand], [dEffectDate], [EffectDates], [sResumeToWork], [sReason], [sCoordinated], [sCheckBy], [sFiledBy], [sNotedBy], [sVerifiedBy], [sApprovedBy], [sLastUpdatedBy], [nPosted], [sNoOfDaysMin], [nCancelled], [sReasonCanc]) 
+                VALUES ({nCtrlNo}, '{dtpdTransDate.Value.ToString("MM/dd/yyyy")}', {nType}, {lblEmpPK.Text}, '{lblsEmpName.Text}','{sSection}', '{sBrand}', '{dtpdEffectDate.Value.ToString("MM/dd/yyyy")}','{sEffectDates}', '{dtpsResumeToWork.Value.ToString(sFormat)}', '{txtsReason.Text}','{txtsCoordinated.Text}', '', '{txtsFiledBy.Text}', '{txtsNotedBy.Text}', '{txtsVerifiedBy.Text}', '{txtsApprovBy.Text}', '{clsDateTime.LastModify()}', 0, '{lblsNoOfDaysMin.Text}', 0, '') ");
+                if (ID != null)
+                {
+                    lblLU_nID.Text = ID.ToString();
+                    tsCancel.PerformClick();
+                }
+            }
+            else
+            {
+                if (clsBiometrics.ExecuteNonQueryBool($@"UPDATE [tbl_LEAVE_UNDERTIME] SET [nType] = {nType}, [dEffectDate]='{dtpdEffectDate.Value.ToString("MM/dd/yyyy")}', [EffectDates]='{sEffectDates}', [sResumeToWork]='{dtpsResumeToWork.Value.ToString(sFormat)}', [sReason]='{txtsReason.Text}', [sCoordinated]='{txtsCoordinated.Text}', [sFiledBy]='{txtsFiledBy.Text}', [sNotedBy]='{txtsNotedBy.Text}', [sVerifiedBy]='{txtsVerifiedBy.Text}', [sApprovedBy]='{txtsApprovBy.Text}', [sLastUpdatedBy]='{clsDateTime.LastModify()}', [sNoOfDaysMin]='{lblsNoOfDaysMin.Text}' WHERE LU_nID={lblLU_nID.Text}"))
+                {
+                    tsCancel.PerformClick();
+                }
+            }
+
+
+
+        }
+
+        private void dtpdEffectDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpdEffectDate.Enabled == false)
+            {
+                return;
+            }
+
+            dtpDATE_FROM.Value = dtpdEffectDate.Value;
+            dtpDATE_TO.Value = dtpdEffectDate.Value;
+
+            getDayMinCount();
+        }
+
+        private void tsPost_Click(object sender, EventArgs e)
+        {
+            if (lblLU_nID.Text.Length == 0)
+            {
+                return;
+            }
+
+            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "POST"))
+            {
+                return;
+            }
+
+
+            if (tsPosted.Visible)
+            {
+                if (!clsMessage.MessageQuestion("ARE YOU SURE TO UNPOST THIS TRANSACTION?"))
+                {
+                    return;
+                }
+            }
+            else
+            {
+                if (!clsMessage.MessageQuestion("ARE YOU SURE TO POST THIS TRANSACTION? "))
+                {
+                    return;
+                }
+            }
+
+            clsBiometrics.ExecuteNonQueryBool($"UPDATE tbl_LEAVE_UNDERTIME SET nPosted = {(tsPosted.Visible ? 0 : 1)} WHERE (LU_nID = {lblLU_nID.Text} ) ");
+            RefreshData();
+        }
+
+        private void tsVoid_Click(object sender, EventArgs e)
+        {
+            if (lblLU_nID.Text.Trim().Length == 0)
+            {
+                return;
+            }
+
+            FrmInputBox frm = new FrmInputBox("DISCARD LEAVE/UNDERTIME", "REASON");
+            frm.ShowDialog();
+            if (frm.isYes)
+            {
+                clsBiometrics.ExecuteNonQueryBool($"UPDATE tbl_LEAVE_UNDERTIME SET nCancelled=1,sReasonCanc='{frm.InpuText}'  WHERE (LU_nID = {lblLU_nID.Text} ) ");
+                RefreshData();
+            }
+
+            frm.Dispose();
+
+
+        }
+
+        private void FrmLeaveUndertime_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Insert:
+                    tsAdd.PerformClick();
+                    break;
+                case Keys.F2:
+                    tsEdit.PerformClick();
+                    break;
+                case Keys.Delete:
+                    tsDelete.PerformClick();
+                    break;
+                case Keys.F5:
+                    tsSave.PerformClick();
+                    break;
+                case Keys.Escape:
+                    if (tsCancel.Enabled)
+                    {
+                        tsCancel.PerformClick();
+                    }
+                    else
+                    {
+                        tsClose.PerformClick();
+                    }
+                    break;
+                case Keys.F6:
+                    tsFind.PerformClick();
+                    break;
+                case Keys.PageUp:
+                    tsBack.PerformClick();
+                    break;
+
+                case Keys.PageDown:
+                    tsNext.PerformClick();
+                    break;
+                case Keys.Home:
+                    tsFirst.PerformClick();
+                    break;
+                case Keys.End:
+                    tsLast.PerformClick();
+                    break;
+                case Keys.F9:
+                    tsPrint.PerformClick();
+                    break;
+                case Keys.F8:
+                    tsPost.PerformClick();
+                    break;
+                default:
+                    // Nothing
+                    break;
+
+            }
         }
     }
 

@@ -133,6 +133,12 @@
     <Compile Include="FrmFind.Designer.cs">
       <DependentUpon>FrmFind.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInputBox.Designer.cs">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLeaveUndertime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPRW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPRW.Designer.cs">
+      <DependentUpon>FrmPRW.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSetup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,12 +180,6 @@
     </Compile>
     <Compile Include="FrmShiftingSchedule.Designer.cs">
       <DependentUpon>FrmShiftingSchedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmUndertime.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmUndertime.Designer.cs">
-      <DependentUpon>FrmUndertime.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,6 +198,9 @@
     <EmbeddedResource Include="FrmFind.resx">
       <DependentUpon>FrmFind.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInputBox.resx">
+      <DependentUpon>FrmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLeaveUndertime.resx">
       <DependentUpon>FrmLeaveUndertime.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPRW.resx">
+      <DependentUpon>FrmPRW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetup.resx">
       <DependentUpon>FrmSetup.cs</DependentUpon>
@@ -284,6 +296,7 @@
     <None Include="Resources\last_icon.png" />
     <None Include="Resources\print.png" />
     <None Include="Resources\post.png" />
+    <None Include="Resources\discard.png" />
     <Content Include="time.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

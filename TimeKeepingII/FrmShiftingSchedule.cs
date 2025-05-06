@@ -25,7 +25,7 @@ namespace TimeKeepingII
             clsComponentControl.ObjectEnable(this, false);
 
             DataTable dt = clsBiometrics.dataList("SELECT [PK],ShiftType FROM [ShiftingType] ");
-            clsTool.ComboBoxDataLoad(cmbShiftType,dt, "ShiftType", "PK");
+            clsTool.ComboBoxDataLoad(cmbShiftType, dt, "ShiftType", "PK");
 
             string LastOpenShiftName = "XMASFS";
             string squery = $@"{sSelectSql}  WHERE (ShiftingSchedule.ShiftName = '{LastOpenShiftName}')  ORDER BY ShiftingSchedule.ShiftName ";
@@ -263,11 +263,21 @@ namespace TimeKeepingII
 
         private void DataRecord(string squery)
         {
-            var data = clsBiometrics.GetFirstRecord(squery);
-            if (data != null)
+            try
             {
-                clsComponentControl.AssignValue(this, data);
+                var data = clsBiometrics.GetFirstRecord(squery);
+                if (data != null)
+                {
+                    clsComponentControl.AssignValue(this, data);
+                }
             }
+            catch (Exception ex)
+            {
+
+                clsMessage.MessageShowError(ex.Message);
+            }
+
+
 
         }
 

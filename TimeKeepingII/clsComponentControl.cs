@@ -66,6 +66,10 @@ namespace TimeKeepingII
                         case "Unpost":
                             btn.Enabled = isActive ? true : false;
                             break;
+                        case "Void":
+                            btn.Enabled = isActive ? true : false;
+                            break;
+
                         default:
                             // do nothing
                             break;

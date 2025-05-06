@@ -766,6 +766,7 @@
             this.Name = "FrmChangeShifting";
             this.Text = "Change Shifting";
             this.Load += new System.EventHandler(this.FrmChangeShifting_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmChangeShifting_KeyDown);
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
             this.gpbShiftDetails.ResumeLayout(false);
