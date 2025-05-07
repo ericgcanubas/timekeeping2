@@ -31,24 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbMinimize = new System.Windows.Forms.PictureBox();
+            this.ptbClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ptbMenuBurger = new System.Windows.Forms.PictureBox();
             this.pnlSideMenu = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tabControl1 = new MdiTabControl.TabControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ptbMinimize = new System.Windows.Forms.PictureBox();
-            this.ptbClose = new System.Windows.Forms.PictureBox();
-            this.ptbMenuBurger = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
-            this.pnlSideMenu.SuspendLayout();
-            this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).BeginInit();
+            this.pnlSideMenu.SuspendLayout();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -66,6 +66,47 @@
             this.pnlHeader.TabIndex = 0;
             this.pnlHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseDown);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = global::TimeKeepingII.Properties.Resources.time_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(73, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ptbMinimize
+            // 
+            this.ptbMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbMinimize.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ptbMinimize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMinimize.Image = global::TimeKeepingII.Properties.Resources.minimized_icon;
+            this.ptbMinimize.Location = new System.Drawing.Point(1157, 1);
+            this.ptbMinimize.Name = "ptbMinimize";
+            this.ptbMinimize.Size = new System.Drawing.Size(40, 40);
+            this.ptbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbMinimize.TabIndex = 3;
+            this.ptbMinimize.TabStop = false;
+            this.ptbMinimize.Click += new System.EventHandler(this.ptbMinimize_Click);
+            // 
+            // ptbClose
+            // 
+            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
+            this.ptbClose.Location = new System.Drawing.Point(1200, 1);
+            this.ptbClose.Name = "ptbClose";
+            this.ptbClose.Size = new System.Drawing.Size(40, 40);
+            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbClose.TabIndex = 2;
+            this.ptbClose.TabStop = false;
+            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -76,6 +117,18 @@
             this.label1.Size = new System.Drawing.Size(172, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Time Keeping";
+            // 
+            // ptbMenuBurger
+            // 
+            this.ptbMenuBurger.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbMenuBurger.Image = global::TimeKeepingII.Properties.Resources.burger_bar;
+            this.ptbMenuBurger.Location = new System.Drawing.Point(1, -1);
+            this.ptbMenuBurger.Name = "ptbMenuBurger";
+            this.ptbMenuBurger.Size = new System.Drawing.Size(58, 40);
+            this.ptbMenuBurger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbMenuBurger.TabIndex = 0;
+            this.ptbMenuBurger.TabStop = false;
+            this.ptbMenuBurger.Click += new System.EventHandler(this.ptbMenuBurger_Click);
             // 
             // pnlSideMenu
             // 
@@ -92,7 +145,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 572);
@@ -139,59 +192,6 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox1.Image = global::TimeKeepingII.Properties.Resources.time_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(73, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // ptbMinimize
-            // 
-            this.ptbMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbMinimize.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ptbMinimize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMinimize.Image = global::TimeKeepingII.Properties.Resources.minimized_icon;
-            this.ptbMinimize.Location = new System.Drawing.Point(1157, 1);
-            this.ptbMinimize.Name = "ptbMinimize";
-            this.ptbMinimize.Size = new System.Drawing.Size(40, 40);
-            this.ptbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbMinimize.TabIndex = 3;
-            this.ptbMinimize.TabStop = false;
-            this.ptbMinimize.Click += new System.EventHandler(this.ptbMinimize_Click);
-            // 
-            // ptbClose
-            // 
-            this.ptbClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbClose.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ptbClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbClose.Image = global::TimeKeepingII.Properties.Resources.x_mark;
-            this.ptbClose.Location = new System.Drawing.Point(1200, 1);
-            this.ptbClose.Name = "ptbClose";
-            this.ptbClose.Size = new System.Drawing.Size(40, 40);
-            this.ptbClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbClose.TabIndex = 2;
-            this.ptbClose.TabStop = false;
-            this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
-            // 
-            // ptbMenuBurger
-            // 
-            this.ptbMenuBurger.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbMenuBurger.Image = global::TimeKeepingII.Properties.Resources.burger_bar;
-            this.ptbMenuBurger.Location = new System.Drawing.Point(1, -1);
-            this.ptbMenuBurger.Name = "ptbMenuBurger";
-            this.ptbMenuBurger.Size = new System.Drawing.Size(58, 40);
-            this.ptbMenuBurger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbMenuBurger.TabIndex = 0;
-            this.ptbMenuBurger.TabStop = false;
-            this.ptbMenuBurger.Click += new System.EventHandler(this.ptbMenuBurger_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,12 +209,12 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            this.pnlSideMenu.ResumeLayout(false);
-            this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMenuBurger)).EndInit();
+            this.pnlSideMenu.ResumeLayout(false);
+            this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -27,7 +27,7 @@ namespace TimeKeepingII
         }
         public static void OpenForm(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
+            LinkLabel btn = sender as LinkLabel;
             Form frm = callForm(btn.AccessibleDescription);
             if (frm != null)
             {
@@ -78,8 +78,6 @@ namespace TimeKeepingII
 
                         if (pnl != null)
                         {
-
-
                             if (pnl.Visible == true)
                             {
                                 pnl.Visible = false;
@@ -88,13 +86,9 @@ namespace TimeKeepingII
                             {
                                 pnl.Visible = true;
                             }
-
                         }
-
-
                     }
                 }
-
                 return;
             }
             PictureBox pic = sender as PictureBox;
@@ -168,7 +162,6 @@ namespace TimeKeepingII
             picDataSync.Click += new EventHandler(onClickSubMenu);
             lblDataSync.Click += new EventHandler(onClickSubMenu);
 
-
             Panel pnlSubMenuDataSync = CreateSubMenuPanel("pnlSubMenuDataSync", 70);
             mainPanel.Controls.Add(pnlSubMenuDataSync);
             pnlSubMenuDataSync.Controls.Add(CreateSubMenuButton("btnDownloadFromMachine", "Download Data From Machine", "FrmDownloadDataFromMachine"));
@@ -176,7 +169,7 @@ namespace TimeKeepingII
 
 
 
-
+        
             // Schedule Shift Adjust
             Panel pnlScheduleShiftAdjust = buildPanel("pnlScheduleShiftAdjust");
             PictureBox picScheduleShiftAdjust = buildPicture("picScheduleShiftAdjust", "pnlSubMenuScheduleShiftAdjust");
@@ -214,19 +207,15 @@ namespace TimeKeepingII
             lblAttendanceManagement.Click += new EventHandler(onClickSubMenu);
 
 
-            Panel pnlSubMenuAttendanceManagement = CreateSubMenuPanel("pnlSubMenuAttendanceManagement", 170);
+            Panel pnlSubMenuAttendanceManagement = CreateSubMenuPanel("pnlSubMenuAttendanceManagement", 70);
             mainPanel.Controls.Add(pnlSubMenuAttendanceManagement);
-            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnTravelDuty", "Travel Duty", "FrmTravelDuty"));
-            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnTimeAdjustment", "Time Adjustment", "FrmTimeAdjustment"));
-            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnPermisionToReport", "Permission To Report for Work", "FrmPermissionToWork"));
-            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnSuspension", "Suspension", "FrmSuspension"));
+            //pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnTravelDuty", "Travel Duty", "FrmTravelDuty"));
+            //pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnTimeAdjustment", "Time Adjustment", "FrmTimeAdjustment"));
+            pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnPermisionToReport", "Permission To Report for Work", "FrmPRW"));
             pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnLeaveUndertime", "Leave/Undertime", "FrmLeaveUndertime"));
             //pnlSubMenuAttendanceManagement.Controls.Add(CreateSubMenuButton("btnUndertime", "Undertime", "FrmUndertime"));
 
-
-
             //Clearing and Validation
-
             Panel pnlClearingValidation = buildPanel("pnlClearingValidation");
             PictureBox picClearingValidation = buildPicture("picClearingValidation", "pnlSubMenuClearingValidation");
             picClearingValidation.Image = Properties.Resources.clear_validation;
@@ -394,6 +383,7 @@ namespace TimeKeepingII
             lbl.Cursor = Cursors.Hand;
             lbl.ForeColor = System.Drawing.Color.White;
             lbl.Size = new System.Drawing.Size(225, 40);
+            lbl.Font = new System.Drawing.Font("Segoe UI", 9, System.Drawing.FontStyle.Bold);
             lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lbl.MouseHover += new EventHandler(Lbl_MouseHover);
             
@@ -462,11 +452,11 @@ namespace TimeKeepingII
             pnl.BackColor = System.Drawing.Color.MidnightBlue;
             return pnl;
         }
-        private static Button CreateSubMenuButton(string Name, string Caption, string FormName)
+        private static Label CreateSubMenuButton(string Name, string Caption, string FormName)
         {
 
 
-            Button btn = new Button();
+            LinkLabel btn = new LinkLabel();
             btn.AccessibleDescription = FormName;
             btn.Name = Name;
             btn.Dock = DockStyle.Top;
@@ -474,10 +464,12 @@ namespace TimeKeepingII
             btn.Cursor = Cursors.Hand;
             btn.Size = new System.Drawing.Size(271, 30);
             btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btn.FlatStyle = FlatStyle.Popup;
-            btn.UseVisualStyleBackColor = true;
-            btn.BackColor = System.Drawing.Color.DodgerBlue;
+            btn.LinkBehavior = LinkBehavior.NeverUnderline;
+            //btn.FlatStyle = FlatStyle.Popup;
+            //btn.UseVisualStyleBackColor = true;
+            btn.BackColor = System.Drawing.Color.MidnightBlue;
             btn.ForeColor = System.Drawing.Color.White;
+            btn.LinkColor = System.Drawing.Color.Yellow;
             btn.Click += new EventHandler(OpenForm);
             return btn;
         }

@@ -136,6 +136,13 @@ namespace TimeKeepingII
                         GroupBox gpb = (GroupBox)item;
                         ObjectEnable(gpb, isEnable);
                         break;
+
+
+                    case "pnl":
+
+                        Panel pnl = (Panel)item;
+                        ObjectEnable(pnl, isEnable);
+                        break;
                 }
 
             }
