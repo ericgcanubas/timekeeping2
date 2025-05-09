@@ -46,7 +46,7 @@ namespace TimeKeepingII
                     i++;
                 }
 
-            
+
                 if (clsAccessControl.AccessRight(frm.AccessibleDescription, "OPEN"))
                 {
 
@@ -140,9 +140,9 @@ namespace TimeKeepingII
             picEmployee.Click += new EventHandler(onClickSubMenu);
             lblEmployee.Click += new EventHandler(onClickSubMenu);
 
-            Panel pnlSubMenuEmployee = CreateSubMenuPanel("pnlSubMenuEmployeeSetup", 100);
+            Panel pnlSubMenuEmployee = CreateSubMenuPanel("pnlSubMenuEmployeeSetup", 120);
             mainPanel.Controls.Add(pnlSubMenuEmployee);
-            //pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnEnableDisable", "To Enable / Disable Employee", "FrmEnableDisable"));
+            pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnProfile", "Employee Profile", "FrmProfile"));
 
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnShiftingSchedule", "Shifting Schedule", "FrmShiftingSchedule"));
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnAssignBioID", "Assign Bio Id", "FrmAssignBioID"));
@@ -169,7 +169,7 @@ namespace TimeKeepingII
 
 
 
-        
+
             // Schedule Shift Adjust
             Panel pnlScheduleShiftAdjust = buildPanel("pnlScheduleShiftAdjust");
             PictureBox picScheduleShiftAdjust = buildPicture("picScheduleShiftAdjust", "pnlSubMenuScheduleShiftAdjust");
@@ -248,16 +248,12 @@ namespace TimeKeepingII
             picTimeRecordHandling.Click += new EventHandler(onClickSubMenu);
             lblTimeRecordHandling.Click += new EventHandler(onClickSubMenu);
 
-
-
             Panel pnlSubMenuTimeRecordHandling = CreateSubMenuPanel("pnlSubMenuTimeRecordHandling", 120);
             mainPanel.Controls.Add(pnlSubMenuTimeRecordHandling);
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnCheckUnupdatedTimeSummary", "Check Unupdated Time Summary", "FrmCheckUnupdatedTimeSummary"));
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnUpdateTimeSummary", "Update Time Summary", "FrmUpdateTimeSummary"));
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnTimeCharger", "Time Charger", "FrmTimeCharger"));
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnTimeRecord", "Time Record", "FrmTimeRecord"));
-
-
 
             // Deductions && Adjustments
 
@@ -272,14 +268,10 @@ namespace TimeKeepingII
             picDeductions.Click += new EventHandler(onClickSubMenu);
             lblDeductions.Click += new EventHandler(onClickSubMenu);
 
-
-
             Panel pnlSubMenuDeductions = CreateSubMenuPanel("pnlSubMenuDeductions", 70);
             mainPanel.Controls.Add(pnlSubMenuDeductions);
             pnlSubMenuDeductions.Controls.Add(CreateSubMenuButton("btnGenerateDeductionsForAbsences", "Generate Deductions for Absences", "FrmGenerate"));
             pnlSubMenuDeductions.Controls.Add(CreateSubMenuButton("btnAdjustmentOfTimeSummary", "Adjustment Of Time Summary(for Monthly Only)", "FrmClearingNew"));
-
-
 
             // Summaries & Reports
             Panel pnlSummaryReports = buildPanel("pnlSummaryReports");
@@ -386,7 +378,7 @@ namespace TimeKeepingII
             lbl.Font = new System.Drawing.Font("Segoe UI", 9, System.Drawing.FontStyle.Bold);
             lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lbl.MouseHover += new EventHandler(Lbl_MouseHover);
-            
+
             lbl.MouseLeave += new EventHandler(Lbl_MouseLeave);
             return lbl;
         }
@@ -463,6 +455,7 @@ namespace TimeKeepingII
             btn.Text = "                 " + Caption;
             btn.Cursor = Cursors.Hand;
             btn.Size = new System.Drawing.Size(271, 30);
+            btn.Font = new System.Drawing.Font("Segoe UI", 9, System.Drawing.FontStyle.Regular);
             btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             btn.LinkBehavior = LinkBehavior.NeverUnderline;
             //btn.FlatStyle = FlatStyle.Popup;

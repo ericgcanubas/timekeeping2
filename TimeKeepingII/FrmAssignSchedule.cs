@@ -13,7 +13,7 @@ namespace TimeKeepingII
     {
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 EmployeeShifting.PK, EmployeeName.EmpName,  EmployeeName.EmpID, EmployeeShifting.EffectDate  FROM EmployeeShifting LEFT OUTER JOIN EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ");
         readonly string sSelectSql = "SELECT EmployeeShifting.*, EmployeeName.EmpName as EmployeeName,  EmployeeName.EmpID as EMPLOYEE_NO, EmployeeName.EmpPK as  EMP_PK  FROM EmployeeShifting LEFT JOIN  EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ";
-        DataTable dtEmployee;
+
         public FrmAssignSchedule()
         {
             InitializeComponent();
@@ -21,7 +21,6 @@ namespace TimeKeepingII
         private void FrmAssignSchedule_Load(object sender, EventArgs e)
         {
             CustomDataTable();
-            dtEmployee = clsPayrollSystem.dataList(clsGlobal.EmployeeFind);
             LoadShift();
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
@@ -62,15 +61,14 @@ namespace TimeKeepingII
             }
 
 
-            if (dtEmployee != null)
+
+            FrmEmployeeList frm = new FrmEmployeeList();
+            frm.ShowDialog();
+
+            if (frm.VALUE != "")
             {
-                FrmList frm = new FrmList(dtEmployee);
-                frm.ShowDialog();
 
-                if (frm.VALUE != "")
-                {
-
-                    string strSelect = $@"SELECT PK, 
+                string strSelect = $@"SELECT PK, 
                                     EEmployeeIDNo,
                                     ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
                                     ELastName, 
@@ -79,22 +77,22 @@ namespace TimeKeepingII
                                     FROM tbl_Profile_IDNumber 
                                     WHERE PK = {frm.VALUE} ";
 
-                    var empData = clsPayrollSystem.GetFirstRecord(strSelect);
+                var empData = clsPayrollSystem.GetFirstRecord(strSelect);
 
-                    if (empData != null)
-                    {
+                if (empData != null)
+                {
 
-                        clsComponentControl.HeaderMenu(tsHeaderControl, false);
-                        clsComponentControl.ObjectEnable(this, true);
-                        clsComponentControl.ClearValue(this);
-                        OpenLoad();
-                        lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
-                        lblEmployeeName.Text = empData["Name"].ToString();
-                        lblEMP_PK.Text = empData["PK"].ToString();
-
-                    }
+                    clsComponentControl.HeaderMenu(tsHeaderControl, false);
+                    clsComponentControl.ObjectEnable(this, true);
+                    clsComponentControl.ClearValue(this);
+                    OpenLoad();
+                    lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
+                    lblEmployeeName.Text = empData["Name"].ToString();
+                    lblEMP_PK.Text = empData["PK"].ToString();
 
                 }
+
+
             }
         }
         private void LoadShift()

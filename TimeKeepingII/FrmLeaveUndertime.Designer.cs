@@ -29,18 +29,33 @@
         private void InitializeComponent()
         {
             this.tsHeaderControl = new System.Windows.Forms.ToolStrip();
+            this.tsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsFirst = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsBack = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsNext = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsLast = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsPrint = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsPost = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsVoid = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsClose = new System.Windows.Forms.ToolStripButton();
             this.tsPosted = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.label19 = new System.Windows.Forms.Label();
@@ -79,23 +94,8 @@
             this.pnlMode = new System.Windows.Forms.Panel();
             this.lblsLastUpdatedBy = new System.Windows.Forms.Label();
             this.lblLU_nID = new System.Windows.Forms.Label();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.lblsReasonCanc = new System.Windows.Forms.Label();
             this.xlblCancel = new System.Windows.Forms.Label();
-            this.tsAdd = new System.Windows.Forms.ToolStripButton();
-            this.tsEdit = new System.Windows.Forms.ToolStripButton();
-            this.tsDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsSave = new System.Windows.Forms.ToolStripButton();
-            this.tsCancel = new System.Windows.Forms.ToolStripButton();
-            this.tsFirst = new System.Windows.Forms.ToolStripButton();
-            this.tsBack = new System.Windows.Forms.ToolStripButton();
-            this.tsNext = new System.Windows.Forms.ToolStripButton();
-            this.tsLast = new System.Windows.Forms.ToolStripButton();
-            this.tsFind = new System.Windows.Forms.ToolStripButton();
-            this.tsPrint = new System.Windows.Forms.ToolStripButton();
-            this.tsPost = new System.Windows.Forms.ToolStripButton();
-            this.tsVoid = new System.Windows.Forms.ToolStripButton();
-            this.tsClose = new System.Windows.Forms.ToolStripButton();
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
             this.SuspendLayout();
@@ -140,65 +140,209 @@
             this.tsHeaderControl.TabIndex = 5;
             this.tsHeaderControl.Text = "toolStrip1";
             // 
+            // tsAdd
+            // 
+            this.tsAdd.Image = global::TimeKeepingII.Properties.Resources.add_icon;
+            this.tsAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsAdd.Name = "tsAdd";
+            this.tsAdd.Size = new System.Drawing.Size(34, 49);
+            this.tsAdd.Text = "Add";
+            this.tsAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsAdd.Click += new System.EventHandler(this.tsAdd_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 52);
+            // 
+            // tsEdit
+            // 
+            this.tsEdit.Image = global::TimeKeepingII.Properties.Resources.edit_icon;
+            this.tsEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsEdit.Name = "tsEdit";
+            this.tsEdit.Size = new System.Drawing.Size(34, 49);
+            this.tsEdit.Text = "Edit";
+            this.tsEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsEdit.Click += new System.EventHandler(this.tsEdit_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 52);
             // 
+            // tsDelete
+            // 
+            this.tsDelete.Image = global::TimeKeepingII.Properties.Resources.delete_icon;
+            this.tsDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsDelete.Name = "tsDelete";
+            this.tsDelete.Size = new System.Drawing.Size(44, 49);
+            this.tsDelete.Text = "Delete";
+            this.tsDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsDelete.Click += new System.EventHandler(this.tsDelete_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 52);
+            // 
+            // tsSave
+            // 
+            this.tsSave.Image = global::TimeKeepingII.Properties.Resources.save_icon;
+            this.tsSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsSave.Name = "tsSave";
+            this.tsSave.Size = new System.Drawing.Size(35, 49);
+            this.tsSave.Text = "Save";
+            this.tsSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsSave.Click += new System.EventHandler(this.tsSave_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 52);
             // 
+            // tsCancel
+            // 
+            this.tsCancel.Image = global::TimeKeepingII.Properties.Resources.cancel_icon;
+            this.tsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCancel.Name = "tsCancel";
+            this.tsCancel.Size = new System.Drawing.Size(40, 49);
+            this.tsCancel.Text = "Undo";
+            this.tsCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsCancel.Click += new System.EventHandler(this.tsCancel_Click);
+            // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 52);
+            // 
+            // tsFirst
+            // 
+            this.tsFirst.Image = global::TimeKeepingII.Properties.Resources.first_icon;
+            this.tsFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsFirst.Name = "tsFirst";
+            this.tsFirst.Size = new System.Drawing.Size(34, 49);
+            this.tsFirst.Text = "First";
+            this.tsFirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsFirst.Click += new System.EventHandler(this.tsFirst_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(6, 52);
             // 
+            // tsBack
+            // 
+            this.tsBack.Image = global::TimeKeepingII.Properties.Resources.back_icon;
+            this.tsBack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBack.Name = "tsBack";
+            this.tsBack.Size = new System.Drawing.Size(36, 49);
+            this.tsBack.Text = "Back";
+            this.tsBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBack.Click += new System.EventHandler(this.tsBack_Click);
+            // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(6, 52);
+            // 
+            // tsNext
+            // 
+            this.tsNext.Image = global::TimeKeepingII.Properties.Resources.next_icon;
+            this.tsNext.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsNext.Name = "tsNext";
+            this.tsNext.Size = new System.Drawing.Size(36, 49);
+            this.tsNext.Text = "Next";
+            this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(6, 52);
             // 
+            // tsLast
+            // 
+            this.tsLast.Image = global::TimeKeepingII.Properties.Resources.last_icon;
+            this.tsLast.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsLast.Name = "tsLast";
+            this.tsLast.Size = new System.Drawing.Size(34, 49);
+            this.tsLast.Text = "Last";
+            this.tsLast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsLast.Click += new System.EventHandler(this.tsLast_Click);
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 52);
+            // 
+            // tsFind
+            // 
+            this.tsFind.Image = global::TimeKeepingII.Properties.Resources.search_icon;
+            this.tsFind.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsFind.Name = "tsFind";
+            this.tsFind.Size = new System.Drawing.Size(34, 49);
+            this.tsFind.Text = "Find";
+            this.tsFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsFind.Click += new System.EventHandler(this.tsFind_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 52);
             // 
+            // tsPrint
+            // 
+            this.tsPrint.Image = global::TimeKeepingII.Properties.Resources.print;
+            this.tsPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsPrint.Name = "tsPrint";
+            this.tsPrint.Size = new System.Drawing.Size(36, 49);
+            this.tsPrint.Text = "Print";
+            this.tsPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(6, 52);
             // 
+            // tsPost
+            // 
+            this.tsPost.Image = global::TimeKeepingII.Properties.Resources.post;
+            this.tsPost.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsPost.Name = "tsPost";
+            this.tsPost.Size = new System.Drawing.Size(34, 49);
+            this.tsPost.Text = "Post";
+            this.tsPost.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsPost.Click += new System.EventHandler(this.tsPost_Click);
+            // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(6, 52);
+            // 
+            // tsVoid
+            // 
+            this.tsVoid.Image = global::TimeKeepingII.Properties.Resources.discard;
+            this.tsVoid.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsVoid.Name = "tsVoid";
+            this.tsVoid.Size = new System.Drawing.Size(34, 49);
+            this.tsVoid.Text = "Void";
+            this.tsVoid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsVoid.Click += new System.EventHandler(this.tsVoid_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 52);
+            // 
+            // tsClose
+            // 
+            this.tsClose.Image = global::TimeKeepingII.Properties.Resources.close_icon;
+            this.tsClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsClose.Name = "tsClose";
+            this.tsClose.Size = new System.Drawing.Size(40, 49);
+            this.tsClose.Text = "Close";
+            this.tsClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsClose.Click += new System.EventHandler(this.tsClose_Click);
             // 
             // tsPosted
             // 
@@ -540,16 +684,11 @@
             this.lblLU_nID.Size = new System.Drawing.Size(105, 20);
             this.lblLU_nID.TabIndex = 13;
             // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 52);
-            // 
             // lblsReasonCanc
             // 
             this.lblsReasonCanc.AutoSize = true;
             this.lblsReasonCanc.ForeColor = System.Drawing.Color.Red;
-            this.lblsReasonCanc.Location = new System.Drawing.Point(130, 495);
+            this.lblsReasonCanc.Location = new System.Drawing.Point(130, 471);
             this.lblsReasonCanc.Name = "lblsReasonCanc";
             this.lblsReasonCanc.Size = new System.Drawing.Size(58, 13);
             this.lblsReasonCanc.TabIndex = 241;
@@ -558,151 +697,12 @@
             // xlblCancel
             // 
             this.xlblCancel.AutoSize = true;
-            this.xlblCancel.Location = new System.Drawing.Point(6, 495);
+            this.xlblCancel.Location = new System.Drawing.Point(6, 471);
             this.xlblCancel.Name = "xlblCancel";
             this.xlblCancel.Size = new System.Drawing.Size(124, 13);
             this.xlblCancel.TabIndex = 242;
             this.xlblCancel.Text = "CANCELLED REASON :";
             this.xlblCancel.Visible = false;
-            // 
-            // tsAdd
-            // 
-            this.tsAdd.Image = global::TimeKeepingII.Properties.Resources.add_icon;
-            this.tsAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsAdd.Name = "tsAdd";
-            this.tsAdd.Size = new System.Drawing.Size(34, 49);
-            this.tsAdd.Text = "Add";
-            this.tsAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsAdd.Click += new System.EventHandler(this.tsAdd_Click);
-            // 
-            // tsEdit
-            // 
-            this.tsEdit.Image = global::TimeKeepingII.Properties.Resources.edit_icon;
-            this.tsEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsEdit.Name = "tsEdit";
-            this.tsEdit.Size = new System.Drawing.Size(34, 49);
-            this.tsEdit.Text = "Edit";
-            this.tsEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsEdit.Click += new System.EventHandler(this.tsEdit_Click);
-            // 
-            // tsDelete
-            // 
-            this.tsDelete.Image = global::TimeKeepingII.Properties.Resources.delete_icon;
-            this.tsDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsDelete.Name = "tsDelete";
-            this.tsDelete.Size = new System.Drawing.Size(44, 49);
-            this.tsDelete.Text = "Delete";
-            this.tsDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsDelete.Click += new System.EventHandler(this.tsDelete_Click);
-            // 
-            // tsSave
-            // 
-            this.tsSave.Image = global::TimeKeepingII.Properties.Resources.save_icon;
-            this.tsSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsSave.Name = "tsSave";
-            this.tsSave.Size = new System.Drawing.Size(35, 49);
-            this.tsSave.Text = "Save";
-            this.tsSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsSave.Click += new System.EventHandler(this.tsSave_Click);
-            // 
-            // tsCancel
-            // 
-            this.tsCancel.Image = global::TimeKeepingII.Properties.Resources.cancel_icon;
-            this.tsCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsCancel.Name = "tsCancel";
-            this.tsCancel.Size = new System.Drawing.Size(40, 49);
-            this.tsCancel.Text = "Undo";
-            this.tsCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsCancel.Click += new System.EventHandler(this.tsCancel_Click);
-            // 
-            // tsFirst
-            // 
-            this.tsFirst.Image = global::TimeKeepingII.Properties.Resources.first_icon;
-            this.tsFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsFirst.Name = "tsFirst";
-            this.tsFirst.Size = new System.Drawing.Size(34, 49);
-            this.tsFirst.Text = "First";
-            this.tsFirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsFirst.Click += new System.EventHandler(this.tsFirst_Click);
-            // 
-            // tsBack
-            // 
-            this.tsBack.Image = global::TimeKeepingII.Properties.Resources.back_icon;
-            this.tsBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBack.Name = "tsBack";
-            this.tsBack.Size = new System.Drawing.Size(36, 49);
-            this.tsBack.Text = "Back";
-            this.tsBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsBack.Click += new System.EventHandler(this.tsBack_Click);
-            // 
-            // tsNext
-            // 
-            this.tsNext.Image = global::TimeKeepingII.Properties.Resources.next_icon;
-            this.tsNext.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsNext.Name = "tsNext";
-            this.tsNext.Size = new System.Drawing.Size(36, 49);
-            this.tsNext.Text = "Next";
-            this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
-            // 
-            // tsLast
-            // 
-            this.tsLast.Image = global::TimeKeepingII.Properties.Resources.last_icon;
-            this.tsLast.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsLast.Name = "tsLast";
-            this.tsLast.Size = new System.Drawing.Size(34, 49);
-            this.tsLast.Text = "Last";
-            this.tsLast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsLast.Click += new System.EventHandler(this.tsLast_Click);
-            // 
-            // tsFind
-            // 
-            this.tsFind.Image = global::TimeKeepingII.Properties.Resources.search_icon;
-            this.tsFind.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsFind.Name = "tsFind";
-            this.tsFind.Size = new System.Drawing.Size(34, 49);
-            this.tsFind.Text = "Find";
-            this.tsFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsFind.Click += new System.EventHandler(this.tsFind_Click);
-            // 
-            // tsPrint
-            // 
-            this.tsPrint.Image = global::TimeKeepingII.Properties.Resources.print;
-            this.tsPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsPrint.Name = "tsPrint";
-            this.tsPrint.Size = new System.Drawing.Size(36, 49);
-            this.tsPrint.Text = "Print";
-            this.tsPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsPost
-            // 
-            this.tsPost.Image = global::TimeKeepingII.Properties.Resources.post;
-            this.tsPost.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsPost.Name = "tsPost";
-            this.tsPost.Size = new System.Drawing.Size(34, 49);
-            this.tsPost.Text = "Post";
-            this.tsPost.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsPost.Click += new System.EventHandler(this.tsPost_Click);
-            // 
-            // tsVoid
-            // 
-            this.tsVoid.Image = global::TimeKeepingII.Properties.Resources.discard;
-            this.tsVoid.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsVoid.Name = "tsVoid";
-            this.tsVoid.Size = new System.Drawing.Size(34, 49);
-            this.tsVoid.Text = "Void";
-            this.tsVoid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsVoid.Click += new System.EventHandler(this.tsVoid_Click);
-            // 
-            // tsClose
-            // 
-            this.tsClose.Image = global::TimeKeepingII.Properties.Resources.close_icon;
-            this.tsClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsClose.Name = "tsClose";
-            this.tsClose.Size = new System.Drawing.Size(40, 49);
-            this.tsClose.Text = "Close";
-            this.tsClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsClose.Click += new System.EventHandler(this.tsClose_Click);
             // 
             // FrmLeaveUndertime
             // 

@@ -43,3 +43,5 @@ C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeK
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmLeaveUndertime.resources
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmInputBox.resources
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmPRW.resources
+C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmEmployeeList.resources
+C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmProfile.resources

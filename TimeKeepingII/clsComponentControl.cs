@@ -82,7 +82,6 @@ namespace TimeKeepingII
             }
 
         }
-
         public static void ObjectEnable(Control ctl, bool isEnable)
         {
             foreach (Control item in ctl.Controls)
@@ -94,12 +93,10 @@ namespace TimeKeepingII
                         TextBox txt = (TextBox)item;
                         txt.ReadOnly = !isEnable;
                         break;
-
                     case "num":
                         NumericUpDown num = (NumericUpDown)item;
                         num.Enabled = isEnable;
                         break;
-
                     case "cmd":
                         Button cmd = (Button)item;
                         cmd.Enabled = isEnable;
@@ -108,12 +105,10 @@ namespace TimeKeepingII
                         ComboBox cmb = (ComboBox)item;
                         cmb.Enabled = isEnable;
                         break;
-
                     case "chk":
                         CheckBox chk = (CheckBox)item;
                         chk.Enabled = isEnable;
                         break;
-
                     case "rdb":
                         RadioButton rdb = (RadioButton)item;
                         rdb.Enabled = isEnable;
@@ -132,14 +127,10 @@ namespace TimeKeepingII
                         break;
 
                     case "gpb":
-
                         GroupBox gpb = (GroupBox)item;
                         ObjectEnable(gpb, isEnable);
                         break;
-
-
                     case "pnl":
-
                         Panel pnl = (Panel)item;
                         ObjectEnable(pnl, isEnable);
                         break;
@@ -148,7 +139,6 @@ namespace TimeKeepingII
             }
 
         }
-
         public static void AssignValue(Control ctl, Dictionary<string, object> data)
         {
 
@@ -226,8 +216,6 @@ namespace TimeKeepingII
                                 }
 
                             }
-
-
                             break;
                         case "tab":
                             TabControl tab = (TabControl)item;
@@ -249,15 +237,10 @@ namespace TimeKeepingII
 
                     }
                 }
-
-
-
             }
         }
-
         public static void ClearValue(Control ctl)
         {
-
 
             foreach (Control item in ctl.Controls)
             {
@@ -339,8 +322,6 @@ namespace TimeKeepingII
 
             }
         }
-
-
         private static void cmbAutoDropdown_Enter(object sender, EventArgs e)
         {
             ComboBox cmb = sender as ComboBox;

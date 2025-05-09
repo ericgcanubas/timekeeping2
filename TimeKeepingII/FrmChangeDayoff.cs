@@ -16,7 +16,7 @@ namespace TimeKeepingII
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 CD_nID as ID ,nCtrlNo,dTransDate,sEmpName,sReason FROM [tbl_CHANGERESTDAY]  ");
         const string sSelectSql = "SELECT TOP 1 [CD_nID], [nCtrlNo], [dTransDate], tbl_CHANGERESTDAY.[EmpPK], [sEmpName], [sReqDayFrom], [sReqDayTo], [dReqDateFrom], [dReqDateTo], [sExDayFrom], [sExDayTo], [dExDateFrom], [dExDateTo], [RestDayFrom], [RestDay], [sReason], [sCoordinated], [sRecmAppBy], [sNotedBy], [sApprovBy], [sLastUpdatedBy], [nPosted], [sExWith], [EmpPKWith], [nCancelled], [sReasonCanc], [RefCD_nID],[R_EMP].EmpID as [EMPLOYEE_NO],[E_EMP].EmpID as [EX_EMPLOYEE_NO] FROM [tbl_CHANGERESTDAY] LEFT JOIN  EmployeeName as [R_EMP] ON tbl_CHANGERESTDAY.EmpPK = R_EMP.EmpPK LEFT JOIN  EmployeeName as [E_EMP] ON tbl_CHANGERESTDAY.EmpPKWith = [E_EMP].EmpPK ";
-        DataTable dtEmployee;
+     
         public FrmChangeDayoff()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-            dtEmployee = clsPayrollSystem.dataList(clsGlobal.EmployeeFind);
+     
         }
 
         private void tsAdd_Click(object sender, EventArgs e)
@@ -41,8 +41,7 @@ namespace TimeKeepingII
                 return;
             }
 
-            if (dtEmployee != null)
-            {
+         
                 isExchangeEntry = clsMessage.MessageQuestion("Is This An Exchange Restday?", "Question");
 
                 if (isExchangeEntry)
@@ -77,11 +76,11 @@ namespace TimeKeepingII
 
                 clsMessage.MessageShowInfo("New entry canceled");
                 tsCancel.PerformClick();
-            }
+            
         }
         private bool RequestEmp()
         {
-            FrmList frm = new FrmList(dtEmployee, "Requested");
+            FrmEmployeeList frm = new FrmEmployeeList("Requested");
             frm.ShowDialog();
 
             if (frm.VALUE != "")
@@ -124,7 +123,7 @@ namespace TimeKeepingII
 
         private bool ExchangeEmp()
         {
-            FrmList frm = new FrmList(dtEmployee, "Exchange to");
+            FrmEmployeeList frm = new FrmEmployeeList("Exchange to");
             frm.ShowDialog();
 
             if (frm.VALUE != "")

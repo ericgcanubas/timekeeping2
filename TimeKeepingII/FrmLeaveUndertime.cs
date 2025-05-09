@@ -17,7 +17,7 @@ namespace TimeKeepingII
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 LU_nID as ID,sEmpName ,nCtrlNo,dTransDate,sReason FROM [tbl_LEAVE_UNDERTIME]  ");
         const string sSelectSql = "SELECT TOP 1  [LU_nID], [nCtrlNo], [dTransDate], [nType], [EmpPK], [sEmpName], [sSection], [sBrand], [dEffectDate], [EffectDates], [sResumeToWork], [sReason], [sCoordinated], [sCheckBy], [sFiledBy], [sNotedBy], [sVerifiedBy], [sApprovedBy], [sLastUpdatedBy], [nPosted], [sNoOfDaysMin], [nCancelled], [sReasonCanc] FROM [tbl_LEAVE_UNDERTIME] ";
-        DataTable dtEmployee;
+
         string[] effectDates = null;
         public FrmLeaveUndertime()
         {
@@ -35,7 +35,7 @@ namespace TimeKeepingII
 
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-            dtEmployee = clsPayrollSystem.dataList(clsGlobal.EmployeeFind);
+
         }
 
         private void loadType(int inType, string EffectDates)
@@ -189,7 +189,7 @@ namespace TimeKeepingII
         }
         private bool RequestEmp()
         {
-            FrmList frm = new FrmList(dtEmployee, "Requested");
+            FrmEmployeeList frm = new FrmEmployeeList();
             frm.ShowDialog();
 
             if (frm.VALUE != "")

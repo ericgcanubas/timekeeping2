@@ -15,7 +15,7 @@ namespace TimeKeepingII
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 ChangeShift.PK,CtrlNo,DDate,ShiftName,EmpID,EmpName,EffectDate,RefNo FROM [ChangeShift] LEFT JOIN  EmployeeName ON ChangeShift.EmpNo = EmployeeName.EmpPK LEFT JOIN ShiftingSchedule ON ChangeShift.Shift = ShiftingSchedule.PK ");
 
         const string sSelectSql = "SELECT TOP 1 [PK],[CtrlNo],[DDate],[EmpNo],[RefNo],[Shift],[EffectDate],[Remarks],[NotedBy],[ApprovedBy],[Posted],[Activate],[LastModified],[EmployeeName].EmpID as [EMPLOYEE_NO] , [EmployeeName].EmpName as [EmployeeName] FROM [ChangeShift] LEFT JOIN  EmployeeName ON ChangeShift.EmpNo = EmployeeName.EmpPK  ";
-        DataTable dtEmployee;
+   
         public FrmChangeShifting()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-            dtEmployee = clsPayrollSystem.dataList(clsGlobal.EmployeeFind);
+      
             LoadShift();
         }
 
@@ -42,10 +42,9 @@ namespace TimeKeepingII
                 return;
             }
 
-            if (dtEmployee != null)
-            {
-                FrmList frm = new FrmList(dtEmployee);
-                frm.ShowDialog();
+
+            FrmEmployeeList frm = new FrmEmployeeList();
+            frm.ShowDialog();
 
                 if (frm.VALUE != "")
                 {
@@ -78,7 +77,7 @@ namespace TimeKeepingII
 
 
                 }
-            }
+            
         }
 
         private void tsEdit_Click(object sender, EventArgs e)

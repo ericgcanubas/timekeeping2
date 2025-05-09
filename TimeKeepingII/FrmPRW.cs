@@ -14,7 +14,7 @@ namespace TimeKeepingII
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 PRW_nID as ID,sEmpName ,nCtrlNo,dTransDate,sReasons FROM [tbl_PRW_NEW]  ");
         const string sSelectSql = "SELECT TOP 1 [PRW_nID] ,[nCtrlNo] ,[dTransDate] ,[nType] ,[EmpPK] ,[sEmpName] ,[sSection] ,[sBrand] ,[sALDates] ,[sReasons] ,[dStarting] ,[dEnding] ,[sATDNo] ,[nAmount] ,[sTransNo] ,[sVerBy] ,[sRecBy] ,[sNotBy1] ,[sAppBy] ,[sRelBy] ,[nDiscActType] ,[sSuspensionFor] ,[sSuspensionSked] ,[dTerminationDate] ,[sRemarks] ,[sPreBy] ,[sNotBy2] ,[sAppBy2] ,[sConfrm] ,[nPosted] ,[sLastUpdatedBy] ,[sNoOfDaysMins] ,[nFreq] FROM [tbl_PRW_NEW] ";
-        DataTable dtEmployee;
+     
         public FrmPRW()
         {
             InitializeComponent();
@@ -92,7 +92,7 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-            dtEmployee = clsPayrollSystem.dataList(clsGlobal.EmployeeFind);
+      
         }
         private int CalculateFrequently()
         {
@@ -184,19 +184,19 @@ namespace TimeKeepingII
         }
         private bool RequestEmp()
         {
-            FrmList frm = new FrmList(dtEmployee, "Requested");
+            FrmEmployeeList frm = new FrmEmployeeList("Request");
             frm.ShowDialog();
 
             if (frm.VALUE != "")
             {
                 string strSelect = $@"SELECT PK, 
-                                        EEmployeeIDNo,
-                                        ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
-                                        ELastName, 
-                                        ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
-                                        ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
-                                        FROM tbl_Profile_IDNumber 
-                                        WHERE PK = {frm.VALUE} ";
+                                    EEmployeeIDNo,
+                                    ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
+                                    ELastName, 
+                                    ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
+                                    ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
+                                    FROM tbl_Profile_IDNumber 
+                                    WHERE PK = {frm.VALUE} ";
 
                 var empData = clsPayrollSystem.GetFirstRecord(strSelect);
 
