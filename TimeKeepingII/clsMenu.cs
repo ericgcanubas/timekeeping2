@@ -29,6 +29,23 @@ namespace TimeKeepingII
         {
             LinkLabel btn = sender as LinkLabel;
             Form frm = callForm(btn.AccessibleDescription);
+            ShowForm(frm);
+
+        }
+        public static void OpenProifile(string empPK)
+        {
+            if (empPK == "")
+            {
+                return;
+            }
+
+            Form frm = callForm("FrmProfile");
+            CloseForm(frm);
+            frm.Tag = empPK;
+            ShowForm(frm);
+        }
+        public static void ShowForm(Form frm)
+        {
             if (frm != null)
             {
                 int i = 0;
@@ -49,8 +66,16 @@ namespace TimeKeepingII
 
                 if (clsAccessControl.AccessRight(frm.AccessibleDescription, "OPEN"))
                 {
+                    try
+                    {
+                        myTab.TabPages.Add(frm);
+                    }
+                    catch (Exception)
+                    {
 
-                    myTab.TabPages.Add(frm);
+
+                    }
+
                 }
                 else
                 {
@@ -58,7 +83,29 @@ namespace TimeKeepingII
                 }
 
             }
+        }
+        public static void CloseForm(Form frm)
+        {
+            if (frm != null)
+            {
+                int i = 0;
+                foreach (MdiTabControl.TabPage tp in myTab.TabPages)
+                {
+                    Form tabForm = new Form();
+                    tabForm = (Form)tp.Form;
 
+                    if (frm.Name == tabForm.Name)
+                    {
+                        tabForm.Close();
+                        return;
+                    }
+                    i++;
+                }
+
+
+
+
+            }
         }
         private static void onClickSubMenu(object sender, EventArgs e)
         {
@@ -126,7 +173,6 @@ namespace TimeKeepingII
 
             myTab = tab;
             mainPanel.Controls.Clear();
-
             // Employee Setup
             Panel pnlEmployee = buildPanel("pnlEmployeeSetup");
             PictureBox picEmployee = buildPicture("picEmployeeSetup", "pnlSubMenuEmployeeSetup");
@@ -143,12 +189,9 @@ namespace TimeKeepingII
             Panel pnlSubMenuEmployee = CreateSubMenuPanel("pnlSubMenuEmployeeSetup", 120);
             mainPanel.Controls.Add(pnlSubMenuEmployee);
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnProfile", "Employee Profile", "FrmProfile"));
-
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnShiftingSchedule", "Shifting Schedule", "FrmShiftingSchedule"));
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnAssignBioID", "Assign Bio Id", "FrmAssignBioID"));
             pnlSubMenuEmployee.Controls.Add(CreateSubMenuButton("btnAssignSchedule", "Assign Schedule", "FrmAssignSchedule"));
-
-
 
             //Data Synchronization
             Panel pnlDataSync = buildPanel("pnlDataSync");
@@ -166,9 +209,6 @@ namespace TimeKeepingII
             mainPanel.Controls.Add(pnlSubMenuDataSync);
             pnlSubMenuDataSync.Controls.Add(CreateSubMenuButton("btnDownloadFromMachine", "Download Data From Machine", "FrmDownloadDataFromMachine"));
             pnlSubMenuDataSync.Controls.Add(CreateSubMenuButton("btnRepostTimeRecord", "Repost Time Record", "FrmRepostTimeRecord"));
-
-
-
 
             // Schedule Shift Adjust
             Panel pnlScheduleShiftAdjust = buildPanel("pnlScheduleShiftAdjust");
@@ -253,6 +293,7 @@ namespace TimeKeepingII
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnCheckUnupdatedTimeSummary", "Check Unupdated Time Summary", "FrmCheckUnupdatedTimeSummary"));
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnUpdateTimeSummary", "Update Time Summary", "FrmUpdateTimeSummary"));
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnTimeCharger", "Time Charger", "FrmTimeCharger"));
+            pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnHoliday", "Holiday", "FrmHoliday"));
             pnlSubMenuTimeRecordHandling.Controls.Add(CreateSubMenuButton("btnTimeRecord", "Time Record", "FrmTimeRecord"));
 
             // Deductions && Adjustments

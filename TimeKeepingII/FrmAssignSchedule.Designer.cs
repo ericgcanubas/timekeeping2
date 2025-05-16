@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tsHeaderControl = new System.Windows.Forms.ToolStrip();
             this.tsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -161,6 +162,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.numMachineID = new System.Windows.Forms.NumericUpDown();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMachineID)).BeginInit();
@@ -328,7 +330,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 130);
+            this.label3.Location = new System.Drawing.Point(16, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 5;
@@ -370,9 +372,11 @@
             this.cmbMonday.Location = new System.Drawing.Point(133, 234);
             this.cmbMonday.Name = "cmbMonday";
             this.cmbMonday.Size = new System.Drawing.Size(157, 21);
-            this.cmbMonday.TabIndex = 5;
+            this.cmbMonday.TabIndex = 1;
             this.cmbMonday.SelectedIndexChanged += new System.EventHandler(this.cmbMonday_SelectedIndexChanged);
+            this.cmbMonday.TextChanged += new System.EventHandler(this.cmbMonday_TextChanged);
             this.cmbMonday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbMonday_KeyDown);
+            this.cmbMonday.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cmbMonday_MouseDoubleClick);
             // 
             // chkRestday2
             // 
@@ -390,7 +394,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(12, 261);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 15);
+            this.label9.Size = new System.Drawing.Size(51, 15);
             this.label9.TabIndex = 6;
             this.label9.Text = "Tuesday";
             // 
@@ -400,8 +404,9 @@
             this.cmbTuesday.Location = new System.Drawing.Point(133, 261);
             this.cmbTuesday.Name = "cmbTuesday";
             this.cmbTuesday.Size = new System.Drawing.Size(157, 21);
-            this.cmbTuesday.TabIndex = 5;
+            this.cmbTuesday.TabIndex = 2;
             this.cmbTuesday.SelectedIndexChanged += new System.EventHandler(this.cmbTuesday_SelectedIndexChanged);
+            this.cmbTuesday.TextChanged += new System.EventHandler(this.cmbTuesday_TextChanged);
             this.cmbTuesday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTuesday_KeyDown);
             // 
             // chkRestday3
@@ -430,8 +435,9 @@
             this.cmbWednesday.Location = new System.Drawing.Point(133, 287);
             this.cmbWednesday.Name = "cmbWednesday";
             this.cmbWednesday.Size = new System.Drawing.Size(157, 21);
-            this.cmbWednesday.TabIndex = 5;
+            this.cmbWednesday.TabIndex = 3;
             this.cmbWednesday.SelectedIndexChanged += new System.EventHandler(this.cmbWednesday_SelectedIndexChanged);
+            this.cmbWednesday.TextChanged += new System.EventHandler(this.cmbWednesday_TextChanged);
             this.cmbWednesday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbWednesday_KeyDown);
             // 
             // chkRestday4
@@ -450,7 +456,7 @@
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(12, 317);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 15);
+            this.label15.Size = new System.Drawing.Size(56, 15);
             this.label15.TabIndex = 6;
             this.label15.Text = "Thursday";
             // 
@@ -460,8 +466,9 @@
             this.cmbThursday.Location = new System.Drawing.Point(133, 314);
             this.cmbThursday.Name = "cmbThursday";
             this.cmbThursday.Size = new System.Drawing.Size(157, 21);
-            this.cmbThursday.TabIndex = 5;
+            this.cmbThursday.TabIndex = 4;
             this.cmbThursday.SelectedIndexChanged += new System.EventHandler(this.cmbThursday_SelectedIndexChanged);
+            this.cmbThursday.TextChanged += new System.EventHandler(this.cmbThursday_TextChanged);
             this.cmbThursday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbThursday_KeyDown);
             // 
             // chkRestday5
@@ -492,6 +499,7 @@
             this.cmbFriday.Size = new System.Drawing.Size(157, 21);
             this.cmbFriday.TabIndex = 5;
             this.cmbFriday.SelectedIndexChanged += new System.EventHandler(this.cmbFriday_SelectedIndexChanged);
+            this.cmbFriday.TextChanged += new System.EventHandler(this.cmbFriday_TextChanged);
             this.cmbFriday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbFriday_KeyDown);
             // 
             // chkRestday6
@@ -520,8 +528,9 @@
             this.cmbSaturday.Location = new System.Drawing.Point(133, 367);
             this.cmbSaturday.Name = "cmbSaturday";
             this.cmbSaturday.Size = new System.Drawing.Size(157, 21);
-            this.cmbSaturday.TabIndex = 5;
+            this.cmbSaturday.TabIndex = 6;
             this.cmbSaturday.SelectedIndexChanged += new System.EventHandler(this.cmbSaturday_SelectedIndexChanged);
+            this.cmbSaturday.TextChanged += new System.EventHandler(this.cmbSaturday_TextChanged);
             this.cmbSaturday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSaturday_KeyDown);
             // 
             // chkRestday7
@@ -550,8 +559,9 @@
             this.cmbSunday.Location = new System.Drawing.Point(133, 394);
             this.cmbSunday.Name = "cmbSunday";
             this.cmbSunday.Size = new System.Drawing.Size(157, 21);
-            this.cmbSunday.TabIndex = 5;
+            this.cmbSunday.TabIndex = 7;
             this.cmbSunday.SelectedIndexChanged += new System.EventHandler(this.cmbSunday_SelectedIndexChanged);
+            this.cmbSunday.TextChanged += new System.EventHandler(this.cmbSunday_TextChanged);
             this.cmbSunday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbSunday_KeyDown);
             // 
             // label7
@@ -1472,11 +1482,13 @@
             // 
             this.lblEmployeeName.BackColor = System.Drawing.Color.White;
             this.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEmployeeName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblEmployeeName.Location = new System.Drawing.Point(134, 99);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(612, 21);
             this.lblEmployeeName.TabIndex = 97;
             this.lblEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEmployeeName.Click += new System.EventHandler(this.lblEmployeeName_Click);
             // 
             // lblEMP_PK
             // 
@@ -1656,6 +1668,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Assigning Schedule";
             this.Load += new System.EventHandler(this.FrmAssignSchedule_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmAssignSchedule_KeyDown);
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
             this.pnlMode.ResumeLayout(false);
@@ -1800,5 +1813,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numMachineID;
+        private System.Windows.Forms.Timer timer1;
     }
 }

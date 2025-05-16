@@ -534,11 +534,13 @@
             // 
             this.lblsEmpName.BackColor = System.Drawing.Color.White;
             this.lblsEmpName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblsEmpName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblsEmpName.Location = new System.Drawing.Point(133, 67);
             this.lblsEmpName.Name = "lblsEmpName";
             this.lblsEmpName.Size = new System.Drawing.Size(429, 21);
             this.lblsEmpName.TabIndex = 224;
             this.lblsEmpName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblsEmpName.Click += new System.EventHandler(this.lblsEmpName_Click);
             // 
             // label7
             // 

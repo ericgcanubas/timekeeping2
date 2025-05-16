@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblEMPLOYEE_NO = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblPOSITION_NO = new System.Windows.Forms.Label();
+            this.lblPOSITION = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblSECTION = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,32 +45,40 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnViewShift = new System.Windows.Forms.Button();
+            this.btnNewShift = new System.Windows.Forms.Button();
+            this.lvScheduleAssignList = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnViewLeave = new System.Windows.Forms.Button();
+            this.btnNewLeave = new System.Windows.Forms.Button();
+            this.lvLeaves = new System.Windows.Forms.ListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnViewRD = new System.Windows.Forms.Button();
+            this.btnNewRD = new System.Windows.Forms.Button();
+            this.lvChangeRestDay = new System.Windows.Forms.ListView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnViewChangeShift = new System.Windows.Forms.Button();
+            this.btnNewChangeShift = new System.Windows.Forms.Button();
+            this.lvChangeShift = new System.Windows.Forms.ListView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnViewPRW = new System.Windows.Forms.Button();
+            this.btnNewPRW = new System.Windows.Forms.Button();
+            this.lvPRW = new System.Windows.Forms.ListView();
             this.tsHeaderControl = new System.Windows.Forms.ToolStrip();
             this.tsFind = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsClose = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.lblEmpPK = new System.Windows.Forms.Label();
+            this.lblDivision = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picPHOTO)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.tsHeaderControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,21 +125,21 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(234, 66);
+            this.label3.Location = new System.Drawing.Point(231, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 100;
             this.label3.Text = "EMPLOYEE NO. :";
             // 
-            // lblPOSITION_NO
+            // lblPOSITION
             // 
-            this.lblPOSITION_NO.BackColor = System.Drawing.Color.White;
-            this.lblPOSITION_NO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPOSITION_NO.Location = new System.Drawing.Point(716, 62);
-            this.lblPOSITION_NO.Name = "lblPOSITION_NO";
-            this.lblPOSITION_NO.Size = new System.Drawing.Size(223, 21);
-            this.lblPOSITION_NO.TabIndex = 103;
-            this.lblPOSITION_NO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPOSITION.BackColor = System.Drawing.Color.White;
+            this.lblPOSITION.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPOSITION.Location = new System.Drawing.Point(716, 62);
+            this.lblPOSITION.Name = "lblPOSITION";
+            this.lblPOSITION.Size = new System.Drawing.Size(223, 21);
+            this.lblPOSITION.TabIndex = 103;
+            this.lblPOSITION.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -148,7 +156,7 @@
             this.lblSECTION.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSECTION.Location = new System.Drawing.Point(327, 134);
             this.lblSECTION.Name = "lblSECTION";
-            this.lblSECTION.Size = new System.Drawing.Size(612, 21);
+            this.lblSECTION.Size = new System.Drawing.Size(317, 21);
             this.lblSECTION.TabIndex = 105;
             this.lblSECTION.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -174,7 +182,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(237, 114);
+            this.label9.Location = new System.Drawing.Point(236, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 13);
             this.label9.TabIndex = 106;
@@ -193,7 +201,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(650, 114);
+            this.label11.Location = new System.Drawing.Point(645, 114);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 13);
             this.label11.TabIndex = 108;
@@ -212,7 +220,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(260, 161);
+            this.label13.Location = new System.Drawing.Point(259, 161);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 13);
             this.label13.TabIndex = 110;
@@ -226,151 +234,267 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(9, 240);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1038, 337);
+            this.tabControl1.Size = new System.Drawing.Size(1134, 420);
             this.tabControl1.TabIndex = 112;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listView1);
+            this.tabPage1.Controls.Add(this.btnViewShift);
+            this.tabPage1.Controls.Add(this.btnNewShift);
+            this.tabPage1.Controls.Add(this.lvScheduleAssignList);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1030, 311);
+            this.tabPage1.Size = new System.Drawing.Size(1126, 394);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "SCHEDULE";
+            this.tabPage1.Text = "Assign Schedule";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // btnViewShift
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.Location = new System.Drawing.Point(6, 37);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1018, 268);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.btnViewShift.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewShift.Location = new System.Drawing.Point(6, 365);
+            this.btnViewShift.Name = "btnViewShift";
+            this.btnViewShift.Size = new System.Drawing.Size(134, 23);
+            this.btnViewShift.TabIndex = 3;
+            this.btnViewShift.Text = "View";
+            this.btnViewShift.UseVisualStyleBackColor = true;
+            this.btnViewShift.Click += new System.EventHandler(this.btnViewShift_Click);
             // 
-            // columnHeader1
+            // btnNewShift
             // 
-            this.columnHeader1.Text = "Schedule Type";
-            this.columnHeader1.Width = 91;
+            this.btnNewShift.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewShift.Location = new System.Drawing.Point(566, 365);
+            this.btnNewShift.Name = "btnNewShift";
+            this.btnNewShift.Size = new System.Drawing.Size(134, 23);
+            this.btnNewShift.TabIndex = 2;
+            this.btnNewShift.Text = "New";
+            this.btnNewShift.UseVisualStyleBackColor = true;
+            this.btnNewShift.Click += new System.EventHandler(this.btnNewShift_Click);
             // 
-            // columnHeader2
+            // lvScheduleAssignList
             // 
-            this.columnHeader2.Text = "Shift";
-            this.columnHeader2.Width = 97;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Shift Type";
-            this.columnHeader3.Width = 93;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "AM In";
-            this.columnHeader4.Width = 98;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Lunch Out";
-            this.columnHeader5.Width = 73;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Lunch In";
-            this.columnHeader6.Width = 66;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Break Out";
-            this.columnHeader7.Width = 72;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Break In";
-            this.columnHeader8.Width = 73;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "PM Out";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Lunch Mins";
-            this.columnHeader10.Width = 73;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Breaktime Mins";
-            this.columnHeader11.Width = 93;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Fixed";
-            this.columnHeader12.Width = 47;
+            this.lvScheduleAssignList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvScheduleAssignList.FullRowSelect = true;
+            this.lvScheduleAssignList.GridLines = true;
+            this.lvScheduleAssignList.HideSelection = false;
+            this.lvScheduleAssignList.Location = new System.Drawing.Point(6, 6);
+            this.lvScheduleAssignList.Name = "lvScheduleAssignList";
+            this.lvScheduleAssignList.Size = new System.Drawing.Size(694, 353);
+            this.lvScheduleAssignList.TabIndex = 1;
+            this.lvScheduleAssignList.UseCompatibleStateImageBehavior = false;
+            this.lvScheduleAssignList.View = System.Windows.Forms.View.Details;
+            this.lvScheduleAssignList.DoubleClick += new System.EventHandler(this.lvScheduleAssignList_DoubleClick);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnViewLeave);
+            this.tabPage2.Controls.Add(this.btnNewLeave);
+            this.tabPage2.Controls.Add(this.lvLeaves);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1030, 311);
+            this.tabPage2.Size = new System.Drawing.Size(1126, 394);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "LEAVE/UNDERTIME";
+            this.tabPage2.Text = "Leave/Undertime";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnViewLeave
+            // 
+            this.btnViewLeave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewLeave.Location = new System.Drawing.Point(6, 365);
+            this.btnViewLeave.Name = "btnViewLeave";
+            this.btnViewLeave.Size = new System.Drawing.Size(134, 23);
+            this.btnViewLeave.TabIndex = 5;
+            this.btnViewLeave.Text = "View";
+            this.btnViewLeave.UseVisualStyleBackColor = true;
+            this.btnViewLeave.Click += new System.EventHandler(this.btnViewLeave_Click);
+            // 
+            // btnNewLeave
+            // 
+            this.btnNewLeave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewLeave.Location = new System.Drawing.Point(566, 365);
+            this.btnNewLeave.Name = "btnNewLeave";
+            this.btnNewLeave.Size = new System.Drawing.Size(134, 23);
+            this.btnNewLeave.TabIndex = 4;
+            this.btnNewLeave.Text = "New";
+            this.btnNewLeave.UseVisualStyleBackColor = true;
+            this.btnNewLeave.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lvLeaves
+            // 
+            this.lvLeaves.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvLeaves.FullRowSelect = true;
+            this.lvLeaves.GridLines = true;
+            this.lvLeaves.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvLeaves.HideSelection = false;
+            this.lvLeaves.Location = new System.Drawing.Point(6, 6);
+            this.lvLeaves.Name = "lvLeaves";
+            this.lvLeaves.Size = new System.Drawing.Size(694, 353);
+            this.lvLeaves.TabIndex = 1;
+            this.lvLeaves.UseCompatibleStateImageBehavior = false;
+            this.lvLeaves.View = System.Windows.Forms.View.Details;
+            this.lvLeaves.DoubleClick += new System.EventHandler(this.lvLeaves_DoubleClick);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnViewRD);
+            this.tabPage3.Controls.Add(this.btnNewRD);
+            this.tabPage3.Controls.Add(this.lvChangeRestDay);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1030, 311);
+            this.tabPage3.Size = new System.Drawing.Size(1126, 394);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "CHANGE RESTDAY";
+            this.tabPage3.Text = "Change Restday";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnViewRD
+            // 
+            this.btnViewRD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewRD.Location = new System.Drawing.Point(6, 365);
+            this.btnViewRD.Name = "btnViewRD";
+            this.btnViewRD.Size = new System.Drawing.Size(134, 23);
+            this.btnViewRD.TabIndex = 13;
+            this.btnViewRD.Text = "View";
+            this.btnViewRD.UseVisualStyleBackColor = true;
+            this.btnViewRD.Click += new System.EventHandler(this.btnViewRD_Click);
+            // 
+            // btnNewRD
+            // 
+            this.btnNewRD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewRD.Location = new System.Drawing.Point(566, 365);
+            this.btnNewRD.Name = "btnNewRD";
+            this.btnNewRD.Size = new System.Drawing.Size(134, 23);
+            this.btnNewRD.TabIndex = 12;
+            this.btnNewRD.Text = "New";
+            this.btnNewRD.UseVisualStyleBackColor = true;
+            this.btnNewRD.Click += new System.EventHandler(this.btnNewRD_Click);
+            // 
+            // lvChangeRestDay
+            // 
+            this.lvChangeRestDay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvChangeRestDay.FullRowSelect = true;
+            this.lvChangeRestDay.GridLines = true;
+            this.lvChangeRestDay.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvChangeRestDay.HideSelection = false;
+            this.lvChangeRestDay.Location = new System.Drawing.Point(6, 6);
+            this.lvChangeRestDay.Name = "lvChangeRestDay";
+            this.lvChangeRestDay.Size = new System.Drawing.Size(694, 353);
+            this.lvChangeRestDay.TabIndex = 11;
+            this.lvChangeRestDay.UseCompatibleStateImageBehavior = false;
+            this.lvChangeRestDay.View = System.Windows.Forms.View.Details;
+            this.lvChangeRestDay.DoubleClick += new System.EventHandler(this.lvChangeRestDay_DoubleClick);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.btnViewChangeShift);
+            this.tabPage5.Controls.Add(this.btnNewChangeShift);
+            this.tabPage5.Controls.Add(this.lvChangeShift);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1126, 394);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Change Shift";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btnViewChangeShift
+            // 
+            this.btnViewChangeShift.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewChangeShift.Location = new System.Drawing.Point(6, 365);
+            this.btnViewChangeShift.Name = "btnViewChangeShift";
+            this.btnViewChangeShift.Size = new System.Drawing.Size(134, 23);
+            this.btnViewChangeShift.TabIndex = 10;
+            this.btnViewChangeShift.Text = "View";
+            this.btnViewChangeShift.UseVisualStyleBackColor = true;
+            this.btnViewChangeShift.Click += new System.EventHandler(this.btnViewChangeShift_Click);
+            // 
+            // btnNewChangeShift
+            // 
+            this.btnNewChangeShift.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewChangeShift.Location = new System.Drawing.Point(566, 365);
+            this.btnNewChangeShift.Name = "btnNewChangeShift";
+            this.btnNewChangeShift.Size = new System.Drawing.Size(134, 23);
+            this.btnNewChangeShift.TabIndex = 9;
+            this.btnNewChangeShift.Text = "New";
+            this.btnNewChangeShift.UseVisualStyleBackColor = true;
+            this.btnNewChangeShift.Click += new System.EventHandler(this.btnNewChangeShift_Click);
+            // 
+            // lvChangeShift
+            // 
+            this.lvChangeShift.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvChangeShift.FullRowSelect = true;
+            this.lvChangeShift.GridLines = true;
+            this.lvChangeShift.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvChangeShift.HideSelection = false;
+            this.lvChangeShift.Location = new System.Drawing.Point(6, 6);
+            this.lvChangeShift.Name = "lvChangeShift";
+            this.lvChangeShift.Size = new System.Drawing.Size(694, 353);
+            this.lvChangeShift.TabIndex = 8;
+            this.lvChangeShift.UseCompatibleStateImageBehavior = false;
+            this.lvChangeShift.View = System.Windows.Forms.View.Details;
+            this.lvChangeShift.DoubleClick += new System.EventHandler(this.lvChangeShift_DoubleClick);
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnViewPRW);
+            this.tabPage4.Controls.Add(this.btnNewPRW);
+            this.tabPage4.Controls.Add(this.lvPRW);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1030, 311);
+            this.tabPage4.Size = new System.Drawing.Size(1126, 394);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "PRW";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
+            // btnViewPRW
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1030, 311);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "CHANGE SHIFT";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.btnViewPRW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewPRW.Location = new System.Drawing.Point(6, 365);
+            this.btnViewPRW.Name = "btnViewPRW";
+            this.btnViewPRW.Size = new System.Drawing.Size(134, 23);
+            this.btnViewPRW.TabIndex = 16;
+            this.btnViewPRW.Text = "View";
+            this.btnViewPRW.UseVisualStyleBackColor = true;
+            this.btnViewPRW.Click += new System.EventHandler(this.btnViewPRW_Click);
+            // 
+            // btnNewPRW
+            // 
+            this.btnNewPRW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNewPRW.Location = new System.Drawing.Point(566, 365);
+            this.btnNewPRW.Name = "btnNewPRW";
+            this.btnNewPRW.Size = new System.Drawing.Size(134, 23);
+            this.btnNewPRW.TabIndex = 15;
+            this.btnNewPRW.Text = "New";
+            this.btnNewPRW.UseVisualStyleBackColor = true;
+            this.btnNewPRW.Click += new System.EventHandler(this.btnNewPRW_Click);
+            // 
+            // lvPRW
+            // 
+            this.lvPRW.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvPRW.FullRowSelect = true;
+            this.lvPRW.GridLines = true;
+            this.lvPRW.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvPRW.HideSelection = false;
+            this.lvPRW.Location = new System.Drawing.Point(6, 6);
+            this.lvPRW.Name = "lvPRW";
+            this.lvPRW.Size = new System.Drawing.Size(694, 353);
+            this.lvPRW.TabIndex = 14;
+            this.lvPRW.UseCompatibleStateImageBehavior = false;
+            this.lvPRW.View = System.Windows.Forms.View.Details;
+            this.lvPRW.DoubleClick += new System.EventHandler(this.lvPRW_DoubleClick);
             // 
             // tsHeaderControl
             // 
@@ -383,7 +507,7 @@
             this.tsHeaderControl.Location = new System.Drawing.Point(0, 0);
             this.tsHeaderControl.Name = "tsHeaderControl";
             this.tsHeaderControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsHeaderControl.Size = new System.Drawing.Size(1059, 52);
+            this.tsHeaderControl.Size = new System.Drawing.Size(1155, 52);
             this.tsHeaderControl.TabIndex = 113;
             this.tsHeaderControl.Text = "toolStrip1";
             // 
@@ -429,11 +553,32 @@
             this.lblEmpPK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblEmpPK.Visible = false;
             // 
+            // lblDivision
+            // 
+            this.lblDivision.BackColor = System.Drawing.Color.White;
+            this.lblDivision.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDivision.Location = new System.Drawing.Point(716, 134);
+            this.lblDivision.Name = "lblDivision";
+            this.lblDivision.Size = new System.Drawing.Size(223, 21);
+            this.lblDivision.TabIndex = 162;
+            this.lblDivision.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(653, 138);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 161;
+            this.label4.Text = "DIVISION :";
+            // 
             // FrmProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 589);
+            this.ClientSize = new System.Drawing.Size(1155, 672);
+            this.Controls.Add(this.lblDivision);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblEmpPK);
             this.Controls.Add(this.tsHeaderControl);
             this.Controls.Add(this.tabControl1);
@@ -445,7 +590,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblSECTION);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.lblPOSITION_NO);
+            this.Controls.Add(this.lblPOSITION);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblEMPLOYEE_NO);
             this.Controls.Add(this.label3);
@@ -456,9 +601,14 @@
             this.Name = "FrmProfile";
             this.Text = "Employee Profile :";
             this.Load += new System.EventHandler(this.FrmProfile_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmProfile_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picPHOTO)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
             this.ResumeLayout(false);
@@ -473,7 +623,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblEMPLOYEE_NO;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblPOSITION_NO;
+        private System.Windows.Forms.Label lblPOSITION;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblSECTION;
         private System.Windows.Forms.Label label7;
@@ -495,18 +645,22 @@
         private System.Windows.Forms.ToolStripButton tsClose;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.Label lblEmpPK;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.Label lblDivision;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView lvLeaves;
+        private System.Windows.Forms.ListView lvScheduleAssignList;
+        private System.Windows.Forms.Button btnViewShift;
+        private System.Windows.Forms.Button btnNewShift;
+        private System.Windows.Forms.Button btnViewLeave;
+        private System.Windows.Forms.Button btnNewLeave;
+        private System.Windows.Forms.Button btnViewChangeShift;
+        private System.Windows.Forms.Button btnNewChangeShift;
+        private System.Windows.Forms.ListView lvChangeShift;
+        private System.Windows.Forms.Button btnViewRD;
+        private System.Windows.Forms.Button btnNewRD;
+        private System.Windows.Forms.ListView lvChangeRestDay;
+        private System.Windows.Forms.Button btnViewPRW;
+        private System.Windows.Forms.Button btnNewPRW;
+        private System.Windows.Forms.ListView lvPRW;
     }
 }

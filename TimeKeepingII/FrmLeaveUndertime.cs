@@ -36,6 +36,22 @@ namespace TimeKeepingII
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
 
+
+            if (this.Tag != null)
+            {
+                //Viewing
+                lblLU_nID.Text = this.Tag.ToString();
+                RefreshData();
+
+            }
+
+            if (this.AccessibleName != null)
+            {
+                // New
+                SetNewData(this.AccessibleName.ToString());
+
+            }
+
         }
 
         private void loadType(int inType, string EffectDates)
@@ -94,12 +110,14 @@ namespace TimeKeepingII
                     tsPosted.Text = "CANCELLED";
                     tsVoid.Enabled = false;
                     xlblCancel.Visible = true;
+                    tsPost.Enabled = false;
                 }
                 else
                 {
                     tsVoid.Enabled = postValue == 1 ? true : false;
                     tsPosted.Text = "POSTED";
                     xlblCancel.Visible = false;
+                    tsPost.Enabled = true;
                 }
             }
         }
@@ -194,6 +212,15 @@ namespace TimeKeepingII
 
             if (frm.VALUE != "")
             {
+                return SetNewData(frm.VALUE);
+            }
+
+            return false;
+        }
+        private bool SetNewData(string Value)
+        {
+            if (Value != "")
+            {
                 string strSelect = $@"SELECT PK, 
                                         EEmployeeIDNo,
                                         ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
@@ -201,7 +228,7 @@ namespace TimeKeepingII
                                         ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
                                         ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
                                         FROM tbl_Profile_IDNumber 
-                                        WHERE PK = {frm.VALUE} ";
+                                        WHERE PK = {Value} ";
 
                 var empData = clsPayrollSystem.GetFirstRecord(strSelect);
 
@@ -225,11 +252,10 @@ namespace TimeKeepingII
 
                     return true;
                 }
-            }
 
+            }
             return false;
         }
-
         private void tsCancel_Click(object sender, EventArgs e)
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
@@ -616,6 +642,11 @@ namespace TimeKeepingII
                     break;
 
             }
+        }
+
+        private void lblsEmpName_Click(object sender, EventArgs e)
+        {
+            clsMenu.OpenProifile(lblEmpPK.Text);
         }
     }
 

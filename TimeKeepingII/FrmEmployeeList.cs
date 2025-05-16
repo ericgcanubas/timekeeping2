@@ -30,7 +30,7 @@ namespace TimeKeepingII
             this.titleHeader = title;
         }
 
-      
+
         private void SearchLoad()
         {
 
@@ -116,12 +116,48 @@ namespace TimeKeepingII
             {
                 SearchLoad();
             }
+            if (e.KeyCode == Keys.Down)
+            {
+                lvList.Select();
+            }
+
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    SearchLoad();
+                    break;
+                case Keys.Down:
+                    lvList.Select();
+                    break;
+                case Keys.Escape:
+                    btnCancel.PerformClick();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void FrmEmployeeList_Load(object sender, EventArgs e)
         {
             lblHeaderTitle.Text = titleHeader;
             SearchLoad();
+        }
+
+        private void lvList_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    btnOK.PerformClick();
+                    break;
+                case Keys.Escape:
+                    txtSearch.Select();
+                    break;
+                default:
+
+                    break;
+            }
         }
     }
 }

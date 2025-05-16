@@ -16,7 +16,7 @@ namespace TimeKeepingII
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 CD_nID as ID ,nCtrlNo,dTransDate,sEmpName,sReason FROM [tbl_CHANGERESTDAY]  ");
         const string sSelectSql = "SELECT TOP 1 [CD_nID], [nCtrlNo], [dTransDate], tbl_CHANGERESTDAY.[EmpPK], [sEmpName], [sReqDayFrom], [sReqDayTo], [dReqDateFrom], [dReqDateTo], [sExDayFrom], [sExDayTo], [dExDateFrom], [dExDateTo], [RestDayFrom], [RestDay], [sReason], [sCoordinated], [sRecmAppBy], [sNotedBy], [sApprovBy], [sLastUpdatedBy], [nPosted], [sExWith], [EmpPKWith], [nCancelled], [sReasonCanc], [RefCD_nID],[R_EMP].EmpID as [EMPLOYEE_NO],[E_EMP].EmpID as [EX_EMPLOYEE_NO] FROM [tbl_CHANGERESTDAY] LEFT JOIN  EmployeeName as [R_EMP] ON tbl_CHANGERESTDAY.EmpPK = R_EMP.EmpPK LEFT JOIN  EmployeeName as [E_EMP] ON tbl_CHANGERESTDAY.EmpPKWith = [E_EMP].EmpPK ";
-     
+
         public FrmChangeDayoff()
         {
             InitializeComponent();
@@ -31,9 +31,64 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-     
-        }
 
+            if (this.Tag != null)
+            {
+                //view
+                lblCD_nID.Text = this.Tag.ToString();
+                RefreshData();
+
+            }
+
+            if (this.AccessibleName != null)
+            {
+                // create
+                if (SetNewData(this.AccessibleName.ToString()))
+                {
+                    isExchangeEntry = false;
+                    dtpdExDateFrom.Enabled = false;
+                    dtpdExDateTo.Enabled = false;
+                    getLatestRestDayRequest();
+                }
+
+            }
+        }
+        private bool SetNewData(string Value)
+        {
+            string strSelect = $@"SELECT PK, 
+                                        EEmployeeIDNo,
+                                        ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
+                                        ELastName, 
+                                        ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
+                                        ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
+                                        FROM tbl_Profile_IDNumber 
+                                        WHERE PK = {Value} ";
+
+            var empData = clsPayrollSystem.GetFirstRecord(strSelect);
+
+            if (empData != null)
+            {
+
+                clsComponentControl.ClearValue(this);
+                clsComponentControl.HeaderMenu(tsHeaderControl, false);
+                clsComponentControl.ObjectEnable(this, true);
+
+
+                lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
+                lblsEmpName.Text = empData["Name"].ToString();
+                lblEmpPK.Text = empData["PK"].ToString();
+
+                tsPosted.Visible = false;
+                tsPost.Text = "Post";
+
+                tsPosted.Text = "POSTED";
+                xlblCancel.Visible = false;
+
+                return true;
+            }
+
+            return false;
+        }
         private void tsAdd_Click(object sender, EventArgs e)
         {
             if (!clsAccessControl.AccessRight(this.AccessibleDescription, "ADD"))
@@ -41,42 +96,42 @@ namespace TimeKeepingII
                 return;
             }
 
-         
-                isExchangeEntry = clsMessage.MessageQuestion("Is This An Exchange Restday?", "Question");
 
-                if (isExchangeEntry)
+            isExchangeEntry = clsMessage.MessageQuestion("Is This An Exchange Restday?", "Question");
+
+            if (isExchangeEntry)
+            {
+                if (RequestEmp())
                 {
-                    if (RequestEmp())
+                    if (ExchangeEmp())
                     {
-                        if (ExchangeEmp())
-                        {
-                            swapDate();
+                        swapDate();
 
-                    
-                            xlblCancel.Visible = false;
-                            return;
-                        }
-                    }
 
-                }
-                else
-                {
-                    if (RequestEmp())
-                    {
-                        dtpdExDateFrom.Enabled = false;
-                        dtpdExDateTo.Enabled = false;
-
-                        getLatestRestDayRequest();
-                 
-                     
+                        xlblCancel.Visible = false;
                         return;
                     }
                 }
 
+            }
+            else
+            {
+                if (RequestEmp())
+                {
+                    dtpdExDateFrom.Enabled = false;
+                    dtpdExDateTo.Enabled = false;
 
-                clsMessage.MessageShowInfo("New entry canceled");
-                tsCancel.PerformClick();
-            
+                    getLatestRestDayRequest();
+
+
+                    return;
+                }
+            }
+
+
+            clsMessage.MessageShowInfo("New entry canceled");
+            tsCancel.PerformClick();
+
         }
         private bool RequestEmp()
         {
@@ -85,37 +140,7 @@ namespace TimeKeepingII
 
             if (frm.VALUE != "")
             {
-                string strSelect = $@"SELECT PK, 
-                                        EEmployeeIDNo,
-                                        ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
-                                        ELastName, 
-                                        ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
-                                        ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
-                                        FROM tbl_Profile_IDNumber 
-                                        WHERE PK = {frm.VALUE} ";
-
-                var empData = clsPayrollSystem.GetFirstRecord(strSelect);
-
-                if (empData != null)
-                {
-
-                    clsComponentControl.ClearValue(this);
-                    clsComponentControl.HeaderMenu(tsHeaderControl, false);
-                    clsComponentControl.ObjectEnable(this, true);
-
-
-                    lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
-                    lblsEmpName.Text = empData["Name"].ToString();
-                    lblEmpPK.Text = empData["PK"].ToString();
-
-                    tsPosted.Visible = false;
-                    tsPost.Text = "Post";
-
-                    tsPosted.Text = "POSTED";
-                    xlblCancel.Visible = false;
-
-                    return true;
-                }
+                return SetNewData(frm.VALUE);
             }
 
             return false;
@@ -302,12 +327,14 @@ namespace TimeKeepingII
                     tsPosted.Text = "CANCELLED";
                     tsVoid.Enabled = false;
                     xlblCancel.Visible = true;
+                    tsPost.Enabled = false;
                 }
                 else
                 {
                     tsVoid.Enabled = postValue == 1 ? true : false;
                     tsPosted.Text = "POSTED";
                     xlblCancel.Visible = false;
+                    tsPost.Enabled = true;
                 }
             }
         }
@@ -581,6 +608,16 @@ namespace TimeKeepingII
                     // Nothing
                     break;
             }
+        }
+
+        private void lblsEmpName_Click(object sender, EventArgs e)
+        {
+            clsMenu.OpenProifile(lblEmpPK.Text);
+        }
+
+        private void lblsExWith_Click(object sender, EventArgs e)
+        {
+            clsMenu.OpenProifile(lblEmpPKWith.Text);
         }
     }
 }

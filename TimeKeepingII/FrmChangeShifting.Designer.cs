@@ -363,6 +363,7 @@
             this.lblEmployeeName.Size = new System.Drawing.Size(462, 21);
             this.lblEmployeeName.TabIndex = 101;
             this.lblEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEmployeeName.Click += new System.EventHandler(this.lblEmployeeName_Click);
             // 
             // lblEMPLOYEE_NO
             // 

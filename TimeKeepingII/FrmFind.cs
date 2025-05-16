@@ -29,7 +29,7 @@ namespace TimeKeepingII
         private string sqlBase;
         private bool isBioData = false;
         private string sTitle;
-        public FrmFind(string strQuery,  bool isBio = true, string _Title = "Find")
+        public FrmFind(string strQuery, bool isBio = true, string _Title = "Find")
         {
             InitializeComponent();
 
@@ -73,8 +73,8 @@ namespace TimeKeepingII
                 {
                     string columnName = cutString(column);
                     if (columnName == cmbFind.Text)
-                    {   
-                        if(isBioData)
+                    {
+                        if (isBioData)
                         {
                             return clsBiometrics.dataList($@"{sqlBase} WHERE {column} {getSearch(txtFind.Text)}");
                         }
@@ -82,7 +82,7 @@ namespace TimeKeepingII
                         {
                             return clsPayrollSystem.dataList($@"{sqlBase} WHERE {column} {getSearch(txtFind.Text)}");
                         }
-                        
+
                     }
                 }
                 return null;
@@ -98,7 +98,7 @@ namespace TimeKeepingII
                 {
                     return clsPayrollSystem.dataList(sqlBase);
                 }
-                    
+
             }
         }
         private string getSearch(string value)
@@ -166,31 +166,38 @@ namespace TimeKeepingII
 
         private void txtFind_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnFilter.PerformClick();
-            }
 
-            if (e.KeyCode == Keys.Down)
+            switch (e.KeyCode)
             {
-                if (lvFind.Items.Count > 0)
-                {
-                    lvFind.Select();
-                }
-            }
-
-
-            if (e.KeyCode == Keys.F5)
-            {
-                btnOK.PerformClick();
+                case Keys.Enter:
+                    btnFilter.PerformClick();
+                    break;
+                case Keys.Down:
+                    if (lvFind.Items.Count > 0)
+                    {
+                        lvFind.Select();
+                    }
+                    break;
+                case Keys.Escape:
+                    btnCancel.PerformClick();
+                    break;
+                case Keys.F5:
+                    btnOK.PerformClick();
+                    break;
+                default:
+                    break;
             }
         }
-
         private void lvFind_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F5 || e.KeyCode == Keys.Enter)
             {
                 btnOK.PerformClick();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                txtFind.Select();
             }
         }
 

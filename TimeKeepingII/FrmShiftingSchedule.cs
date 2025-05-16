@@ -172,7 +172,7 @@ namespace TimeKeepingII
                 {
                     // INSERT
 
-                    int PK = clsBiometrics.ExecuteNonQuery($@"INSERT INTO ShiftingSchedule 
+                    object ID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO ShiftingSchedule 
                                                                    (ShiftName,IN_AM,OUT_Lunch,
                                                                     IN_Lunch,OUT_Break,
                                                                     IN_Break,OUT_PM,LastModifiedBy,
@@ -192,19 +192,20 @@ namespace TimeKeepingII
                                                                             {cmbShiftType.SelectedValue}) ");
 
 
-                    if (PK > 0)
+                    if (ID == null)
                     {
                         return;
                     }
 
-                    string squery = $@"{sSelectSql}  WHERE ShiftingSchedule.PK = {PK} ORDER BY ShiftingSchedule.PK ";
-                    DataRecord(squery);
+                    lblPK.Text = ID.ToString();
+                    tsCancel.PerformClick();
+                        
+                   
                 }
                 else
                 {
-                    // UPDATE
-
-                    if (!clsBiometrics.ExecuteNonQueryBool($@"UPDATE ShiftingSchedule SET ShiftName='{txtShiftName.Text.Replace("'", "`")}',
+                    // UPDATE   
+                    string sql = $@"UPDATE ShiftingSchedule SET ShiftName='{txtShiftName.Text.Replace("'", "`")}',
                                 IN_AM={clsMisc.SQL_DateTime(dtpIN_AM)},
                                 OUT_Lunch={clsMisc.SQL_DateTime(dtpOUT_Lunch)},
                                 IN_Lunch={clsMisc.SQL_DateTime(dtpIN_Lunch)},
@@ -215,16 +216,18 @@ namespace TimeKeepingII
                                 Fixed={(chkFixed.Checked == true ? 1 : 0)},
                                 Lunch={numLunch.Value},BreakTime={numBreakTime.Value},
                                 Add_Edit=0, 
-                                ShiftType={cmbShiftType.SelectedValue} WHERE PK = {lblPK.Text}"))
+                                ShiftType={cmbShiftType.SelectedValue} WHERE PK = {lblPK.Text}";
+
+                    if (!clsBiometrics.ExecuteNonQueryBool(sql))
                     {
                         return;
                     }
+                    tsCancel.PerformClick();
                 }
 
 
 
-                clsComponentControl.HeaderMenu(tsHeaderControl, true);
-                clsComponentControl.ObjectEnable(this, false);
+          
             }
             catch (Exception ex)
             {
@@ -232,11 +235,6 @@ namespace TimeKeepingII
                 clsMessage.MessageShowError(ex.Message);
             }
 
-
-        }
-
-        private void SaveEntry()
-        {
 
         }
         private void tsCancel_Click(object sender, EventArgs e)
@@ -273,12 +271,8 @@ namespace TimeKeepingII
             }
             catch (Exception ex)
             {
-
                 clsMessage.MessageShowError(ex.Message);
             }
-
-
-
         }
 
         private void tsFirst_Click(object sender, EventArgs e)

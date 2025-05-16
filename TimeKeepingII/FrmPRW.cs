@@ -14,7 +14,7 @@ namespace TimeKeepingII
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 PRW_nID as ID,sEmpName ,nCtrlNo,dTransDate,sReasons FROM [tbl_PRW_NEW]  ");
         const string sSelectSql = "SELECT TOP 1 [PRW_nID] ,[nCtrlNo] ,[dTransDate] ,[nType] ,[EmpPK] ,[sEmpName] ,[sSection] ,[sBrand] ,[sALDates] ,[sReasons] ,[dStarting] ,[dEnding] ,[sATDNo] ,[nAmount] ,[sTransNo] ,[sVerBy] ,[sRecBy] ,[sNotBy1] ,[sAppBy] ,[sRelBy] ,[nDiscActType] ,[sSuspensionFor] ,[sSuspensionSked] ,[dTerminationDate] ,[sRemarks] ,[sPreBy] ,[sNotBy2] ,[sAppBy2] ,[sConfrm] ,[nPosted] ,[sLastUpdatedBy] ,[sNoOfDaysMins] ,[nFreq] FROM [tbl_PRW_NEW] ";
-     
+
         public FrmPRW()
         {
             InitializeComponent();
@@ -92,7 +92,58 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-      
+
+            if (this.Tag != null)
+            {
+                //Viewing
+                lblPRW_nID.Text = this.Tag.ToString();
+                RefreshData();
+
+            }
+
+            if (this.AccessibleName != null)
+            {
+                // New
+                SetNewData(this.AccessibleName.ToString());
+
+            }
+
+        }
+        private bool SetNewData(string Value)
+        {
+            string strSelect = $@"SELECT PK, 
+                                    EEmployeeIDNo,
+                                    ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
+                                    ELastName, 
+                                    ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
+                                    ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
+                                    FROM tbl_Profile_IDNumber 
+                                    WHERE PK = {Value} ";
+
+            var empData = clsPayrollSystem.GetFirstRecord(strSelect);
+
+            if (empData != null)
+            {
+
+                clsComponentControl.ClearValue(this);
+                clsComponentControl.HeaderMenu(tsHeaderControl, false);
+                clsComponentControl.ObjectEnable(this, true);
+
+                lblsEmpName.Text = $"{empData["EEmployeeIDNo"].ToString()} - {empData["Name"].ToString()}";
+                lblEmpPK.Text = empData["PK"].ToString();
+
+                tsPosted.Visible = false;
+                tsPost.Text = "Post";
+
+                rdbLate.Checked = false;
+                rdbAbsent.Checked = false;
+                rdbLate.Checked = true;
+
+                setActionType(1);
+                return true;
+            }
+
+            return false;
         }
         private int CalculateFrequently()
         {
@@ -189,37 +240,7 @@ namespace TimeKeepingII
 
             if (frm.VALUE != "")
             {
-                string strSelect = $@"SELECT PK, 
-                                    EEmployeeIDNo,
-                                    ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
-                                    ELastName, 
-                                    ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
-                                    ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
-                                    FROM tbl_Profile_IDNumber 
-                                    WHERE PK = {frm.VALUE} ";
-
-                var empData = clsPayrollSystem.GetFirstRecord(strSelect);
-
-                if (empData != null)
-                {
-
-                    clsComponentControl.ClearValue(this);
-                    clsComponentControl.HeaderMenu(tsHeaderControl, false);
-                    clsComponentControl.ObjectEnable(this, true);
-
-                    lblsEmpName.Text = $"{empData["EEmployeeIDNo"].ToString()} - {empData["Name"].ToString()}";
-                    lblEmpPK.Text = empData["PK"].ToString();
-
-                    tsPosted.Visible = false;
-                    tsPost.Text = "Post";
-
-                    rdbLate.Checked = false;
-                    rdbAbsent.Checked = false;
-                    rdbLate.Checked = true;
-                   
-                    setActionType(1);
-                    return true;
-                }
+                return SetNewData(frm.VALUE);
             }
 
             return false;
@@ -268,6 +289,10 @@ namespace TimeKeepingII
                 tsDelete.Enabled = postValue == 1 ? false : true;
                 int type = int.Parse(data["nType"].ToString());
                 setType(type);
+
+
+
+
             }
         }
 
@@ -303,7 +328,7 @@ namespace TimeKeepingII
                 rdbLate.Checked = false;
                 rdbAbsent.Checked = false;
                 rdbLate.Checked = true;
-             
+
             }
         }
 
@@ -381,16 +406,92 @@ namespace TimeKeepingII
             {
                 return;
             }
-
             if (!clsAccessControl.AccessRight(this.AccessibleDescription, "DELETE"))
             {
                 return;
             }
-
             if (clsMessage.MessageQuestionWarning("ARE YOU SURE IN DELETING THIS RECORD? "))
             {
                 clsBiometrics.ExecuteNonQuery($@"Delete From tbl_PRW_NEW WHERE PRW_nID = {lblPRW_nID.Text}");
                 clsComponentControl.ClearValue(this);
+            }
+        }
+
+        private void tsSave_Click(object sender, EventArgs e)
+        {
+            if (lblEmpPK.Text.Length == 0) { clsMessage.MessageShowWarning("Please Select Employee Request !"); return; };
+            if (txtsReasons.Text.Length == 0) { clsMessage.MessageShowWarning("Please Enter an Reason!"); return; }
+
+
+            if (lblPRW_nID.Text.Length == 0)
+            {
+
+            }
+            else
+            {
+
+            }
+
+
+        }
+
+        private void lblsEmpName_Click(object sender, EventArgs e)
+        {
+            clsMenu.OpenProifile(lblEmpPK.Text);
+        }
+
+        private void FrmPRW_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Insert:
+                    tsAdd.PerformClick();
+                    break;
+                case Keys.F2:
+                    tsEdit.PerformClick();
+                    break;
+                case Keys.Delete:
+                    tsDelete.PerformClick();
+                    break;
+                case Keys.F5:
+                    tsSave.PerformClick();
+                    break;
+                case Keys.Escape:
+                    if (tsCancel.Enabled)
+                    {
+                        tsCancel.PerformClick();
+                    }
+                    else
+                    {
+                        tsClose.PerformClick();
+                    }
+                    break;
+                case Keys.F6:
+                    tsFind.PerformClick();
+                    break;
+                case Keys.PageUp:
+                    tsBack.PerformClick();
+                    break;
+
+                case Keys.PageDown:
+                    tsNext.PerformClick();
+                    break;
+                case Keys.Home:
+                    tsFirst.PerformClick();
+                    break;
+                case Keys.End:
+                    tsLast.PerformClick();
+                    break;
+                case Keys.F9:
+                    tsPrint.PerformClick();
+                    break;
+                case Keys.F8:
+                    tsPost.PerformClick();
+                    break;
+                default:
+                    // Nothing
+                    break;
+
             }
         }
     }

@@ -28,6 +28,19 @@ namespace TimeKeepingII
 
             OpenLoad();
 
+            if (this.Tag != null)
+            {
+                //view
+                lblPK.Text = this.Tag.ToString();
+                RefreshData();
+
+            }
+
+            if (this.AccessibleName != null)
+            {
+                // create
+                SetNewData(this.AccessibleName.ToString());
+            }
 
         }
         private void CustomDataTable()
@@ -60,38 +73,37 @@ namespace TimeKeepingII
                 return;
             }
 
-
-
             FrmEmployeeList frm = new FrmEmployeeList();
             frm.ShowDialog();
 
             if (frm.VALUE != "")
             {
-
-                string strSelect = $@"SELECT PK, 
+            
+                SetNewData(frm.VALUE);
+            }
+        }
+        private void SetNewData(string id)
+        {
+            string strSelect = $@"SELECT PK, 
                                     EEmployeeIDNo,
                                     ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
                                     ELastName, 
                                     ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
                                     ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
                                     FROM tbl_Profile_IDNumber 
-                                    WHERE PK = {frm.VALUE} ";
+                                    WHERE PK = {id} ";
 
-                var empData = clsPayrollSystem.GetFirstRecord(strSelect);
+            var empData = clsPayrollSystem.GetFirstRecord(strSelect);
+            if (empData != null)
+            {
 
-                if (empData != null)
-                {
-
-                    clsComponentControl.HeaderMenu(tsHeaderControl, false);
-                    clsComponentControl.ObjectEnable(this, true);
-                    clsComponentControl.ClearValue(this);
-                    OpenLoad();
-                    lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
-                    lblEmployeeName.Text = empData["Name"].ToString();
-                    lblEMP_PK.Text = empData["PK"].ToString();
-
-                }
-
+                clsComponentControl.HeaderMenu(tsHeaderControl, false);
+                clsComponentControl.ObjectEnable(this, true);
+                clsComponentControl.ClearValue(this);
+                OpenLoad();
+                lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
+                lblEmployeeName.Text = empData["Name"].ToString();
+                lblEMP_PK.Text = empData["PK"].ToString();
 
             }
         }
@@ -111,7 +123,7 @@ namespace TimeKeepingII
         private void RefreshData()
         {
 
-            RestDayResetter(0);
+            RestDayResetter(null);
             string squery = $@"{sSelectSql}  WHERE EmployeeShifting.PK = {lblPK.Text} ORDER BY EmployeeShifting.PK  ";
             DataRecord(squery);
             checkOpen();
@@ -147,7 +159,7 @@ namespace TimeKeepingII
             if (chkOpenFri.Checked == false && cmbFriday.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Supply Friday Shifting Schedule!"); return; }
             if (chkOpenSat.Checked == false && cmbSaturday.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Supply Saturday Shifting Schedule!"); return; }
             if (chkOpenSun.Checked == false && cmbSunday.SelectedIndex == -1) { clsMessage.MessageShowWarning("Please Supply Sunday Shifting Schedule!"); return; }
-            if (getRestDay() == 0) { clsMessage.MessageShowWarning("Please Select Restday!"); return; }
+            if (GetDayOff() == "") { clsMessage.MessageShowWarning("Please Select Restday!"); return; }
 
 
             // initialize value
@@ -167,12 +179,12 @@ namespace TimeKeepingII
                      (EmpNo, EmpID, EmpName, EffectDate, 
                      MachineID, MachineNo, Sunday, Monday, 
                      Tuesday, Wednesday, Thursday, Friday, 
-                     Saturday, RestDay, LastModified, Added)
+                     Saturday, DayOff, LastModified, Added)
                      VALUES
                     ({lblEMP_PK.Text},'{lblEMPLOYEE_NO.Text}','{lblEmployeeName.Text}','{dtpEffectDate.Value}',
                     {numMachineID.Value},{cmbMachineNo.SelectedValue},{SundayID},{MondayID},
                     {TuesdayID},{WednesdayID},{ThursdayID},{FridayID},
-                    {Saturday},{getRestDay()},'{LastModify}',1)");
+                    {Saturday},'{GetDayOff()}','{LastModify}',1)");
 
                 if (ID == null)
                 {
@@ -200,7 +212,7 @@ namespace TimeKeepingII
                         Sunday = { SundayID}, Monday = {MondayID},
                         Tuesday = { TuesdayID}, Wednesday = { WednesdayID},
                         Thursday = {ThursdayID}, Friday = {FridayID}, 
-                        Saturday = {Saturday}, RestDay = {getRestDay()}, 
+                        Saturday = {Saturday}, DayOff = '{GetDayOff()}', 
                         LastModified = '{LastModify}', Editted = 0 
                         WHERE (PK ={lblPK.Text})");
 
@@ -222,20 +234,28 @@ namespace TimeKeepingII
                 clsBiometrics.ExecuteNonQueryBool($@" UPDATE EmployeeName SET Privilege = 0, ProfilePK={payData["ProfilePK"].ToString()} WHERE (EmpPK = {lblEMP_PK.Text})");
             }
         }
-        private int getRestDay()
+        private string GetDayOff()
         {
             int t = 0;
+            string dfData = "";
             CheckBox[] rd = { chkRestday1, chkRestday2, chkRestday3, chkRestday4, chkRestday5, chkRestday6, chkRestday7 };
             foreach (var r in rd)
             {
                 t++;
                 if (r.Checked)
                 {
-                    return t;
+                    if (dfData == "")
+                    {
+                        dfData = $"{t}";
+                    }
+                    else
+                    {
+                        dfData = dfData + $",{t}";
+                    }
                 }
             }
 
-            return 0;
+            return dfData;
         }
         private void tsClose_Click(object sender, EventArgs e)
         {
@@ -733,7 +753,7 @@ namespace TimeKeepingII
             if (chkRestday1.Checked)
             {
                 chkOpenMon.Checked = false;
-                RestDayResetter(1);
+                //RestDayResetter(1);
             }
         }
         private void chkRestday2_CheckedChanged(object sender, EventArgs e)
@@ -741,7 +761,7 @@ namespace TimeKeepingII
             if (chkRestday2.Checked)
             {
                 chkOpenTue.Checked = false;
-                RestDayResetter(2);
+                //RestDayResetter(2);
             }
         }
         private void chkRestday3_CheckedChanged(object sender, EventArgs e)
@@ -749,7 +769,7 @@ namespace TimeKeepingII
             if (chkRestday3.Checked)
             {
                 chkOpenWed.Checked = false;
-                RestDayResetter(3);
+                //RestDayResetter(3);
             }
         }
         private void chkRestday4_CheckedChanged(object sender, EventArgs e)
@@ -757,7 +777,7 @@ namespace TimeKeepingII
             if (chkRestday4.Checked)
             {
                 chkOpenThu.Checked = false;
-                RestDayResetter(4);
+                //RestDayResetter(4);
             }
         }
         private void chkRestday5_CheckedChanged(object sender, EventArgs e)
@@ -765,7 +785,7 @@ namespace TimeKeepingII
             if (chkRestday5.Checked)
             {
                 chkOpenFri.Checked = false;
-                RestDayResetter(5);
+                //RestDayResetter(5);
             }
         }
         private void chkRestday6_CheckedChanged(object sender, EventArgs e)
@@ -773,7 +793,7 @@ namespace TimeKeepingII
             if (chkRestday6.Checked)
             {
                 chkOpenSat.Checked = false;
-                RestDayResetter(6);
+                //RestDayResetter(6);
             }
         }
         private void chkRestday7_CheckedChanged(object sender, EventArgs e)
@@ -781,7 +801,7 @@ namespace TimeKeepingII
             if (chkRestday7.Checked)
             {
                 chkOpenSun.Checked = false;
-                RestDayResetter(7);
+                //RestDayResetter(7);
             }
         }
 
@@ -795,7 +815,6 @@ namespace TimeKeepingII
                 clsComponentControl.ClearValue(this);
                 lblPK.Text = frmFind.PK;
                 RefreshData();
-
             }
         }
         private void DataRecord(string squery)
@@ -805,19 +824,23 @@ namespace TimeKeepingII
             {
                 clsComponentControl.AssignValue(this, data);
 
-                int RS = int.Parse(data["RestDay"].ToString());
+                string[] RS = data["DayOff"].ToString().Split(',');
 
-                switch (RS)
+                foreach (var r in RS)
                 {
-                    case 1: chkRestday1.Checked = true; break;
-                    case 2: chkRestday2.Checked = true; break;
-                    case 3: chkRestday3.Checked = true; break;
-                    case 4: chkRestday4.Checked = true; break;
-                    case 5: chkRestday5.Checked = true; break;
-                    case 6: chkRestday6.Checked = true; break;
-                    case 7: chkRestday7.Checked = true; break;
-                    default: break;
+                    switch (r)
+                    {
+                        case "1": chkRestday1.Checked = true; break;
+                        case "2": chkRestday2.Checked = true; break;
+                        case "3": chkRestday3.Checked = true; break;
+                        case "4": chkRestday4.Checked = true; break;
+                        case "5": chkRestday5.Checked = true; break;
+                        case "6": chkRestday6.Checked = true; break;
+                        case "7": chkRestday7.Checked = true; break;
+                        default: break;
+                    }
                 }
+
 
             }
 
@@ -890,10 +913,15 @@ namespace TimeKeepingII
             chkOpenSat.Checked = (cmbSaturday.Text.Trim().Length > 0 ? false : true);
             chkOpenSun.Checked = (cmbSunday.Text.Trim().Length > 0 ? false : true);
         }
-        private void RestDayResetter(int ID)
-        {
+        private void RestDayResetter(string[] ID)
+        {   
+            if(ID == null)
+            {
 
-            if (numMachineID.Enabled == false && ID > 0)
+                return;
+            }
+
+            if (numMachineID.Enabled == false && ID.Length == 0)
             {
                 return;
             }
@@ -905,7 +933,7 @@ namespace TimeKeepingII
             {
                 r++;
 
-                if (r == ID)
+                if (r == int.Parse(ID[r]))
                 {
                     chk.Checked = true;
                 }
@@ -1019,6 +1047,119 @@ namespace TimeKeepingII
 
                 }
             }
+        }
+
+        private void lblEmployeeName_Click(object sender, EventArgs e)
+        {
+            clsMenu.OpenProifile(lblEMP_PK.Text);
+        }
+
+        private void FrmAssignSchedule_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Insert:
+                    tsAdd.PerformClick();
+                    break;
+                case Keys.F2:
+                    tsEdit.PerformClick();
+                    break;
+                case Keys.Delete:
+                    tsDelete.PerformClick();
+                    break;
+                case Keys.F5:
+                    tsSave.PerformClick();
+                    break;
+                case Keys.Escape:
+                    if (tsCancel.Enabled)
+                    {
+                        tsCancel.PerformClick();
+                    }
+                    else
+                    {
+                        tsClose.PerformClick();
+                    }
+                    break;
+                case Keys.F6:
+                    tsFind.PerformClick();
+                    break;
+                case Keys.PageUp:
+
+                    break;
+
+                case Keys.PageDown:
+
+                    break;
+                case Keys.Home:
+
+                    break;
+                case Keys.End:
+
+                    break;
+                case Keys.F9:
+
+                    break;
+                case Keys.F8:
+
+                    break;
+                default:
+                    // Nothing
+                    break;
+
+            }
+        }
+        private void CorrectValueText(ComboBox cmb)
+        {
+            if (cmb.Enabled)
+            {
+                int index = cmb.FindStringExact(cmb.Text);
+                if (index != -1)
+                {
+                    cmb.SelectedIndex = index;
+                    cmb.SelectionStart = cmb.Text.Length;
+                    cmb.SelectionLength = 0;
+                }
+            }
+        }
+        private void cmbMonday_TextChanged(object sender, EventArgs e)
+        {
+
+            CorrectValueText(cmbMonday);
+        }
+
+        private void cmbTuesday_TextChanged(object sender, EventArgs e)
+        {
+            CorrectValueText(cmbTuesday);
+        }
+
+        private void cmbWednesday_TextChanged(object sender, EventArgs e)
+        {
+            CorrectValueText(cmbWednesday);
+        }
+
+        private void cmbThursday_TextChanged(object sender, EventArgs e)
+        {
+            CorrectValueText(cmbThursday);
+        }
+
+        private void cmbFriday_TextChanged(object sender, EventArgs e)
+        {
+            CorrectValueText(cmbFriday);
+        }
+
+        private void cmbSaturday_TextChanged(object sender, EventArgs e)
+        {
+            CorrectValueText(cmbSaturday);
+        }
+
+        private void cmbSunday_TextChanged(object sender, EventArgs e)
+        {
+            CorrectValueText(cmbSunday);
+        }
+
+        private void cmbMonday_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

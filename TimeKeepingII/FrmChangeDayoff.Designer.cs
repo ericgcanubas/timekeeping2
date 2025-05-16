@@ -560,11 +560,13 @@
             // 
             this.lblsEmpName.BackColor = System.Drawing.Color.White;
             this.lblsEmpName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblsEmpName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblsEmpName.Location = new System.Drawing.Point(115, 76);
             this.lblsEmpName.Name = "lblsEmpName";
             this.lblsEmpName.Size = new System.Drawing.Size(279, 21);
             this.lblsEmpName.TabIndex = 158;
             this.lblsEmpName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblsEmpName.Click += new System.EventHandler(this.lblsEmpName_Click);
             // 
             // lblEMPLOYEE_NO
             // 
@@ -745,11 +747,13 @@
             // 
             this.lblsExWith.BackColor = System.Drawing.Color.White;
             this.lblsExWith.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblsExWith.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblsExWith.Location = new System.Drawing.Point(114, 75);
             this.lblsExWith.Name = "lblsExWith";
             this.lblsExWith.Size = new System.Drawing.Size(279, 21);
             this.lblsExWith.TabIndex = 158;
             this.lblsExWith.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblsExWith.Click += new System.EventHandler(this.lblsExWith_Click);
             // 
             // label18
             // 

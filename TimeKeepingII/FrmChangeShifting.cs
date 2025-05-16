@@ -13,7 +13,6 @@ namespace TimeKeepingII
     {
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 ChangeShift.PK,CtrlNo,DDate,ShiftName,EmpID,EmpName,EffectDate,RefNo FROM [ChangeShift] LEFT JOIN  EmployeeName ON ChangeShift.EmpNo = EmployeeName.EmpPK LEFT JOIN ShiftingSchedule ON ChangeShift.Shift = ShiftingSchedule.PK ");
-
         const string sSelectSql = "SELECT TOP 1 [PK],[CtrlNo],[DDate],[EmpNo],[RefNo],[Shift],[EffectDate],[Remarks],[NotedBy],[ApprovedBy],[Posted],[Activate],[LastModified],[EmployeeName].EmpID as [EMPLOYEE_NO] , [EmployeeName].EmpName as [EmployeeName] FROM [ChangeShift] LEFT JOIN  EmployeeName ON ChangeShift.EmpNo = EmployeeName.EmpPK  ";
    
         public FrmChangeShifting()
@@ -25,10 +24,54 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-      
+     
             LoadShift();
+            if (this.Tag != null)
+            {
+                //Viewing
+                lblPK.Text = this.Tag.ToString();
+                RefreshData();
+            }
+            if (this.AccessibleName != null)
+            {
+                // New
+                SetNewData(this.AccessibleName.ToString());
+            }
         }
+        private void SetNewData(string Value)
+        {
+            if (Value != "")
+            {
 
+                string strSelect = $@"SELECT PK, 
+                                    EEmployeeIDNo,
+                                    ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
+                                    ELastName, 
+                                    ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
+                                    ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
+                                    FROM tbl_Profile_IDNumber 
+                                    WHERE PK = {Value} ";
+
+                var empData = clsPayrollSystem.GetFirstRecord(strSelect);
+
+                if (empData != null)
+                {
+
+                    clsComponentControl.HeaderMenu(tsHeaderControl, false);
+                    clsComponentControl.ObjectEnable(this, true);
+                    clsComponentControl.ClearValue(this);
+
+                    lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
+                    lblEmployeeName.Text = empData["Name"].ToString();
+                    lblEmpNo.Text = empData["PK"].ToString();
+
+                    tsPosted.Visible = false;
+                    tsPost.Text = "Post";
+                }
+
+
+            }
+        }
         private void LoadShift()
         {
             DataTable dt = clsBiometrics.dataList($@"SELECT [PK],[ShiftName] From ShiftingSchedule");
@@ -46,37 +89,7 @@ namespace TimeKeepingII
             FrmEmployeeList frm = new FrmEmployeeList();
             frm.ShowDialog();
 
-                if (frm.VALUE != "")
-                {
-
-                    string strSelect = $@"SELECT PK, 
-                                    EEmployeeIDNo,
-                                    ELastName + ',  ' + EFirstName + '  ' + EMiddleName AS Name,
-                                    ELastName, 
-                                    ISNULL((SELECT TOP 1 EEmploymentStatus.EActive FROM tbl_Profile_Action LEFT OUTER JOIN EEmploymentStatus ON tbl_Profile_Action.PEmploymentStatus = dbo.EEmploymentStatus.EEmploymentStatus WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS EActive, 
-                                    ISNULL((SELECT TOP 1 tbl_Profile_Action.PHired FROM tbl_Profile_Action WHERE (tbl_Profile_Action.PEmployeeNo = tbl_Profile_IDNumber.PK) AND (tbl_Profile_Action.PEffectivityDate <= CONVERT(datetime, CONVERT(char(6), GETDATE(), 12), 102)) ORDER BY tbl_Profile_Action.PEffectivityDate DESC), 1) AS Hired
-                                    FROM tbl_Profile_IDNumber 
-                                    WHERE PK = {frm.VALUE} ";
-
-                    var empData = clsPayrollSystem.GetFirstRecord(strSelect);
-
-                    if (empData != null)
-                    {
-
-                        clsComponentControl.HeaderMenu(tsHeaderControl, false);
-                        clsComponentControl.ObjectEnable(this, true);
-                        clsComponentControl.ClearValue(this);
-
-                        lblEMPLOYEE_NO.Text = empData["EEmployeeIDNo"].ToString();
-                        lblEmployeeName.Text = empData["Name"].ToString();
-                        lblEmpNo.Text = empData["PK"].ToString();
-
-                        tsPosted.Visible = false;
-                        tsPost.Text = "Post";
-                    }
-
-
-                }
+            SetNewData(frm.VALUE);
             
         }
 
@@ -303,7 +316,6 @@ namespace TimeKeepingII
                 {
                     chkOpen.Checked = false;
                 }
-
             }
             GetShift();
         }
@@ -434,6 +446,11 @@ namespace TimeKeepingII
                     // Nothing
                     break;
             }
+        }
+
+        private void lblEmployeeName_Click(object sender, EventArgs e)
+        {
+            clsMenu.OpenProifile(lblEmpNo.Text);
         }
     }
 }

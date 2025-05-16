@@ -82,8 +82,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtsReasons = new System.Windows.Forms.TextBox();
             this.gpbAction = new System.Windows.Forms.GroupBox();
-            this.pnlDetails = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.pnlMode = new System.Windows.Forms.Panel();
+            this.lblsLastUpdatedBy = new System.Windows.Forms.Label();
+            this.lblPRW_nID = new System.Windows.Forms.Label();
+            this.rdbnCounsilingWarning = new System.Windows.Forms.RadioButton();
+            this.txtsSuspensionFor = new System.Windows.Forms.TextBox();
+            this.txtsRemarks = new System.Windows.Forms.TextBox();
+            this.dtpdTerminationDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpsSuspensionSked = new System.Windows.Forms.DateTimePicker();
+            this.txtsConfrm = new System.Windows.Forms.TextBox();
+            this.txtsAppBy2 = new System.Windows.Forms.TextBox();
+            this.txtsNotBy2 = new System.Windows.Forms.TextBox();
+            this.txtsPreBy = new System.Windows.Forms.TextBox();
             this.xlblConformeBy = new System.Windows.Forms.Label();
             this.xlblApprovedBy2 = new System.Windows.Forms.Label();
             this.xlblNotedBy2 = new System.Windows.Forms.Label();
@@ -94,21 +104,9 @@
             this.xlblScheduledOn = new System.Windows.Forms.Label();
             this.rdbnSuspensionFor = new System.Windows.Forms.RadioButton();
             this.rdbnReprimand = new System.Windows.Forms.RadioButton();
-            this.txtsPreBy = new System.Windows.Forms.TextBox();
-            this.txtsNotBy2 = new System.Windows.Forms.TextBox();
-            this.txtsAppBy2 = new System.Windows.Forms.TextBox();
-            this.txtsConfrm = new System.Windows.Forms.TextBox();
-            this.dtpsSuspensionSked = new System.Windows.Forms.DateTimePicker();
-            this.dtpdTerminationDate = new System.Windows.Forms.DateTimePicker();
-            this.txtsRemarks = new System.Windows.Forms.TextBox();
-            this.txtsSuspensionFor = new System.Windows.Forms.TextBox();
-            this.rdbnCounsilingWarning = new System.Windows.Forms.RadioButton();
-            this.pnlMode = new System.Windows.Forms.Panel();
-            this.lblsLastUpdatedBy = new System.Windows.Forms.Label();
-            this.lblPRW_nID = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.tsHeaderControl.SuspendLayout();
             this.gpbAction.SuspendLayout();
-            this.pnlDetails.SuspendLayout();
             this.pnlMode.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,6 +201,7 @@
             this.tsSave.Size = new System.Drawing.Size(35, 49);
             this.tsSave.Text = "Save";
             this.tsSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsSave.Click += new System.EventHandler(this.tsSave_Click);
             // 
             // toolStripSeparator4
             // 
@@ -259,7 +258,7 @@
             this.tsNext.Image = global::TimeKeepingII.Properties.Resources.next_icon;
             this.tsNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsNext.Name = "tsNext";
-            this.tsNext.Size = new System.Drawing.Size(36, 49);
+            this.tsNext.Size = new System.Drawing.Size(35, 49);
             this.tsNext.Text = "Next";
             this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
@@ -397,11 +396,13 @@
             // 
             this.lblsEmpName.BackColor = System.Drawing.Color.White;
             this.lblsEmpName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblsEmpName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblsEmpName.Location = new System.Drawing.Point(135, 65);
             this.lblsEmpName.Name = "lblsEmpName";
             this.lblsEmpName.Size = new System.Drawing.Size(462, 21);
             this.lblsEmpName.TabIndex = 108;
             this.lblsEmpName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblsEmpName.Click += new System.EventHandler(this.lblsEmpName_Click);
             // 
             // label5
             // 
@@ -579,7 +580,26 @@
             // 
             // gpbAction
             // 
-            this.gpbAction.Controls.Add(this.pnlDetails);
+            this.gpbAction.Controls.Add(this.rdbnCounsilingWarning);
+            this.gpbAction.Controls.Add(this.txtsSuspensionFor);
+            this.gpbAction.Controls.Add(this.txtsRemarks);
+            this.gpbAction.Controls.Add(this.dtpdTerminationDate);
+            this.gpbAction.Controls.Add(this.dtpsSuspensionSked);
+            this.gpbAction.Controls.Add(this.txtsConfrm);
+            this.gpbAction.Controls.Add(this.txtsAppBy2);
+            this.gpbAction.Controls.Add(this.txtsNotBy2);
+            this.gpbAction.Controls.Add(this.txtsPreBy);
+            this.gpbAction.Controls.Add(this.xlblConformeBy);
+            this.gpbAction.Controls.Add(this.xlblApprovedBy2);
+            this.gpbAction.Controls.Add(this.xlblNotedBy2);
+            this.gpbAction.Controls.Add(this.xlblPreparedBy);
+            this.gpbAction.Controls.Add(this.xlblRemarks);
+            this.gpbAction.Controls.Add(this.rdbnTerminationEffectOn);
+            this.gpbAction.Controls.Add(this.rdbnWarningForTermination);
+            this.gpbAction.Controls.Add(this.xlblScheduledOn);
+            this.gpbAction.Controls.Add(this.rdbnSuspensionFor);
+            this.gpbAction.Controls.Add(this.rdbnReprimand);
+            this.gpbAction.Controls.Add(this.label11);
             this.gpbAction.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbAction.Location = new System.Drawing.Point(11, 268);
             this.gpbAction.Name = "gpbAction";
@@ -587,226 +607,6 @@
             this.gpbAction.TabIndex = 264;
             this.gpbAction.TabStop = false;
             this.gpbAction.Text = "DISCIPLINARY ACTION";
-            // 
-            // pnlDetails
-            // 
-            this.pnlDetails.Controls.Add(this.rdbnCounsilingWarning);
-            this.pnlDetails.Controls.Add(this.txtsSuspensionFor);
-            this.pnlDetails.Controls.Add(this.txtsRemarks);
-            this.pnlDetails.Controls.Add(this.dtpdTerminationDate);
-            this.pnlDetails.Controls.Add(this.dtpsSuspensionSked);
-            this.pnlDetails.Controls.Add(this.txtsConfrm);
-            this.pnlDetails.Controls.Add(this.txtsAppBy2);
-            this.pnlDetails.Controls.Add(this.txtsNotBy2);
-            this.pnlDetails.Controls.Add(this.txtsPreBy);
-            this.pnlDetails.Controls.Add(this.xlblConformeBy);
-            this.pnlDetails.Controls.Add(this.xlblApprovedBy2);
-            this.pnlDetails.Controls.Add(this.xlblNotedBy2);
-            this.pnlDetails.Controls.Add(this.xlblPreparedBy);
-            this.pnlDetails.Controls.Add(this.xlblRemarks);
-            this.pnlDetails.Controls.Add(this.rdbnTerminationEffectOn);
-            this.pnlDetails.Controls.Add(this.rdbnWarningForTermination);
-            this.pnlDetails.Controls.Add(this.xlblScheduledOn);
-            this.pnlDetails.Controls.Add(this.rdbnSuspensionFor);
-            this.pnlDetails.Controls.Add(this.rdbnReprimand);
-            this.pnlDetails.Controls.Add(this.label11);
-            this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDetails.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlDetails.Location = new System.Drawing.Point(3, 18);
-            this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(897, 186);
-            this.pnlDetails.TabIndex = 0;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Blue;
-            this.label11.Location = new System.Drawing.Point(7, 10);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(638, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "IN VIEW OF YOUR RECORDS OF YOUR ATTENDANCE YOU ARE HEREBY SANCTIONED WITH THE FOL" +
-    "LOWING DISCIPLINARY ACTION";
-            // 
-            // xlblConformeBy
-            // 
-            this.xlblConformeBy.AutoSize = true;
-            this.xlblConformeBy.Location = new System.Drawing.Point(537, 158);
-            this.xlblConformeBy.Name = "xlblConformeBy";
-            this.xlblConformeBy.Size = new System.Drawing.Size(89, 13);
-            this.xlblConformeBy.TabIndex = 59;
-            this.xlblConformeBy.Text = "CONFORME BY :";
-            // 
-            // xlblApprovedBy2
-            // 
-            this.xlblApprovedBy2.AutoSize = true;
-            this.xlblApprovedBy2.Location = new System.Drawing.Point(544, 130);
-            this.xlblApprovedBy2.Name = "xlblApprovedBy2";
-            this.xlblApprovedBy2.Size = new System.Drawing.Size(83, 13);
-            this.xlblApprovedBy2.TabIndex = 58;
-            this.xlblApprovedBy2.Text = "APPROVED BY :";
-            // 
-            // xlblNotedBy2
-            // 
-            this.xlblNotedBy2.AutoSize = true;
-            this.xlblNotedBy2.Location = new System.Drawing.Point(562, 102);
-            this.xlblNotedBy2.Name = "xlblNotedBy2";
-            this.xlblNotedBy2.Size = new System.Drawing.Size(64, 13);
-            this.xlblNotedBy2.TabIndex = 57;
-            this.xlblNotedBy2.Text = "NOTED BY :";
-            // 
-            // xlblPreparedBy
-            // 
-            this.xlblPreparedBy.AutoSize = true;
-            this.xlblPreparedBy.Location = new System.Drawing.Point(547, 74);
-            this.xlblPreparedBy.Name = "xlblPreparedBy";
-            this.xlblPreparedBy.Size = new System.Drawing.Size(79, 13);
-            this.xlblPreparedBy.TabIndex = 56;
-            this.xlblPreparedBy.Text = "PREPARED BY :";
-            // 
-            // xlblRemarks
-            // 
-            this.xlblRemarks.AutoSize = true;
-            this.xlblRemarks.Location = new System.Drawing.Point(11, 157);
-            this.xlblRemarks.Name = "xlblRemarks";
-            this.xlblRemarks.Size = new System.Drawing.Size(62, 13);
-            this.xlblRemarks.TabIndex = 55;
-            this.xlblRemarks.Text = "REMARKS :";
-            // 
-            // rdbnTerminationEffectOn
-            // 
-            this.rdbnTerminationEffectOn.AutoSize = true;
-            this.rdbnTerminationEffectOn.ForeColor = System.Drawing.Color.Black;
-            this.rdbnTerminationEffectOn.Location = new System.Drawing.Point(13, 126);
-            this.rdbnTerminationEffectOn.Name = "rdbnTerminationEffectOn";
-            this.rdbnTerminationEffectOn.Size = new System.Drawing.Size(157, 17);
-            this.rdbnTerminationEffectOn.TabIndex = 47;
-            this.rdbnTerminationEffectOn.TabStop = true;
-            this.rdbnTerminationEffectOn.Text = "TERMINATION EFFECT ON";
-            this.rdbnTerminationEffectOn.UseVisualStyleBackColor = true;
-            this.rdbnTerminationEffectOn.CheckedChanged += new System.EventHandler(this.rdbnTerminationEffectOn_CheckedChanged);
-            // 
-            // rdbnWarningForTermination
-            // 
-            this.rdbnWarningForTermination.AutoSize = true;
-            this.rdbnWarningForTermination.ForeColor = System.Drawing.Color.Black;
-            this.rdbnWarningForTermination.Location = new System.Drawing.Point(13, 103);
-            this.rdbnWarningForTermination.Name = "rdbnWarningForTermination";
-            this.rdbnWarningForTermination.Size = new System.Drawing.Size(170, 17);
-            this.rdbnWarningForTermination.TabIndex = 46;
-            this.rdbnWarningForTermination.TabStop = true;
-            this.rdbnWarningForTermination.Text = "WARNING FOR TEMINATION";
-            this.rdbnWarningForTermination.UseVisualStyleBackColor = true;
-            this.rdbnWarningForTermination.CheckedChanged += new System.EventHandler(this.rdbnWarningForTermination_CheckedChanged);
-            // 
-            // xlblScheduledOn
-            // 
-            this.xlblScheduledOn.AutoSize = true;
-            this.xlblScheduledOn.Location = new System.Drawing.Point(201, 80);
-            this.xlblScheduledOn.Name = "xlblScheduledOn";
-            this.xlblScheduledOn.Size = new System.Drawing.Size(89, 13);
-            this.xlblScheduledOn.TabIndex = 54;
-            this.xlblScheduledOn.Text = "SCHEDULED ON";
-            // 
-            // rdbnSuspensionFor
-            // 
-            this.rdbnSuspensionFor.AutoSize = true;
-            this.rdbnSuspensionFor.ForeColor = System.Drawing.Color.Black;
-            this.rdbnSuspensionFor.Location = new System.Drawing.Point(13, 80);
-            this.rdbnSuspensionFor.Name = "rdbnSuspensionFor";
-            this.rdbnSuspensionFor.Size = new System.Drawing.Size(116, 17);
-            this.rdbnSuspensionFor.TabIndex = 43;
-            this.rdbnSuspensionFor.TabStop = true;
-            this.rdbnSuspensionFor.Text = "SUSPENSION FOR";
-            this.rdbnSuspensionFor.UseVisualStyleBackColor = true;
-            this.rdbnSuspensionFor.CheckedChanged += new System.EventHandler(this.rdbnSuspensionFor_CheckedChanged);
-            // 
-            // rdbnReprimand
-            // 
-            this.rdbnReprimand.AutoSize = true;
-            this.rdbnReprimand.ForeColor = System.Drawing.Color.Black;
-            this.rdbnReprimand.Location = new System.Drawing.Point(13, 57);
-            this.rdbnReprimand.Name = "rdbnReprimand";
-            this.rdbnReprimand.Size = new System.Drawing.Size(273, 17);
-            this.rdbnReprimand.TabIndex = 42;
-            this.rdbnReprimand.TabStop = true;
-            this.rdbnReprimand.Text = "REPRIMAND WITH WARNINGS FOR SUSPENSION";
-            this.rdbnReprimand.UseVisualStyleBackColor = true;
-            this.rdbnReprimand.CheckedChanged += new System.EventHandler(this.rdbnReprimand_CheckedChanged);
-            // 
-            // txtsPreBy
-            // 
-            this.txtsPreBy.Location = new System.Drawing.Point(630, 71);
-            this.txtsPreBy.Name = "txtsPreBy";
-            this.txtsPreBy.Size = new System.Drawing.Size(247, 22);
-            this.txtsPreBy.TabIndex = 254;
-            // 
-            // txtsNotBy2
-            // 
-            this.txtsNotBy2.Location = new System.Drawing.Point(630, 98);
-            this.txtsNotBy2.Name = "txtsNotBy2";
-            this.txtsNotBy2.Size = new System.Drawing.Size(247, 22);
-            this.txtsNotBy2.TabIndex = 255;
-            // 
-            // txtsAppBy2
-            // 
-            this.txtsAppBy2.Location = new System.Drawing.Point(630, 126);
-            this.txtsAppBy2.Name = "txtsAppBy2";
-            this.txtsAppBy2.Size = new System.Drawing.Size(247, 22);
-            this.txtsAppBy2.TabIndex = 256;
-            // 
-            // txtsConfrm
-            // 
-            this.txtsConfrm.Location = new System.Drawing.Point(630, 154);
-            this.txtsConfrm.Name = "txtsConfrm";
-            this.txtsConfrm.Size = new System.Drawing.Size(247, 22);
-            this.txtsConfrm.TabIndex = 257;
-            // 
-            // dtpsSuspensionSked
-            // 
-            this.dtpsSuspensionSked.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpsSuspensionSked.Location = new System.Drawing.Point(296, 75);
-            this.dtpsSuspensionSked.Name = "dtpsSuspensionSked";
-            this.dtpsSuspensionSked.ShowCheckBox = true;
-            this.dtpsSuspensionSked.Size = new System.Drawing.Size(158, 22);
-            this.dtpsSuspensionSked.TabIndex = 258;
-            // 
-            // dtpdTerminationDate
-            // 
-            this.dtpdTerminationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpdTerminationDate.Location = new System.Drawing.Point(176, 124);
-            this.dtpdTerminationDate.Name = "dtpdTerminationDate";
-            this.dtpdTerminationDate.ShowCheckBox = true;
-            this.dtpdTerminationDate.Size = new System.Drawing.Size(158, 22);
-            this.dtpdTerminationDate.TabIndex = 259;
-            // 
-            // txtsRemarks
-            // 
-            this.txtsRemarks.Location = new System.Drawing.Point(77, 154);
-            this.txtsRemarks.Name = "txtsRemarks";
-            this.txtsRemarks.Size = new System.Drawing.Size(421, 22);
-            this.txtsRemarks.TabIndex = 260;
-            // 
-            // txtsSuspensionFor
-            // 
-            this.txtsSuspensionFor.Location = new System.Drawing.Point(135, 77);
-            this.txtsSuspensionFor.Name = "txtsSuspensionFor";
-            this.txtsSuspensionFor.Size = new System.Drawing.Size(56, 22);
-            this.txtsSuspensionFor.TabIndex = 261;
-            // 
-            // rdbnCounsilingWarning
-            // 
-            this.rdbnCounsilingWarning.AutoSize = true;
-            this.rdbnCounsilingWarning.ForeColor = System.Drawing.Color.Black;
-            this.rdbnCounsilingWarning.Location = new System.Drawing.Point(13, 34);
-            this.rdbnCounsilingWarning.Name = "rdbnCounsilingWarning";
-            this.rdbnCounsilingWarning.Size = new System.Drawing.Size(146, 17);
-            this.rdbnCounsilingWarning.TabIndex = 262;
-            this.rdbnCounsilingWarning.TabStop = true;
-            this.rdbnCounsilingWarning.Text = "COUNSILING/WARNING";
-            this.rdbnCounsilingWarning.UseVisualStyleBackColor = true;
-            this.rdbnCounsilingWarning.CheckedChanged += new System.EventHandler(this.rdbnCounsilingWarning_CheckedChanged);
             // 
             // pnlMode
             // 
@@ -836,6 +636,192 @@
             this.lblPRW_nID.Name = "lblPRW_nID";
             this.lblPRW_nID.Size = new System.Drawing.Size(105, 20);
             this.lblPRW_nID.TabIndex = 13;
+            // 
+            // rdbnCounsilingWarning
+            // 
+            this.rdbnCounsilingWarning.AutoSize = true;
+            this.rdbnCounsilingWarning.ForeColor = System.Drawing.Color.Black;
+            this.rdbnCounsilingWarning.Location = new System.Drawing.Point(12, 52);
+            this.rdbnCounsilingWarning.Name = "rdbnCounsilingWarning";
+            this.rdbnCounsilingWarning.Size = new System.Drawing.Size(152, 17);
+            this.rdbnCounsilingWarning.TabIndex = 282;
+            this.rdbnCounsilingWarning.TabStop = true;
+            this.rdbnCounsilingWarning.Text = "COUNSILING/WARNING";
+            this.rdbnCounsilingWarning.UseVisualStyleBackColor = true;
+            // 
+            // txtsSuspensionFor
+            // 
+            this.txtsSuspensionFor.Location = new System.Drawing.Point(134, 95);
+            this.txtsSuspensionFor.Name = "txtsSuspensionFor";
+            this.txtsSuspensionFor.Size = new System.Drawing.Size(56, 22);
+            this.txtsSuspensionFor.TabIndex = 281;
+            // 
+            // txtsRemarks
+            // 
+            this.txtsRemarks.Location = new System.Drawing.Point(76, 172);
+            this.txtsRemarks.Name = "txtsRemarks";
+            this.txtsRemarks.Size = new System.Drawing.Size(421, 22);
+            this.txtsRemarks.TabIndex = 280;
+            // 
+            // dtpdTerminationDate
+            // 
+            this.dtpdTerminationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpdTerminationDate.Location = new System.Drawing.Point(175, 142);
+            this.dtpdTerminationDate.Name = "dtpdTerminationDate";
+            this.dtpdTerminationDate.ShowCheckBox = true;
+            this.dtpdTerminationDate.Size = new System.Drawing.Size(158, 22);
+            this.dtpdTerminationDate.TabIndex = 279;
+            // 
+            // dtpsSuspensionSked
+            // 
+            this.dtpsSuspensionSked.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpsSuspensionSked.Location = new System.Drawing.Point(295, 93);
+            this.dtpsSuspensionSked.Name = "dtpsSuspensionSked";
+            this.dtpsSuspensionSked.ShowCheckBox = true;
+            this.dtpsSuspensionSked.Size = new System.Drawing.Size(158, 22);
+            this.dtpsSuspensionSked.TabIndex = 278;
+            // 
+            // txtsConfrm
+            // 
+            this.txtsConfrm.Location = new System.Drawing.Point(629, 172);
+            this.txtsConfrm.Name = "txtsConfrm";
+            this.txtsConfrm.Size = new System.Drawing.Size(247, 22);
+            this.txtsConfrm.TabIndex = 277;
+            // 
+            // txtsAppBy2
+            // 
+            this.txtsAppBy2.Location = new System.Drawing.Point(629, 144);
+            this.txtsAppBy2.Name = "txtsAppBy2";
+            this.txtsAppBy2.Size = new System.Drawing.Size(247, 22);
+            this.txtsAppBy2.TabIndex = 276;
+            // 
+            // txtsNotBy2
+            // 
+            this.txtsNotBy2.Location = new System.Drawing.Point(629, 116);
+            this.txtsNotBy2.Name = "txtsNotBy2";
+            this.txtsNotBy2.Size = new System.Drawing.Size(247, 22);
+            this.txtsNotBy2.TabIndex = 275;
+            // 
+            // txtsPreBy
+            // 
+            this.txtsPreBy.Location = new System.Drawing.Point(629, 89);
+            this.txtsPreBy.Name = "txtsPreBy";
+            this.txtsPreBy.Size = new System.Drawing.Size(247, 22);
+            this.txtsPreBy.TabIndex = 274;
+            // 
+            // xlblConformeBy
+            // 
+            this.xlblConformeBy.AutoSize = true;
+            this.xlblConformeBy.Location = new System.Drawing.Point(536, 176);
+            this.xlblConformeBy.Name = "xlblConformeBy";
+            this.xlblConformeBy.Size = new System.Drawing.Size(92, 13);
+            this.xlblConformeBy.TabIndex = 273;
+            this.xlblConformeBy.Text = "CONFORME BY :";
+            // 
+            // xlblApprovedBy2
+            // 
+            this.xlblApprovedBy2.AutoSize = true;
+            this.xlblApprovedBy2.Location = new System.Drawing.Point(543, 148);
+            this.xlblApprovedBy2.Name = "xlblApprovedBy2";
+            this.xlblApprovedBy2.Size = new System.Drawing.Size(88, 13);
+            this.xlblApprovedBy2.TabIndex = 272;
+            this.xlblApprovedBy2.Text = "APPROVED BY :";
+            // 
+            // xlblNotedBy2
+            // 
+            this.xlblNotedBy2.AutoSize = true;
+            this.xlblNotedBy2.Location = new System.Drawing.Point(561, 120);
+            this.xlblNotedBy2.Name = "xlblNotedBy2";
+            this.xlblNotedBy2.Size = new System.Drawing.Size(67, 13);
+            this.xlblNotedBy2.TabIndex = 271;
+            this.xlblNotedBy2.Text = "NOTED BY :";
+            // 
+            // xlblPreparedBy
+            // 
+            this.xlblPreparedBy.AutoSize = true;
+            this.xlblPreparedBy.Location = new System.Drawing.Point(546, 92);
+            this.xlblPreparedBy.Name = "xlblPreparedBy";
+            this.xlblPreparedBy.Size = new System.Drawing.Size(85, 13);
+            this.xlblPreparedBy.TabIndex = 270;
+            this.xlblPreparedBy.Text = "PREPARED BY :";
+            // 
+            // xlblRemarks
+            // 
+            this.xlblRemarks.AutoSize = true;
+            this.xlblRemarks.Location = new System.Drawing.Point(10, 175);
+            this.xlblRemarks.Name = "xlblRemarks";
+            this.xlblRemarks.Size = new System.Drawing.Size(65, 13);
+            this.xlblRemarks.TabIndex = 269;
+            this.xlblRemarks.Text = "REMARKS :";
+            // 
+            // rdbnTerminationEffectOn
+            // 
+            this.rdbnTerminationEffectOn.AutoSize = true;
+            this.rdbnTerminationEffectOn.ForeColor = System.Drawing.Color.Black;
+            this.rdbnTerminationEffectOn.Location = new System.Drawing.Point(12, 144);
+            this.rdbnTerminationEffectOn.Name = "rdbnTerminationEffectOn";
+            this.rdbnTerminationEffectOn.Size = new System.Drawing.Size(160, 17);
+            this.rdbnTerminationEffectOn.TabIndex = 267;
+            this.rdbnTerminationEffectOn.TabStop = true;
+            this.rdbnTerminationEffectOn.Text = "TERMINATION EFFECT ON";
+            this.rdbnTerminationEffectOn.UseVisualStyleBackColor = true;
+            // 
+            // rdbnWarningForTermination
+            // 
+            this.rdbnWarningForTermination.AutoSize = true;
+            this.rdbnWarningForTermination.ForeColor = System.Drawing.Color.Black;
+            this.rdbnWarningForTermination.Location = new System.Drawing.Point(12, 121);
+            this.rdbnWarningForTermination.Name = "rdbnWarningForTermination";
+            this.rdbnWarningForTermination.Size = new System.Drawing.Size(175, 17);
+            this.rdbnWarningForTermination.TabIndex = 266;
+            this.rdbnWarningForTermination.TabStop = true;
+            this.rdbnWarningForTermination.Text = "WARNING FOR TEMINATION";
+            this.rdbnWarningForTermination.UseVisualStyleBackColor = true;
+            // 
+            // xlblScheduledOn
+            // 
+            this.xlblScheduledOn.AutoSize = true;
+            this.xlblScheduledOn.Location = new System.Drawing.Point(200, 98);
+            this.xlblScheduledOn.Name = "xlblScheduledOn";
+            this.xlblScheduledOn.Size = new System.Drawing.Size(90, 13);
+            this.xlblScheduledOn.TabIndex = 268;
+            this.xlblScheduledOn.Text = "SCHEDULED ON";
+            // 
+            // rdbnSuspensionFor
+            // 
+            this.rdbnSuspensionFor.AutoSize = true;
+            this.rdbnSuspensionFor.ForeColor = System.Drawing.Color.Black;
+            this.rdbnSuspensionFor.Location = new System.Drawing.Point(12, 98);
+            this.rdbnSuspensionFor.Name = "rdbnSuspensionFor";
+            this.rdbnSuspensionFor.Size = new System.Drawing.Size(117, 17);
+            this.rdbnSuspensionFor.TabIndex = 265;
+            this.rdbnSuspensionFor.TabStop = true;
+            this.rdbnSuspensionFor.Text = "SUSPENSION FOR";
+            this.rdbnSuspensionFor.UseVisualStyleBackColor = true;
+            // 
+            // rdbnReprimand
+            // 
+            this.rdbnReprimand.AutoSize = true;
+            this.rdbnReprimand.ForeColor = System.Drawing.Color.Black;
+            this.rdbnReprimand.Location = new System.Drawing.Point(12, 75);
+            this.rdbnReprimand.Name = "rdbnReprimand";
+            this.rdbnReprimand.Size = new System.Drawing.Size(281, 17);
+            this.rdbnReprimand.TabIndex = 264;
+            this.rdbnReprimand.TabStop = true;
+            this.rdbnReprimand.Text = "REPRIMAND WITH WARNINGS FOR SUSPENSION";
+            this.rdbnReprimand.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Blue;
+            this.label11.Location = new System.Drawing.Point(6, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(638, 13);
+            this.label11.TabIndex = 263;
+            this.label11.Text = "IN VIEW OF YOUR RECORDS OF YOUR ATTENDANCE YOU ARE HEREBY SANCTIONED WITH THE FOL" +
+    "LOWING DISCIPLINARY ACTION";
             // 
             // FrmPRW
             // 
@@ -873,11 +859,11 @@
             this.Name = "FrmPRW";
             this.Text = "Permission To Report for Work";
             this.Load += new System.EventHandler(this.FrmPRW_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPRW_KeyDown);
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
             this.gpbAction.ResumeLayout(false);
-            this.pnlDetails.ResumeLayout(false);
-            this.pnlDetails.PerformLayout();
+            this.gpbAction.PerformLayout();
             this.pnlMode.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -940,8 +926,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtsReasons;
         private System.Windows.Forms.GroupBox gpbAction;
-        private System.Windows.Forms.Panel pnlDetails;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel pnlMode;
+        private System.Windows.Forms.Label lblsLastUpdatedBy;
+        private System.Windows.Forms.Label lblPRW_nID;
+        private System.Windows.Forms.RadioButton rdbnCounsilingWarning;
+        private System.Windows.Forms.TextBox txtsSuspensionFor;
+        private System.Windows.Forms.TextBox txtsRemarks;
         private System.Windows.Forms.DateTimePicker dtpdTerminationDate;
         private System.Windows.Forms.DateTimePicker dtpsSuspensionSked;
         private System.Windows.Forms.TextBox txtsConfrm;
@@ -958,11 +948,6 @@
         private System.Windows.Forms.Label xlblScheduledOn;
         private System.Windows.Forms.RadioButton rdbnSuspensionFor;
         private System.Windows.Forms.RadioButton rdbnReprimand;
-        private System.Windows.Forms.TextBox txtsSuspensionFor;
-        private System.Windows.Forms.TextBox txtsRemarks;
-        private System.Windows.Forms.RadioButton rdbnCounsilingWarning;
-        private System.Windows.Forms.Panel pnlMode;
-        private System.Windows.Forms.Label lblsLastUpdatedBy;
-        private System.Windows.Forms.Label lblPRW_nID;
+        private System.Windows.Forms.Label label11;
     }
 }
