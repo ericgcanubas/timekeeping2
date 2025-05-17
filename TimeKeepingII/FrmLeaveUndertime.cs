@@ -502,8 +502,6 @@ namespace TimeKeepingII
                 {
                     nCtrlNo = int.Parse(data["nCtrlNo"].ToString()) + 1;
                 }
-
-
                 object ID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO [tbl_LEAVE_UNDERTIME] ([nCtrlNo], [dTransDate], [nType], [EmpPK], [sEmpName], [sSection], [sBrand], [dEffectDate], [EffectDates], [sResumeToWork], [sReason], [sCoordinated], [sCheckBy], [sFiledBy], [sNotedBy], [sVerifiedBy], [sApprovedBy], [sLastUpdatedBy], [nPosted], [sNoOfDaysMin], [nCancelled], [sReasonCanc]) 
                 VALUES ({nCtrlNo}, '{dtpdTransDate.Value.ToString("MM/dd/yyyy")}', {nType}, {lblEmpPK.Text}, '{lblsEmpName.Text}','{sSection}', '{sBrand}', '{dtpdEffectDate.Value.ToString("MM/dd/yyyy")}','{sEffectDates}', '{dtpsResumeToWork.Value.ToString(sFormat)}', '{txtsReason.Text}','{txtsCoordinated.Text}', '', '{txtsFiledBy.Text}', '{txtsNotedBy.Text}', '{txtsVerifiedBy.Text}', '{txtsApprovBy.Text}', '{clsDateTime.LastModify()}', 0, '{lblsNoOfDaysMin.Text}', 0, '') ");
                 if (ID != null)

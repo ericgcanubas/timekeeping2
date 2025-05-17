@@ -46,7 +46,7 @@ namespace TimeKeepingII
 
         private void setActionTypeObjet(int DiscActType)
         {
-            if (!dtpDDate.Enabled)
+            if (!dtpdTransDate.Enabled)
             {
                 return;
             }
@@ -93,18 +93,18 @@ namespace TimeKeepingII
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
 
-            if (this.Tag != null)
+            if (Tag != null)
             {
                 //Viewing
-                lblPRW_nID.Text = this.Tag.ToString();
+                lblPRW_nID.Text = Tag.ToString();
                 RefreshData();
 
             }
 
-            if (this.AccessibleName != null)
+            if (AccessibleName != null)
             {
                 // New
-                SetNewData(this.AccessibleName.ToString());
+                SetNewData(AccessibleName.ToString());
 
             }
 
@@ -148,9 +148,9 @@ namespace TimeKeepingII
         private int CalculateFrequently()
         {
             int result = 0;
-            if (!string.IsNullOrWhiteSpace(lblsALDates.Text))
+            if (!string.IsNullOrWhiteSpace(txtsALDates.Text))
             {
-                string[] dates = lblsALDates.Text.Split(',');
+                string[] dates = txtsALDates.Text.Split(',');
                 for (int i = 0; i < dates.Length; i++)
                 {
                     if (string.IsNullOrWhiteSpace(dates[i]))
@@ -226,7 +226,7 @@ namespace TimeKeepingII
 
         private void tsAdd_Click(object sender, EventArgs e)
         {
-            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "ADD"))
+            if (!clsAccessControl.AccessRight(AccessibleDescription, "ADD"))
             {
                 return;
             }
@@ -380,7 +380,7 @@ namespace TimeKeepingII
 
         private void tsClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void tsEdit_Click(object sender, EventArgs e)
@@ -390,7 +390,7 @@ namespace TimeKeepingII
                 return;
             }
 
-            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "EDIT"))
+            if (!clsAccessControl.AccessRight(AccessibleDescription, "EDIT"))
             {
                 return;
             }
@@ -406,7 +406,7 @@ namespace TimeKeepingII
             {
                 return;
             }
-            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "DELETE"))
+            if (!clsAccessControl.AccessRight(AccessibleDescription, "DELETE"))
             {
                 return;
             }
@@ -422,19 +422,96 @@ namespace TimeKeepingII
             if (lblEmpPK.Text.Length == 0) { clsMessage.MessageShowWarning("Please Select Employee Request !"); return; };
             if (txtsReasons.Text.Length == 0) { clsMessage.MessageShowWarning("Please Enter an Reason!"); return; }
 
+            int nType = rdbAbsent.Checked ? 1 : 2;
 
+
+            string[] dates = txtsALDates.Text.Split(',');
+            string dStarting, dEnding;
+            // Trim spaces and remove empty entries
+            dates = dates.Where(d => !string.IsNullOrWhiteSpace(d)).Select(d => d.Trim()).ToArray();
+
+            dStarting = dates[0];
+            dEnding = dates[dates.Length - 1];
+            int nDiscActType = 1;
+            int nFreq = 1;
+            string sLastUpdatedBy = clsDateTime.LastModify();
             if (lblPRW_nID.Text.Length == 0)
             {
+                int nCtrlNo = 1;
+                var data = clsBiometrics.GetFirstRecord($"select top 1 nCtrlNo from tbl_PRW_NEW order by nCtrlNo desc");
+                if (data != null)
+                {
+                    nCtrlNo = int.Parse(data["nCtrlNo"].ToString()) + 1;
+                }
+
+                string sSection = "";
+                string sBrand = "";
+
+
+                object ID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO [tbl_PRW_NEW] (
+                                                                 [nCtrlNo], [dTransDate], [nType], [EmpPK], [sEmpName], [sSection],
+                                                                [sBrand], [sALDates], [sReasons], [dStarting], [dEnding], [sATDNo],
+                                                                [nAmount], [sTransNo], [sVerBy], [sRecBy], [sNotBy1], [sAppBy], [sRelBy],
+                                                                [nDiscActType], [sSuspensionFor], [sSuspensionSked], [dTerminationDate],
+                                                                [sRemarks], [sPreBy], [sNotBy2], [sAppBy2], [sConfrm], [nPosted],
+                                                                [sLastUpdatedBy], [sNoOfDaysMins], [nFreq])
+                                                            VALUES (
+                                                                 {nCtrlNo}, '{clsMisc.SQL_Date(dtpdTransDate)}', {nType}, {lblEmpPK.Text}, '{lblsEmpName.Text}', '{sSection}', '{sBrand}', '{txtsALDates.Text}',
+                                                                '{txtsReasons.Text}', '{dStarting}', '{dEnding}', '', 0, '','{txtsVerBy.Text}', '{txtsRecBy.Text}', '{txtsNotBy1.Text}', '{txtsAppBy.Text}', 
+                                                                '{txtsRelBy.Text}', {nDiscActType}, '{txtsSuspensionFor.Text}', '{dtpsSuspensionSked.Value}', '{dtpdTerminationDate.Value}', '{txtsRemarks.Text}', '{txtsPreBy.Text}', '{txtsNotBy2.Text}', '{txtsAppBy2.Text}', '{txtsConfrm.Text}', 0, '{sLastUpdatedBy}', '{lblsNoOfDaysMins.Text}', {nFreq});");
+
+
+
+                if (ID == null)
+                {
+                    return;
+                }
+
+                lblPRW_nID.Text = ID.ToString();
+                tsCancel.PerformClick();
 
             }
             else
             {
+                bool isUpdate = clsBiometrics.ExecuteNonQueryBool($@"UPDATE [tbl_PRW_NEW]
+                                                                        SET
+                                                                 
+                                                                            [nType] = {nType},
+                                                                            [sALDates] = '{txtsALDates.Text}',
+                                                                            [sReasons] = '{txtsReasons.Text}',
+                                                                            [dStarting] = '{dStarting}',
+                                                                            [dEnding] = '{dEnding}',
+                                                                            [sATDNo] = '',
+                                                                            [nAmount] = 0,
+                                                                            [sTransNo] = '',
+                                                                            [sVerBy] = '{txtsVerBy.Text}',
+                                                                            [sRecBy] = '{txtsRecBy.Text}',
+                                                                            [sNotBy1] = '{txtsNotBy1.Text}',
+                                                                            [sAppBy] = '{txtsAppBy.Text}',
+                                                                            [sRelBy] = '{txtsRelBy.Text}',
+                                                                            [nDiscActType] = {nDiscActType},
+                                                                            [sSuspensionFor] = '{txtsSuspensionFor.Text}',
+                                                                            [sSuspensionSked] = '{dtpsSuspensionSked.Value}',
+                                                                            [dTerminationDate] = '{dtpdTerminationDate.Value}',
+                                                                            [sRemarks] = '{txtsRemarks.Text}',
+                                                                            [sPreBy] = '{txtsPreBy.Text}',
+                                                                            [sNotBy2] = '{txtsNotBy2.Text}',
+                                                                            [sAppBy2] = '{txtsAppBy2.Text}',
+                                                                            [sConfrm] = '{txtsConfrm.Text}',
+                                                                            [sLastUpdatedBy] = '{sLastUpdatedBy}',
+                                                                            [sNoOfDaysMins] = '{lblsNoOfDaysMins.Text}',
+                                                                            [nFreq] = {nFreq}
+                                                                        WHERE [PRW_nID] = {lblPRW_nID.Text};");
+
+                if(isUpdate == true)
+                {
+                    tsCancel.PerformClick();
+                }
+             
+
 
             }
-
-
         }
-
         private void lblsEmpName_Click(object sender, EventArgs e)
         {
             clsMenu.OpenProifile(lblEmpPK.Text);
@@ -493,6 +570,333 @@ namespace TimeKeepingII
                     break;
 
             }
+        }
+
+        private void rdbLate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbLate.Enabled == false || rdbLate.Checked == false)
+            {
+                return;
+            }
+            GetDayOfLate();
+            Frequently(CalculateFrequently());
+        }
+
+        private void rdbAbsent_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbAbsent.Enabled == false || rdbAbsent.Checked == false)
+            {
+                return;
+            }
+
+            GetDayOfAbsent();
+            Frequently(CalculateFrequently());
+        }
+        public void GetDayOfLate()
+        {
+            string result = string.Empty;
+            string query = $"SELECT  top 1  Pk,EmpNo,EmpId,EmpName,EffectDate,Sunday,Monday,Tuesday ,Wednesday,Thursday,Friday,Saturday,MachineId ,MachineNo,Restday,LastModified FROM EmployeeShifting where 1=1  and EmpNo = {lblEmpPK.Text}  and EffectDate <= GETDATE()  order by EffectDate desc ";
+            var currEmployeeShifting = clsBiometrics.GetFirstRecord(query);
+            if (currEmployeeShifting != null)
+            {
+                clsDateTime dt = new clsDateTime();
+                DateTime serverDate = dt.ServerDate();
+                int shiftID = 0;
+                switch (serverDate.DayOfWeek)
+                {
+                    case DayOfWeek.Monday: shiftID = int.Parse(currEmployeeShifting["Monday"].ToString()); break;
+                    case DayOfWeek.Tuesday: shiftID = int.Parse(currEmployeeShifting["Tuesday"].ToString()); break;
+                    case DayOfWeek.Wednesday: shiftID = int.Parse(currEmployeeShifting["Wednesday"].ToString()); break;
+                    case DayOfWeek.Thursday: shiftID = int.Parse(currEmployeeShifting["Thursday"].ToString()); break;
+                    case DayOfWeek.Friday: shiftID = int.Parse(currEmployeeShifting["Friday"].ToString()); break;
+                    case DayOfWeek.Saturday: shiftID = int.Parse(currEmployeeShifting["Saturday"].ToString()); break;
+                    case DayOfWeek.Sunday: shiftID = int.Parse(currEmployeeShifting["Sunday"].ToString()); break;
+                }
+
+
+                var schedule = clsBiometrics.GetFirstRecord($"SELECT TOP 1 [PK] ,[ShiftName] ,[ShiftType] ,[IN_AM] ,[OUT_Lunch] ,[IN_Lunch] ,[OUT_Break] ,[IN_Break] ,[OUT_PM] ,[LastModifiedBy] ,[Fixed] ,[Lunch] ,[BreakTime] ,[Add_Edit] ,[Status] ,[ScheduleType] FROM [ShiftingSchedule] WHERE PK = {shiftID}");
+                if (schedule != null)
+                {
+                    TimeSpan time = new TimeSpan();
+
+                    TimeSpan AMIn = TimeSpan.Parse(clsMisc.FX_TIME_EMPTY(schedule["IN_AM"].ToString()));
+
+                    TimeSpan LunchOut = TimeSpan.Parse(clsMisc.FX_TIME_EMPTY(schedule["OUT_Lunch"].ToString()));
+                    TimeSpan LunchIn = TimeSpan.Parse(clsMisc.FX_TIME_EMPTY(schedule["IN_Lunch"].ToString()));
+
+
+                    TimeSpan CoffeeOut = TimeSpan.Parse(clsMisc.FX_TIME_EMPTY(schedule["OUT_Break"].ToString()));
+                    TimeSpan CoffeeIn = TimeSpan.Parse(clsMisc.FX_TIME_EMPTY(schedule["IN_Break"].ToString()));
+
+
+                    TimeSpan PmOut = TimeSpan.Parse(clsMisc.FX_TIME_EMPTY(schedule["OUT_PM"].ToString()));
+
+                    int Lunchtime = int.Parse(schedule["Lunch"].ToString());
+                    int Breaktime = int.Parse(schedule["BreakTime"].ToString());
+                    bool IsFixed = bool.Parse((schedule["Fixed"].ToString() == "1" ? "true" : "false"));
+
+                    switch (int.Parse(schedule["ScheduleType"].ToString()))
+                    {
+                        case 1:
+                            if (serverDate.TimeOfDay >= CoffeeIn)
+                            {
+                                time = LunchOut.Subtract(AMIn).Add(CoffeeOut.Subtract(LunchIn)).Add(serverDate.TimeOfDay.Subtract(CoffeeIn));
+                            }
+                            else if (serverDate.TimeOfDay >= CoffeeOut)
+                            {
+                                time = LunchOut.Subtract(AMIn).Add(CoffeeOut.Subtract(LunchIn));
+                            }
+                            else if (serverDate.TimeOfDay >= LunchIn)
+                            {
+                                time = LunchOut.Subtract(AMIn).Add(serverDate.TimeOfDay.Subtract(LunchIn));
+                            }
+                            else if (serverDate.TimeOfDay >= LunchOut)
+                            {
+                                time = LunchOut.Subtract(AMIn);
+                            }
+                            else if (serverDate.TimeOfDay > AMIn)
+                            {
+                                time = serverDate.TimeOfDay.Subtract(AMIn);
+                            }
+                            break;
+                        case 2:
+                            if (serverDate.TimeOfDay >= CoffeeIn)
+                            {
+                                time = CoffeeOut.Subtract(AMIn).Add(serverDate.TimeOfDay.Subtract(CoffeeIn));
+                            }
+                            else if (serverDate.TimeOfDay >= CoffeeOut)
+                            {
+                                time = CoffeeOut.Subtract(AMIn);
+                            }
+                            else if (serverDate.TimeOfDay > AMIn)
+                            {
+                                time = serverDate.TimeOfDay.Subtract(AMIn);
+                            }
+                            break;
+                        case 3:
+                            if (serverDate.TimeOfDay >= LunchIn)
+                            {
+                                time = LunchOut.Subtract(AMIn).Add(serverDate.TimeOfDay.Subtract(LunchIn));
+                            }
+                            else if (serverDate.TimeOfDay >= LunchOut)
+                            {
+                                time = LunchOut.Subtract(AMIn);
+                            }
+                            else if (serverDate.TimeOfDay > AMIn)
+                            {
+                                time = serverDate.TimeOfDay.Subtract(AMIn);
+                            }
+                            break;
+                        case 4:
+
+                            time = serverDate.TimeOfDay.Subtract(AMIn);
+                            break;
+
+                        default:
+                            break;
+                    }
+
+
+                    result = time.Hours > 1 ? time.Hours + " hrs " + time.Minutes + (time.Minutes > 1 ? " mins" : " min") :
+                                time.Hours + " hr " + time.Minutes + (time.Minutes > 1 ? " mins" : " min");
+
+                    txtsALDates.Text = serverDate.ToString("MM/dd/yyyy hh:mm tt");
+                    lblsNoOfDaysMins.Text = result;
+                }
+                else
+                {
+                    MessageBox.Show("No Shifting Schedule Found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void GetDayOfAbsent()
+        {
+            clsDateTime dt = new clsDateTime();
+
+            DateTime serverDate = dt.ServerDate();
+            string allData = string.Empty;
+            string result = string.Empty;
+            int count = 0;
+            DateTime date = serverDate.AddDays(-1);
+            string holidayType = string.Empty;
+            while (true)
+            {
+                if (IsEmployeeHasTransactionLog(date, int.Parse(lblEmpPK.Text)) == false)
+                {
+                    if (IsRestday(date, int.Parse(lblEmpPK.Text)) == false)
+                    {
+                        if (IsEmployeeHoliday(date, int.Parse(lblEmpPK.Text), out holidayType) == false)
+                        {
+                            if (IsLeave(date, int.Parse(lblEmpPK.Text)) == false)
+                            {
+                                count++;
+                                if (string.IsNullOrWhiteSpace(allData))
+                                    allData = date.ToString("MM/dd/yyyy");
+                                else
+                                    allData += "," + date.ToString("MM/dd/yyyy");
+                            }
+                        }
+                    }
+                }
+                else
+                    break;
+
+                date = date.AddDays(-1);
+            }
+
+            result = count > 1 ? count + " Days" : count + " Day";
+
+
+            txtsALDates.Text = allData;
+            lblsNoOfDaysMins.Text = result;
+
+
+        }
+        private bool IsRestday(DateTime date, int empId)
+        {
+            string query = "declare @date date = '" + date.ToShortDateString() + "'; " +
+                          "declare @empPK int = " + empId + " " +
+                          "select a.EmpNo,a.Restday " +
+                          "from ( " +
+                           "select a.EmpNo,isnull(b.ToDay,a.RestDay) Restday " +
+                           "from ( " +
+                               "select EmpNo,RestDay, " +
+                                      "Row = ROW_NUMBER() over (partition by EmpNo order by PK desc) " +
+                               "from EmployeeShifting " +
+                               "where EmpNo = @empPK and cast(EffectDate as date) <= cast(@date as date) ) a " +
+                           "left join (select EmpPK = case when EmpPK = @empPK " +
+                                                             "then @empPK else EmpPKWith end, " +
+                                          "dReqDateFrom,dReqDateTo, " +
+                                          "FromDay = case when EmpPK = @empPK " +
+                                                         "then " +
+                                                             "case when DATEPART(W,dReqDateFrom) = 1 " +
+                                                                 "then 7 else (DATEPART(W,dReqDateFrom) - 1) end " +
+                                                         "else " +
+                                                             "case when DATEPART(W,dExDateFrom) = 1 " +
+                                                                 "then 7 else (DATEPART(W,dExDateFrom) - 1) end " +
+                                                     "end, " +
+                                          "ToDay = case when EmpPK = @empPK " +
+                                                      "then " +
+                                                         "case when DATEPART(W,dReqDateTo) = 1 " +
+                                                             "then 7 else (DATEPART(W,dReqDateTo) -1) end " +
+                                                      "else " +
+                                                         "case when DATEPART(W,dReqDateTo) = 1 " +
+                                                             "then 7 else (DATEPART(W,dExDateTo) -1) end " +
+                                                  "end " +
+                                     "from tbl_CHANGERESTDAY " +
+                                     "where (cast(dReqDateTo as date) = cast(@date as date) " +
+                                     "or cast(dReqDateFrom as date) = cast(@date as date)) " +
+                                     "and nPosted = 1 and nCancelled = 0 and (EmpPK = @empPK or EmpPKWith = @empPK)) b " +
+                           "on a.EmpNo = b.EmpPK " +
+                           "where a.Row = 1 ) a  " +
+                          "where a.Restday = case when DATEPART(W,cast(@date as date)) = 1 " +
+                                          "then 7 else (DATEPART(W,cast(@date as date)) - 1) end ";
+
+
+            var data = clsBiometrics.GetFirstRecord(query);
+
+            if (data != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public static bool IsEmployeeHasTransactionLog(DateTime actualDate, int empPk)
+        {
+
+
+            string query = "SELECT TOP 1 PK,EmpPK,MachineNo,MachineID,Actual_Date, " +
+                            "Actual_Time,InOutMode,EntryMode,Posted,EmployeeName " +
+                           "FROM tbl_TransactionLog " +
+                           "where EmpPK= " + empPk + "  and  Actual_Date='" + actualDate.ToShortDateString() + "'";
+
+            var d = clsBiometrics.GetFirstRecord(query);
+            if (d != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public static bool IsEmployeeHoliday(DateTime date, int empId, out string holidayType)
+        {
+            string query = "SELECT TOP 1 a.HolidayEmployeesPk,a.EmpId,a.IsHolidayDuty,b.HolidayType " +
+                           "FROM tbl_HolidayEmployees a " +
+                           "join dbo.tbl_HolidayName b on a.HolidayNamePk = b.HolidayNamePk " +
+                           "where b.HolidayDate = '" + date.ToShortDateString() + "' and a.EmpId =" + empId + " and IsHolidayDuty = 0 ";
+
+            var d = clsBiometrics.GetFirstRecord(query);
+
+            if (d != null)
+            {
+                holidayType = d["HolidayType"].ToString();
+                return true;
+            }
+            else
+            {
+                holidayType = string.Empty;
+                return false;
+            }
+        }
+
+        public static bool IsLeave(DateTime date, int empId)
+        {
+            string query = "select TOP 1 a.EmpPK " +
+                           "from tbl_LEAVE_UNDERTIME a " +
+                           "where a.nType = 1 and a.EffectDates like '%" + date.ToString("MM/dd/yyyy") + "%' " +
+                           "and a.nPosted = 1 and a.nCancelled = 0 and a.EmpPK =" + empId + " ";
+
+            var d = clsBiometrics.GetFirstRecord(query);
+            if (d != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        private void tsPost_Click(object sender, EventArgs e)
+        {
+            if (lblPRW_nID.Text.Length == 0)
+            {
+                return;
+            }
+
+            if (!clsAccessControl.AccessRight(this.AccessibleDescription, "POST"))
+            {
+                return;
+            }
+
+
+            if (tsPosted.Visible)
+            {
+                if (!clsMessage.MessageQuestion("ARE YOU SURE TO UNPOST THIS TRANSACTION?"))
+                {
+                    return;
+                }
+            }
+            else
+            {
+                if (!clsMessage.MessageQuestion("ARE YOU SURE TO POST THIS TRANSACTION? "))
+                {
+                    return;
+                }
+            }
+
+            clsBiometrics.ExecuteNonQueryBool($"UPDATE tbl_PRW_NEW SET nPosted = {(tsPosted.Visible ? 0 : 1)} WHERE (PRW_nID = {lblPRW_nID.Text} ) ");
+            RefreshData();
         }
     }
 }

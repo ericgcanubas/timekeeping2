@@ -65,5 +65,10 @@ namespace TimeKeepingII
             string result = string.Join(",", dateStrings);
             return result;
         }
+        public DateTime ServerDate()
+        {
+            var resultData = clsBiometrics.GetFirstRecord("select GETDATE() SystemDate ");
+            return Convert.ToDateTime(resultData["SystemDate"]);
+        }
     }
 }

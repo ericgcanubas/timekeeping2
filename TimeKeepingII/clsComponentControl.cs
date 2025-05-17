@@ -91,7 +91,11 @@ namespace TimeKeepingII
                 {
                     case "txt":
                         TextBox txt = (TextBox)item;
-                        txt.ReadOnly = !isEnable;
+                        if(txt.BorderStyle == BorderStyle.Fixed3D)
+                        {
+                            txt.ReadOnly = !isEnable;
+                        }
+                        
                         break;
                     case "num":
                         NumericUpDown num = (NumericUpDown)item;

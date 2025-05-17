@@ -62,7 +62,7 @@
             this.lblEmpPK = new System.Windows.Forms.Label();
             this.lblsEmpName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtpDDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpdTransDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.lblsNoOfDaysMins = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -78,13 +78,9 @@
             this.txtsNotBy1 = new System.Windows.Forms.TextBox();
             this.rdbLate = new System.Windows.Forms.RadioButton();
             this.rdbAbsent = new System.Windows.Forms.RadioButton();
-            this.lblsALDates = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtsReasons = new System.Windows.Forms.TextBox();
             this.gpbAction = new System.Windows.Forms.GroupBox();
-            this.pnlMode = new System.Windows.Forms.Panel();
-            this.lblsLastUpdatedBy = new System.Windows.Forms.Label();
-            this.lblPRW_nID = new System.Windows.Forms.Label();
             this.rdbnCounsilingWarning = new System.Windows.Forms.RadioButton();
             this.txtsSuspensionFor = new System.Windows.Forms.TextBox();
             this.txtsRemarks = new System.Windows.Forms.TextBox();
@@ -105,6 +101,10 @@
             this.rdbnSuspensionFor = new System.Windows.Forms.RadioButton();
             this.rdbnReprimand = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
+            this.pnlMode = new System.Windows.Forms.Panel();
+            this.lblsLastUpdatedBy = new System.Windows.Forms.Label();
+            this.lblPRW_nID = new System.Windows.Forms.Label();
+            this.txtsALDates = new System.Windows.Forms.TextBox();
             this.tsHeaderControl.SuspendLayout();
             this.gpbAction.SuspendLayout();
             this.pnlMode.SuspendLayout();
@@ -320,6 +320,7 @@
             this.tsPost.Size = new System.Drawing.Size(34, 49);
             this.tsPost.Text = "Post";
             this.tsPost.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsPost.Click += new System.EventHandler(this.tsPost_Click);
             // 
             // toolStripSeparator12
             // 
@@ -407,19 +408,19 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(435, 115);
+            this.label5.Location = new System.Drawing.Point(500, 114);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 114;
             this.label5.Text = "DATE  CREATED :";
             // 
-            // dtpDDate
+            // dtpdTransDate
             // 
-            this.dtpDDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDDate.Location = new System.Drawing.Point(538, 113);
-            this.dtpDDate.Name = "dtpDDate";
-            this.dtpDDate.Size = new System.Drawing.Size(115, 20);
-            this.dtpDDate.TabIndex = 113;
+            this.dtpdTransDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpdTransDate.Location = new System.Drawing.Point(603, 112);
+            this.dtpdTransDate.Name = "dtpdTransDate";
+            this.dtpdTransDate.Size = new System.Drawing.Size(115, 20);
+            this.dtpdTransDate.TabIndex = 113;
             // 
             // label3
             // 
@@ -433,7 +434,7 @@
             // 
             this.lblsNoOfDaysMins.BackColor = System.Drawing.Color.White;
             this.lblsNoOfDaysMins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblsNoOfDaysMins.Location = new System.Drawing.Point(538, 136);
+            this.lblsNoOfDaysMins.Location = new System.Drawing.Point(135, 159);
             this.lblsNoOfDaysMins.Name = "lblsNoOfDaysMins";
             this.lblsNoOfDaysMins.Size = new System.Drawing.Size(247, 21);
             this.lblsNoOfDaysMins.TabIndex = 241;
@@ -443,7 +444,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(421, 139);
+            this.label14.Location = new System.Drawing.Point(18, 162);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(113, 13);
             this.label14.TabIndex = 240;
@@ -452,7 +453,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(53, 185);
+            this.label6.Location = new System.Drawing.Point(53, 209);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 256;
@@ -460,7 +461,7 @@
             // 
             // txtsVerBy
             // 
-            this.txtsVerBy.Location = new System.Drawing.Point(135, 183);
+            this.txtsVerBy.Location = new System.Drawing.Point(135, 207);
             this.txtsVerBy.Name = "txtsVerBy";
             this.txtsVerBy.Size = new System.Drawing.Size(247, 20);
             this.txtsVerBy.TabIndex = 255;
@@ -468,7 +469,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(447, 210);
+            this.label7.Location = new System.Drawing.Point(512, 230);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 13);
             this.label7.TabIndex = 254;
@@ -476,7 +477,7 @@
             // 
             // txtsRelBy
             // 
-            this.txtsRelBy.Location = new System.Drawing.Point(538, 207);
+            this.txtsRelBy.Location = new System.Drawing.Point(603, 227);
             this.txtsRelBy.Name = "txtsRelBy";
             this.txtsRelBy.Size = new System.Drawing.Size(247, 20);
             this.txtsRelBy.TabIndex = 253;
@@ -484,7 +485,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(12, 209);
+            this.label19.Location = new System.Drawing.Point(12, 233);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(120, 13);
             this.label19.TabIndex = 252;
@@ -492,7 +493,7 @@
             // 
             // txtsRecBy
             // 
-            this.txtsRecBy.Location = new System.Drawing.Point(135, 206);
+            this.txtsRecBy.Location = new System.Drawing.Point(135, 230);
             this.txtsRecBy.Name = "txtsRecBy";
             this.txtsRecBy.Size = new System.Drawing.Size(247, 20);
             this.txtsRecBy.TabIndex = 251;
@@ -500,7 +501,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(445, 164);
+            this.label10.Location = new System.Drawing.Point(510, 184);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 13);
             this.label10.TabIndex = 246;
@@ -508,7 +509,7 @@
             // 
             // txtsAppBy
             // 
-            this.txtsAppBy.Location = new System.Drawing.Point(538, 160);
+            this.txtsAppBy.Location = new System.Drawing.Point(603, 180);
             this.txtsAppBy.Name = "txtsAppBy";
             this.txtsAppBy.Size = new System.Drawing.Size(247, 20);
             this.txtsAppBy.TabIndex = 245;
@@ -516,7 +517,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(466, 188);
+            this.label9.Location = new System.Drawing.Point(531, 208);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 244;
@@ -524,7 +525,7 @@
             // 
             // txtsNotBy1
             // 
-            this.txtsNotBy1.Location = new System.Drawing.Point(538, 184);
+            this.txtsNotBy1.Location = new System.Drawing.Point(603, 204);
             this.txtsNotBy1.Name = "txtsNotBy1";
             this.txtsNotBy1.Size = new System.Drawing.Size(247, 20);
             this.txtsNotBy1.TabIndex = 243;
@@ -539,6 +540,7 @@
             this.rdbLate.TabStop = true;
             this.rdbLate.Text = "LATE";
             this.rdbLate.UseVisualStyleBackColor = true;
+            this.rdbLate.CheckedChanged += new System.EventHandler(this.rdbLate_CheckedChanged);
             // 
             // rdbAbsent
             // 
@@ -550,22 +552,12 @@
             this.rdbAbsent.TabStop = true;
             this.rdbAbsent.Text = "ABSENT";
             this.rdbAbsent.UseVisualStyleBackColor = true;
-            // 
-            // lblsALDates
-            // 
-            this.lblsALDates.BackColor = System.Drawing.Color.White;
-            this.lblsALDates.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblsALDates.Location = new System.Drawing.Point(135, 137);
-            this.lblsALDates.Name = "lblsALDates";
-            this.lblsALDates.Size = new System.Drawing.Size(247, 21);
-            this.lblsALDates.TabIndex = 261;
-            this.lblsALDates.Text = " ";
-            this.lblsALDates.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rdbAbsent.CheckedChanged += new System.EventHandler(this.rdbAbsent_CheckedChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(74, 163);
+            this.label8.Location = new System.Drawing.Point(74, 187);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 263;
@@ -573,7 +565,7 @@
             // 
             // txtsReasons
             // 
-            this.txtsReasons.Location = new System.Drawing.Point(135, 160);
+            this.txtsReasons.Location = new System.Drawing.Point(135, 184);
             this.txtsReasons.Name = "txtsReasons";
             this.txtsReasons.Size = new System.Drawing.Size(247, 20);
             this.txtsReasons.TabIndex = 262;
@@ -607,35 +599,6 @@
             this.gpbAction.TabIndex = 264;
             this.gpbAction.TabStop = false;
             this.gpbAction.Text = "DISCIPLINARY ACTION";
-            // 
-            // pnlMode
-            // 
-            this.pnlMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMode.Controls.Add(this.lblsLastUpdatedBy);
-            this.pnlMode.Controls.Add(this.lblPRW_nID);
-            this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlMode.Location = new System.Drawing.Point(0, 501);
-            this.pnlMode.Name = "pnlMode";
-            this.pnlMode.Size = new System.Drawing.Size(987, 22);
-            this.pnlMode.TabIndex = 265;
-            // 
-            // lblsLastUpdatedBy
-            // 
-            this.lblsLastUpdatedBy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblsLastUpdatedBy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblsLastUpdatedBy.Location = new System.Drawing.Point(105, 0);
-            this.lblsLastUpdatedBy.Name = "lblsLastUpdatedBy";
-            this.lblsLastUpdatedBy.Size = new System.Drawing.Size(880, 20);
-            this.lblsLastUpdatedBy.TabIndex = 14;
-            // 
-            // lblPRW_nID
-            // 
-            this.lblPRW_nID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPRW_nID.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblPRW_nID.Location = new System.Drawing.Point(0, 0);
-            this.lblPRW_nID.Name = "lblPRW_nID";
-            this.lblPRW_nID.Size = new System.Drawing.Size(105, 20);
-            this.lblPRW_nID.TabIndex = 13;
             // 
             // rdbnCounsilingWarning
             // 
@@ -823,16 +786,54 @@
             this.label11.Text = "IN VIEW OF YOUR RECORDS OF YOUR ATTENDANCE YOU ARE HEREBY SANCTIONED WITH THE FOL" +
     "LOWING DISCIPLINARY ACTION";
             // 
+            // pnlMode
+            // 
+            this.pnlMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMode.Controls.Add(this.lblsLastUpdatedBy);
+            this.pnlMode.Controls.Add(this.lblPRW_nID);
+            this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlMode.Location = new System.Drawing.Point(0, 501);
+            this.pnlMode.Name = "pnlMode";
+            this.pnlMode.Size = new System.Drawing.Size(987, 22);
+            this.pnlMode.TabIndex = 265;
+            // 
+            // lblsLastUpdatedBy
+            // 
+            this.lblsLastUpdatedBy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblsLastUpdatedBy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblsLastUpdatedBy.Location = new System.Drawing.Point(105, 0);
+            this.lblsLastUpdatedBy.Name = "lblsLastUpdatedBy";
+            this.lblsLastUpdatedBy.Size = new System.Drawing.Size(880, 20);
+            this.lblsLastUpdatedBy.TabIndex = 14;
+            // 
+            // lblPRW_nID
+            // 
+            this.lblPRW_nID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPRW_nID.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblPRW_nID.Location = new System.Drawing.Point(0, 0);
+            this.lblPRW_nID.Name = "lblPRW_nID";
+            this.lblPRW_nID.Size = new System.Drawing.Size(105, 20);
+            this.lblPRW_nID.TabIndex = 13;
+            // 
+            // txtsALDates
+            // 
+            this.txtsALDates.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtsALDates.Location = new System.Drawing.Point(135, 137);
+            this.txtsALDates.Name = "txtsALDates";
+            this.txtsALDates.ReadOnly = true;
+            this.txtsALDates.Size = new System.Drawing.Size(715, 20);
+            this.txtsALDates.TabIndex = 266;
+            // 
             // FrmPRW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 523);
+            this.Controls.Add(this.txtsALDates);
             this.Controls.Add(this.pnlMode);
             this.Controls.Add(this.gpbAction);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtsReasons);
-            this.Controls.Add(this.lblsALDates);
             this.Controls.Add(this.rdbLate);
             this.Controls.Add(this.rdbAbsent);
             this.Controls.Add(this.label6);
@@ -849,7 +850,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dtpDDate);
+            this.Controls.Add(this.dtpdTransDate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblnCtrlNo);
             this.Controls.Add(this.label2);
@@ -906,7 +907,7 @@
         private System.Windows.Forms.Label lblEmpPK;
         private System.Windows.Forms.Label lblsEmpName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtpDDate;
+        private System.Windows.Forms.DateTimePicker dtpdTransDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblsNoOfDaysMins;
         private System.Windows.Forms.Label label14;
@@ -922,7 +923,6 @@
         private System.Windows.Forms.TextBox txtsNotBy1;
         private System.Windows.Forms.RadioButton rdbLate;
         private System.Windows.Forms.RadioButton rdbAbsent;
-        private System.Windows.Forms.Label lblsALDates;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtsReasons;
         private System.Windows.Forms.GroupBox gpbAction;
@@ -949,5 +949,6 @@
         private System.Windows.Forms.RadioButton rdbnSuspensionFor;
         private System.Windows.Forms.RadioButton rdbnReprimand;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtsALDates;
     }
 }

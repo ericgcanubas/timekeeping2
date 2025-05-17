@@ -108,6 +108,18 @@ namespace TimeKeepingII
                 return "";
             }
         }
+        public static string FX_TIME_EMPTY(string s)
+        {
+            DateTime v;
+            if (DateTime.TryParse(s, out v))
+            {
+                return v.ToString("HH:mm");
+            }
+            else
+            {
+                return "00:00";
+            }
+        }
         public static string SQL_DateTime(DateTimePicker dt)
         {
             if (dt.Checked)
