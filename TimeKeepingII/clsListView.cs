@@ -17,7 +17,6 @@ namespace TimeKeepingII
                 listView.Items.Clear();
                 listView.Columns.Clear();
 
-
                 foreach (DataColumn column in dataTable.Columns)
                 {
                     listView.Columns.Add(column.ColumnName,0);
@@ -42,7 +41,7 @@ namespace TimeKeepingII
          
         }
 
-        private static void AutoResizeColumns(ListView listView)
+        public static void AutoResizeColumns(ListView listView)
         {
             foreach (ColumnHeader column in listView.Columns)
             {

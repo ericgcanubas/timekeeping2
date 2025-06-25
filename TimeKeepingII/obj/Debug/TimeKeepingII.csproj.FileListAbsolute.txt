@@ -27,10 +27,6 @@ C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeK
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\FlashControlV71.dll
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\stdole.dll
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\ShockwaveFlashObjects.dll
-C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\EnvDTE.xml
-C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\VSLangProj.xml
-C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\VsWebSite.Interop.xml
-C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\EnvDTE80.xml
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmLogin.resources
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmSetup.resources
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmShiftingSchedule.resources
@@ -44,3 +40,7 @@ C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeK
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmEmployeeList.resources
 C:\Users\Administrator\Documents\visual studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmProfile.resources
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\obj\Debug\TimeKeepingII.FrmHoliday.resources
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\Microsoft.MSXML.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml

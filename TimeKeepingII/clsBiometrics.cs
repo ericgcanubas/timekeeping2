@@ -76,7 +76,6 @@ namespace TimeKeepingII
 
 
         }
-
         public static DataTable dataList(string query)
         {
             DataTable dataTable = new DataTable();
@@ -103,7 +102,6 @@ namespace TimeKeepingII
 
             return dataTable;
         }
-
         public static object ExecuteScalarQuery(string query)
         {
             object result = null;

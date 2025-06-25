@@ -290,9 +290,6 @@ namespace TimeKeepingII
                 int type = int.Parse(data["nType"].ToString());
                 setType(type);
 
-
-
-
             }
         }
 
@@ -456,7 +453,7 @@ namespace TimeKeepingII
                                                                 [sRemarks], [sPreBy], [sNotBy2], [sAppBy2], [sConfrm], [nPosted],
                                                                 [sLastUpdatedBy], [sNoOfDaysMins], [nFreq])
                                                             VALUES (
-                                                                 {nCtrlNo}, '{clsMisc.SQL_Date(dtpdTransDate)}', {nType}, {lblEmpPK.Text}, '{lblsEmpName.Text}', '{sSection}', '{sBrand}', '{txtsALDates.Text}',
+                                                                 {nCtrlNo}, {clsMisc.SQL_Date(dtpdTransDate)}, {nType}, {lblEmpPK.Text}, '{lblsEmpName.Text}', '{sSection}', '{sBrand}', '{txtsALDates.Text}',
                                                                 '{txtsReasons.Text}', '{dStarting}', '{dEnding}', '', 0, '','{txtsVerBy.Text}', '{txtsRecBy.Text}', '{txtsNotBy1.Text}', '{txtsAppBy.Text}', 
                                                                 '{txtsRelBy.Text}', {nDiscActType}, '{txtsSuspensionFor.Text}', '{dtpsSuspensionSked.Value}', '{dtpdTerminationDate.Value}', '{txtsRemarks.Text}', '{txtsPreBy.Text}', '{txtsNotBy2.Text}', '{txtsAppBy2.Text}', '{txtsConfrm.Text}', 0, '{sLastUpdatedBy}', '{lblsNoOfDaysMins.Text}', {nFreq});");
 

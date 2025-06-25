@@ -56,20 +56,29 @@
             this.lblsLastUpdatedBy = new System.Windows.Forms.Label();
             this.lblLU_nID = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbShift = new System.Windows.Forms.ComboBox();
+            this.cmbHolidyType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtpdTransDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpHolidayDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.lblnCtrlNo = new System.Windows.Forms.Label();
             this.lvEmployee = new System.Windows.Forms.ListView();
+            this.Employee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Department = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Section = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Division = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Remarks = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ProfileId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbDivision = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbSection = new System.Windows.Forms.ComboBox();
+            this.lnkAll = new System.Windows.Forms.LinkLabel();
+            this.txtDESCRIPTION = new System.Windows.Forms.TextBox();
+            this.lnkAllRD = new System.Windows.Forms.LinkLabel();
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
             this.SuspendLayout();
@@ -104,7 +113,7 @@
             this.tsHeaderControl.Location = new System.Drawing.Point(0, 0);
             this.tsHeaderControl.Name = "tsHeaderControl";
             this.tsHeaderControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsHeaderControl.Size = new System.Drawing.Size(1130, 52);
+            this.tsHeaderControl.Size = new System.Drawing.Size(1228, 52);
             this.tsHeaderControl.TabIndex = 3;
             this.tsHeaderControl.Text = "toolStrip1";
             // 
@@ -116,6 +125,7 @@
             this.tsAdd.Size = new System.Drawing.Size(34, 49);
             this.tsAdd.Text = "Add";
             this.tsAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsAdd.Click += new System.EventHandler(this.tsAdd_Click);
             // 
             // toolStripSeparator1
             // 
@@ -158,6 +168,7 @@
             this.tsSave.Size = new System.Drawing.Size(35, 49);
             this.tsSave.Text = "Save";
             this.tsSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsSave.Click += new System.EventHandler(this.tsSave_Click);
             // 
             // toolStripSeparator4
             // 
@@ -172,6 +183,7 @@
             this.tsCancel.Size = new System.Drawing.Size(40, 49);
             this.tsCancel.Text = "Undo";
             this.tsCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsCancel.Click += new System.EventHandler(this.tsCancel_Click);
             // 
             // toolStripSeparator11
             // 
@@ -186,6 +198,7 @@
             this.tsFirst.Size = new System.Drawing.Size(34, 49);
             this.tsFirst.Text = "First";
             this.tsFirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsFirst.Click += new System.EventHandler(this.tsFirst_Click);
             // 
             // toolStripSeparator10
             // 
@@ -200,6 +213,7 @@
             this.tsBack.Size = new System.Drawing.Size(36, 49);
             this.tsBack.Text = "Back";
             this.tsBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBack.Click += new System.EventHandler(this.tsBack_Click);
             // 
             // toolStripSeparator9
             // 
@@ -214,6 +228,7 @@
             this.tsNext.Size = new System.Drawing.Size(35, 49);
             this.tsNext.Text = "Next";
             this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
             // 
             // toolStripSeparator8
             // 
@@ -228,6 +243,7 @@
             this.tsLast.Size = new System.Drawing.Size(34, 49);
             this.tsLast.Text = "Last";
             this.tsLast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsLast.Click += new System.EventHandler(this.tsLast_Click);
             // 
             // toolStripSeparator5
             // 
@@ -242,6 +258,7 @@
             this.tsFind.Size = new System.Drawing.Size(34, 49);
             this.tsFind.Text = "Find";
             this.tsFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsFind.Click += new System.EventHandler(this.tsFind_Click);
             // 
             // toolStripSeparator6
             // 
@@ -256,6 +273,7 @@
             this.tsClose.Size = new System.Drawing.Size(40, 49);
             this.tsClose.Text = "Close";
             this.tsClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsClose.Click += new System.EventHandler(this.tsClose_Click);
             // 
             // tsPosted
             // 
@@ -280,7 +298,7 @@
             this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlMode.Location = new System.Drawing.Point(0, 667);
             this.pnlMode.Name = "pnlMode";
-            this.pnlMode.Size = new System.Drawing.Size(1130, 22);
+            this.pnlMode.Size = new System.Drawing.Size(1228, 22);
             this.pnlMode.TabIndex = 241;
             // 
             // lblsLastUpdatedBy
@@ -289,7 +307,7 @@
             this.lblsLastUpdatedBy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblsLastUpdatedBy.Location = new System.Drawing.Point(105, 0);
             this.lblsLastUpdatedBy.Name = "lblsLastUpdatedBy";
-            this.lblsLastUpdatedBy.Size = new System.Drawing.Size(1023, 20);
+            this.lblsLastUpdatedBy.Size = new System.Drawing.Size(1121, 20);
             this.lblsLastUpdatedBy.TabIndex = 14;
             // 
             // lblLU_nID
@@ -304,41 +322,43 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 70);
+            this.label7.Location = new System.Drawing.Point(30, 68);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 243;
             this.label7.Text = "HOLIDAY TYPE :";
             // 
-            // cmbShift
+            // cmbHolidyType
             // 
-            this.cmbShift.FormattingEnabled = true;
-            this.cmbShift.Location = new System.Drawing.Point(133, 67);
-            this.cmbShift.Name = "cmbShift";
-            this.cmbShift.Size = new System.Drawing.Size(230, 21);
-            this.cmbShift.TabIndex = 242;
+            this.cmbHolidyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHolidyType.FormattingEnabled = true;
+            this.cmbHolidyType.Location = new System.Drawing.Point(127, 65);
+            this.cmbHolidyType.Name = "cmbHolidyType";
+            this.cmbHolidyType.Size = new System.Drawing.Size(134, 21);
+            this.cmbHolidyType.TabIndex = 242;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(411, 71);
+            this.label5.Location = new System.Drawing.Point(495, 67);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 13);
+            this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 247;
-            this.label5.Text = "DATE EFFECTIVE :";
+            this.label5.Text = "HOLIDAY DATE :";
             // 
-            // dtpdTransDate
+            // dtpHolidayDate
             // 
-            this.dtpdTransDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpdTransDate.Location = new System.Drawing.Point(517, 68);
-            this.dtpdTransDate.Name = "dtpdTransDate";
-            this.dtpdTransDate.Size = new System.Drawing.Size(134, 20);
-            this.dtpdTransDate.TabIndex = 246;
+            this.dtpHolidayDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHolidayDate.Location = new System.Drawing.Point(589, 65);
+            this.dtpHolidayDate.Name = "dtpHolidayDate";
+            this.dtpHolidayDate.Size = new System.Drawing.Size(134, 20);
+            this.dtpHolidayDate.TabIndex = 246;
+            this.dtpHolidayDate.ValueChanged += new System.EventHandler(this.dtpHolidayDate_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 96);
+            this.label4.Location = new System.Drawing.Point(267, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 245;
@@ -348,9 +368,9 @@
             // 
             this.lblnCtrlNo.BackColor = System.Drawing.Color.White;
             this.lblnCtrlNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblnCtrlNo.Location = new System.Drawing.Point(133, 92);
+            this.lblnCtrlNo.Location = new System.Drawing.Point(358, 66);
             this.lblnCtrlNo.Name = "lblnCtrlNo";
-            this.lblnCtrlNo.Size = new System.Drawing.Size(134, 21);
+            this.lblnCtrlNo.Size = new System.Drawing.Size(117, 21);
             this.lblnCtrlNo.TabIndex = 244;
             this.lblnCtrlNo.Text = " ";
             this.lblnCtrlNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -360,112 +380,184 @@
             this.lvEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvEmployee.CheckBoxes = true;
+            this.lvEmployee.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Employee,
+            this.Department,
+            this.Section,
+            this.Position,
+            this.Division,
+            this.Remarks,
+            this.ProfileId});
             this.lvEmployee.FullRowSelect = true;
             this.lvEmployee.GridLines = true;
             this.lvEmployee.HideSelection = false;
-            this.lvEmployee.Location = new System.Drawing.Point(12, 159);
+            this.lvEmployee.Location = new System.Drawing.Point(12, 127);
             this.lvEmployee.MultiSelect = false;
             this.lvEmployee.Name = "lvEmployee";
-            this.lvEmployee.Size = new System.Drawing.Size(1106, 502);
+            this.lvEmployee.Size = new System.Drawing.Size(1204, 534);
             this.lvEmployee.TabIndex = 248;
             this.lvEmployee.UseCompatibleStateImageBehavior = false;
             this.lvEmployee.View = System.Windows.Forms.View.Details;
+            this.lvEmployee.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvEmployee_ItemChecked);
+            // 
+            // Employee
+            // 
+            this.Employee.Text = "Employee";
+            this.Employee.Width = 289;
+            // 
+            // Department
+            // 
+            this.Department.Text = "Department";
+            this.Department.Width = 216;
+            // 
+            // Section
+            // 
+            this.Section.Text = "Section";
+            this.Section.Width = 224;
+            // 
+            // Position
+            // 
+            this.Position.Text = "Position";
+            this.Position.Width = 196;
+            // 
+            // Division
+            // 
+            this.Division.Text = "Area";
+            this.Division.Width = 120;
+            // 
+            // Remarks
+            // 
+            this.Remarks.Text = "Remarks";
+            this.Remarks.Width = 116;
+            // 
+            // ProfileId
+            // 
+            this.ProfileId.Text = "ProfileId";
+            this.ProfileId.Width = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(427, 96);
+            this.label1.Location = new System.Drawing.Point(729, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 250;
             this.label1.Text = "DESCRIPTION :";
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(517, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(363, 21);
-            this.label2.TabIndex = 249;
-            this.label2.Text = " ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 127);
+            this.label3.Location = new System.Drawing.Point(10, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 252;
             this.label3.Text = "AREA :";
             // 
-            // comboBox1
+            // cmbDivision
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(55, 124);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(230, 21);
-            this.comboBox1.TabIndex = 251;
+            this.cmbDivision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDivision.FormattingEnabled = true;
+            this.cmbDivision.Location = new System.Drawing.Point(56, 100);
+            this.cmbDivision.Name = "cmbDivision";
+            this.cmbDivision.Size = new System.Drawing.Size(132, 21);
+            this.cmbDivision.TabIndex = 251;
+            this.cmbDivision.SelectedIndexChanged += new System.EventHandler(this.cmbDivision_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(305, 127);
+            this.label6.Location = new System.Drawing.Point(194, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 254;
             this.label6.Text = "DEPARTMENT :";
             // 
-            // comboBox2
+            // cmbDepartment
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(399, 124);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(230, 21);
-            this.comboBox2.TabIndex = 253;
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(288, 100);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(200, 21);
+            this.cmbDepartment.TabIndex = 253;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(653, 127);
+            this.label8.Location = new System.Drawing.Point(494, 103);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 256;
             this.label8.Text = "SECTION :";
             // 
-            // comboBox3
+            // cmbSection
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(719, 124);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(230, 21);
-            this.comboBox3.TabIndex = 255;
+            this.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSection.FormattingEnabled = true;
+            this.cmbSection.Location = new System.Drawing.Point(560, 100);
+            this.cmbSection.Name = "cmbSection";
+            this.cmbSection.Size = new System.Drawing.Size(189, 21);
+            this.cmbSection.TabIndex = 255;
+            this.cmbSection.SelectedIndexChanged += new System.EventHandler(this.cmbSection_SelectedIndexChanged);
+            // 
+            // lnkAll
+            // 
+            this.lnkAll.AutoSize = true;
+            this.lnkAll.Location = new System.Drawing.Point(805, 103);
+            this.lnkAll.Name = "lnkAll";
+            this.lnkAll.Size = new System.Drawing.Size(101, 13);
+            this.lnkAll.TabIndex = 257;
+            this.lnkAll.TabStop = true;
+            this.lnkAll.Text = "All Check/Uncheck";
+            this.lnkAll.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAll_LinkClicked);
+            // 
+            // txtDESCRIPTION
+            // 
+            this.txtDESCRIPTION.Location = new System.Drawing.Point(821, 61);
+            this.txtDESCRIPTION.Name = "txtDESCRIPTION";
+            this.txtDESCRIPTION.Size = new System.Drawing.Size(246, 20);
+            this.txtDESCRIPTION.TabIndex = 258;
+            // 
+            // lnkAllRD
+            // 
+            this.lnkAllRD.AutoSize = true;
+            this.lnkAllRD.Location = new System.Drawing.Point(991, 103);
+            this.lnkAllRD.Name = "lnkAllRD";
+            this.lnkAllRD.Size = new System.Drawing.Size(167, 13);
+            this.lnkAllRD.TabIndex = 259;
+            this.lnkAllRD.TabStop = true;
+            this.lnkAllRD.Text = "Check/Uncheck All RD && Leaves";
+            this.lnkAllRD.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAllRD_LinkClicked);
             // 
             // FrmHoliday
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 689);
+            this.ClientSize = new System.Drawing.Size(1228, 689);
+            this.Controls.Add(this.lnkAllRD);
+            this.Controls.Add(this.txtDESCRIPTION);
+            this.Controls.Add(this.lnkAll);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cmbSection);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbDivision);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lvEmployee);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dtpdTransDate);
+            this.Controls.Add(this.dtpHolidayDate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblnCtrlNo);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmbShift);
+            this.Controls.Add(this.cmbHolidyType);
             this.Controls.Add(this.pnlMode);
             this.Controls.Add(this.tsHeaderControl);
             this.Name = "FrmHoliday";
             this.Text = "Holiday Form";
+            this.Load += new System.EventHandler(this.FrmHoliday_Load);
             this.tsHeaderControl.ResumeLayout(false);
             this.tsHeaderControl.PerformLayout();
             this.pnlMode.ResumeLayout(false);
@@ -504,19 +596,28 @@
         private System.Windows.Forms.Label lblsLastUpdatedBy;
         private System.Windows.Forms.Label lblLU_nID;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbShift;
+        private System.Windows.Forms.ComboBox cmbHolidyType;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtpdTransDate;
+        private System.Windows.Forms.DateTimePicker dtpHolidayDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblnCtrlNo;
         private System.Windows.Forms.ListView lvEmployee;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbDivision;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbSection;
+        private System.Windows.Forms.ColumnHeader Employee;
+        private System.Windows.Forms.ColumnHeader Department;
+        private System.Windows.Forms.ColumnHeader Section;
+        private System.Windows.Forms.ColumnHeader Position;
+        private System.Windows.Forms.ColumnHeader Division;
+        private System.Windows.Forms.ColumnHeader Remarks;
+        private System.Windows.Forms.ColumnHeader ProfileId;
+        private System.Windows.Forms.LinkLabel lnkAll;
+        private System.Windows.Forms.TextBox txtDESCRIPTION;
+        private System.Windows.Forms.LinkLabel lnkAllRD;
     }
 }

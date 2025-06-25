@@ -252,7 +252,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1126, 394);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Assign Schedule";
+            this.tabPage1.Text = "ASSIGN SCHEDULE";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnViewShift
@@ -302,7 +302,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1126, 394);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Leave/Undertime";
+            this.tabPage2.Text = "LEAVE/UNDERTIME";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnViewLeave
@@ -353,7 +353,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1126, 394);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Change Restday";
+            this.tabPage3.Text = "CHANGE RESTDAY";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnViewRD
@@ -404,7 +404,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1126, 394);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Change Shift";
+            this.tabPage5.Text = "CHANGE SHIFT";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // btnViewChangeShift
