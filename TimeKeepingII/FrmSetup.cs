@@ -22,10 +22,8 @@ namespace TimeKeepingII
 
         private void FrmSetup_Load(object sender, EventArgs e)
         {
-            txtBIO_SERVER.Text = "DESKTOP-4MKSC1R";
-            txtPAYROLL_SERVER.Text = "DESKTOP-4MKSC1R";
-
-
+            txtBIO_SERVER.Text = "DEVELOPER";
+            txtPAYROLL_SERVER.Text = "DEVELOPER";
 
         }
 
@@ -65,8 +63,6 @@ namespace TimeKeepingII
         {
             if (isSetupProceed() == true && this.stepNumber == 0)
             {
-
-
                 this.stepNumber = 1;
                 btnNext.Visible = false;
             }
@@ -101,6 +97,7 @@ namespace TimeKeepingII
                     MessageBox.Show("Failed to create DSN registry key.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+
                 dsnKey.SetValue("Driver", "SQLSRV32.DLL");  // ODBC SQL Server Driver
                 dsnKey.SetValue("Server", server);
                 dsnKey.SetValue("Database", database);

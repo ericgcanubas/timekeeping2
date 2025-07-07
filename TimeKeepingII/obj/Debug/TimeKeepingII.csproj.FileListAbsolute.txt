@@ -44,3 +44,39 @@ C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeK
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\Microsoft.MSXML.dll
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\TimeKeepingII\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.exe
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.pdb
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\TimeKeepingII.exe
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\TimeKeepingII.pdb
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.Web.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\CRVsPackageLib.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\EnvDTE.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\VSLangProj.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\VsWebSite.Interop.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\EnvDTE80.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\FlashControlV71.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\stdole.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\ShockwaveFlashObjects.dll
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csprojResolveAssemblyReference.cache
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmAssignSchedule.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmChangeShifting.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmChangeDayoff.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmEmployeeList.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmFind.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmHoliday.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmInputBox.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmLeaveUndertime.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmList.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmLogin.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmMain.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmProfile.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmPRW.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmSetup.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmShiftingSchedule.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.Properties.Resources.resources
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csproj.GenerateResource.Cache

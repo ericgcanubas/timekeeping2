@@ -21,7 +21,6 @@ namespace TimeKeepingII
             DataTable dt = new DataTable();
             dt.Columns.Add("Value", typeof(int));
             dt.Columns.Add("Text", typeof(string));
-
             dt.Rows.Add(1, "MONDAY");
             dt.Rows.Add(2, "TUESDAY");
             dt.Rows.Add(3, "WEDNESDAY");

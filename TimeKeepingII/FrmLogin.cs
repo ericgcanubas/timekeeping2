@@ -26,11 +26,8 @@ namespace TimeKeepingII
         {
 
             lblUsername.Text = "";
-
             LoadUser();
             selectListUser();
-
-
             var config = clsFile.getDirectory();
             lblUsername.Text = config["savelogin"].ToString();
             if (lblUsername.Text.Length > 0)
@@ -52,8 +49,7 @@ namespace TimeKeepingII
             DataTable dt = clsPayrollSystem.dataList("SELECT UserName From [UserAccount_New] ORDER BY UserName");
             foreach (DataRow item in dt.Rows)
             {
-                int Imgky = 0;
-              
+                int Imgky = 0;          
                 lstUser.Items.Add(item["UserName"].ToString(), Imgky);
 
             }

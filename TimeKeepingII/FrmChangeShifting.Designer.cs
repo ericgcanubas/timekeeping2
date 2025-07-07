@@ -134,7 +134,7 @@
             this.tsHeaderControl.Location = new System.Drawing.Point(0, 0);
             this.tsHeaderControl.Name = "tsHeaderControl";
             this.tsHeaderControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsHeaderControl.Size = new System.Drawing.Size(1160, 52);
+            this.tsHeaderControl.Size = new System.Drawing.Size(667, 52);
             this.tsHeaderControl.TabIndex = 2;
             this.tsHeaderControl.Text = "toolStrip1";
             // 
@@ -702,7 +702,7 @@
             this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlMode.Location = new System.Drawing.Point(0, 461);
             this.pnlMode.Name = "pnlMode";
-            this.pnlMode.Size = new System.Drawing.Size(1160, 22);
+            this.pnlMode.Size = new System.Drawing.Size(667, 22);
             this.pnlMode.TabIndex = 122;
             // 
             // lblLastModified
@@ -711,7 +711,7 @@
             this.lblLastModified.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLastModified.Location = new System.Drawing.Point(105, 0);
             this.lblLastModified.Name = "lblLastModified";
-            this.lblLastModified.Size = new System.Drawing.Size(1053, 20);
+            this.lblLastModified.Size = new System.Drawing.Size(560, 20);
             this.lblLastModified.TabIndex = 14;
             // 
             // lblPK
@@ -738,7 +738,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 483);
+            this.ClientSize = new System.Drawing.Size(667, 483);
             this.Controls.Add(this.chkOpen);
             this.Controls.Add(this.pnlMode);
             this.Controls.Add(this.gpbShiftDetails);
