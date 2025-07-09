@@ -28,8 +28,8 @@ namespace TimeKeepingII
             lblUsername.Text = "";
             LoadUser();
             selectListUser();
-            var config = clsFile.getDirectory();
-            lblUsername.Text = config["savelogin"].ToString();
+            //var config = clsFile.getDirectory();
+            lblUsername.Text = clsSetting.GetSetting("LOGIN", "USERNAME");
             if (lblUsername.Text.Length > 0)
             {
                 var item = lstUser.FindItemWithText(lblUsername.Text);
@@ -78,7 +78,9 @@ namespace TimeKeepingII
             if (dt != null)
             {
                 userId = (int)dt["PK"];
-                clsFile.UpdateIniFile("[users]", "savelogin", lblUsername.Text);
+                
+                clsSetting.SetSetting("LOGIN", "USERNAME",lblUsername.Text);
+
                 isLogin = true;
                 clsAccessControl.gsUsername = lblUsername.Text;
                 clsAccessControl.gsPassword = entryPassword;

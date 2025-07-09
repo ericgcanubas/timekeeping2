@@ -13,22 +13,24 @@ namespace TimeKeepingII
     class clsPayrollSystem
     {
         public static readonly string DSN_PAYROL_SERVER = "DSN_PAYROL_SERVER";
-        private static readonly string configFilePath = "config.ini";
-        public static Dictionary<string, string> getConnectionSource()
-        {
-            return ConfigReader.ReadConfig(configFilePath);
-        }
+     
+ 
         public static OdbcConnection GetConnection()
         {
-          
-            var connectionString = $"DSN={DSN_PAYROL_SERVER};UID=sa;PWD=;";
+
+            string UID = clsSetting.GetSetting("PAYROLL", "USERNAME");
+            string PWD = clsSetting.GetSetting("PAYROLL", "PASSWORD");
+
+            var connectionString = $"DSN={DSN_PAYROL_SERVER};UID={UID};PWD={PWD};";
             return new OdbcConnection(connectionString);
         }
         public static OdbcConnection GetConnectionTest()
         {
 
-          
-            var connectionString = $"DSN={DSN_PAYROL_SERVER};UID=sa;PWD=;";
+            string UID = clsSetting.GetSetting("PAYROLL", "USERNAME");
+            string PWD = clsSetting.GetSetting("PAYROLL", "PASSWORD");
+
+            var connectionString = $"DSN={DSN_PAYROL_SERVER};UID={UID};PWD={PWD};";
             return new OdbcConnection(connectionString);
         }
         public static bool ConnectionTest()
@@ -56,17 +58,17 @@ namespace TimeKeepingII
         public static void CryLogin(CrystalDecisions.CrystalReports.Engine.Table table)
         {
 
-            var config = getConnectionSource();
-
-            var server = DSN_PAYROL_SERVER;
-            var database = "PayrollSystem"; 
+            var SERVER = DSN_PAYROL_SERVER;
+            string DATABASE = clsSetting.GetSetting("PAYROLL", "DATABASE");
+            string UID = clsSetting.GetSetting("PAYROLL", "USERNAME");
+            string PWD = clsSetting.GetSetting("PAYROLL", "PASSWORD");
 
             ConnectionInfo connectionInfo = new ConnectionInfo
             {
-                ServerName = server,
-                DatabaseName = database,
-                UserID = "sa",
-                Password = ""
+                ServerName = SERVER,
+                DatabaseName = DATABASE,
+                UserID = UID,
+                Password = PWD
             };
 
 
@@ -99,6 +101,7 @@ namespace TimeKeepingII
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error message");
+                clsSetting.SetSetting("CONNCTED", "STATUS", "false");
                 Application.Exit();
             }
             finally

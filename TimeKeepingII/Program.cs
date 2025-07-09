@@ -16,9 +16,10 @@ namespace TimeKeepingII
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            string configFile = "config.ini";
+            string v = clsSetting.GetSetting("CONNCTED", "STATUS").ToString();
+            bool StatusOnline = bool.Parse(v == "" ? "false": v);
 
-            if (File.Exists(configFile) == false)
+            if (StatusOnline == false)
             {
                 Application.Run(new FrmSetup());
             }
@@ -27,7 +28,7 @@ namespace TimeKeepingII
                 Application.Run(new FrmMain());
             }
 
-              
+
         }
     }
 }

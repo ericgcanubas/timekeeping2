@@ -22,9 +22,15 @@ namespace TimeKeepingII
 
         private void FrmSetup_Load(object sender, EventArgs e)
         {
-            txtBIO_SERVER.Text = "DEVELOPER";
-            txtPAYROLL_SERVER.Text = "DEVELOPER";
+            txtBIO_SERVER.Text = clsSetting.GetSetting("BIO", "SERVER");
+            txtBIO_DATABASE.Text = clsSetting.GetSetting("BIO", "DATABASE");
+            txtBIO_USERNAME.Text = clsSetting.GetSetting("BIO", "USERNAME");
+            txtBIO_PASSWORD.Text = clsSetting.GetSetting("BIO", "PASSWORD");
 
+            txtPAYROLL_SERVER.Text = clsSetting.GetSetting("PAYROLL", "SERVER");
+            txtPAYROLL_DATABASE.Text = clsSetting.GetSetting("PAYROLL", "DATABASE");
+            txtPAYROLL_USERNAME.Text = clsSetting.GetSetting("PAYROLL", "USERNAME");
+            txtPAYTROLL_PASSWORD.Text = clsSetting.GetSetting("PAYROLL", "PASSWORD");
         }
 
 
@@ -36,14 +42,56 @@ namespace TimeKeepingII
                 return false;
             }
 
+            if (txtBIO_DATABASE.Text.Length <= 1)
+            {
+                MessageBox.Show("Biometrics database required", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
+
+
+
+            if ( txtBIO_USERNAME.Text.Length <= 1)
+            {
+                MessageBox.Show("Biometrics username required", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
+
+
             if (txtPAYROLL_SERVER.Text.Length <= 3)
             {
                 MessageBox.Show("Payroll Server required", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return false;
             }
 
-            MakeDSN(clsBiometrics.DSN_BIO_SERVER, txtBIO_SERVER.Text, "Biometrics");
-            MakeDSN(clsPayrollSystem.DSN_PAYROL_SERVER, txtPAYROLL_SERVER.Text, "PayrollSystem");
+
+            if (txtPAYROLL_DATABASE.Text.Length <= 3)
+            {
+                MessageBox.Show("Payroll database required", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
+
+
+            if (txtPAYROLL_USERNAME.Text.Length <= 1)
+            {
+                MessageBox.Show("Payroll username required", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
+
+
+
+            MakeDSN(clsBiometrics.DSN_BIO_SERVER, txtBIO_SERVER.Text, txtBIO_DATABASE.Text, txtBIO_USERNAME.Text, txtBIO_PASSWORD.Text);
+            MakeDSN(clsPayrollSystem.DSN_PAYROL_SERVER, txtPAYROLL_SERVER.Text, txtPAYROLL_DATABASE.Text, txtPAYROLL_USERNAME.Text, txtPAYTROLL_PASSWORD.Text);
+
+             clsSetting.SetSetting("BIO", "SERVER",txtBIO_SERVER.Text);
+             clsSetting.SetSetting("BIO", "DATABASE",txtBIO_DATABASE.Text);
+             clsSetting.SetSetting("BIO", "USERNAME",txtBIO_USERNAME.Text);
+             clsSetting.SetSetting("BIO", "PASSWORD",txtBIO_PASSWORD.Text);
+
+             clsSetting.SetSetting("PAYROLL", "SERVER",txtPAYROLL_SERVER.Text);
+             clsSetting.SetSetting("PAYROLL", "DATABASE",txtPAYROLL_DATABASE.Text);
+             clsSetting.SetSetting("PAYROLL", "USERNAME",txtPAYROLL_USERNAME.Text);
+             clsSetting.SetSetting("PAYROLL", "PASSWORD",txtPAYTROLL_PASSWORD.Text);
+
 
 
             return true;
@@ -62,29 +110,37 @@ namespace TimeKeepingII
         private void btnNext_Click(object sender, EventArgs e)
         {
             if (isSetupProceed() == true && this.stepNumber == 0)
-            {
+            {   
+
+
+
+
+
+
                 this.stepNumber = 1;
                 btnNext.Visible = false;
             }
 
             if (this.stepNumber == 2)
             {
-                clsFile.makeConfig(txtBIO_SERVER.Text, txtPAYROLL_SERVER.Text);
+
+                clsSetting.SetSetting("CONNCTED", "STATUS", "true");
+                //clsFile.makeConfig(txtBIO_SERVER.Text, txtPAYROLL_SERVER.Text);
                 FrmMain frm = new FrmMain();
                 frm.Show();
                 this.Hide();
+           
             }
 
 
         }
-        private bool MakeDSN(string DSN, string SERVER_NAME, string DB_NAME)
+        private bool MakeDSN(string DSN, string SERVER_NAME, string DB_NAME, string DB_USER, string DB_PASSWORD)
         {
 
             try
             {
                 string dsnName = DSN;  // Name of the DSN
-                string server = SERVER_NAME;   // Change to your SQL Server
-                string database = DB_NAME; // Change to your Database
+
 
                 // DSN Registry Path (HKEY_CURRENT_USER for User DSN)
                 string dsnRegistryPath = @"SOFTWARE\ODBC\ODBC.INI\" + dsnName;
@@ -99,10 +155,10 @@ namespace TimeKeepingII
                 }
 
                 dsnKey.SetValue("Driver", "SQLSRV32.DLL");  // ODBC SQL Server Driver
-                dsnKey.SetValue("Server", server);
-                dsnKey.SetValue("Database", database);
-                dsnKey.SetValue("UID", "sa");  // Replace with actual username
-                dsnKey.SetValue("PWD", "");  // Replace with actual password
+                dsnKey.SetValue("Server", SERVER_NAME);
+                dsnKey.SetValue("Database", DB_NAME);
+                dsnKey.SetValue("UID", DB_USER);  // Replace with actual username
+                dsnKey.SetValue("PWD", DB_PASSWORD);  // Replace with actual password
                 dsnKey.SetValue("Trusted_Connection", "No"); /// Use Windows Authentication
                 dsnKey.Close();
 

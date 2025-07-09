@@ -14,22 +14,21 @@ namespace TimeKeepingII
     {
         public static readonly string DSN_BIO_SERVER = "DSN_BIO_SERVER";
 
-        private static readonly string configFilePath = "config.ini";
-        public static Dictionary<string, string> getConnectionSource()
-        {
-            return ConfigReader.ReadConfig(configFilePath);
-        }
+    
         public static OdbcConnection GetConnection()
         {
-            var config = getConnectionSource();
-            var connectionString = $"DSN={DSN_BIO_SERVER};UID=sa;PWD=;";
+            string UID = clsSetting.GetSetting("BIO", "USERNAME");
+            string PWD = clsSetting.GetSetting("BIO", "PASSWORD");
+            var connectionString = $"DSN={DSN_BIO_SERVER};UID=" + UID + ";PWD=" + PWD + ";";
+
             return new OdbcConnection(connectionString);
         }
         public static OdbcConnection GetConnectionTest()
         {
+            string UID = clsSetting.GetSetting("BIO", "USERNAME");
+            string PWD = clsSetting.GetSetting("BIO", "PASSWORD");
 
-
-            var connectionString = $"DSN={DSN_BIO_SERVER};UID=sa;PWD=;";
+            var connectionString = $"DSN={DSN_BIO_SERVER};UID=" + UID + ";PWD=" + PWD + ";";
             return new OdbcConnection(connectionString);
         }
         public static bool ConnectionTest()
@@ -57,16 +56,19 @@ namespace TimeKeepingII
         public static void CryLogin(CrystalDecisions.CrystalReports.Engine.Table table)
         {
 
-            var config = getConnectionSource();
-            var server = DSN_BIO_SERVER;
-            var database = "Biometrics";
+   
+            var SERVER = DSN_BIO_SERVER;
+
+            var database = clsSetting.GetSetting("BIO", "DATABASE");
+            string UID = clsSetting.GetSetting("BIO", "USERNAME");
+            string PWD = clsSetting.GetSetting("BIO", "PASSWORD");
 
             ConnectionInfo connectionInfo = new ConnectionInfo
             {
-                ServerName = server,
+                ServerName = SERVER,
                 DatabaseName = database,
-                UserID = "sa",
-                Password = ""
+                UserID = UID,
+                Password = PWD
             };
 
 
@@ -96,6 +98,8 @@ namespace TimeKeepingII
             }
             catch (Exception ex)
             {
+
+                clsSetting.SetSetting("CONNCTED", "STATUS", "false");
                 MessageBox.Show(ex.Message, "Error message");
                 Application.Exit();
             }
@@ -128,7 +132,8 @@ namespace TimeKeepingII
             {
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally {
+            finally
+            {
                 Cursor.Current = Cursors.Default;
                 Application.DoEvents();
             }
@@ -224,7 +229,7 @@ namespace TimeKeepingII
                 MessageBox.Show(ex.Message, "Error message");
             }
             finally
-            {
+            { 
                 Cursor.Current = Cursors.Default;
                 Application.DoEvents();
             }
@@ -250,7 +255,7 @@ namespace TimeKeepingII
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-              
+
                 return false; // Return false in case of an error
             }
             finally
@@ -258,7 +263,7 @@ namespace TimeKeepingII
                 Cursor.Current = Cursors.Default;
                 Application.DoEvents();
             }
-            
+
         }
 
     }

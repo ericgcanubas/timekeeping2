@@ -269,9 +269,6 @@ namespace TimeKeepingII
                 {
                     return;
                 }
-
-
-
                 clsComponentControl.HeaderMenu(tsHeaderControl, false);
                 clsComponentControl.ObjectEnable(this, true);
             }
