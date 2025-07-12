@@ -72,17 +72,21 @@ namespace TimeKeepingII
             clsComponentControl.ClearValue(this);
 
             employeeList = clsBiometrics.dataList(strEmp);
-            employeeList.PrimaryKey = new DataColumn[] { employeeList.Columns["ProfileID"] };
+            employeeList.PrimaryKey = new DataColumn[] { employeeList.Columns["PkId"] };
 
             refreshEmployee();
 
-            //clsListView.AutoResizeColumns(lvEmployee);
         }
 
         private void lvEmployee_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            string profileID = e.Item.SubItems[6].Text.ToString();
-            employeeList.Rows.Find(profileID)["selected"] = e.Item.Checked ? "1" : "0";
+            if (lnkAll.Enabled == false)
+            {
+                return;
+            }
+
+            string PkId = e.Item.SubItems[6].Text.ToString();
+            employeeList.Rows.Find(PkId)["selected"] = e.Item.Checked ? "1" : "0";
 
         }
         private void refreshEmployee()
@@ -104,10 +108,7 @@ namespace TimeKeepingII
                         {
                             lvEmployee.Items.Add(singleItem(row));
                         }
-
-
                     }
-
                     if (cmbDepartment.Text == "")
                     {
                         lvEmployee.Items.Add(singleItem(row));
@@ -126,7 +127,7 @@ namespace TimeKeepingII
             item.SubItems.Add(row["Position"].ToString());
             item.SubItems.Add(row["Division"].ToString());
             item.SubItems.Add("");
-            item.SubItems.Add(row["ProfileID"].ToString());
+            item.SubItems.Add(row["PkId"].ToString());
 
             if (row["selected"].ToString() == "0")
             {
@@ -202,6 +203,8 @@ namespace TimeKeepingII
 
         private void lnkAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
+
 
             bool status = headCountCheckBox();
             CheckBoxItemMainFilter(status);
@@ -281,13 +284,17 @@ namespace TimeKeepingII
             int unCheck = 0;
             foreach (ListViewItem item in lvEmployee.Items)
             {
-                if (item.Checked)
+                if (item.SubItems[5].Text != "")
                 {
-                    nCheck++;
-                }
-                else
-                {
-                    unCheck++;
+
+                    if (item.Checked)
+                    {
+                        nCheck++;
+                    }
+                    else
+                    {
+                        unCheck++;
+                    }
                 }
             }
 
@@ -327,6 +334,7 @@ namespace TimeKeepingII
                 refreshEmployee();
                 DivisionChange();
                 LoadRestDay(dtpHolidayDate.Value);
+                LoadLeave(dtpHolidayDate.Value);
             }
         }
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -337,6 +345,8 @@ namespace TimeKeepingII
                 cmbSection.SelectedIndex = -1;
                 refreshEmployee();
                 DepartmentChange();
+                LoadRestDay(dtpHolidayDate.Value);
+                LoadLeave(dtpHolidayDate.Value);
             }
 
         }
@@ -346,6 +356,8 @@ namespace TimeKeepingII
             if (cmbSection.Enabled)
             {
                 refreshEmployee();
+                LoadRestDay(dtpHolidayDate.Value);
+                LoadLeave(dtpHolidayDate.Value);
             }
 
         }
@@ -355,7 +367,20 @@ namespace TimeKeepingII
             bool status = headRDCountCheckBox();
             CheckBoxItemRDLeave(status);
         }
+        private void LoadLeave(DateTime date)
+        {
+            string query = "select EmpPK " +
+                          "from tbl_LEAVE_UNDERTIME " +
+                          "where nType = 1 and nPosted = 1 and nCancelled = 0 " +
+                            "and EffectDates like '%" + date.ToString("MM/dd/yyyy") + "' ";
 
+
+            DataTable dt = clsBiometrics.dataList(query);
+            foreach (DataRow dr in dt.Rows)
+            {
+                UpdateRemarksUpdate(dr, "Leave");
+            }
+        }
         private void LoadRestDay(DateTime date)
         {
             string query = "declare @dateEffect date = '" + date + "'; " +
@@ -403,15 +428,31 @@ namespace TimeKeepingII
 
 
 
-            DataTable dt = clsBiometrics.dataList(query);
 
+
+
+
+            DataTable dt = clsBiometrics.dataList(query);
             foreach (DataRow dr in dt.Rows)
             {
-
+                UpdateRemarksUpdate(dr, "Restday");
             }
 
         }
 
+
+        private void UpdateRemarksUpdate(DataRow dr, string Remarks)
+        {
+            foreach (ListViewItem lv in lvEmployee.Items)
+            {
+
+                if (lv.SubItems[6].Text == dr[0].ToString())
+                {
+                    lv.SubItems[5].Text = Remarks;
+                    return;
+                }
+            }
+        }
         private void dtpHolidayDate_ValueChanged(object sender, EventArgs e)
         {
             reloading();
@@ -449,6 +490,26 @@ namespace TimeKeepingII
         }
 
         private void tsClose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvEmployee_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (lnkAll.Enabled == false)
+            {
+                return;
+
+            }
+
+        }
+
+        private void cmbHolidyType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

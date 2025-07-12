@@ -14,7 +14,6 @@ namespace TimeKeepingII
     {
         public static readonly string DSN_BIO_SERVER = "DSN_BIO_SERVER";
 
-    
         public static OdbcConnection GetConnection()
         {
             string UID = clsSetting.GetSetting("BIO", "USERNAME");
@@ -23,20 +22,13 @@ namespace TimeKeepingII
 
             return new OdbcConnection(connectionString);
         }
-        public static OdbcConnection GetConnectionTest()
-        {
-            string UID = clsSetting.GetSetting("BIO", "USERNAME");
-            string PWD = clsSetting.GetSetting("BIO", "PASSWORD");
 
-            var connectionString = $"DSN={DSN_BIO_SERVER};UID=" + UID + ";PWD=" + PWD + ";";
-            return new OdbcConnection(connectionString);
-        }
         public static bool ConnectionTest()
         {
             bool isConnect = false;
             try
             {
-                using (OdbcConnection conn = GetConnectionTest())
+                using (OdbcConnection conn = GetConnection())
                 {
                     conn.Open();
 

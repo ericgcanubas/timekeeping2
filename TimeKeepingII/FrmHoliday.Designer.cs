@@ -68,7 +68,7 @@
             this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Division = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Remarks = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ProfileId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PkId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbDivision = new System.Windows.Forms.ComboBox();
@@ -113,7 +113,7 @@
             this.tsHeaderControl.Location = new System.Drawing.Point(0, 0);
             this.tsHeaderControl.Name = "tsHeaderControl";
             this.tsHeaderControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsHeaderControl.Size = new System.Drawing.Size(1228, 52);
+            this.tsHeaderControl.Size = new System.Drawing.Size(1210, 52);
             this.tsHeaderControl.TabIndex = 3;
             this.tsHeaderControl.Text = "toolStrip1";
             // 
@@ -225,7 +225,7 @@
             this.tsNext.Image = global::TimeKeepingII.Properties.Resources.next_icon;
             this.tsNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsNext.Name = "tsNext";
-            this.tsNext.Size = new System.Drawing.Size(35, 49);
+            this.tsNext.Size = new System.Drawing.Size(36, 49);
             this.tsNext.Text = "Next";
             this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
@@ -296,9 +296,9 @@
             this.pnlMode.Controls.Add(this.lblsLastUpdatedBy);
             this.pnlMode.Controls.Add(this.lblLU_nID);
             this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlMode.Location = new System.Drawing.Point(0, 667);
+            this.pnlMode.Location = new System.Drawing.Point(0, 506);
             this.pnlMode.Name = "pnlMode";
-            this.pnlMode.Size = new System.Drawing.Size(1228, 22);
+            this.pnlMode.Size = new System.Drawing.Size(1210, 22);
             this.pnlMode.TabIndex = 241;
             // 
             // lblsLastUpdatedBy
@@ -307,7 +307,7 @@
             this.lblsLastUpdatedBy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblsLastUpdatedBy.Location = new System.Drawing.Point(105, 0);
             this.lblsLastUpdatedBy.Name = "lblsLastUpdatedBy";
-            this.lblsLastUpdatedBy.Size = new System.Drawing.Size(1121, 20);
+            this.lblsLastUpdatedBy.Size = new System.Drawing.Size(1103, 20);
             this.lblsLastUpdatedBy.TabIndex = 14;
             // 
             // lblLU_nID
@@ -336,6 +336,7 @@
             this.cmbHolidyType.Name = "cmbHolidyType";
             this.cmbHolidyType.Size = new System.Drawing.Size(134, 21);
             this.cmbHolidyType.TabIndex = 242;
+            this.cmbHolidyType.SelectedIndexChanged += new System.EventHandler(this.cmbHolidyType_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -388,18 +389,20 @@
             this.Position,
             this.Division,
             this.Remarks,
-            this.ProfileId});
+            this.PkId});
             this.lvEmployee.FullRowSelect = true;
             this.lvEmployee.GridLines = true;
             this.lvEmployee.HideSelection = false;
             this.lvEmployee.Location = new System.Drawing.Point(12, 127);
             this.lvEmployee.MultiSelect = false;
             this.lvEmployee.Name = "lvEmployee";
-            this.lvEmployee.Size = new System.Drawing.Size(1204, 534);
+            this.lvEmployee.Size = new System.Drawing.Size(1186, 373);
             this.lvEmployee.TabIndex = 248;
             this.lvEmployee.UseCompatibleStateImageBehavior = false;
             this.lvEmployee.View = System.Windows.Forms.View.Details;
             this.lvEmployee.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvEmployee_ItemChecked);
+            this.lvEmployee.SelectedIndexChanged += new System.EventHandler(this.lvEmployee_SelectedIndexChanged);
+            this.lvEmployee.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvEmployee_MouseClick);
             // 
             // Employee
             // 
@@ -431,10 +434,10 @@
             this.Remarks.Text = "Remarks";
             this.Remarks.Width = 116;
             // 
-            // ProfileId
+            // PkId
             // 
-            this.ProfileId.Text = "ProfileId";
-            this.ProfileId.Width = 0;
+            this.PkId.Text = "PkId";
+            this.PkId.Width = 0;
             // 
             // label1
             // 
@@ -448,7 +451,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 103);
+            this.label3.Location = new System.Drawing.Point(11, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 252;
@@ -467,7 +470,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(194, 103);
+            this.label6.Location = new System.Drawing.Point(197, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 254;
@@ -486,7 +489,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(494, 103);
+            this.label8.Location = new System.Drawing.Point(497, 103);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 256;
@@ -535,7 +538,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 689);
+            this.ClientSize = new System.Drawing.Size(1210, 528);
             this.Controls.Add(this.lnkAllRD);
             this.Controls.Add(this.txtDESCRIPTION);
             this.Controls.Add(this.lnkAll);
@@ -615,7 +618,7 @@
         private System.Windows.Forms.ColumnHeader Position;
         private System.Windows.Forms.ColumnHeader Division;
         private System.Windows.Forms.ColumnHeader Remarks;
-        private System.Windows.Forms.ColumnHeader ProfileId;
+        private System.Windows.Forms.ColumnHeader PkId;
         private System.Windows.Forms.LinkLabel lnkAll;
         private System.Windows.Forms.TextBox txtDESCRIPTION;
         private System.Windows.Forms.LinkLabel lnkAllRD;

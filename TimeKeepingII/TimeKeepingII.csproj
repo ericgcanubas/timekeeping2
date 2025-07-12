@@ -93,7 +93,6 @@
     <Compile Include="clsBiometrics.cs" />
     <Compile Include="clsComponentControl.cs" />
     <Compile Include="clsDateTime.cs" />
-    <Compile Include="clsFile.cs" />
     <Compile Include="clsGlobal.cs" />
     <Compile Include="clsListView.cs" />
     <Compile Include="clsMenu.cs" />

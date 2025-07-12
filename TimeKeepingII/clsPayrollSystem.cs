@@ -20,16 +20,6 @@ namespace TimeKeepingII
 
             string UID = clsSetting.GetSetting("PAYROLL", "USERNAME");
             string PWD = clsSetting.GetSetting("PAYROLL", "PASSWORD");
-
-            var connectionString = $"DSN={DSN_PAYROL_SERVER};UID={UID};PWD={PWD};";
-            return new OdbcConnection(connectionString);
-        }
-        public static OdbcConnection GetConnectionTest()
-        {
-
-            string UID = clsSetting.GetSetting("PAYROLL", "USERNAME");
-            string PWD = clsSetting.GetSetting("PAYROLL", "PASSWORD");
-
             var connectionString = $"DSN={DSN_PAYROL_SERVER};UID={UID};PWD={PWD};";
             return new OdbcConnection(connectionString);
         }
@@ -38,7 +28,7 @@ namespace TimeKeepingII
             bool isConnect = false;
             try
             {
-                using (OdbcConnection conn = GetConnectionTest())
+                using (OdbcConnection conn = GetConnection())
                 {
                     conn.Open();
 
@@ -71,11 +61,9 @@ namespace TimeKeepingII
                 Password = PWD
             };
 
-
             TableLogOnInfo logOnInfo = table.LogOnInfo;
             logOnInfo.ConnectionInfo = connectionInfo;
             table.ApplyLogOnInfo(logOnInfo);
-
 
         }
         public static DataTable dataList(string query)
