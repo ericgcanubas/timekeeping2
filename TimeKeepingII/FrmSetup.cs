@@ -15,6 +15,7 @@ namespace TimeKeepingII
     {
         int checkCouning = 0;
         int stepNumber = 0;
+
         public FrmSetup()
         {
             InitializeComponent();
@@ -36,11 +37,13 @@ namespace TimeKeepingII
 
         private bool isSetupProceed()
         {
-            if (txtBIO_SERVER.Text.Length <= 3)
+            if (txtBIO_SERVER.Text.Length <= 3 )
             {
                 MessageBox.Show("Biometrics Server required", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return false;
             }
+
+       
 
             if (txtBIO_DATABASE.Text.Length <= 1)
             {
@@ -48,6 +51,11 @@ namespace TimeKeepingII
                 return false;
             }
 
+            if (txtBIO_DATABASE.Text.ToUpper() != "BIOMETRICS")
+            {
+                MessageBox.Show("Invalid Biometrics Database Name", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
 
 
             if ( txtBIO_USERNAME.Text.Length <= 1)
@@ -67,6 +75,13 @@ namespace TimeKeepingII
             if (txtPAYROLL_DATABASE.Text.Length <= 3)
             {
                 MessageBox.Show("Payroll database required", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
+
+            if (txtPAYROLL_DATABASE.Text.ToUpper() !="PAYROLLSYSTEM")
+            {
+               
+                MessageBox.Show("Invalid Payroll System: Database Name ", "System", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return false;
             }
 

@@ -23,7 +23,6 @@ namespace TimeKeepingII
         private void FrmHoliday_Load(object sender, EventArgs e)
         {
 
-
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
             clsComponentControl.ClearValue(this);
@@ -187,10 +186,9 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-
+      
             if (lblLU_nID.Text.Length > 0)
             {
-
                 RefreshData();
             }
             else
@@ -203,9 +201,6 @@ namespace TimeKeepingII
 
         private void lnkAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-
-
             bool status = headCountCheckBox();
             CheckBoxItemMainFilter(status);
         }
@@ -426,13 +421,8 @@ namespace TimeKeepingII
                                "and nPosted = 1 and nCancelled = 0 and EmpPKWith != 0 " +
                            ") b on a.PK = b.EmpPK ";
 
-
-
-
-
-
-
             DataTable dt = clsBiometrics.dataList(query);
+
             foreach (DataRow dr in dt.Rows)
             {
                 UpdateRemarksUpdate(dr, "Restday");

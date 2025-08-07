@@ -322,7 +322,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(30, 68);
+            this.label7.Location = new System.Drawing.Point(30, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 243;
@@ -332,7 +332,7 @@
             // 
             this.cmbHolidyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHolidyType.FormattingEnabled = true;
-            this.cmbHolidyType.Location = new System.Drawing.Point(127, 65);
+            this.cmbHolidyType.Location = new System.Drawing.Point(127, 67);
             this.cmbHolidyType.Name = "cmbHolidyType";
             this.cmbHolidyType.Size = new System.Drawing.Size(134, 21);
             this.cmbHolidyType.TabIndex = 242;
@@ -442,7 +442,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(729, 67);
+            this.label1.Location = new System.Drawing.Point(732, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 250;
@@ -518,7 +518,7 @@
             // 
             // txtDESCRIPTION
             // 
-            this.txtDESCRIPTION.Location = new System.Drawing.Point(821, 61);
+            this.txtDESCRIPTION.Location = new System.Drawing.Point(821, 65);
             this.txtDESCRIPTION.Name = "txtDESCRIPTION";
             this.txtDESCRIPTION.Size = new System.Drawing.Size(246, 20);
             this.txtDESCRIPTION.TabIndex = 258;
