@@ -250,7 +250,7 @@
             this.tsNext.Image = global::TimeKeepingII.Properties.Resources.next_icon;
             this.tsNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsNext.Name = "tsNext";
-            this.tsNext.Size = new System.Drawing.Size(36, 49);
+            this.tsNext.Size = new System.Drawing.Size(35, 49);
             this.tsNext.Text = "Next";
             this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
@@ -298,6 +298,7 @@
             this.tsPrint.Size = new System.Drawing.Size(36, 49);
             this.tsPrint.Text = "Print";
             this.tsPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsPrint.Click += new System.EventHandler(this.tsPrint_Click);
             // 
             // toolStripSeparator13
             // 
@@ -350,7 +351,7 @@
             this.tsPosted.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsPosted.ForeColor = System.Drawing.Color.Red;
             this.tsPosted.Name = "tsPosted";
-            this.tsPosted.Size = new System.Drawing.Size(106, 49);
+            this.tsPosted.Size = new System.Drawing.Size(105, 49);
             this.tsPosted.Text = "POSTED";
             this.tsPosted.Visible = false;
             // 

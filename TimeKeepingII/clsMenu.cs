@@ -228,6 +228,7 @@ namespace TimeKeepingII
             //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnGuard", "Guard", "FrmGuard"));
             //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnOvertime", "Overtime", "FrmOvertime"));
             //pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeDayOff", "Change Day Off", "FrmChangeDayoff"));
+
             pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeDayOff", "Change Day Off", "FrmChangeDayoff"));
             pnlSubMenuScheduleShiftAdjust.Controls.Add(CreateSubMenuButton("btnChangeShifting", "Change Shifting", "FrmChangeShifting"));
 
@@ -311,8 +312,8 @@ namespace TimeKeepingII
 
             Panel pnlSubMenuDeductions = CreateSubMenuPanel("pnlSubMenuDeductions", 70);
             mainPanel.Controls.Add(pnlSubMenuDeductions);
-            pnlSubMenuDeductions.Controls.Add(CreateSubMenuButton("btnGenerateDeductionsForAbsences", "Generate Deductions for Absences", "FrmGenerate"));
-            pnlSubMenuDeductions.Controls.Add(CreateSubMenuButton("btnAdjustmentOfTimeSummary", "Adjustment Of Time Summary(for Monthly Only)", "FrmClearingNew"));
+            pnlSubMenuDeductions.Controls.Add(CreateSubMenuButton("btnGenerateDeductionsForAbsences", "Deductions for Absences", "FrmGenerate"));
+            pnlSubMenuDeductions.Controls.Add(CreateSubMenuButton("btnAdjustmentOfTimeSummary", "Adjustment Of Time Summary", "FrmClearingNew"));
 
             // Summaries & Reports
             Panel pnlSummaryReports = buildPanel("pnlSummaryReports");

@@ -62,7 +62,6 @@ D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\FlashControlV71.dll
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\stdole.dll
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\ShockwaveFlashObjects.dll
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
-D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csprojResolveAssemblyReference.cache
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmAssignSchedule.resources
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmChangeShifting.resources
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmChangeDayoff.resources
@@ -80,3 +79,9 @@ D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmSetup.r
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.FrmShiftingSchedule.resources
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.Properties.Resources.resources
 D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csproj.GenerateResource.Cache
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csproj.AssemblyReference.cache
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csproj.CoreCompileInputs.cache
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeep.B2A90C38.Up2Date
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\bin\Debug\TimeKeepingII.exe.config
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.csproj.SuggestedBindingRedirects.cache
+D:\Source Code\NEW\timekeeping2\TimeKeepingII\obj\Debug\TimeKeepingII.exe.config

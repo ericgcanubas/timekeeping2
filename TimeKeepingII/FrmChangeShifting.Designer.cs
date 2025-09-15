@@ -134,7 +134,7 @@
             this.tsHeaderControl.Location = new System.Drawing.Point(0, 0);
             this.tsHeaderControl.Name = "tsHeaderControl";
             this.tsHeaderControl.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsHeaderControl.Size = new System.Drawing.Size(667, 52);
+            this.tsHeaderControl.Size = new System.Drawing.Size(638, 52);
             this.tsHeaderControl.TabIndex = 2;
             this.tsHeaderControl.Text = "toolStrip1";
             // 
@@ -248,7 +248,7 @@
             this.tsNext.Image = global::TimeKeepingII.Properties.Resources.next_icon;
             this.tsNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsNext.Name = "tsNext";
-            this.tsNext.Size = new System.Drawing.Size(36, 49);
+            this.tsNext.Size = new System.Drawing.Size(35, 49);
             this.tsNext.Text = "Next";
             this.tsNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsNext.Click += new System.EventHandler(this.tsNext_Click);
@@ -700,9 +700,9 @@
             this.pnlMode.Controls.Add(this.lblLastModified);
             this.pnlMode.Controls.Add(this.lblPK);
             this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlMode.Location = new System.Drawing.Point(0, 461);
+            this.pnlMode.Location = new System.Drawing.Point(0, 426);
             this.pnlMode.Name = "pnlMode";
-            this.pnlMode.Size = new System.Drawing.Size(667, 22);
+            this.pnlMode.Size = new System.Drawing.Size(638, 22);
             this.pnlMode.TabIndex = 122;
             // 
             // lblLastModified
@@ -711,7 +711,7 @@
             this.lblLastModified.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLastModified.Location = new System.Drawing.Point(105, 0);
             this.lblLastModified.Name = "lblLastModified";
-            this.lblLastModified.Size = new System.Drawing.Size(560, 20);
+            this.lblLastModified.Size = new System.Drawing.Size(531, 20);
             this.lblLastModified.TabIndex = 14;
             // 
             // lblPK
@@ -738,7 +738,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 483);
+            this.ClientSize = new System.Drawing.Size(638, 448);
             this.Controls.Add(this.chkOpen);
             this.Controls.Add(this.pnlMode);
             this.Controls.Add(this.gpbShiftDetails);

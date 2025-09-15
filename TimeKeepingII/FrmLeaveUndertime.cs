@@ -646,6 +646,11 @@ namespace TimeKeepingII
         {
             clsMenu.OpenProifile(lblEmpPK.Text);
         }
+
+        private void tsPrint_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

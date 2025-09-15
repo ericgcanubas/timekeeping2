@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -11,7 +12,7 @@ namespace TimeKeepingII
 {
     public partial class FrmAssignSchedule : Form
     {
-        FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 EmployeeShifting.PK, EmployeeName.EmpName,  EmployeeName.EmpID, EmployeeShifting.EffectDate  FROM EmployeeShifting LEFT OUTER JOIN EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ");
+        FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 EmployeeShifting.PK, EmployeeName.EmpName,  EmployeeName.EmpID, EmployeeShifting.EffectDate  FROM EmployeeShifting LEFT OUTER JOIN EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ORDER by EmployeeShifting.PK DESC");
         readonly string sSelectSql = "SELECT EmployeeShifting.*, EmployeeName.EmpName as EmployeeName,  EmployeeName.EmpID as EMPLOYEE_NO, EmployeeName.EmpPK as  EMP_PK  FROM EmployeeShifting LEFT JOIN  EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ";
 
         public FrmAssignSchedule()
@@ -541,6 +542,7 @@ namespace TimeKeepingII
         {
             OpenSaturday();
         }
+  
         private void cmbSaturday_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbSaturday.SelectedIndex == -1)
@@ -615,6 +617,7 @@ namespace TimeKeepingII
                     lblMonday_OUT_PM.Text = clsMisc.FX_TIME(data["OUT_PM"].ToString());
                     chkFixedMon.Checked = data["Fixed"].ToString() == "1" ? true : false;
 
+                
                 }
             }
 
