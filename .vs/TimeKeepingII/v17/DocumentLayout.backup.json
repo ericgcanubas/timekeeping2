@@ -3,7 +3,35 @@
   "WorkspaceRootPath": "D:\\Source Code\\NEW\\timekeeping2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\frmleaveundertime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\reports\\cryleaveundertime.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}",
+      "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\reports\\cryleaveundertime.rpt||{C0EF7560-990E-4D61-B970-65A6096B6866}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\frmchangeshifting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\frmchangeshifting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\frmsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\frmsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\frmsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\frmsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\frmchangeshifting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\frmchangeshifting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\frmchangedayoff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\frmchangedayoff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|d:\\source code\\new\\timekeeping2\\timekeepingii\\frmchangedayoff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\frmchangedayoff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|D:\\Source Code\\NEW\\timekeeping2\\timekeepingii\\frmleaveundertime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6F0CC66B-D96F-4DA1-B7A9-CA51FA7B96E9}|TimeKeepingII\\TimeKeepingII.csproj|solutionrelative:timekeepingii\\frmleaveundertime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -62,28 +90,114 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "cryLeaveUndertime.rpt",
+              "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\Reports\\cryLeaveUndertime.rpt",
+              "RelativeDocumentMoniker": "TimeKeepingII\\Reports\\cryLeaveUndertime.rpt",
+              "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\Reports\\cryLeaveUndertime.rpt",
+              "RelativeToolTip": "TimeKeepingII\\Reports\\cryLeaveUndertime.rpt",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIeSURBVDhPpZJNSFRRFMd/9973ZnIaswwiWvSFmyFNFyEUTlC4qDYptghaSOAmoY3QojZFVkLuIqZ2FhVCYGOLFhERRBs3MkP0IWmZ5geaOo06M76v28Ia581r1w/O4lzO\u002BZ9z7jnwP2itRamfGEzpUr\u002BczpYGX3yAxGBKu56nXc/T5SQGU/pfBWTgQQim5leYnFv2GcCF0/WBLgMCAFKKgAHce56GslF9Akquu0qKot3xepFC0BqvoTVeQ0tTDVXRcDHHJ/AnHyUlSkqSYoAH0/eJTzWgpMRQEtPwN\u002B3zTKUAMJTg5vwN2ORQKbew7GU5MnGw2FUpxt6OT61C6ONA9fBXj1O/LLpnryKlwciPMZbnsgBknSyNk3UMH/vgExD5vNW2Wlhrfj\u002Be23NrYOnkdEYSj4UZajhDxf4wM\u002BkZvj0Zg0XIDdgAJN\u002BNcq45JgBk5/X\u002B5KXbz7oMN3vlbsd2jsZCvEwVsPofExGVUNCQgULS8W0kwPnLD0Xy7YheyKzos73juvbiqD7U9UUf6K/Tq/k1bdmuth1XW7arn74ZCa6xr6ddh0MmVdEKmmIRtkYNTNPkUf0LLNtFqfXqSglMtfH3gUMqOJCe8KiuCrGr2qBg2TiOWx5WxDdQ36tJ/Xk2zOKqZHPI4/DuDAuLC\u002BzcsY1IZON4AE407hOUC\u002BTzVlvesq9lsrnan0src0Pp8e7hjxOvge99Pe250ti//Aa4Se8VLBKf0wAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-09-18T05:13:40.277Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "FrmChangeShifting.cs",
+              "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeShifting.cs",
+              "RelativeDocumentMoniker": "TimeKeepingII\\FrmChangeShifting.cs",
+              "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeShifting.cs",
+              "RelativeToolTip": "TimeKeepingII\\FrmChangeShifting.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAA2wCEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:36:09.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmChangeShifting.cs [Design]",
+              "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeShifting.cs",
+              "RelativeDocumentMoniker": "TimeKeepingII\\FrmChangeShifting.cs",
+              "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeShifting.cs [Design]",
+              "RelativeToolTip": "TimeKeepingII\\FrmChangeShifting.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:36:06.938Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmChangeDayoff.cs",
+              "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeDayoff.cs",
+              "RelativeDocumentMoniker": "TimeKeepingII\\FrmChangeDayoff.cs",
+              "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeDayoff.cs",
+              "RelativeToolTip": "TimeKeepingII\\FrmChangeDayoff.cs",
+              "ViewState": "AgIAAI0BAAAAAAAAAAAqwKMBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:35:58.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrmChangeDayoff.cs [Design]",
+              "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeDayoff.cs",
+              "RelativeDocumentMoniker": "TimeKeepingII\\FrmChangeDayoff.cs",
+              "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmChangeDayoff.cs [Design]",
+              "RelativeToolTip": "TimeKeepingII\\FrmChangeDayoff.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:35:56.638Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmSetup.cs",
+              "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmSetup.cs",
+              "RelativeDocumentMoniker": "TimeKeepingII\\FrmSetup.cs",
+              "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmSetup.cs",
+              "RelativeToolTip": "TimeKeepingII\\FrmSetup.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAMwJwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:20:37.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmSetup.cs [Design]",
+              "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmSetup.cs",
+              "RelativeDocumentMoniker": "TimeKeepingII\\FrmSetup.cs",
+              "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmSetup.cs [Design]",
+              "RelativeToolTip": "TimeKeepingII\\FrmSetup.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:20:32.744Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "FrmLeaveUndertime.cs",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmLeaveUndertime.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmLeaveUndertime.cs",
               "ToolTip": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmLeaveUndertime.cs",
               "RelativeToolTip": "TimeKeepingII\\FrmLeaveUndertime.cs",
-              "ViewState": "AgIAAEwCAAAAAAAAAAAiwGACAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAA8CAAAAAAAAAADwvyYCAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T02:06:03.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T02:06:03.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "FrmLeaveUndertime.cs [Design]",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmLeaveUndertime.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmLeaveUndertime.cs",
@@ -94,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "FrmHoliday.cs",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmHoliday.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmHoliday.cs",
@@ -106,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "FrmMain.cs",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmMain.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmMain.cs",
@@ -118,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "FrmMain.cs [Design]",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmMain.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmMain.cs",
@@ -129,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "clsBiometrics.cs",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\clsBiometrics.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\clsBiometrics.cs",
@@ -141,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "FrmInputBox.cs [Design]",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmInputBox.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmInputBox.cs",
@@ -152,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "FrmAssignSchedule.cs [Design]",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmAssignSchedule.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmAssignSchedule.cs",
@@ -163,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "FrmHoliday.cs [Design]",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmHoliday.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmHoliday.cs",
@@ -174,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "FrmShiftingSchedule.cs [Design]",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmShiftingSchedule.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmShiftingSchedule.cs",
@@ -185,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "FrmEmployeeList.cs",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmEmployeeList.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmEmployeeList.cs",
@@ -197,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "FrmFind.cs [Design]",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\FrmFind.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\FrmFind.cs",
@@ -208,7 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "clsPayrollSystem.cs",
               "DocumentMoniker": "D:\\Source Code\\NEW\\timekeeping2\\TimeKeepingII\\clsPayrollSystem.cs",
               "RelativeDocumentMoniker": "TimeKeepingII\\clsPayrollSystem.cs",
