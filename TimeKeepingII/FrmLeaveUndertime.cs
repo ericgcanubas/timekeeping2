@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using TimeKeepingII.Reports;
 
 namespace TimeKeepingII
 {
@@ -13,7 +16,7 @@ namespace TimeKeepingII
 
     public partial class FrmLeaveUndertime : Form
     {
-
+        private clsReports report;
 
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 LU_nID as ID,sEmpName ,nCtrlNo,dTransDate,sReason FROM [tbl_LEAVE_UNDERTIME]  ");
         const string sSelectSql = "SELECT TOP 1  [LU_nID], [nCtrlNo], [dTransDate], [nType], [EmpPK], [sEmpName], [sSection], [sBrand], [dEffectDate], [EffectDates], [sResumeToWork], [sReason], [sCoordinated], [sCheckBy], [sFiledBy], [sNotedBy], [sVerifiedBy], [sApprovedBy], [sLastUpdatedBy], [nPosted], [sNoOfDaysMin], [nCancelled], [sReasonCanc] FROM [tbl_LEAVE_UNDERTIME] ";
@@ -21,7 +24,9 @@ namespace TimeKeepingII
         string[] effectDates = null;
         public FrmLeaveUndertime()
         {
+            report = new clsReports();
             InitializeComponent();
+         
         }
 
         private void FrmLeaveUndertime_Load(object sender, EventArgs e)
@@ -648,8 +653,52 @@ namespace TimeKeepingII
         }
 
         private void tsPrint_Click(object sender, EventArgs e)
-        {
+        {   
+            if(lblLU_nID.Text == "")
+            {
+                clsMessage.MessageShowWarning("File not found");
+                return;
+            }
 
+            cryLeaveUndertime cryLeaveUndertime = new cryLeaveUndertime();
+           ReportDocument rpt =  report.LoadReportWithConnection(cryLeaveUndertime, false);
+        
+            rpt.SetParameterValue("PK", lblLU_nID.Text);
+
+            rpt.SetParameterValue("ctrlnumber", lblnCtrlNo.Text);
+            rpt.SetParameterValue("datefield", dtpdTransDate.Value);
+
+            rpt.SetParameterValue("name", lblsEmpName.Text);
+            rpt.SetParameterValue("section", "");
+
+            rpt.SetParameterValue("position", "");
+
+            rpt.SetParameterValue("dateeffect", dtpdEffectDate.Value);
+            rpt.SetParameterValue("covered", $"{dtpDATE_FROM.Value}-{dtpDATE_TO.Value}");
+            rpt.SetParameterValue("daymins", $"{lblsNoOfDaysMin.Text}");
+            rpt.SetParameterValue("resume", $"{dtpsResumeToWork.Value}");
+            rpt.SetParameterValue("reason", $"{txtsReason.Text}");
+            rpt.SetParameterValue("coordinate", $"{txtsCoordinated.Text}");
+
+            rpt.SetParameterValue("fieldBy", $"{txtsFiledBy.Text}");
+            rpt.SetParameterValue("recommededBy", $"{txtsRecmAppBy.Text}");
+            rpt.SetParameterValue("verifiedBy", $"{txtsVerifiedBy.Text}");
+
+            rpt.SetParameterValue("notedBy", $"{txtsNotedBy.Text}");
+
+            rpt.SetParameterValue("approvedBy", $"{txtsApprovBy.Text}");
+
+
+
+
+
+
+
+            FrmReportView frm  = new FrmReportView(rpt, "Leave/Undertime Print");
+            
+            clsMenu.CloseForm(frm);
+
+            clsMenu.ShowForm(frm);
         }
     }
 

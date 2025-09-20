@@ -178,8 +178,6 @@ namespace TimeKeepingII
                     strCtrl = clsDateTime.NowYear().ToString() + "000001";
                 }
                 strCtrl = CheckControlReference(strCtrl);
-
-
                 object dataID = clsBiometrics.ExecuteScalarQuery($@"INSERT INTO ChangeShift (CtrlNo, EmpNo, DDate,
                                                                                 Shift,EffectDate, Remarks, LastModified,NotedBy, ApprovedBy, RefNo)
                                                                                 VALUES ('{strCtrl}',{lblEmpNo.Text},'{dtpDDate.Value}',

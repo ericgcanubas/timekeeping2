@@ -45,8 +45,8 @@
             this.tsClose = new System.Windows.Forms.ToolStripButton();
             this.tsLocked = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.xxxxEMP_NO = new System.Windows.Forms.Label();
+            this.xxxxxEMP_NAME = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpEffectDate = new System.Windows.Forms.DateTimePicker();
             this.chkRestday1 = new System.Windows.Forms.CheckBox();
@@ -163,9 +163,16 @@
             this.label13 = new System.Windows.Forms.Label();
             this.numMachineID = new System.Windows.Forms.NumericUpDown();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lvEmployeeList = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pnlDetails = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMachineID)).BeginInit();
+            this.pnlDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsHeaderControl
@@ -300,7 +307,7 @@
             this.tsLocked.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsLocked.ForeColor = System.Drawing.Color.Red;
             this.tsLocked.Name = "tsLocked";
-            this.tsLocked.Size = new System.Drawing.Size(106, 49);
+            this.tsLocked.Size = new System.Drawing.Size(105, 49);
             this.tsLocked.Text = "LOCKED";
             this.tsLocked.Visible = false;
             // 
@@ -309,28 +316,28 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 52);
             // 
-            // label1
+            // xxxxEMP_NO
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "EMPLOYEE NO. :";
+            this.xxxxEMP_NO.AutoSize = true;
+            this.xxxxEMP_NO.Location = new System.Drawing.Point(318, 69);
+            this.xxxxEMP_NO.Name = "xxxxEMP_NO";
+            this.xxxxEMP_NO.Size = new System.Drawing.Size(93, 13);
+            this.xxxxEMP_NO.TabIndex = 1;
+            this.xxxxEMP_NO.Text = "EMPLOYEE NO. :";
             // 
-            // label2
+            // xxxxxEMP_NAME
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "EMPLOYEE NAME :";
+            this.xxxxxEMP_NAME.AutoSize = true;
+            this.xxxxxEMP_NAME.Location = new System.Drawing.Point(306, 97);
+            this.xxxxxEMP_NAME.Name = "xxxxxEMP_NAME";
+            this.xxxxxEMP_NAME.Size = new System.Drawing.Size(105, 13);
+            this.xxxxxEMP_NAME.TabIndex = 3;
+            this.xxxxxEMP_NAME.Text = "EMPLOYEE NAME :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 130);
+            this.label3.Location = new System.Drawing.Point(8, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 5;
@@ -340,7 +347,7 @@
             // 
             this.dtpEffectDate.Checked = false;
             this.dtpEffectDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEffectDate.Location = new System.Drawing.Point(134, 127);
+            this.dtpEffectDate.Location = new System.Drawing.Point(134, 67);
             this.dtpEffectDate.Name = "dtpEffectDate";
             this.dtpEffectDate.ShowCheckBox = true;
             this.dtpEffectDate.Size = new System.Drawing.Size(158, 20);
@@ -349,7 +356,7 @@
             // chkRestday1
             // 
             this.chkRestday1.AutoSize = true;
-            this.chkRestday1.Location = new System.Drawing.Point(312, 236);
+            this.chkRestday1.Location = new System.Drawing.Point(318, 23);
             this.chkRestday1.Name = "chkRestday1";
             this.chkRestday1.Size = new System.Drawing.Size(15, 14);
             this.chkRestday1.TabIndex = 7;
@@ -360,7 +367,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 236);
+            this.label4.Location = new System.Drawing.Point(18, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 15);
             this.label4.TabIndex = 6;
@@ -369,7 +376,7 @@
             // cmbMonday
             // 
             this.cmbMonday.FormattingEnabled = true;
-            this.cmbMonday.Location = new System.Drawing.Point(133, 234);
+            this.cmbMonday.Location = new System.Drawing.Point(139, 21);
             this.cmbMonday.Name = "cmbMonday";
             this.cmbMonday.Size = new System.Drawing.Size(157, 21);
             this.cmbMonday.TabIndex = 1;
@@ -381,7 +388,7 @@
             // chkRestday2
             // 
             this.chkRestday2.AutoSize = true;
-            this.chkRestday2.Location = new System.Drawing.Point(312, 263);
+            this.chkRestday2.Location = new System.Drawing.Point(318, 50);
             this.chkRestday2.Name = "chkRestday2";
             this.chkRestday2.Size = new System.Drawing.Size(15, 14);
             this.chkRestday2.TabIndex = 7;
@@ -392,7 +399,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 261);
+            this.label9.Location = new System.Drawing.Point(18, 48);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 15);
             this.label9.TabIndex = 6;
@@ -401,7 +408,7 @@
             // cmbTuesday
             // 
             this.cmbTuesday.FormattingEnabled = true;
-            this.cmbTuesday.Location = new System.Drawing.Point(133, 261);
+            this.cmbTuesday.Location = new System.Drawing.Point(139, 48);
             this.cmbTuesday.Name = "cmbTuesday";
             this.cmbTuesday.Size = new System.Drawing.Size(157, 21);
             this.cmbTuesday.TabIndex = 2;
@@ -412,7 +419,7 @@
             // chkRestday3
             // 
             this.chkRestday3.AutoSize = true;
-            this.chkRestday3.Location = new System.Drawing.Point(312, 291);
+            this.chkRestday3.Location = new System.Drawing.Point(318, 78);
             this.chkRestday3.Name = "chkRestday3";
             this.chkRestday3.Size = new System.Drawing.Size(15, 14);
             this.chkRestday3.TabIndex = 7;
@@ -423,7 +430,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(12, 290);
+            this.label11.Location = new System.Drawing.Point(18, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 15);
             this.label11.TabIndex = 6;
@@ -432,7 +439,7 @@
             // cmbWednesday
             // 
             this.cmbWednesday.FormattingEnabled = true;
-            this.cmbWednesday.Location = new System.Drawing.Point(133, 287);
+            this.cmbWednesday.Location = new System.Drawing.Point(139, 74);
             this.cmbWednesday.Name = "cmbWednesday";
             this.cmbWednesday.Size = new System.Drawing.Size(157, 21);
             this.cmbWednesday.TabIndex = 3;
@@ -443,7 +450,7 @@
             // chkRestday4
             // 
             this.chkRestday4.AutoSize = true;
-            this.chkRestday4.Location = new System.Drawing.Point(312, 317);
+            this.chkRestday4.Location = new System.Drawing.Point(318, 104);
             this.chkRestday4.Name = "chkRestday4";
             this.chkRestday4.Size = new System.Drawing.Size(15, 14);
             this.chkRestday4.TabIndex = 7;
@@ -454,7 +461,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(12, 317);
+            this.label15.Location = new System.Drawing.Point(18, 104);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 15);
             this.label15.TabIndex = 6;
@@ -463,7 +470,7 @@
             // cmbThursday
             // 
             this.cmbThursday.FormattingEnabled = true;
-            this.cmbThursday.Location = new System.Drawing.Point(133, 314);
+            this.cmbThursday.Location = new System.Drawing.Point(139, 101);
             this.cmbThursday.Name = "cmbThursday";
             this.cmbThursday.Size = new System.Drawing.Size(157, 21);
             this.cmbThursday.TabIndex = 4;
@@ -474,7 +481,7 @@
             // chkRestday5
             // 
             this.chkRestday5.AutoSize = true;
-            this.chkRestday5.Location = new System.Drawing.Point(312, 341);
+            this.chkRestday5.Location = new System.Drawing.Point(318, 128);
             this.chkRestday5.Name = "chkRestday5";
             this.chkRestday5.Size = new System.Drawing.Size(15, 14);
             this.chkRestday5.TabIndex = 7;
@@ -485,7 +492,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(12, 341);
+            this.label17.Location = new System.Drawing.Point(18, 128);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(39, 15);
             this.label17.TabIndex = 6;
@@ -494,7 +501,7 @@
             // cmbFriday
             // 
             this.cmbFriday.FormattingEnabled = true;
-            this.cmbFriday.Location = new System.Drawing.Point(133, 340);
+            this.cmbFriday.Location = new System.Drawing.Point(139, 127);
             this.cmbFriday.Name = "cmbFriday";
             this.cmbFriday.Size = new System.Drawing.Size(157, 21);
             this.cmbFriday.TabIndex = 5;
@@ -505,7 +512,7 @@
             // chkRestday6
             // 
             this.chkRestday6.AutoSize = true;
-            this.chkRestday6.Location = new System.Drawing.Point(312, 369);
+            this.chkRestday6.Location = new System.Drawing.Point(318, 156);
             this.chkRestday6.Name = "chkRestday6";
             this.chkRestday6.Size = new System.Drawing.Size(15, 14);
             this.chkRestday6.TabIndex = 7;
@@ -516,7 +523,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 367);
+            this.label19.Location = new System.Drawing.Point(18, 154);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(53, 15);
             this.label19.TabIndex = 6;
@@ -525,7 +532,7 @@
             // cmbSaturday
             // 
             this.cmbSaturday.FormattingEnabled = true;
-            this.cmbSaturday.Location = new System.Drawing.Point(133, 367);
+            this.cmbSaturday.Location = new System.Drawing.Point(139, 154);
             this.cmbSaturday.Name = "cmbSaturday";
             this.cmbSaturday.Size = new System.Drawing.Size(157, 21);
             this.cmbSaturday.TabIndex = 6;
@@ -536,7 +543,7 @@
             // chkRestday7
             // 
             this.chkRestday7.AutoSize = true;
-            this.chkRestday7.Location = new System.Drawing.Point(312, 398);
+            this.chkRestday7.Location = new System.Drawing.Point(318, 185);
             this.chkRestday7.Name = "chkRestday7";
             this.chkRestday7.Size = new System.Drawing.Size(15, 14);
             this.chkRestday7.TabIndex = 7;
@@ -547,7 +554,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(12, 395);
+            this.label21.Location = new System.Drawing.Point(18, 182);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(46, 15);
             this.label21.TabIndex = 6;
@@ -556,7 +563,7 @@
             // cmbSunday
             // 
             this.cmbSunday.FormattingEnabled = true;
-            this.cmbSunday.Location = new System.Drawing.Point(133, 394);
+            this.cmbSunday.Location = new System.Drawing.Point(139, 181);
             this.cmbSunday.Name = "cmbSunday";
             this.cmbSunday.Size = new System.Drawing.Size(157, 21);
             this.cmbSunday.TabIndex = 7;
@@ -568,7 +575,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(131, 213);
+            this.label7.Location = new System.Drawing.Point(137, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 9;
@@ -578,7 +585,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(296, 213);
+            this.label8.Location = new System.Drawing.Point(302, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 10;
@@ -587,7 +594,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(370, 213);
+            this.label10.Location = new System.Drawing.Point(376, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 13;
@@ -596,7 +603,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(430, 213);
+            this.label12.Location = new System.Drawing.Point(436, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(69, 13);
             this.label12.TabIndex = 14;
@@ -605,7 +612,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(516, 213);
+            this.label16.Location = new System.Drawing.Point(522, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(57, 13);
             this.label16.TabIndex = 15;
@@ -614,7 +621,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(674, 213);
+            this.label18.Location = new System.Drawing.Point(680, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(67, 13);
             this.label18.TabIndex = 16;
@@ -623,7 +630,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(754, 213);
+            this.label20.Location = new System.Drawing.Point(760, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(55, 13);
             this.label20.TabIndex = 17;
@@ -632,7 +639,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(908, 213);
+            this.label22.Location = new System.Drawing.Point(914, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 18;
@@ -642,7 +649,7 @@
             // 
             this.lblMonday_IN_AM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblMonday_IN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_IN_AM.Location = new System.Drawing.Point(355, 234);
+            this.lblMonday_IN_AM.Location = new System.Drawing.Point(361, 21);
             this.lblMonday_IN_AM.Name = "lblMonday_IN_AM";
             this.lblMonday_IN_AM.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_IN_AM.TabIndex = 19;
@@ -653,7 +660,7 @@
             // 
             this.lblTuesday_IN_AM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTuesday_IN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_IN_AM.Location = new System.Drawing.Point(355, 261);
+            this.lblTuesday_IN_AM.Location = new System.Drawing.Point(361, 48);
             this.lblTuesday_IN_AM.Name = "lblTuesday_IN_AM";
             this.lblTuesday_IN_AM.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_IN_AM.TabIndex = 20;
@@ -664,7 +671,7 @@
             // 
             this.lblWednesday_IN_AM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblWednesday_IN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_IN_AM.Location = new System.Drawing.Point(355, 288);
+            this.lblWednesday_IN_AM.Location = new System.Drawing.Point(361, 75);
             this.lblWednesday_IN_AM.Name = "lblWednesday_IN_AM";
             this.lblWednesday_IN_AM.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_IN_AM.TabIndex = 21;
@@ -675,7 +682,7 @@
             // 
             this.lblThursday_IN_AM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblThursday_IN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_IN_AM.Location = new System.Drawing.Point(355, 315);
+            this.lblThursday_IN_AM.Location = new System.Drawing.Point(361, 102);
             this.lblThursday_IN_AM.Name = "lblThursday_IN_AM";
             this.lblThursday_IN_AM.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_IN_AM.TabIndex = 22;
@@ -686,7 +693,7 @@
             // 
             this.lblFriday_IN_AM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblFriday_IN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_IN_AM.Location = new System.Drawing.Point(355, 341);
+            this.lblFriday_IN_AM.Location = new System.Drawing.Point(361, 128);
             this.lblFriday_IN_AM.Name = "lblFriday_IN_AM";
             this.lblFriday_IN_AM.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_IN_AM.TabIndex = 23;
@@ -697,7 +704,7 @@
             // 
             this.lblSaturday_IN_AM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSaturday_IN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_IN_AM.Location = new System.Drawing.Point(355, 368);
+            this.lblSaturday_IN_AM.Location = new System.Drawing.Point(361, 155);
             this.lblSaturday_IN_AM.Name = "lblSaturday_IN_AM";
             this.lblSaturday_IN_AM.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_IN_AM.TabIndex = 24;
@@ -708,7 +715,7 @@
             // 
             this.lblSunday_IN_AM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSunday_IN_AM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_IN_AM.Location = new System.Drawing.Point(355, 395);
+            this.lblSunday_IN_AM.Location = new System.Drawing.Point(361, 182);
             this.lblSunday_IN_AM.Name = "lblSunday_IN_AM";
             this.lblSunday_IN_AM.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_IN_AM.TabIndex = 25;
@@ -719,7 +726,7 @@
             // 
             this.lblSunday_OUT_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblSunday_OUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_OUT_LUNCH.Location = new System.Drawing.Point(433, 395);
+            this.lblSunday_OUT_LUNCH.Location = new System.Drawing.Point(439, 182);
             this.lblSunday_OUT_LUNCH.Name = "lblSunday_OUT_LUNCH";
             this.lblSunday_OUT_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_OUT_LUNCH.TabIndex = 32;
@@ -730,7 +737,7 @@
             // 
             this.lblSaturday_OUT_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblSaturday_OUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_OUT_LUNCH.Location = new System.Drawing.Point(433, 368);
+            this.lblSaturday_OUT_LUNCH.Location = new System.Drawing.Point(439, 155);
             this.lblSaturday_OUT_LUNCH.Name = "lblSaturday_OUT_LUNCH";
             this.lblSaturday_OUT_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_OUT_LUNCH.TabIndex = 31;
@@ -741,7 +748,7 @@
             // 
             this.lblFriday_OUT_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblFriday_OUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_OUT_LUNCH.Location = new System.Drawing.Point(433, 341);
+            this.lblFriday_OUT_LUNCH.Location = new System.Drawing.Point(439, 128);
             this.lblFriday_OUT_LUNCH.Name = "lblFriday_OUT_LUNCH";
             this.lblFriday_OUT_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_OUT_LUNCH.TabIndex = 30;
@@ -752,7 +759,7 @@
             // 
             this.lblThursday_OUT_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblThursday_OUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_OUT_LUNCH.Location = new System.Drawing.Point(433, 315);
+            this.lblThursday_OUT_LUNCH.Location = new System.Drawing.Point(439, 102);
             this.lblThursday_OUT_LUNCH.Name = "lblThursday_OUT_LUNCH";
             this.lblThursday_OUT_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_OUT_LUNCH.TabIndex = 29;
@@ -763,7 +770,7 @@
             // 
             this.lblWednesday_OUT_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblWednesday_OUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_OUT_LUNCH.Location = new System.Drawing.Point(433, 288);
+            this.lblWednesday_OUT_LUNCH.Location = new System.Drawing.Point(439, 75);
             this.lblWednesday_OUT_LUNCH.Name = "lblWednesday_OUT_LUNCH";
             this.lblWednesday_OUT_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_OUT_LUNCH.TabIndex = 28;
@@ -774,7 +781,7 @@
             // 
             this.lblTuesday_OUT_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblTuesday_OUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_OUT_LUNCH.Location = new System.Drawing.Point(433, 261);
+            this.lblTuesday_OUT_LUNCH.Location = new System.Drawing.Point(439, 48);
             this.lblTuesday_OUT_LUNCH.Name = "lblTuesday_OUT_LUNCH";
             this.lblTuesday_OUT_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_OUT_LUNCH.TabIndex = 27;
@@ -785,7 +792,7 @@
             // 
             this.lblMonday_OUT_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblMonday_OUT_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_OUT_LUNCH.Location = new System.Drawing.Point(433, 234);
+            this.lblMonday_OUT_LUNCH.Location = new System.Drawing.Point(439, 21);
             this.lblMonday_OUT_LUNCH.Name = "lblMonday_OUT_LUNCH";
             this.lblMonday_OUT_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_OUT_LUNCH.TabIndex = 26;
@@ -796,7 +803,7 @@
             // 
             this.lblSunday_IN_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblSunday_IN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_IN_LUNCH.Location = new System.Drawing.Point(511, 395);
+            this.lblSunday_IN_LUNCH.Location = new System.Drawing.Point(517, 182);
             this.lblSunday_IN_LUNCH.Name = "lblSunday_IN_LUNCH";
             this.lblSunday_IN_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_IN_LUNCH.TabIndex = 39;
@@ -807,7 +814,7 @@
             // 
             this.lblSaturday_IN_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblSaturday_IN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_IN_LUNCH.Location = new System.Drawing.Point(511, 368);
+            this.lblSaturday_IN_LUNCH.Location = new System.Drawing.Point(517, 155);
             this.lblSaturday_IN_LUNCH.Name = "lblSaturday_IN_LUNCH";
             this.lblSaturday_IN_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_IN_LUNCH.TabIndex = 38;
@@ -818,7 +825,7 @@
             // 
             this.lblFriday_IN_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblFriday_IN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_IN_LUNCH.Location = new System.Drawing.Point(511, 341);
+            this.lblFriday_IN_LUNCH.Location = new System.Drawing.Point(517, 128);
             this.lblFriday_IN_LUNCH.Name = "lblFriday_IN_LUNCH";
             this.lblFriday_IN_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_IN_LUNCH.TabIndex = 37;
@@ -829,7 +836,7 @@
             // 
             this.lblThursday_IN_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblThursday_IN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_IN_LUNCH.Location = new System.Drawing.Point(511, 315);
+            this.lblThursday_IN_LUNCH.Location = new System.Drawing.Point(517, 102);
             this.lblThursday_IN_LUNCH.Name = "lblThursday_IN_LUNCH";
             this.lblThursday_IN_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_IN_LUNCH.TabIndex = 36;
@@ -840,7 +847,7 @@
             // 
             this.lblWednesday_IN_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblWednesday_IN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_IN_LUNCH.Location = new System.Drawing.Point(511, 288);
+            this.lblWednesday_IN_LUNCH.Location = new System.Drawing.Point(517, 75);
             this.lblWednesday_IN_LUNCH.Name = "lblWednesday_IN_LUNCH";
             this.lblWednesday_IN_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_IN_LUNCH.TabIndex = 35;
@@ -851,7 +858,7 @@
             // 
             this.lblTuesday_IN_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblTuesday_IN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_IN_LUNCH.Location = new System.Drawing.Point(511, 261);
+            this.lblTuesday_IN_LUNCH.Location = new System.Drawing.Point(517, 48);
             this.lblTuesday_IN_LUNCH.Name = "lblTuesday_IN_LUNCH";
             this.lblTuesday_IN_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_IN_LUNCH.TabIndex = 34;
@@ -862,7 +869,7 @@
             // 
             this.lblMonday_IN_LUNCH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblMonday_IN_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_IN_LUNCH.Location = new System.Drawing.Point(511, 234);
+            this.lblMonday_IN_LUNCH.Location = new System.Drawing.Point(517, 21);
             this.lblMonday_IN_LUNCH.Name = "lblMonday_IN_LUNCH";
             this.lblMonday_IN_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_IN_LUNCH.TabIndex = 33;
@@ -873,7 +880,7 @@
             // 
             this.lblSunday_OUT_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSunday_OUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_OUT_BREAK.Location = new System.Drawing.Point(672, 395);
+            this.lblSunday_OUT_BREAK.Location = new System.Drawing.Point(678, 182);
             this.lblSunday_OUT_BREAK.Name = "lblSunday_OUT_BREAK";
             this.lblSunday_OUT_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_OUT_BREAK.TabIndex = 46;
@@ -884,7 +891,7 @@
             // 
             this.lblSaturday_OUT_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSaturday_OUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_OUT_BREAK.Location = new System.Drawing.Point(672, 368);
+            this.lblSaturday_OUT_BREAK.Location = new System.Drawing.Point(678, 155);
             this.lblSaturday_OUT_BREAK.Name = "lblSaturday_OUT_BREAK";
             this.lblSaturday_OUT_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_OUT_BREAK.TabIndex = 45;
@@ -895,7 +902,7 @@
             // 
             this.lblFriday_OUT_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblFriday_OUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_OUT_BREAK.Location = new System.Drawing.Point(672, 341);
+            this.lblFriday_OUT_BREAK.Location = new System.Drawing.Point(678, 128);
             this.lblFriday_OUT_BREAK.Name = "lblFriday_OUT_BREAK";
             this.lblFriday_OUT_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_OUT_BREAK.TabIndex = 44;
@@ -906,7 +913,7 @@
             // 
             this.lblThursday_OUT_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblThursday_OUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_OUT_BREAK.Location = new System.Drawing.Point(672, 315);
+            this.lblThursday_OUT_BREAK.Location = new System.Drawing.Point(678, 102);
             this.lblThursday_OUT_BREAK.Name = "lblThursday_OUT_BREAK";
             this.lblThursday_OUT_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_OUT_BREAK.TabIndex = 43;
@@ -917,7 +924,7 @@
             // 
             this.lblWednesday_OUT_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblWednesday_OUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_OUT_BREAK.Location = new System.Drawing.Point(672, 288);
+            this.lblWednesday_OUT_BREAK.Location = new System.Drawing.Point(678, 75);
             this.lblWednesday_OUT_BREAK.Name = "lblWednesday_OUT_BREAK";
             this.lblWednesday_OUT_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_OUT_BREAK.TabIndex = 42;
@@ -928,7 +935,7 @@
             // 
             this.lblTuesday_OUT_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTuesday_OUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_OUT_BREAK.Location = new System.Drawing.Point(672, 261);
+            this.lblTuesday_OUT_BREAK.Location = new System.Drawing.Point(678, 48);
             this.lblTuesday_OUT_BREAK.Name = "lblTuesday_OUT_BREAK";
             this.lblTuesday_OUT_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_OUT_BREAK.TabIndex = 41;
@@ -939,7 +946,7 @@
             // 
             this.lblMonday_OUT_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblMonday_OUT_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_OUT_BREAK.Location = new System.Drawing.Point(672, 234);
+            this.lblMonday_OUT_BREAK.Location = new System.Drawing.Point(678, 21);
             this.lblMonday_OUT_BREAK.Name = "lblMonday_OUT_BREAK";
             this.lblMonday_OUT_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_OUT_BREAK.TabIndex = 40;
@@ -950,7 +957,7 @@
             // 
             this.lblSunday_IN_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSunday_IN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_IN_BREAK.Location = new System.Drawing.Point(748, 395);
+            this.lblSunday_IN_BREAK.Location = new System.Drawing.Point(754, 182);
             this.lblSunday_IN_BREAK.Name = "lblSunday_IN_BREAK";
             this.lblSunday_IN_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_IN_BREAK.TabIndex = 53;
@@ -961,7 +968,7 @@
             // 
             this.lblSaturday_IN_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSaturday_IN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_IN_BREAK.Location = new System.Drawing.Point(748, 368);
+            this.lblSaturday_IN_BREAK.Location = new System.Drawing.Point(754, 155);
             this.lblSaturday_IN_BREAK.Name = "lblSaturday_IN_BREAK";
             this.lblSaturday_IN_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_IN_BREAK.TabIndex = 52;
@@ -972,7 +979,7 @@
             // 
             this.lblFriday_IN_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblFriday_IN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_IN_BREAK.Location = new System.Drawing.Point(748, 341);
+            this.lblFriday_IN_BREAK.Location = new System.Drawing.Point(754, 128);
             this.lblFriday_IN_BREAK.Name = "lblFriday_IN_BREAK";
             this.lblFriday_IN_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_IN_BREAK.TabIndex = 51;
@@ -983,7 +990,7 @@
             // 
             this.lblThursday_IN_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblThursday_IN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_IN_BREAK.Location = new System.Drawing.Point(748, 315);
+            this.lblThursday_IN_BREAK.Location = new System.Drawing.Point(754, 102);
             this.lblThursday_IN_BREAK.Name = "lblThursday_IN_BREAK";
             this.lblThursday_IN_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_IN_BREAK.TabIndex = 50;
@@ -994,7 +1001,7 @@
             // 
             this.lblWednesday_IN_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblWednesday_IN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_IN_BREAK.Location = new System.Drawing.Point(748, 288);
+            this.lblWednesday_IN_BREAK.Location = new System.Drawing.Point(754, 75);
             this.lblWednesday_IN_BREAK.Name = "lblWednesday_IN_BREAK";
             this.lblWednesday_IN_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_IN_BREAK.TabIndex = 49;
@@ -1005,7 +1012,7 @@
             // 
             this.lblTuesday_IN_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTuesday_IN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_IN_BREAK.Location = new System.Drawing.Point(748, 261);
+            this.lblTuesday_IN_BREAK.Location = new System.Drawing.Point(754, 48);
             this.lblTuesday_IN_BREAK.Name = "lblTuesday_IN_BREAK";
             this.lblTuesday_IN_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_IN_BREAK.TabIndex = 48;
@@ -1016,7 +1023,7 @@
             // 
             this.lblMonday_IN_BREAK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblMonday_IN_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_IN_BREAK.Location = new System.Drawing.Point(748, 234);
+            this.lblMonday_IN_BREAK.Location = new System.Drawing.Point(754, 21);
             this.lblMonday_IN_BREAK.Name = "lblMonday_IN_BREAK";
             this.lblMonday_IN_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_IN_BREAK.TabIndex = 47;
@@ -1027,7 +1034,7 @@
             // 
             this.lblSunday_OUT_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSunday_OUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_OUT_PM.Location = new System.Drawing.Point(902, 394);
+            this.lblSunday_OUT_PM.Location = new System.Drawing.Point(908, 181);
             this.lblSunday_OUT_PM.Name = "lblSunday_OUT_PM";
             this.lblSunday_OUT_PM.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_OUT_PM.TabIndex = 60;
@@ -1038,7 +1045,7 @@
             // 
             this.lblSaturday_OUT_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblSaturday_OUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_OUT_PM.Location = new System.Drawing.Point(902, 367);
+            this.lblSaturday_OUT_PM.Location = new System.Drawing.Point(908, 154);
             this.lblSaturday_OUT_PM.Name = "lblSaturday_OUT_PM";
             this.lblSaturday_OUT_PM.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_OUT_PM.TabIndex = 59;
@@ -1049,7 +1056,7 @@
             // 
             this.lblFriday_OUT_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblFriday_OUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_OUT_PM.Location = new System.Drawing.Point(902, 340);
+            this.lblFriday_OUT_PM.Location = new System.Drawing.Point(908, 127);
             this.lblFriday_OUT_PM.Name = "lblFriday_OUT_PM";
             this.lblFriday_OUT_PM.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_OUT_PM.TabIndex = 58;
@@ -1060,7 +1067,7 @@
             // 
             this.lblThursday_OUT_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblThursday_OUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_OUT_PM.Location = new System.Drawing.Point(902, 314);
+            this.lblThursday_OUT_PM.Location = new System.Drawing.Point(908, 101);
             this.lblThursday_OUT_PM.Name = "lblThursday_OUT_PM";
             this.lblThursday_OUT_PM.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_OUT_PM.TabIndex = 57;
@@ -1071,7 +1078,7 @@
             // 
             this.lblWednesday_OUT_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblWednesday_OUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_OUT_PM.Location = new System.Drawing.Point(902, 287);
+            this.lblWednesday_OUT_PM.Location = new System.Drawing.Point(908, 74);
             this.lblWednesday_OUT_PM.Name = "lblWednesday_OUT_PM";
             this.lblWednesday_OUT_PM.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_OUT_PM.TabIndex = 56;
@@ -1082,7 +1089,7 @@
             // 
             this.lblTuesday_OUT_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTuesday_OUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_OUT_PM.Location = new System.Drawing.Point(902, 260);
+            this.lblTuesday_OUT_PM.Location = new System.Drawing.Point(908, 47);
             this.lblTuesday_OUT_PM.Name = "lblTuesday_OUT_PM";
             this.lblTuesday_OUT_PM.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_OUT_PM.TabIndex = 55;
@@ -1093,7 +1100,7 @@
             // 
             this.lblMonday_OUT_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblMonday_OUT_PM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_OUT_PM.Location = new System.Drawing.Point(902, 233);
+            this.lblMonday_OUT_PM.Location = new System.Drawing.Point(908, 20);
             this.lblMonday_OUT_PM.Name = "lblMonday_OUT_PM";
             this.lblMonday_OUT_PM.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_OUT_PM.TabIndex = 54;
@@ -1104,7 +1111,7 @@
             // 
             this.chkFixedMon.AutoSize = true;
             this.chkFixedMon.Enabled = false;
-            this.chkFixedMon.Location = new System.Drawing.Point(988, 237);
+            this.chkFixedMon.Location = new System.Drawing.Point(994, 24);
             this.chkFixedMon.Name = "chkFixedMon";
             this.chkFixedMon.Size = new System.Drawing.Size(15, 14);
             this.chkFixedMon.TabIndex = 61;
@@ -1115,7 +1122,7 @@
             // 
             this.chkFixedTue.AutoSize = true;
             this.chkFixedTue.Enabled = false;
-            this.chkFixedTue.Location = new System.Drawing.Point(988, 265);
+            this.chkFixedTue.Location = new System.Drawing.Point(994, 52);
             this.chkFixedTue.Name = "chkFixedTue";
             this.chkFixedTue.Size = new System.Drawing.Size(15, 14);
             this.chkFixedTue.TabIndex = 62;
@@ -1126,7 +1133,7 @@
             // 
             this.chkFixedWed.AutoSize = true;
             this.chkFixedWed.Enabled = false;
-            this.chkFixedWed.Location = new System.Drawing.Point(988, 292);
+            this.chkFixedWed.Location = new System.Drawing.Point(994, 79);
             this.chkFixedWed.Name = "chkFixedWed";
             this.chkFixedWed.Size = new System.Drawing.Size(15, 14);
             this.chkFixedWed.TabIndex = 63;
@@ -1137,7 +1144,7 @@
             // 
             this.chkFixedThu.AutoSize = true;
             this.chkFixedThu.Enabled = false;
-            this.chkFixedThu.Location = new System.Drawing.Point(988, 317);
+            this.chkFixedThu.Location = new System.Drawing.Point(994, 104);
             this.chkFixedThu.Name = "chkFixedThu";
             this.chkFixedThu.Size = new System.Drawing.Size(15, 14);
             this.chkFixedThu.TabIndex = 64;
@@ -1148,7 +1155,7 @@
             // 
             this.chkFixedFri.AutoSize = true;
             this.chkFixedFri.Enabled = false;
-            this.chkFixedFri.Location = new System.Drawing.Point(988, 344);
+            this.chkFixedFri.Location = new System.Drawing.Point(994, 131);
             this.chkFixedFri.Name = "chkFixedFri";
             this.chkFixedFri.Size = new System.Drawing.Size(15, 14);
             this.chkFixedFri.TabIndex = 65;
@@ -1159,7 +1166,7 @@
             // 
             this.chkFixedSat.AutoSize = true;
             this.chkFixedSat.Enabled = false;
-            this.chkFixedSat.Location = new System.Drawing.Point(988, 371);
+            this.chkFixedSat.Location = new System.Drawing.Point(994, 158);
             this.chkFixedSat.Name = "chkFixedSat";
             this.chkFixedSat.Size = new System.Drawing.Size(15, 14);
             this.chkFixedSat.TabIndex = 66;
@@ -1170,7 +1177,7 @@
             // 
             this.chkFixedSun.AutoSize = true;
             this.chkFixedSun.Enabled = false;
-            this.chkFixedSun.Location = new System.Drawing.Point(988, 398);
+            this.chkFixedSun.Location = new System.Drawing.Point(994, 185);
             this.chkFixedSun.Name = "chkFixedSun";
             this.chkFixedSun.Size = new System.Drawing.Size(15, 14);
             this.chkFixedSun.TabIndex = 67;
@@ -1180,7 +1187,7 @@
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(976, 213);
+            this.label65.Location = new System.Drawing.Point(982, 0);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(32, 13);
             this.label65.TabIndex = 68;
@@ -1190,7 +1197,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(85, 213);
+            this.label5.Location = new System.Drawing.Point(91, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 76;
@@ -1199,7 +1206,7 @@
             // chkOpenSun
             // 
             this.chkOpenSun.AutoSize = true;
-            this.chkOpenSun.Location = new System.Drawing.Point(96, 397);
+            this.chkOpenSun.Location = new System.Drawing.Point(102, 184);
             this.chkOpenSun.Name = "chkOpenSun";
             this.chkOpenSun.Size = new System.Drawing.Size(15, 14);
             this.chkOpenSun.TabIndex = 69;
@@ -1209,7 +1216,7 @@
             // chkOpenSat
             // 
             this.chkOpenSat.AutoSize = true;
-            this.chkOpenSat.Location = new System.Drawing.Point(96, 369);
+            this.chkOpenSat.Location = new System.Drawing.Point(102, 156);
             this.chkOpenSat.Name = "chkOpenSat";
             this.chkOpenSat.Size = new System.Drawing.Size(15, 14);
             this.chkOpenSat.TabIndex = 70;
@@ -1219,7 +1226,7 @@
             // chkOpenFri
             // 
             this.chkOpenFri.AutoSize = true;
-            this.chkOpenFri.Location = new System.Drawing.Point(96, 341);
+            this.chkOpenFri.Location = new System.Drawing.Point(102, 128);
             this.chkOpenFri.Name = "chkOpenFri";
             this.chkOpenFri.Size = new System.Drawing.Size(15, 14);
             this.chkOpenFri.TabIndex = 71;
@@ -1229,7 +1236,7 @@
             // chkOpenThu
             // 
             this.chkOpenThu.AutoSize = true;
-            this.chkOpenThu.Location = new System.Drawing.Point(96, 317);
+            this.chkOpenThu.Location = new System.Drawing.Point(102, 104);
             this.chkOpenThu.Name = "chkOpenThu";
             this.chkOpenThu.Size = new System.Drawing.Size(15, 14);
             this.chkOpenThu.TabIndex = 72;
@@ -1239,7 +1246,7 @@
             // chkOpenWed
             // 
             this.chkOpenWed.AutoSize = true;
-            this.chkOpenWed.Location = new System.Drawing.Point(96, 291);
+            this.chkOpenWed.Location = new System.Drawing.Point(102, 78);
             this.chkOpenWed.Name = "chkOpenWed";
             this.chkOpenWed.Size = new System.Drawing.Size(15, 14);
             this.chkOpenWed.TabIndex = 73;
@@ -1249,7 +1256,7 @@
             // chkOpenTue
             // 
             this.chkOpenTue.AutoSize = true;
-            this.chkOpenTue.Location = new System.Drawing.Point(96, 264);
+            this.chkOpenTue.Location = new System.Drawing.Point(102, 51);
             this.chkOpenTue.Name = "chkOpenTue";
             this.chkOpenTue.Size = new System.Drawing.Size(15, 14);
             this.chkOpenTue.TabIndex = 74;
@@ -1259,7 +1266,7 @@
             // chkOpenMon
             // 
             this.chkOpenMon.AutoSize = true;
-            this.chkOpenMon.Location = new System.Drawing.Point(96, 237);
+            this.chkOpenMon.Location = new System.Drawing.Point(102, 24);
             this.chkOpenMon.Name = "chkOpenMon";
             this.chkOpenMon.Size = new System.Drawing.Size(15, 14);
             this.chkOpenMon.TabIndex = 75;
@@ -1270,7 +1277,7 @@
             // 
             this.lblSunday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblSunday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_LUNCH.Location = new System.Drawing.Point(587, 395);
+            this.lblSunday_LUNCH.Location = new System.Drawing.Point(593, 182);
             this.lblSunday_LUNCH.Name = "lblSunday_LUNCH";
             this.lblSunday_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_LUNCH.TabIndex = 84;
@@ -1281,7 +1288,7 @@
             // 
             this.lblSaturday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblSaturday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_LUNCH.Location = new System.Drawing.Point(587, 368);
+            this.lblSaturday_LUNCH.Location = new System.Drawing.Point(593, 155);
             this.lblSaturday_LUNCH.Name = "lblSaturday_LUNCH";
             this.lblSaturday_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_LUNCH.TabIndex = 83;
@@ -1292,7 +1299,7 @@
             // 
             this.lblFriday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblFriday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_LUNCH.Location = new System.Drawing.Point(587, 341);
+            this.lblFriday_LUNCH.Location = new System.Drawing.Point(593, 128);
             this.lblFriday_LUNCH.Name = "lblFriday_LUNCH";
             this.lblFriday_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_LUNCH.TabIndex = 82;
@@ -1303,7 +1310,7 @@
             // 
             this.lblThursday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblThursday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_LUNCH.Location = new System.Drawing.Point(587, 315);
+            this.lblThursday_LUNCH.Location = new System.Drawing.Point(593, 102);
             this.lblThursday_LUNCH.Name = "lblThursday_LUNCH";
             this.lblThursday_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_LUNCH.TabIndex = 81;
@@ -1314,7 +1321,7 @@
             // 
             this.lblWednesday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblWednesday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_LUNCH.Location = new System.Drawing.Point(587, 288);
+            this.lblWednesday_LUNCH.Location = new System.Drawing.Point(593, 75);
             this.lblWednesday_LUNCH.Name = "lblWednesday_LUNCH";
             this.lblWednesday_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_LUNCH.TabIndex = 80;
@@ -1325,7 +1332,7 @@
             // 
             this.lblTuesday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblTuesday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_LUNCH.Location = new System.Drawing.Point(587, 261);
+            this.lblTuesday_LUNCH.Location = new System.Drawing.Point(593, 48);
             this.lblTuesday_LUNCH.Name = "lblTuesday_LUNCH";
             this.lblTuesday_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_LUNCH.TabIndex = 79;
@@ -1336,7 +1343,7 @@
             // 
             this.lblMonday_LUNCH.BackColor = System.Drawing.Color.Linen;
             this.lblMonday_LUNCH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_LUNCH.Location = new System.Drawing.Point(587, 234);
+            this.lblMonday_LUNCH.Location = new System.Drawing.Point(593, 21);
             this.lblMonday_LUNCH.Name = "lblMonday_LUNCH";
             this.lblMonday_LUNCH.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_LUNCH.TabIndex = 78;
@@ -1346,7 +1353,7 @@
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(592, 213);
+            this.label70.Location = new System.Drawing.Point(598, 0);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(62, 13);
             this.label70.TabIndex = 77;
@@ -1356,7 +1363,7 @@
             // 
             this.lblSunday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblSunday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSunday_BREAK.Location = new System.Drawing.Point(823, 394);
+            this.lblSunday_BREAK.Location = new System.Drawing.Point(829, 181);
             this.lblSunday_BREAK.Name = "lblSunday_BREAK";
             this.lblSunday_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblSunday_BREAK.TabIndex = 92;
@@ -1367,7 +1374,7 @@
             // 
             this.lblSaturday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblSaturday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblSaturday_BREAK.Location = new System.Drawing.Point(823, 367);
+            this.lblSaturday_BREAK.Location = new System.Drawing.Point(829, 154);
             this.lblSaturday_BREAK.Name = "lblSaturday_BREAK";
             this.lblSaturday_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblSaturday_BREAK.TabIndex = 91;
@@ -1378,7 +1385,7 @@
             // 
             this.lblFriday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblFriday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFriday_BREAK.Location = new System.Drawing.Point(823, 340);
+            this.lblFriday_BREAK.Location = new System.Drawing.Point(829, 127);
             this.lblFriday_BREAK.Name = "lblFriday_BREAK";
             this.lblFriday_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblFriday_BREAK.TabIndex = 90;
@@ -1389,7 +1396,7 @@
             // 
             this.lblThursday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblThursday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblThursday_BREAK.Location = new System.Drawing.Point(823, 314);
+            this.lblThursday_BREAK.Location = new System.Drawing.Point(829, 101);
             this.lblThursday_BREAK.Name = "lblThursday_BREAK";
             this.lblThursday_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblThursday_BREAK.TabIndex = 89;
@@ -1400,7 +1407,7 @@
             // 
             this.lblWednesday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblWednesday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWednesday_BREAK.Location = new System.Drawing.Point(823, 287);
+            this.lblWednesday_BREAK.Location = new System.Drawing.Point(829, 74);
             this.lblWednesday_BREAK.Name = "lblWednesday_BREAK";
             this.lblWednesday_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblWednesday_BREAK.TabIndex = 88;
@@ -1411,7 +1418,7 @@
             // 
             this.lblTuesday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblTuesday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTuesday_BREAK.Location = new System.Drawing.Point(823, 260);
+            this.lblTuesday_BREAK.Location = new System.Drawing.Point(829, 47);
             this.lblTuesday_BREAK.Name = "lblTuesday_BREAK";
             this.lblTuesday_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblTuesday_BREAK.TabIndex = 87;
@@ -1422,7 +1429,7 @@
             // 
             this.lblMonday_BREAK.BackColor = System.Drawing.Color.Honeydew;
             this.lblMonday_BREAK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMonday_BREAK.Location = new System.Drawing.Point(823, 233);
+            this.lblMonday_BREAK.Location = new System.Drawing.Point(829, 20);
             this.lblMonday_BREAK.Name = "lblMonday_BREAK";
             this.lblMonday_BREAK.Size = new System.Drawing.Size(72, 21);
             this.lblMonday_BREAK.TabIndex = 86;
@@ -1432,7 +1439,7 @@
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(826, 212);
+            this.label78.Location = new System.Drawing.Point(832, -1);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(66, 13);
             this.label78.TabIndex = 85;
@@ -1444,7 +1451,7 @@
             this.pnlMode.Controls.Add(this.lblLastModified);
             this.pnlMode.Controls.Add(this.lblPK);
             this.pnlMode.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlMode.Location = new System.Drawing.Point(0, 465);
+            this.pnlMode.Location = new System.Drawing.Point(0, 490);
             this.pnlMode.Name = "pnlMode";
             this.pnlMode.Size = new System.Drawing.Size(1062, 22);
             this.pnlMode.TabIndex = 95;
@@ -1471,7 +1478,7 @@
             // 
             this.lblEMPLOYEE_NO.BackColor = System.Drawing.Color.White;
             this.lblEMPLOYEE_NO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEMPLOYEE_NO.Location = new System.Drawing.Point(134, 72);
+            this.lblEMPLOYEE_NO.Location = new System.Drawing.Point(415, 66);
             this.lblEMPLOYEE_NO.Name = "lblEMPLOYEE_NO";
             this.lblEMPLOYEE_NO.Size = new System.Drawing.Size(158, 21);
             this.lblEMPLOYEE_NO.TabIndex = 96;
@@ -1483,9 +1490,9 @@
             this.lblEmployeeName.BackColor = System.Drawing.Color.White;
             this.lblEmployeeName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblEmployeeName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblEmployeeName.Location = new System.Drawing.Point(134, 99);
+            this.lblEmployeeName.Location = new System.Drawing.Point(415, 93);
             this.lblEmployeeName.Name = "lblEmployeeName";
-            this.lblEmployeeName.Size = new System.Drawing.Size(612, 21);
+            this.lblEmployeeName.Size = new System.Drawing.Size(566, 21);
             this.lblEmployeeName.TabIndex = 97;
             this.lblEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblEmployeeName.Click += new System.EventHandler(this.lblEmployeeName_Click);
@@ -1494,7 +1501,7 @@
             // 
             this.lblEMP_PK.BackColor = System.Drawing.Color.White;
             this.lblEMP_PK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEMP_PK.Location = new System.Drawing.Point(298, 72);
+            this.lblEMP_PK.Location = new System.Drawing.Point(579, 66);
             this.lblEMP_PK.Name = "lblEMP_PK";
             this.lblEMP_PK.Size = new System.Drawing.Size(50, 21);
             this.lblEMP_PK.TabIndex = 98;
@@ -1506,7 +1513,7 @@
             // 
             this.cmbMachineNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMachineNo.FormattingEnabled = true;
-            this.cmbMachineNo.Location = new System.Drawing.Point(134, 155);
+            this.cmbMachineNo.Location = new System.Drawing.Point(134, 95);
             this.cmbMachineNo.Name = "cmbMachineNo";
             this.cmbMachineNo.Size = new System.Drawing.Size(158, 21);
             this.cmbMachineNo.TabIndex = 99;
@@ -1514,7 +1521,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(75, 158);
+            this.label6.Location = new System.Drawing.Point(75, 98);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 101;
@@ -1523,7 +1530,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(49, 186);
+            this.label13.Location = new System.Drawing.Point(49, 126);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 13);
             this.label13.TabIndex = 102;
@@ -1531,7 +1538,7 @@
             // 
             // numMachineID
             // 
-            this.numMachineID.Location = new System.Drawing.Point(134, 184);
+            this.numMachineID.Location = new System.Drawing.Point(134, 124);
             this.numMachineID.Maximum = new decimal(new int[] {
             999,
             0,
@@ -1542,11 +1549,166 @@
             this.numMachineID.TabIndex = 103;
             this.numMachineID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // lvEmployeeList
+            // 
+            this.lvEmployeeList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lvEmployeeList.GridLines = true;
+            this.lvEmployeeList.HideSelection = false;
+            this.lvEmployeeList.Location = new System.Drawing.Point(309, 66);
+            this.lvEmployeeList.MultiSelect = false;
+            this.lvEmployeeList.Name = "lvEmployeeList";
+            this.lvEmployeeList.Size = new System.Drawing.Size(672, 137);
+            this.lvEmployeeList.TabIndex = 104;
+            this.lvEmployeeList.UseCompatibleStateImageBehavior = false;
+            this.lvEmployeeList.View = System.Windows.Forms.View.Details;
+            this.lvEmployeeList.Visible = false;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "EMP_PK";
+            this.columnHeader3.Width = 0;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "EMPLOYEE NO.";
+            this.columnHeader1.Width = 185;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "EMPLOYEE NAME";
+            this.columnHeader2.Width = 462;
+            // 
+            // pnlDetails
+            // 
+            this.pnlDetails.Controls.Add(this.label5);
+            this.pnlDetails.Controls.Add(this.cmbMonday);
+            this.pnlDetails.Controls.Add(this.label4);
+            this.pnlDetails.Controls.Add(this.cmbTuesday);
+            this.pnlDetails.Controls.Add(this.chkRestday1);
+            this.pnlDetails.Controls.Add(this.cmbWednesday);
+            this.pnlDetails.Controls.Add(this.chkRestday2);
+            this.pnlDetails.Controls.Add(this.label9);
+            this.pnlDetails.Controls.Add(this.cmbThursday);
+            this.pnlDetails.Controls.Add(this.chkRestday3);
+            this.pnlDetails.Controls.Add(this.lblSunday_BREAK);
+            this.pnlDetails.Controls.Add(this.label15);
+            this.pnlDetails.Controls.Add(this.lblSaturday_BREAK);
+            this.pnlDetails.Controls.Add(this.cmbFriday);
+            this.pnlDetails.Controls.Add(this.lblFriday_BREAK);
+            this.pnlDetails.Controls.Add(this.label11);
+            this.pnlDetails.Controls.Add(this.lblThursday_BREAK);
+            this.pnlDetails.Controls.Add(this.chkRestday4);
+            this.pnlDetails.Controls.Add(this.lblWednesday_BREAK);
+            this.pnlDetails.Controls.Add(this.cmbSaturday);
+            this.pnlDetails.Controls.Add(this.lblTuesday_BREAK);
+            this.pnlDetails.Controls.Add(this.chkRestday5);
+            this.pnlDetails.Controls.Add(this.lblMonday_BREAK);
+            this.pnlDetails.Controls.Add(this.label19);
+            this.pnlDetails.Controls.Add(this.label78);
+            this.pnlDetails.Controls.Add(this.cmbSunday);
+            this.pnlDetails.Controls.Add(this.lblSunday_LUNCH);
+            this.pnlDetails.Controls.Add(this.label17);
+            this.pnlDetails.Controls.Add(this.lblSaturday_LUNCH);
+            this.pnlDetails.Controls.Add(this.label21);
+            this.pnlDetails.Controls.Add(this.lblFriday_LUNCH);
+            this.pnlDetails.Controls.Add(this.chkRestday6);
+            this.pnlDetails.Controls.Add(this.lblThursday_LUNCH);
+            this.pnlDetails.Controls.Add(this.chkRestday7);
+            this.pnlDetails.Controls.Add(this.lblWednesday_LUNCH);
+            this.pnlDetails.Controls.Add(this.label7);
+            this.pnlDetails.Controls.Add(this.lblTuesday_LUNCH);
+            this.pnlDetails.Controls.Add(this.label8);
+            this.pnlDetails.Controls.Add(this.lblMonday_LUNCH);
+            this.pnlDetails.Controls.Add(this.label10);
+            this.pnlDetails.Controls.Add(this.label70);
+            this.pnlDetails.Controls.Add(this.label12);
+            this.pnlDetails.Controls.Add(this.label16);
+            this.pnlDetails.Controls.Add(this.chkOpenSun);
+            this.pnlDetails.Controls.Add(this.label18);
+            this.pnlDetails.Controls.Add(this.chkOpenSat);
+            this.pnlDetails.Controls.Add(this.label20);
+            this.pnlDetails.Controls.Add(this.chkOpenFri);
+            this.pnlDetails.Controls.Add(this.label22);
+            this.pnlDetails.Controls.Add(this.chkOpenThu);
+            this.pnlDetails.Controls.Add(this.lblMonday_IN_AM);
+            this.pnlDetails.Controls.Add(this.chkOpenWed);
+            this.pnlDetails.Controls.Add(this.lblTuesday_IN_AM);
+            this.pnlDetails.Controls.Add(this.chkOpenTue);
+            this.pnlDetails.Controls.Add(this.lblWednesday_IN_AM);
+            this.pnlDetails.Controls.Add(this.chkOpenMon);
+            this.pnlDetails.Controls.Add(this.lblThursday_IN_AM);
+            this.pnlDetails.Controls.Add(this.label65);
+            this.pnlDetails.Controls.Add(this.lblFriday_IN_AM);
+            this.pnlDetails.Controls.Add(this.chkFixedSun);
+            this.pnlDetails.Controls.Add(this.lblSaturday_IN_AM);
+            this.pnlDetails.Controls.Add(this.chkFixedSat);
+            this.pnlDetails.Controls.Add(this.lblSunday_IN_AM);
+            this.pnlDetails.Controls.Add(this.chkFixedFri);
+            this.pnlDetails.Controls.Add(this.lblMonday_OUT_LUNCH);
+            this.pnlDetails.Controls.Add(this.chkFixedThu);
+            this.pnlDetails.Controls.Add(this.lblTuesday_OUT_LUNCH);
+            this.pnlDetails.Controls.Add(this.chkFixedWed);
+            this.pnlDetails.Controls.Add(this.lblWednesday_OUT_LUNCH);
+            this.pnlDetails.Controls.Add(this.chkFixedTue);
+            this.pnlDetails.Controls.Add(this.lblThursday_OUT_LUNCH);
+            this.pnlDetails.Controls.Add(this.chkFixedMon);
+            this.pnlDetails.Controls.Add(this.lblFriday_OUT_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblSunday_OUT_PM);
+            this.pnlDetails.Controls.Add(this.lblSaturday_OUT_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblSaturday_OUT_PM);
+            this.pnlDetails.Controls.Add(this.lblSunday_OUT_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblFriday_OUT_PM);
+            this.pnlDetails.Controls.Add(this.lblMonday_IN_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblThursday_OUT_PM);
+            this.pnlDetails.Controls.Add(this.lblTuesday_IN_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblWednesday_OUT_PM);
+            this.pnlDetails.Controls.Add(this.lblWednesday_IN_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblTuesday_OUT_PM);
+            this.pnlDetails.Controls.Add(this.lblThursday_IN_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblMonday_OUT_PM);
+            this.pnlDetails.Controls.Add(this.lblFriday_IN_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblSunday_IN_BREAK);
+            this.pnlDetails.Controls.Add(this.lblSaturday_IN_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblSaturday_IN_BREAK);
+            this.pnlDetails.Controls.Add(this.lblSunday_IN_LUNCH);
+            this.pnlDetails.Controls.Add(this.lblFriday_IN_BREAK);
+            this.pnlDetails.Controls.Add(this.lblMonday_OUT_BREAK);
+            this.pnlDetails.Controls.Add(this.lblThursday_IN_BREAK);
+            this.pnlDetails.Controls.Add(this.lblTuesday_OUT_BREAK);
+            this.pnlDetails.Controls.Add(this.lblWednesday_IN_BREAK);
+            this.pnlDetails.Controls.Add(this.lblWednesday_OUT_BREAK);
+            this.pnlDetails.Controls.Add(this.lblTuesday_IN_BREAK);
+            this.pnlDetails.Controls.Add(this.lblThursday_OUT_BREAK);
+            this.pnlDetails.Controls.Add(this.lblMonday_IN_BREAK);
+            this.pnlDetails.Controls.Add(this.lblFriday_OUT_BREAK);
+            this.pnlDetails.Controls.Add(this.lblSunday_OUT_BREAK);
+            this.pnlDetails.Controls.Add(this.lblSaturday_OUT_BREAK);
+            this.pnlDetails.Location = new System.Drawing.Point(12, 209);
+            this.pnlDetails.Name = "pnlDetails";
+            this.pnlDetails.Size = new System.Drawing.Size(1014, 209);
+            this.pnlDetails.TabIndex = 105;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(984, 66);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(37, 31);
+            this.btnAdd.TabIndex = 106;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
             // FrmAssignSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 487);
+            this.ClientSize = new System.Drawing.Size(1062, 512);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.pnlDetails);
+            this.Controls.Add(this.lvEmployeeList);
             this.Controls.Add(this.numMachineID);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label6);
@@ -1555,113 +1717,10 @@
             this.Controls.Add(this.lblEmployeeName);
             this.Controls.Add(this.lblEMPLOYEE_NO);
             this.Controls.Add(this.pnlMode);
-            this.Controls.Add(this.lblSunday_BREAK);
-            this.Controls.Add(this.lblSaturday_BREAK);
-            this.Controls.Add(this.lblFriday_BREAK);
-            this.Controls.Add(this.lblThursday_BREAK);
-            this.Controls.Add(this.lblWednesday_BREAK);
-            this.Controls.Add(this.lblTuesday_BREAK);
-            this.Controls.Add(this.lblMonday_BREAK);
-            this.Controls.Add(this.label78);
-            this.Controls.Add(this.lblSunday_LUNCH);
-            this.Controls.Add(this.lblSaturday_LUNCH);
-            this.Controls.Add(this.lblFriday_LUNCH);
-            this.Controls.Add(this.lblThursday_LUNCH);
-            this.Controls.Add(this.lblWednesday_LUNCH);
-            this.Controls.Add(this.lblTuesday_LUNCH);
-            this.Controls.Add(this.lblMonday_LUNCH);
-            this.Controls.Add(this.label70);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.chkOpenSun);
-            this.Controls.Add(this.chkOpenSat);
-            this.Controls.Add(this.chkOpenFri);
-            this.Controls.Add(this.chkOpenThu);
-            this.Controls.Add(this.chkOpenWed);
-            this.Controls.Add(this.chkOpenTue);
-            this.Controls.Add(this.chkOpenMon);
-            this.Controls.Add(this.label65);
-            this.Controls.Add(this.chkFixedSun);
-            this.Controls.Add(this.chkFixedSat);
-            this.Controls.Add(this.chkFixedFri);
-            this.Controls.Add(this.chkFixedThu);
-            this.Controls.Add(this.chkFixedWed);
-            this.Controls.Add(this.chkFixedTue);
-            this.Controls.Add(this.chkFixedMon);
-            this.Controls.Add(this.lblSunday_OUT_PM);
-            this.Controls.Add(this.lblSaturday_OUT_PM);
-            this.Controls.Add(this.lblFriday_OUT_PM);
-            this.Controls.Add(this.lblThursday_OUT_PM);
-            this.Controls.Add(this.lblWednesday_OUT_PM);
-            this.Controls.Add(this.lblTuesday_OUT_PM);
-            this.Controls.Add(this.lblMonday_OUT_PM);
-            this.Controls.Add(this.lblSunday_IN_BREAK);
-            this.Controls.Add(this.lblSaturday_IN_BREAK);
-            this.Controls.Add(this.lblFriday_IN_BREAK);
-            this.Controls.Add(this.lblThursday_IN_BREAK);
-            this.Controls.Add(this.lblWednesday_IN_BREAK);
-            this.Controls.Add(this.lblTuesday_IN_BREAK);
-            this.Controls.Add(this.lblMonday_IN_BREAK);
-            this.Controls.Add(this.lblSunday_OUT_BREAK);
-            this.Controls.Add(this.lblSaturday_OUT_BREAK);
-            this.Controls.Add(this.lblFriday_OUT_BREAK);
-            this.Controls.Add(this.lblThursday_OUT_BREAK);
-            this.Controls.Add(this.lblWednesday_OUT_BREAK);
-            this.Controls.Add(this.lblTuesday_OUT_BREAK);
-            this.Controls.Add(this.lblMonday_OUT_BREAK);
-            this.Controls.Add(this.lblSunday_IN_LUNCH);
-            this.Controls.Add(this.lblSaturday_IN_LUNCH);
-            this.Controls.Add(this.lblFriday_IN_LUNCH);
-            this.Controls.Add(this.lblThursday_IN_LUNCH);
-            this.Controls.Add(this.lblWednesday_IN_LUNCH);
-            this.Controls.Add(this.lblTuesday_IN_LUNCH);
-            this.Controls.Add(this.lblMonday_IN_LUNCH);
-            this.Controls.Add(this.lblSunday_OUT_LUNCH);
-            this.Controls.Add(this.lblSaturday_OUT_LUNCH);
-            this.Controls.Add(this.lblFriday_OUT_LUNCH);
-            this.Controls.Add(this.lblThursday_OUT_LUNCH);
-            this.Controls.Add(this.lblWednesday_OUT_LUNCH);
-            this.Controls.Add(this.lblTuesday_OUT_LUNCH);
-            this.Controls.Add(this.lblMonday_OUT_LUNCH);
-            this.Controls.Add(this.lblSunday_IN_AM);
-            this.Controls.Add(this.lblSaturday_IN_AM);
-            this.Controls.Add(this.lblFriday_IN_AM);
-            this.Controls.Add(this.lblThursday_IN_AM);
-            this.Controls.Add(this.lblWednesday_IN_AM);
-            this.Controls.Add(this.lblTuesday_IN_AM);
-            this.Controls.Add(this.lblMonday_IN_AM);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.chkRestday7);
-            this.Controls.Add(this.chkRestday6);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.cmbSunday);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.chkRestday5);
-            this.Controls.Add(this.cmbSaturday);
-            this.Controls.Add(this.chkRestday4);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.cmbFriday);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.chkRestday3);
-            this.Controls.Add(this.cmbThursday);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.chkRestday2);
-            this.Controls.Add(this.cmbWednesday);
-            this.Controls.Add(this.chkRestday1);
-            this.Controls.Add(this.cmbTuesday);
             this.Controls.Add(this.dtpEffectDate);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmbMonday);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.xxxxxEMP_NAME);
+            this.Controls.Add(this.xxxxEMP_NO);
             this.Controls.Add(this.tsHeaderControl);
             this.Name = "FrmAssignSchedule";
             this.ShowIcon = false;
@@ -1673,6 +1732,8 @@
             this.tsHeaderControl.PerformLayout();
             this.pnlMode.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numMachineID)).EndInit();
+            this.pnlDetails.ResumeLayout(false);
+            this.pnlDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1696,8 +1757,8 @@
         private System.Windows.Forms.ToolStripButton tsClose;
         private System.Windows.Forms.ToolStripLabel tsLocked;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label xxxxEMP_NO;
+        private System.Windows.Forms.Label xxxxxEMP_NAME;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpEffectDate;
         private System.Windows.Forms.CheckBox chkRestday1;
@@ -1814,5 +1875,11 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numMachineID;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ListView lvEmployeeList;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Panel pnlDetails;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

@@ -77,6 +77,7 @@
             this.cmbDivision = new System.Windows.Forms.ComboBox();
             this.cmbSection = new System.Windows.Forms.ComboBox();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.tsPrint = new System.Windows.Forms.ToolStripButton();
             this.tsHeaderControl.SuspendLayout();
             this.pnlMode.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +106,7 @@
             this.toolStripSeparator5,
             this.tsFind,
             this.toolStripSeparator6,
+            this.tsPrint,
             this.tsClose,
             this.tsPosted,
             this.toolStripSeparator7});
@@ -516,6 +518,16 @@
             this.cmbDepartment.TabIndex = 253;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
+            // tsPrint
+            // 
+            this.tsPrint.Image = global::TimeKeepingII.Properties.Resources.print;
+            this.tsPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsPrint.Name = "tsPrint";
+            this.tsPrint.Size = new System.Drawing.Size(36, 49);
+            this.tsPrint.Text = "Print";
+            this.tsPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsPrint.Click += new System.EventHandler(this.tsPrint_Click);
+            // 
             // FrmHoliday
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,5 +612,6 @@
         private System.Windows.Forms.ComboBox cmbDivision;
         private System.Windows.Forms.ComboBox cmbSection;
         private System.Windows.Forms.ComboBox cmbDepartment;
+        private System.Windows.Forms.ToolStripButton tsPrint;
     }
 }

@@ -14,13 +14,15 @@ namespace TimeKeepingII
     {
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 EmployeeShifting.PK, EmployeeName.EmpName,  EmployeeName.EmpID, EmployeeShifting.EffectDate  FROM EmployeeShifting LEFT OUTER JOIN EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ORDER by EmployeeShifting.PK DESC");
         readonly string sSelectSql = "SELECT EmployeeShifting.*, EmployeeName.EmpName as EmployeeName,  EmployeeName.EmpID as EMPLOYEE_NO, EmployeeName.EmpPK as  EMP_PK  FROM EmployeeShifting LEFT JOIN  EmployeeName ON EmployeeShifting.EmpNo = EmployeeName.EmpPK ";
-
+        bool isGroup = false;
         public FrmAssignSchedule()
         {
             InitializeComponent();
         }
         private void FrmAssignSchedule_Load(object sender, EventArgs e)
         {
+
+            this.isGroup = false;
             CustomDataTable();
             LoadShift();
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
@@ -34,12 +36,12 @@ namespace TimeKeepingII
                 //view
                 lblPK.Text = this.Tag.ToString();
                 RefreshData();
-
             }
 
             if (this.AccessibleName != null)
             {
                 // create
+
                 SetNewData(this.AccessibleName.ToString());
             }
 
@@ -67,6 +69,16 @@ namespace TimeKeepingII
             OpenSaturday();
             OpenSunday();
         }
+        private void IsGroupMode()
+        {
+            lblEmployeeName.Visible = !isGroup;
+            lblEMPLOYEE_NO.Visible = !isGroup;
+            xxxxEMP_NO.Visible = !isGroup;
+            xxxxxEMP_NAME.Visible = !isGroup;
+
+            lvEmployeeList.Visible = isGroup;
+            btnAdd.Visible = isGroup;
+        }
         private void tsAdd_Click(object sender, EventArgs e)
         {
             if (!clsAccessControl.AccessRight(this.AccessibleDescription, "ADD"))
@@ -74,14 +86,42 @@ namespace TimeKeepingII
                 return;
             }
 
-            FrmEmployeeList frm = new FrmEmployeeList();
-            frm.ShowDialog();
 
-            if (frm.VALUE != "")
+
+            if (clsMessage.MessageQuestion("Are you assigning as a Group?") == true)
             {
-            
-                SetNewData(frm.VALUE);
+                this.isGroup = true;
             }
+            else
+            {
+                this.isGroup = false;
+            }
+
+
+            if (this.isGroup == false)
+            {
+
+
+             
+
+
+                FrmEmployeeList frm = new FrmEmployeeList();
+                frm.ShowDialog();
+                if (frm.VALUE != "")
+                {
+                    SetNewData(frm.VALUE);
+                }
+
+            }
+            else
+            {
+                IsGroupMode();
+                clsComponentControl.HeaderMenu(tsHeaderControl, false);
+                clsComponentControl.ObjectEnable(this, true);
+                clsComponentControl.ClearValue(this);
+                OpenLoad();
+            }
+
         }
         private void SetNewData(string id)
         {
@@ -133,7 +173,9 @@ namespace TimeKeepingII
         {
             clsComponentControl.HeaderMenu(tsHeaderControl, true);
             clsComponentControl.ObjectEnable(this, false);
-
+       
+            this.isGroup = false;
+            IsGroupMode();
             if (lblPK.Text.Length > 0)
             {
 
@@ -210,8 +252,8 @@ namespace TimeKeepingII
                     SET EmpNo = {lblEMP_PK.Text}, EmpID = '{lblEMPLOYEE_NO.Text}',
                         EmpName = '{lblEmployeeName.Text}', EffectDate = '{dtpEffectDate.Value}', 
                         MachineID ={numMachineID.Value}, MachineNo = {cmbMachineNo.SelectedValue} , 
-                        Sunday = { SundayID}, Monday = {MondayID},
-                        Tuesday = { TuesdayID}, Wednesday = { WednesdayID},
+                        Sunday = {SundayID}, Monday = {MondayID},
+                        Tuesday = {TuesdayID}, Wednesday = {WednesdayID},
                         Thursday = {ThursdayID}, Friday = {FridayID}, 
                         Saturday = {Saturday}, DayOff = '{GetDayOff()}', 
                         LastModified = '{LastModify}', Editted = 0 
@@ -542,7 +584,7 @@ namespace TimeKeepingII
         {
             OpenSaturday();
         }
-  
+
         private void cmbSaturday_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbSaturday.SelectedIndex == -1)
@@ -617,7 +659,7 @@ namespace TimeKeepingII
                     lblMonday_OUT_PM.Text = clsMisc.FX_TIME(data["OUT_PM"].ToString());
                     chkFixedMon.Checked = data["Fixed"].ToString() == "1" ? true : false;
 
-                
+
                 }
             }
 
@@ -914,8 +956,8 @@ namespace TimeKeepingII
             chkOpenSun.Checked = (cmbSunday.Text.Trim().Length > 0 ? false : true);
         }
         private void RestDayResetter(string[] ID)
-        {   
-            if(ID == null)
+        {
+            if (ID == null)
             {
 
                 return;

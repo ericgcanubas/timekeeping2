@@ -57,6 +57,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +78,7 @@
     <Compile Include="clsMessage.cs" />
     <Compile Include="clsMisc.cs" />
     <Compile Include="clsPayrollSystem.cs" />
+    <Compile Include="clsReports.cs" />
     <Compile Include="clsSetting.cs" />
     <Compile Include="clsTool.cs" />
     <Compile Include="cmbItem.cs" />
@@ -86,6 +88,12 @@
     </Compile>
     <Compile Include="FrmAssignSchedule.Designer.cs">
       <DependentUpon>FrmAssignSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAssignScheduleGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAssignScheduleGroup.Designer.cs">
+      <DependentUpon>FrmAssignScheduleGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmChangeShifting.cs">
       <SubType>Form</SubType>
@@ -159,6 +167,12 @@
     <Compile Include="FrmPRW.Designer.cs">
       <DependentUpon>FrmPRW.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportView.Designer.cs">
+      <DependentUpon>FrmReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSetup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,10 +187,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\cryChangeRD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryChangeRD.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\cryHoliday.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryHoliday.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\cryLeaveUndertime.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>cryLeaveUndertime.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\cryLeaveUndertimeOthers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryLeaveUndertimeOthers.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="FrmAssignSchedule.resx">
@@ -218,6 +250,9 @@
     <EmbeddedResource Include="FrmPRW.resx">
       <DependentUpon>FrmPRW.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportView.resx">
+      <DependentUpon>FrmReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSetup.resx">
       <DependentUpon>FrmSetup.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,9 +269,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\cryChangeRD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryChangeRD.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\cryHoliday.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryHoliday.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\cryLeaveUndertime.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cryLeaveUndertime.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\cryLeaveUndertimeOthers.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryLeaveUndertimeOthers.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />

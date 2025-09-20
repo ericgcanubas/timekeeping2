@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,12 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TimeKeepingII.Reports;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TimeKeepingII
 {
     public partial class FrmHoliday : Form
     {
+        private clsReports reports; 
+
         FrmFind frmFind = new FrmFind($@"SELECT TOP 1000 HolidayCntrlId as ID,HolidayName,HolidayDate,HolidayType FROM [tbl_HolidayName] order by HolidayCntrlId DESC ");
         string strEmp = "select 0 AS selected, a.* ,isnull(b.PPositionName,'')Position, isnull(c.SSectionName,'')Section, isnull(d.DDepartment,'')Department,e.Description Division from ( select a.ProfileId,a.LastName,a.FirstName,a.MiddleName, a.BirthDate,a.Age,a.CurrAddress,a.PkId,a.PPosition, a.PSection,a.PDept,a.PDiv,a.PEmploymentStatus, isnull(b.EActive,2)EActive,a.EEmployeeIDNo from ( select a.PK ProfileId,a.LastName,a.FirstName,a.MiddleName, a.BirthDate,a.Age,a.CurrAddress,b.PK PkId,c.PPosition, c.PSection,c.PDept,c.PDiv,c.PEmploymentStatus,b.EEmployeeIDNo, Row = ROW_NUMBER() over (partition by b.Pk order by c.PEffectivityDate desc) from PayrollSystem.dbo.tbl_Profile a join PayrollSystem.dbo.tbl_Profile_IDNumber b on b.Pk = a.CurrentIDNumber join PayrollSystem.dbo.tbl_Profile_Action c on b.PK = c.PEmployeeNo ) a left join PayrollSystem.dbo.EEmploymentStatus b on a.PEmploymentStatus = b.EEmploymentStatus where a.Row = 1 and b.EActive = 1 ) a left join PayrollSystem.dbo.PPositionName b on a.PPosition = b.PPositionIDNo left join PayrollSystem.dbo.SSection c on a.PSection = c.SSectionID left join PayrollSystem.dbo.DDepartmental d on a.PDept = d.DDepartmentsNo left join PayrollSystem.dbo.EEmployeeDiv e on a.PDiv = e.PK where 1=1 ";
         string sSelectSql = $@"select TOP 1 h.HolidayCntrlId,h.DateCreated, h.CreatedBy,hn.HolidayNamePk,hn.HolidayDate, hn.HolidayType,hn.HolidayName from tbl_Holiday as h inner join tbl_HolidayName as hn on hn.HolidayCntrlId  =  h.HolidayCntrlId";
@@ -21,6 +25,7 @@ namespace TimeKeepingII
         public FrmHoliday()
         {
             InitializeComponent();
+            reports = new clsReports();
         }
 
         private void FrmHoliday_Load(object sender, EventArgs e)
@@ -253,6 +258,9 @@ namespace TimeKeepingII
             if (lblHolidayCntrlId.Text.Length > 0)
             {
                 RefreshData();
+
+                LoadRestDay(dtpHolidayDate.Value);
+                LoadLeave(dtpHolidayDate.Value);
             }
             else
             {
@@ -522,7 +530,7 @@ namespace TimeKeepingII
 
             if (lblHolidayCntrlId.Text == "")
             {
-                ID = clsBiometrics.ExecuteScalarQuery($"INSERT INTO tbl_Holiday (Remarks,Dates,DateCreated,CreatedBy) VALUES ('',{clsMisc.SQL_Date(dtpHolidayDate)},{clsDateTime.NowDay()},'{clsAccessControl.gsUsername}') ");
+                ID = clsBiometrics.ExecuteScalarQuery($"INSERT INTO tbl_Holiday (Remarks,Dates,DateCreated,CreatedBy) VALUES ('',{clsMisc.SQL_Date(dtpHolidayDate)},'{clsDateTime.NowDay()}','{clsAccessControl.gsUsername}') ");
 
             }
             else
@@ -670,6 +678,28 @@ namespace TimeKeepingII
         {
 
             
+        }
+
+        private void tsPrint_Click(object sender, EventArgs e)
+        {
+            if (lblHolidayCntrlId.Text == "")
+            {
+                clsMessage.MessageShowWarning("File not found");
+                return;
+            }
+
+            cryHoliday  cryHoliday= new cryHoliday();
+            ReportDocument rpt = reports.LoadReportWithConnection(cryHoliday, false);
+
+            rpt.SetParameterValue("PK", lblHolidayCntrlId.Text);
+
+          
+
+            FrmReportView frm = new FrmReportView(rpt, "Holiday Print");
+
+            clsMenu.CloseForm(frm);
+
+            clsMenu.ShowForm(frm);
         }
     }
 }
